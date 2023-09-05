@@ -9,6 +9,36 @@ type FeatureItem = {
 };
 
 const FeatureList: FeatureItem[] = [
+  {
+    title: 'Decentralized by Default',
+    Svg: require('@site/static/img/null.svg').default,
+    description: (
+      <>
+        Share a single decentralized network of sequencers that's simple and
+        permissionless to join.
+      </>
+    ),
+  },
+  {
+    title: 'Cross-Rollup Composability',
+    Svg: require('@site/static/img/null.svg').default,
+    description: (
+      <>
+        Astria enables atomic transaction inclusion across rollups via
+        its native transaction bundles.
+      </>
+    ),
+  },
+  {
+    title: 'Maintain Sovereignty',
+    Svg: require('@site/static/img/null.svg').default,
+    description: (
+      <>
+        Rollups own their execution and state. Swapping out the sequencing layer
+        is as simple as updating your Rollup software.
+      </>
+    ),
+  },
 ];
 
 function Feature({title, Svg, description}: FeatureItem) {
