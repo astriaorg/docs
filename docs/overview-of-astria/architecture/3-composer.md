@@ -2,6 +2,6 @@
 sidebar_position: 3
 ---
 
-# The Astria Sequencer
+# Composer
 
 Just some temp text.

@@ -2,6 +2,6 @@
 sidebar_position: 4
 ---
 
-# Relayer
+# The Astria Sequencer
 
 Just some temp text.
