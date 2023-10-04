@@ -2,6 +2,6 @@
 sidebar_position: 2
 ---
 
-# Mission Statement
+# Decentralized by Default
 
 Just some temp text.
