@@ -5,7 +5,10 @@ sidebar_position: 3
 # Run Multiple Rollups Locally
 At Astria we believe strongly that deploying a rollup should be as easy as deploying a smart contract. The dev-cluster shows this is indeed possible.
 
-Navigate back to the dev-cluster repo and run the following command with your own rollup name and network id:
+Navigate back to the [dev-cluster](https://github.com/astriaorg/dev-cluster)
+repo in your terminal and run the following command with your own rollup name
+and network id:
+
 **NOTE:** The default rollup name and network id are `astria` and `912559`. When deploying your second rollup you ___must___ use a different name and number.
 ```sh
 just deploy-rollup <rollup_name> <network_id>
@@ -28,5 +31,14 @@ The only limitations to running numerous rollups are the following:
  - Can your hardware handle it
  - There are no rollup name and network id clashes
 
+To navigate to the new Block Explorer and Faucet from the additional rollup,
+take the rollup name that you used and replace `<rollup_name>` in the urls
+below:
+```
+http://blockscout.<rollup_name>.localdev.me/
+http://faucet.<rollup_name>.localdev.me/
+```
 ### What's Going on Under the Hood?
 One last thing to mention is what is actually happening when you deploy a new rollup in the dev-cluster. When you you deploy a new rollup the only new containers that are getting spun up in the cluster are a new rollup node, a conductor, block explorer, and faucet. Only one instance of the shared sequencer and the DA layer remain running and the transactions from all the rollups are collectively getting run though those networks.
+
+![Multiple Rollups](assests/multiple-rollups.png)
