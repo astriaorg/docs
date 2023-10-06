@@ -6,4 +6,4 @@ sidebar_position: 8
 
 The full transaction flow through the Astria stack is as follows:
 
-![Astria Transaction Flow](../assests/transaction-flow.png)
+![Astria Transaction Flow](../assets/transaction-flow.png)

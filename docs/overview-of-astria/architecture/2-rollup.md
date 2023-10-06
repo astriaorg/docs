@@ -12,6 +12,8 @@ Write Interface (Rollup <-> Composer):
 Read Interface (Rollup <-> Conductor):
 - For receiving blocks from the shared sequencer network.
 
+![Single Rollup](../assets/single-rollup.png)
+
 The Composer and Conductor are explained in more detail in future sections.
 
 Both composer and conductor expose [gRPC](https://grpc.io/) interfaces. See the [astria-protos](https://github.com/astriaorg/astria/tree/main/crates/astria-proto) repo for specific implementation details.

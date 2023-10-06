@@ -9,4 +9,4 @@ combined together in monolithic blockchains into individual components. This
 results in a modular ecosystem that allows users to swap out components to fit
 their specific needs.
 
-![Astria Architecture](../assests/astria-architecture.png)
+![Astria Architecture](../assets/astria-architecture.png)

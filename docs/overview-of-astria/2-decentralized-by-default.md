@@ -10,7 +10,7 @@ Centralization is antithetical to crypto. And yet, today’s rollups almost univ
 
 Astria tackles centralization head-on, providing rollups with a decentralized sequencer and even better UX. Astria’s shared sequencer network is a middleware blockchain with its own decentralized sequencer set which accepts transactions from multiple rollups. These transactions are ordered into a single block and written to the base layer without executing them.
 
-![Shared Sequencers](assests/shared_sequencer.png)
+![Shared Sequencers](assets/shared_sequencer.png)
 
 Rollups can retrieve blocks from Astria immediately after they’re created, without waiting for the base layer to include them. The economic weight of Astria’s decentralized sequencer set provides confidence that this transaction order is final. This “soft commitment” allows rollups to provide their end users with fast block confirmations. Alternatively, rollups can wait for blocks to be included by the base layer, giving them the strongest finality. All transactions still get this “firm commitment” at the speed of the base layer, fast pre-confirmations are just an additional feature that Astria provides to rollups if they choose to use it.
 

@@ -9,7 +9,7 @@ The Astria Shared Sequencer is a decentralized network of nodes utilizing CometB
 The sequencer can optionally act as a “validator”, meaning it actively
 participates in the production and finalization of new blocks.
 
-![Astria Shared Sequencer](../assests/shared-sequencer-overview.png)
+![Astria Shared Sequencer](../assets/shared-sequencer-overview.png)
 
 Components of note that are not shown in the above diagram are the [Composer](/docs/overview-of-astria/architecture/3-composer.md),
 [Relayer](/docs/overview-of-astria/architecture/5-relayer.md), and [Conductor](/docs/overview-of-astria/architecture/7-conductor.md). 
