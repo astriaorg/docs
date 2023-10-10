@@ -1,0 +1,8 @@
+{
+  "label": "Running a Remote Rollup",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "How to run a rollup against the remote dev-cluster"
+  }
+}
