@@ -10,3 +10,5 @@ results in a modular ecosystem that allows users to swap out components to fit
 their specific needs.
 
 ![Astria Architecture](../assets/astria-architecture.png)
+
+See the [Astria repo here.](https://github.com/astriaorg/astria)

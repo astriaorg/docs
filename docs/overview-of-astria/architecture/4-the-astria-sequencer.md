@@ -16,3 +16,5 @@ Components of note that are not shown in the above diagram are the [Composer](/d
 
 These components facilitate the delivery transactions,
 batches, and different commits shown above, back to the users.
+
+See the [Sequencer code here.](https://github.com/astriaorg/astria/tree/main/crates/astria-sequencer)

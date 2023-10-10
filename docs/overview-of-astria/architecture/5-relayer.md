@@ -14,3 +14,6 @@ fast finality for an improved UX and also act as soft commits for the execution
 layer. The collections of blocks sent to the DA layer are used as a source of
 truth and are ultimately pulled from the DA to be used as firm commits for
 finality in the rolllups.
+
+See the [Relayer code
+here.](https://github.com/astriaorg/astria/tree/main/crates/astria-sequencer-relayer)
