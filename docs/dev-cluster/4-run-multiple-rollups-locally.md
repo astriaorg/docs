@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 # Run Multiple Rollups Locally
@@ -9,11 +9,14 @@ Navigate back to the [dev-cluster](https://github.com/astriaorg/dev-cluster)
 repo in your terminal and run the following command with your own rollup name
 and network id:
 
-**NOTE:** The default rollup name and network id are `astria` and `912559`. When deploying your second rollup you ___must___ use a different name and number.
+:::danger
+**NOTE:** The default rollup name and network id are `astria` and `912559`. When
+deploying your second rollup you ___must___ use a different name and number.
+:::
 ```sh
 just deploy-rollup <rollup_name> <network_id>
 ```
-As before it will take a moment for everything to spin up, but in the meantime keep the the rollup name and network id handy and navigate back to your browser and open a new window with the following url, replacing `rollup_name` with the name you just used to deploy your new rollup:
+As before, it will take a moment for everything to spin up, but in the meantime keep the the rollup name and network id handy and navigate back to your browser and open a new window with the following url, replacing `rollup_name` with the name you just used to deploy your new rollup:
 ```
 http://blockscout.<rollup_name>.localdev.me/
 ```
