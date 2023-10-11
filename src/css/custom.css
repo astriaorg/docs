@@ -15,6 +15,10 @@
   --ifm-color-primary-lightest: #74a4bf;
   --ifm-code-font-size: 95%;
   --ifm-font-family-base: 'Nb akademie webfont', sans;
+  --ifm-heading-font-weight: 500;
+  --ifm-heading-line-height: 90%;
+  --ifm-button-font-weight: 500;
+  --ifm-footer-background-color: #050a0d;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
@@ -27,6 +31,7 @@
   --ifm-color-primary-light: #74a4bf;
   --ifm-color-primary-lighter: #74a4bf;
   --ifm-color-primary-lightest: #74a4bf;
+  --ifm-footer-background-color: #050a0d;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
@@ -227,12 +232,16 @@
   font-display: swap;
 }
 
-.h1 {
+h1, h2, h3, .button, .hero__subtitle {
   letter-spacing: -.05em;
-  font-family: 'Nb akademie webfont', sans-serif;
-  font-size: 88px;
-  font-weight: 400;
-  line-height: 90%;
+}
+
+p {
+  letter-spacing: -0.02em;
+}
+
+.footer--dark {
+  background-color: #050a0d;
 }
 
 .body---large {
