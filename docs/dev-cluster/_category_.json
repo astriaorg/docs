@@ -2,7 +2,7 @@
   "label": "Astria Dev Cluster",
   "position": 2,
   "link": {
-    "type": "generated-index",
-    "description": "An overview and set of instruction for running the local dev-cluster."
+    "type": "doc",
+    "id": "dev-cluster/overview"
   }
 }

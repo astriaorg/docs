@@ -268,7 +268,7 @@ p {
 }
 
 .footer--dark {
-  background-color: #050a0d;
+  background-color: var(--ifm-color-primary-darker);
 }
 
 .body---large {
