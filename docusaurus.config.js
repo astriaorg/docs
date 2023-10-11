@@ -20,6 +20,7 @@ const config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'AstriaOrg', // Usually your GitHub org/user name.
   projectName: 'docs', // Usually your repo name.
+  trailingSlash: true,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -91,8 +92,16 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'View the Astria Docs',
+                label: 'Overview',
                 to: '/docs/category/overview-of-astria',
+              },
+              {
+                label: 'Dev Cluster',
+                to: '/docs/category/dev-cluster',
+              },
+              {
+                label: 'Remote Rollup',
+                to: '/docs/category/running-a-remote-rollup',
               },
             ],
           },
@@ -109,8 +118,12 @@ const config = {
             title: 'More',
             items: [
               {
+                label: 'Website',
+                href: 'https://www.astria.org',
+              },
+              {
                 label: 'Blog',
-                to: 'https://blog.astria.org',
+                href: 'https://blog.astria.org',
               },
               {
                 label: 'GitHub',

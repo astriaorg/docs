@@ -2,7 +2,7 @@
   "label": "Architecture",
   "position": 2,
   "link": {
-    "type": "generated-index",
-    "description": "High level overview of the architecture of the Astria"
+    "type": "doc",
+    "id": "overview-of-astria/architecture/overview"
   }
 }

@@ -2,7 +2,7 @@
   "label": "Overview of Astria",
   "position": 1,
   "link": {
-    "type": "generated-index",
-    "description": "An overview of the components that make up Astria."
+    "type": "doc",
+    "id": "overview-of-astria/introduction"
   }
 }
