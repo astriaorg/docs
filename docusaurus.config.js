@@ -93,15 +93,15 @@ const config = {
             items: [
               {
                 label: 'Overview',
-                to: '/docs/category/overview-of-astria',
+                to: '/docs/overview-of-astria/introduction/',
               },
               {
                 label: 'Dev Cluster',
-                to: '/docs/category/dev-cluster',
+                to: '/docs/dev-cluster/overview/',
               },
               {
                 label: 'Remote Rollup',
-                to: '/docs/category/running-a-remote-rollup',
+                to: '/docs/running-a-remote-rollup/overview/',
               },
             ],
           },
