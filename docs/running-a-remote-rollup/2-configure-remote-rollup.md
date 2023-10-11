@@ -37,10 +37,12 @@ cd crates/astria-cli
 Now use the cli to create the config for the new rollup.
 Replace the tags in the command below, as follows:
 - `<your_rollup_name>`               -> String: the name of your rollup
-- `<OxYour_chain_id>`                -> String: recommended to be the same as your rollup name
+- `<Your_chain_id>`                -> String: recommended to be the same as your rollup name
 - `<your_network_id>`                -> u64: the id of your network
 - `<initial_sequencer_block_height>` -> u64: the height of the sequencer
   found above
+- `<genesis_address>`                -> [u8; 40]: address
+- `<balance>`                        -> u64: balance
 
 <!-- TODO: confirm that these are all correct -->
 ```sh
@@ -48,14 +50,14 @@ cargo run --release -- rollup config create \
   --use-tty \
   --log-level DEBUG \
   --rollup.name <your_rollup_name> \
-  --rollup.chain-id <0xyour_chain_id> \
+  --rollup.chain-id 0x<your_chain_id> \
   --rollup.network-id <your_network_id> \
   --rollup.skip-empty-blocks \
   --sequencer.initial-block-height <initial_sequencer_block_height> \
   --sequencer.websocket ws://rpc.sequencer.dusk-1.devnet.astria.org/websocket \
   --sequencer.rpc http://rpc.sequencer.dusk-1.devnet.astria.org \
   --celestia.full-node-url http://celestia-service:26658 \
-  --rollup.genesis-accounts 0xaC21B97d35Bf75A7dAb16f35b111a50e78A72F30:100000000000000000000
+  --rollup.genesis-accounts 0x<genesis_address>:<balance>
 ```
 :::note
 You can also optionally leave out the `--sequencer.initial-block-height` input
@@ -76,15 +78,15 @@ config:
   useTTY: true
   logLevel: DEBUG
   rollup:
-    name: <some_rollup_name>
-    chainId: <0xSome_chain_id>
-    networkId: <some_network_id>
+    name: <your_rollup_name>
+    chainId: <your_chain_id>
+    networkId: <your_network_id>
     skipEmptyBlocks: true
     genesisAccounts:
-    - address: 0xaC21B97d35Bf75A7dAb16f35b111a50e78A72F30
+    - address: 0x<genesis_address>
       balance: '100000000000000000000'
   sequencer:
-    initialBlockHeight: 216772
+    initialBlockHeight: <initial_sequencer_block_height>
     websocket: ws://rpc.sequencer.dusk-1.devnet.astria.org/websocket
     rpc: http://rpc.sequencer.dusk-1.devnet.astria.org
   celestia:
