@@ -17,3 +17,5 @@ industries, applications, and use cases.
 To achieve this vision, we believe that
 deploying an economically secure, decentralized, and censorship-resistant
 sovereign rollup should be as easy as deploying a smart contract.
+
+See the [Astria repo here.](https://github.com/astriaorg/astria)

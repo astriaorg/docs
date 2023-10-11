@@ -92,7 +92,7 @@ const config = {
             items: [
               {
                 label: 'View the Astria Docs',
-                to: '/docs/intro',
+                to: '/docs/category/overview-of-astria',
               },
             ],
           },

@@ -27,3 +27,6 @@ are also marked as "safe" withing the rollup. The Conductor regularly polls Cele
 and when it sees the same blocks in Celestia that it has already seen from the
 Relayer, it sends a firm commit message to the rollup to update that block to
 "finalized."
+
+See the [Conductor code
+here.](https://github.com/astriaorg/astria/tree/main/crates/astria-conductor)
