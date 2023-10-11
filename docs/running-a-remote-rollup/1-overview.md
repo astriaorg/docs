@@ -22,6 +22,8 @@ as well have the following dependencies installed:
 - [helm](https://helm.sh/docs/intro/install/)
 - [kind](https://kind.sigs.k8s.io/docs/user/quick-start/#installation)
 - [just](https://just.systems/man/en/chapter_4.html)
+- [curl](https://curl.se/)
+- [jq](https://jqlang.github.io/jq/)
 
 Many of these dependencies are also required for running the local dev-cluster.
 
