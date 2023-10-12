@@ -6,6 +6,18 @@ sidebar_position: 3
 
 In another directory, use the [Astria dev-cluster](https://github.com/astriaorg/dev-cluster), deploy
 the local environment where your rollup will run.
+Although we are using the dev-cluster here again, this is different from [running the
+full local setup discussed
+previously](../dev-cluster/2-run-dev-cluster-locally.md). In this instance, we
+are using the dev-cluster to setup the local environment in which the rollup,
+block explorer, and faucet will run (like before), but we will not be running
+the sequencer or any of the other components.
+
+:::tip
+Make sure that Docker is running before deploying with `just`.
+:::
+
+In the __dev-cluster repo__, run:
 
 ```sh
 git clone git@github.com:astriaorg/dev-cluster.git
@@ -15,16 +27,17 @@ just deploy-ingress-controller
 just wait-for-ingress-controller
 ```
 
-Then create the address and key information for a new sequencer account.
 
-```sh
+Back in the __Astria repo__, run the cli to create the address and key information for a new sequencer account.
+
+```bash
 cargo run --release -- sequencer account create
 ```
 
 The address, public and private keys will be different from those below. Save
 these values for later use.
 
-```
+```bash
 Create Sequencer Account
 
 Private Key: "5562f2a6e97c01098e2ae2d64d10189716e44d36b1f2f2151695856689981622"
@@ -34,15 +47,16 @@ Address:     "8a2f9c31b064b62b6154ace29bfb3498b0825f68"
 
 Then deploy the configuration:
 
-```sh
-cargo run --release -- rollup config deploy
-    --filename <your_rollup_name>-rollup-conf.yaml \
-    --sequencer-private-key <sequencer_private_key>
+```bash
+cargo run --release -- rollup deployment create \
+  --config <YOUR_ROLLUP_NAME>-rollup-config.yaml \
+  --faucet-private-key <FAUCET_PRIVATE_KEY> \
+  --sequencer-private-key <SEQUENCER_PRIVATE_KEY>
 ```
 
 You can then use `cast` to view the blocks on your rollup.
 
-```sh
+```bash
 # replace <your_rollup_name> with the name you used in your configuration
 export ETH_RPC_URL=http://executor.<your_rollup_name>.localdev.me/
 cast block 0
@@ -50,7 +64,7 @@ cast block 0
 
 Which should print something like this:
 
-```sh
+```bash
 baseFeePerGas        1000000000
 difficulty           10000000
 extraData            0x
