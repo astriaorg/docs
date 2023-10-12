@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Deploying the Rollup
+# Local Rollup Deployment
 
 In another directory, use the [Astria dev-cluster](https://github.com/astriaorg/dev-cluster), deploy
 the local environment where your rollup will run.
@@ -31,7 +31,7 @@ just wait-for-ingress-controller
 Back in the __Astria repo__, run the cli to create the address and key information for a new sequencer account.
 
 ```bash
-cargo run --release -- sequencer account create
+./target/release/astria-cli sequencer account create
 ```
 
 The address, public and private keys will be different from those below. Save
@@ -48,7 +48,7 @@ Address:     "8a2f9c31b064b62b6154ace29bfb3498b0825f68"
 Then deploy the configuration:
 
 ```bash
-cargo run --release -- rollup deployment create \
+./target/release/astria-cli rollup deployment create \
   --config <YOUR_ROLLUP_NAME>-rollup-config.yaml \
   --faucet-private-key <FAUCET_PRIVATE_KEY> \
   --sequencer-private-key <SEQUENCER_PRIVATE_KEY>
@@ -86,4 +86,21 @@ timestamp            0
 withdrawalsRoot
 totalDifficulty      10000000
 transactions:        []
+```
+
+You can then open then following in your browser to view the running rollup:
+
+| Utility | URL |
+|-----|-----|
+| Block Explorer | http://blockscout.<YOUR_ROLLUP_NAME>.localdev.me/ |
+| Faucet | http://faucet.<YOUR_ROLLUP_NAME>.localdev.me/ |
+| RPC | http://executor.<YOUR_ROLLUP_NAME>.localdev.me/ |
+
+You can now use the Faucet to deposit funds into an account. Paste an account address into the input field on the Faucet page.
+You can then switch over to the block explorer to see that your transaction
+arrived.
+
+You can also use `cast` to view your balance:
+```bash
+cast balance <ADDRESS>
 ```

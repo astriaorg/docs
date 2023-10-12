@@ -7,7 +7,7 @@ sidebar_position: 2
 Endpoints for the remote cluster are the following:
 
 | NAME (as helm creates) | HOSTS | ADDRESS |
-|----------|--------|---------|
+|-----|-----|-----|
 | astria-ingress | rpc.evm.dusk-1.devnet.astria.org | 34.160.214.22 |
 | blockscout-ingress | explorer.evm.dusk-1.devnet.astria.org | 34.111.167.16 |
 | faucet-ingress | faucet.evm.dusk-1.devnet.astria.org | 130.211.4.120 |
@@ -34,18 +34,20 @@ git clone git@github.com:astriaorg/astria.git
 cd astria
 git checkout feature/self-serve-rollup-cli
 cd crates/astria-cli
+cargo build --release
+cd ../..
 ```
 ## Using the `astria-cli`
 
 Replace the tags in the commands and env vars below, as follows:
-- `<your_rollup_name>`               -> String: the name of your rollup
-- `<Your_chain_id>`                -> String: recommended to be the same as your rollup name
-- `<your_network_id>`                -> u64: the id of your network
+- `<YOUR_ROLLUP_NAME>`               -> String: the name of your rollup
+- `<YOUR_ROLLUP_ID>`                -> String: recommended to be the same as your rollup name
+- `<YOUR_NETWORK_ID>`                -> u64: the id of your network
 <!-- TODO: potentially remove the line below -->
-- `<initial_sequencer_block_height>` -> u64: the height of the sequencer
+- `<INITIAL_SEQUENCER_BLOCK_HEIGHT>` -> u64: the height of the sequencer
   found above
-- `<genesis_address>`                -> [u8; 40]: address
-- `<balance>`                        -> u64: balance
+- `<GENESIS_ADDRESS>`                -> [u8; 40]: a wallet address
+- `<BALANCE>`                        -> u64: balance
 
 <!-- TODO: add additional comments about how to set each of the above vars -->
 ### Cli only
@@ -54,7 +56,7 @@ You can use the cli with input arguments to build the config for your new rollup
 
 <!-- TODO: confirm that these are all correct -->
 ```sh
-cargo run --release -- rollup config create \
+./target/release/astria-cli rollup config create \
   --use-tty \
   --log-level DEBUG \
   --rollup.name <YOUR_ROLLUP_NAME> \
@@ -95,13 +97,13 @@ export ROLLUP_CELESTIA_FULL_NODE_URL=http://celestia-service:26658
 Then just run the basic config create command:
 
 ```sh
-cargo run --release -- rollup config create
+./target/release/astria-cli rollup config create
 ```
 
 You can then run:
 
 ```sh
-cat <some_rollupname>-rollup-conf.yaml
+cat <YOUR_ROLLUP_NAME>-rollup-conf.yaml
 ```
 
 to print out the config file contents to double check everything:

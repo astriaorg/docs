@@ -10,7 +10,7 @@ Navigate back to the [dev-cluster](https://github.com/astriaorg/dev-cluster)
 repo in your terminal and run the following command with your own rollup name
 and network id:
 
-:::danger
+:::warning
 
 **NOTE:** The default rollup name and network id are `astria` and `912559`. When
 deploying your second rollup you ___must___ use a different name and number.
