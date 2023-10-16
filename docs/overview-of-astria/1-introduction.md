@@ -4,8 +4,9 @@ sidebar_position: 1
 
 # Introduction
 
-Astria replaces centralized sequencers, allowing many rollups to share a single
-decentralized network of sequencers that’s simple and permissionless to join.
+Astria is a shared sequencing network that allows many rollups to share a single
+decentralized network of sequencers. These sequencers are simple and
+permissionless to join, completely replacing centralized sequencers.
 
 This shared sequencer network provides out-of-the-box censorship resistance,
 fast block confirmations, and atomic cross-rollup composability – all while
