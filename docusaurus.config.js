@@ -100,8 +100,8 @@ const config = {
                 to: '/docs/dev-cluster/overview/',
               },
               {
-                label: 'Remote Rollup',
-                to: '/docs/running-a-remote-rollup/overview/',
+                label: 'Running a rollup on Astria Dusknet',
+                to: '/docs/running-a-rollup-on-astria-dusknet/overview/',
               },
             ],
           },
