@@ -14,4 +14,11 @@ with the shared sequencer network. The dev-cluster is provided to make
 developing and testing the Astria network, as well as integrations with Astria,
 as simple as possible.
 
+:::tip
+The primary use of the dev-cluster is running the full stack completely locally.
+There are elements of it that are used for running a local rollup that connects
+to the remote dev-net, but those will be [discussed in a later
+section](/docs/running-a-rollup-on-astria-dusknet/local-rollup-deployment/).
+:::
+
 See the [dev-cluster repo here.](https://github.com/astriaorg/dev-cluster)
