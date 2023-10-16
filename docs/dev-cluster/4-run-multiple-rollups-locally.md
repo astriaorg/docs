@@ -30,7 +30,7 @@ http://blockscout.<rollup_name>.localdev.me/
 Once everything has spin up you will see a new block explorer for your new rollup.
 
 You can now deploy transaction to that rollup independently.
-In the `evm-test-data` directory open a new terminal and run the following:
+In the `astria-web3/packages/evm-test-data` directory open a new terminal and run the following:
 
 ```sh
 just generate-transactions <rollup_name> <network_id>
@@ -38,10 +38,6 @@ just generate-transactions <rollup_name> <network_id>
 
 As before, this command will deploy test transaction data to your new rollup.
 You can also go back to your original terminal window for the test data deployment on the default rollup and rerun the `just generate-transactions` command. If you switch back and forth between the default block explorer window and your new rollup window, you will see transactions showing up on each rollup independently!
-
-The only limitations to running numerous rollups are the following:
- - Can your hardware handle it
- - There are no rollup name and network id clashes
 
 To navigate to the new Block Explorer and Faucet from the additional rollup,
 take the rollup name that you used and replace `<rollup_name>` in the urls
@@ -51,6 +47,10 @@ below:
 http://blockscout.<rollup_name>.localdev.me/
 http://faucet.<rollup_name>.localdev.me/
 ```
+
+The only limitations to running numerous rollups are the following:
+ - Can your hardware handle it
+ - There are no rollup name and network id clashes
 
 ### What's Going on Under the Hood?
 

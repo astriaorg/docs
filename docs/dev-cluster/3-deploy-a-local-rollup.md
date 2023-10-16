@@ -28,6 +28,11 @@ up. You can check the progress of the deployment with the following command:
 kubectl get deployments --all-namespaces
 ```
 
+Or you can run:
+```bash
+just wait-for-rollup
+```
+
 Once deployed, you can view the block explorer and faucet by opening a couple new windows in your browser and going to to the
 following urls.
 For the block explorer:
