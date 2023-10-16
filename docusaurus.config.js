@@ -20,6 +20,7 @@ const config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'AstriaOrg', // Usually your GitHub org/user name.
   projectName: 'docs', // Usually your repo name.
+  trailingSlash: true,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -73,9 +74,9 @@ const config = {
         items: [
           {
             type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            sidebarId: 'docsSidebar',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Docs',
           },
           {
             href: 'https://github.com/astriaorg/docs',
@@ -91,8 +92,16 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'Overview',
+                to: '/docs/overview-of-astria/introduction/',
+              },
+              {
+                label: 'Dev Cluster',
+                to: '/docs/dev-cluster/overview/',
+              },
+              {
+                label: 'Running a rollup on Astria Dusknet',
+                to: '/docs/running-a-rollup-on-astria-dusknet/overview/',
               },
             ],
           },
@@ -109,8 +118,12 @@ const config = {
             title: 'More',
             items: [
               {
+                label: 'Website',
+                href: 'https://www.astria.org',
+              },
+              {
                 label: 'Blog',
-                to: 'https://blog.astria.org',
+                href: 'https://blog.astria.org',
               },
               {
                 label: 'GitHub',
@@ -125,6 +138,11 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+      colorMode: {
+        defaultMode: 'light',
+        disableSwitch: true,
+        respectPrefersColorScheme: false,
+      }
     }),
 };
 
