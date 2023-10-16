@@ -1,6 +1,6 @@
 {
   "label": "Local Dev Cluster",
-  "position": 2,
+  "position": 3,
   "link": {
     "type": "doc",
     "id": "dev-cluster/overview"

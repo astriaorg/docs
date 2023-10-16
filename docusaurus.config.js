@@ -92,6 +92,10 @@ const config = {
             title: 'Docs',
             items: [
               {
+                label: 'Running a rollup on Astria Dusknet',
+                to: '/docs/running-a-rollup-on-astria-dusknet/overview/',
+              },
+              {
                 label: 'Overview',
                 to: '/docs/overview-of-astria/introduction/',
               },
@@ -99,10 +103,7 @@ const config = {
                 label: 'Dev Cluster',
                 to: '/docs/dev-cluster/overview/',
               },
-              {
-                label: 'Running a rollup on Astria Dusknet',
-                to: '/docs/running-a-rollup-on-astria-dusknet/overview/',
-              },
+
             ],
           },
           {
