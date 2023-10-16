@@ -55,7 +55,7 @@ Address:     "8a2f9c31b064b62b6154ace29bfb3498b0825f68"
 
 Now export the private key printed above:
 ```bash
-export COMPOSER_PRIV_KEY=<SEQUENCER_ACCOUNT_PRIV_KEY>
+export SEQUENCER_PRIV_KEY=<SEQUENCER_ACCOUNT_PRIV_KEY>
 ```
 
 ## Deploy the Configuration
@@ -66,7 +66,7 @@ Then deploy the configuration with:
 ./target/release/astria-cli rollup deployment create \
   --config $ROLLUP_CONF_FILE \
   --faucet-private-key $ROLLUP_FAUCET_PRIV_KEY \
-  --sequencer-private-key $COMPOSER_PRIV_KEY
+  --sequencer-private-key $SEQUENCER_PRIV_KEY
 ```
 
 ## Observe your Deployment

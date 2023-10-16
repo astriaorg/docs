@@ -78,7 +78,7 @@ export ROLLUP_FAUCET_PRIV_KEY=<GENESIS_PRIVATE_KEY>
 This export is also shown in the export block in the next section.
 
 :::danger
-__NEVER__ use a private key you use on a live a network. 
+__NEVER__ use a private key you use on a live network. 
 
 For ease of use we recommend you set this to an  key which you have access to
 :::
