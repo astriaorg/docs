@@ -143,19 +143,3 @@ And view your new balance:
 ```bash
 cast balance $REC_ADDR
 ```
-
-## Deposit Funds with the Faucet
-
-Your rollups utility endpoints are as follows:
-
-| Utility | URL |
-|-----|-----|
-| Block Explorer | http://blockscout.<YOUR_ROLLUP_NAME>.localdev.me/ |
-| Faucet | http://faucet.<YOUR_ROLLUP_NAME>.localdev.me/ |
-| RPC | http://executor.<YOUR_ROLLUP_NAME>.localdev.me/ |
-
-To deposit funds with the Faucet, open the URL for the faucet above in your browser and past
-your previously used `<ADDRESS>` into the input to give yourself some funds.
-
-You can also open the Block Explorer in a new browser window to see the faucet
-transaction appear, or any of the transactions you have sent using `cast`.
