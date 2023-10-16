@@ -25,9 +25,16 @@ For contract deployment:
 Make sure that Docker is running before deploying with `just`.
 :::
 
-To deploy the Astria Sequencer and a local DA, open a terminal in the dev-cluster directory and run the command: 
-```sh
-just deploy-all-local
+To deploy the Astria Sequencer and a local DA, open a terminal in the dev-cluster directory and run the commands: 
+```bash
+# create control plane cluster
+just create-cluster
+# ingress controller
+just deploy-ingress-controller
+# wait for ingress.
+just wait-for-ingress-controller
+# Deploys Sequencer + local DA
+just deploy-astria-local
 ```
 
 This may take a minute or two if this the first time you are deploying as quite

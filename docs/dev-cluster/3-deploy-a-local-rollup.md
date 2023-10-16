@@ -21,6 +21,13 @@ For reference, these are:
 - Rollup name: `astria`
 - Network Id: `912559`
 
+This will also take a moment as the rollup node, block explorer, and faucet spin
+up. You can check the progress of the deployment with the following command:
+
+```bash
+kubectl get deployments --all-namespaces
+```
+
 Once deployed, you can view the block explorer and faucet by opening a couple new windows in your browser and going to to the
 following urls.
 For the block explorer:
