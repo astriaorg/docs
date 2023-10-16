@@ -120,6 +120,11 @@ config:
     fullNodeUrl: http://celestia-service:26658
 ```
 
+Export this file to the env vars as follows:
+```bash
+export ROLLUP_CONF_FILE=<YOUR_ROLLUP_NAME>-rollup-conf.yaml
+```
+
 At this point, if you do not want to add any genesis accounts to your rollup you
 can move on to the next section.
 

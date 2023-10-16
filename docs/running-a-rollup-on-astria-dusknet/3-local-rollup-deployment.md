@@ -4,6 +4,8 @@ sidebar_position: 3
 
 # Local Rollup Deployment
 
+## Deploy the Local Run Environment
+
 In another directory, use the [Astria dev-cluster](https://github.com/astriaorg/dev-cluster), deploy
 the local environment where your rollup will run.
 Although we are using the dev-cluster here again, this is different from [running the
@@ -28,8 +30,10 @@ just wait-for-ingress-controller
 ```
 
 This creates the local environment where the rollup will run. Unlike when the
-full dev-cluster is run locally, the sequencer and DA are not spun up. 
+full dev-cluster is run locally, the sequencer and DA are not spun up. The
+dev-net is already running remotely.
 
+## Create a New Sequencer Account
 
 Back in the __Astria repo__, run the cli to create the address and key information for a new sequencer account.
 
@@ -43,25 +47,41 @@ these values for later use.
 ```bash
 Create Sequencer Account
 
+# <SEQUENCER_ACCOUNT_PRIV_KEY>
 Private Key: "5562f2a6e97c01098e2ae2d64d10189716e44d36b1f2f2151695856689981622"
 Public Key:  "ec2059fc6c4cb1b29b24b75116afa88072d8dd2fcf4659b672d0301cfc74f613"
 Address:     "8a2f9c31b064b62b6154ace29bfb3498b0825f68"
 ```
 
-Then deploy the configuration:
+Now export the private key printed above:
+```bash
+export COMPOSER_PRIV_KEY=<SEQUENCER_ACCOUNT_PRIV_KEY>
+```
+
+## Deploy the Configuration
+
+Then deploy the configuration with:
 
 ```bash
 ./target/release/astria-cli rollup deployment create \
-  --config <YOUR_ROLLUP_NAME>-rollup-config.yaml \
-  --faucet-private-key <FAUCET_PRIVATE_KEY> \
-  --sequencer-private-key <SEQUENCER_PRIVATE_KEY>
+  --config $ROLLUP_CONF_FILE \
+  --faucet-private-key $ROLLUP_FAUCET_PRIV_KEY \
+  --sequencer-private-key $COMPOSER_PRIV_KEY
 ```
 
-You can then use `cast` to view the blocks on your rollup.
+:::note
+If you did not inclue a genesis account when configuring your rollup, you can
+leave out the `--faucet-private-key $ROLLUP_FAUCET_PRIV_KEY` in the command
+above.
+:::
+
+## Use `cast` to Interact with your Rollup
+
+Use `cast` to view the blocks on your rollup.
 
 ```bash
 # replace <your_rollup_name> with the name you used in your configuration
-export ETH_RPC_URL=http://executor.<your_rollup_name>.localdev.me/
+export ETH_RPC_URL=http://executor.$ROLLUP_NAME.localdev.me/
 cast block 0
 ```
 
@@ -91,7 +111,30 @@ totalDifficulty      10000000
 transactions:        []
 ```
 
-You can then open then following in your browser to view the running rollup:
+If you have an address you would like to deposit funds to, export that address
+to the env vars:
+```bash
+export REC_ADDR=<ADDRESS>
+```
+
+You can also use `cast` to view your balance:
+```bash
+cast balance $REC_ADDR
+```
+
+Send an ammount to your address:
+```bash
+cast send $REC_ADDR --value 10000000000000000000 --private-key $ROLLUP_FAUCET_PRIV_KEY
+```
+
+And view your new balance:
+```bash
+cast balance $REC_ADDR
+```
+
+## Deposit Funds with the Faucet
+
+Your rollups utility endpoints are as follows:
 
 | Utility | URL |
 |-----|-----|
@@ -99,11 +142,8 @@ You can then open then following in your browser to view the running rollup:
 | Faucet | http://faucet.<YOUR_ROLLUP_NAME>.localdev.me/ |
 | RPC | http://executor.<YOUR_ROLLUP_NAME>.localdev.me/ |
 
-You can now use the Faucet to deposit funds into an account. Paste an account address into the input field on the Faucet page.
-You can then switch over to the block explorer to see that your transaction
-arrived.
+To deposit funds with the Faucet, open the URL for the faucet above in your browser and past
+your previously used `<ADDRESS>` into the input to give yourself some funds.
 
-You can also use `cast` to view your balance:
-```bash
-cast balance <ADDRESS>
-```
+You can also open the Block Explorer in a new browser window to see the faucet
+transaction appear, or any of the transactions you have sent using `cast`.
