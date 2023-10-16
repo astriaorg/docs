@@ -17,7 +17,7 @@ as simple as possible.
 :::tip
 The primary use of the dev-cluster is running the full stack completely locally.
 There are elements of it that are used for running a local rollup that connects
-to the remote dev-net, but those will be [discussed in a later
+to the remote dev-net, but those will be [discussed in another
 section](/docs/running-a-rollup-on-astria-dusknet/local-rollup-deployment/).
 :::
 
