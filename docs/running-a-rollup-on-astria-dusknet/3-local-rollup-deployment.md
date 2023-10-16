@@ -69,11 +69,23 @@ Then deploy the configuration with:
   --sequencer-private-key $COMPOSER_PRIV_KEY
 ```
 
-:::note
-If you did not inclue a genesis account when configuring your rollup, you can
-leave out the `--faucet-private-key $ROLLUP_FAUCET_PRIV_KEY` in the command
-above.
-:::
+## Observe your Deployment
+
+Your rollups utility endpoints are as follows:
+
+| Utility | URL |
+|-----|-----|
+| Block Explorer | http://blockscout.<YOUR_ROLLUP_NAME>.localdev.me/ |
+| Faucet | http://faucet.<YOUR_ROLLUP_NAME>.localdev.me/ |
+| RPC | http://executor.<YOUR_ROLLUP_NAME>.localdev.me/ |
+
+Open the URLs in your browser to view your running rollup.
+
+To deposit funds with the Faucet, open the URL for the faucet above in your browser and past
+your previously used `<ADDRESS>` into the input to give yourself some funds.
+
+You can also open the Block Explorer in a new browser window to see the faucet
+transaction appear, or any of the transactions you have sent using `cast`.
 
 ## Use `cast` to Interact with your Rollup
 
