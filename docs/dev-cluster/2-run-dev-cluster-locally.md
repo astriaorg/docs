@@ -27,7 +27,7 @@ Make sure that Docker is running before deploying with `just`.
 
 To deploy the Astria Sequencer and a local DA, open a terminal in the dev-cluster directory and run the command: 
 ```sh
-just deploy-astria-local
+just deploy-all-local
 ```
 
 This may take a minute or two if this the first time you are deploying as quite
