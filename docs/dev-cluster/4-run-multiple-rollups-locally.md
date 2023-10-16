@@ -57,3 +57,40 @@ The only limitations to running numerous rollups are the following:
 One last thing to mention is what is actually happening when you deploy a new rollup in the dev-cluster. When you you deploy a new rollup the only new containers that are getting spun up in the cluster are a new rollup node, a conductor, block explorer, and faucet. Only one instance of the shared sequencer and the DA layer remain running and the transactions from all the rollups are collectively getting run though those networks.
 
 ![Multiple Rollups](assests/multiple-rollups.png)
+
+You can also use `kubectl` to see that this is the case.
+
+When running only the default rollup:
+
+```bash
+dev-cluster % kubectl get deployments --all-namespaces
+NAMESPACE            NAME                       READY   UP-TO-DATE   AVAILABLE   AGE
+astria-dev-cluster   astria-blockscout          1/1     1            1           37s
+astria-dev-cluster   astria-faucet              1/1     1            1           37s
+astria-dev-cluster   astria-geth                1/1     1            1           37s
+astria-dev-cluster   celestia-local             1/1     1            1           94m
+astria-dev-cluster   sequencer                  1/1     1            1           94m
+ingress-nginx        ingress-nginx-controller   1/1     1            1           94m
+kube-system          calico-kube-controllers    1/1     1            1           95m
+kube-system          coredns                    2/2     2            2           95m
+local-path-storage   local-path-provisioner     1/1     1            1           95m
+```
+
+After deploying the second rollup:
+
+```bash
+dev-cluster % kubectl get deployments --all-namespaces
+NAMESPACE            NAME                       READY   UP-TO-DATE   AVAILABLE   AGE
+astria-dev-cluster   anotherrollup-blockscout   1/1     1            1           114s
+astria-dev-cluster   anotherrollup-faucet       1/1     1            1           114s
+astria-dev-cluster   anotherrollup-geth         1/1     1            1           114s
+astria-dev-cluster   astria-blockscout          1/1     1            1           2m13s
+astria-dev-cluster   astria-faucet              1/1     1            1           2m13s
+astria-dev-cluster   astria-geth                1/1     1            1           2m13s
+astria-dev-cluster   celestia-local             1/1     1            1           95m
+astria-dev-cluster   sequencer                  1/1     1            1           95m
+ingress-nginx        ingress-nginx-controller   1/1     1            1           96m
+kube-system          calico-kube-controllers    1/1     1            1           97m
+kube-system          coredns                    2/2     2            2           97m
+local-path-storage   local-path-provisioner     1/1     1            1           97m
+```

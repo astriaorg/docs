@@ -27,6 +27,9 @@ just deploy-ingress-controller
 just wait-for-ingress-controller
 ```
 
+This creates the local environment where the rollup will run. Unlike when the
+full dev-cluster is run locally, the sequencer and DA are not spun up. 
+
 
 Back in the __Astria repo__, run the cli to create the address and key information for a new sequencer account.
 

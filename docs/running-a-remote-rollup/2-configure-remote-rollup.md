@@ -40,14 +40,16 @@ cd ../..
 ## Using the `astria-cli`
 
 Replace the tags in the commands and env vars below, as follows:
-- `<YOUR_ROLLUP_NAME>`               -> String: the name of your rollup
-- `<YOUR_ROLLUP_ID>`                -> String: recommended to be the same as your rollup name
-- `<YOUR_NETWORK_ID>`                -> u64: the id of your network
-<!-- TODO: potentially remove the line below -->
-- `<INITIAL_SEQUENCER_BLOCK_HEIGHT>` -> u64: the height of the sequencer
-  found above
-- `<GENESIS_ADDRESS>`                -> [u8; 40]: a wallet address
-- `<BALANCE>`                        -> u64: balance
+
+| Var Name | Var Type | Description |
+|-----|-----|-----|
+| `<YOUR_ROLLUP_NAME>` | String | The name of your rollup |
+| `<YOUR_ROLLUP_ID>` | String | Recommended to be the same as your rollup name |
+| `<YOUR_NETWORK_ID>` | u64 | The id of your network |
+| `<INITIAL_SEQUENCER_BLOCK_HEIGHT>` | u64 | The height of the sequencer (found above) |
+| `<GENESIS_ADDRESS>` | [u8; 40] | A wallet address |
+| `<BALANCE>` | u64 | A balance |
+<!-- TODO: potentially remove the initial sequencer block height as that may be found automatically -->
 
 <!-- TODO: add additional comments about how to set each of the above vars -->
 ### Cli only
@@ -69,11 +71,12 @@ You can use the cli with input arguments to build the config for your new rollup
   --celestia.full-node-url http://celestia-service:26658 \
   --rollup.genesis-accounts 0x<GENESIS_ADDRESS>:<balance>
 ```
-:::tip
+<!-- TODO: add this back in when the automated block height is added -->
+<!-- :::tip
 You can also optionally leave out the `--sequencer.initial-block-height` input
 in the command above, and the cli will fetch the initial sequencer block height
 for you.
-:::
+::: -->
 
 ### Environment Variables + cli
 
