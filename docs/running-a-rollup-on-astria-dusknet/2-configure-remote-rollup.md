@@ -16,20 +16,6 @@ Endpoints for the remote cluster are the following:
 | sequencer-faucet | faucet.sequencer.dusk-1.devnet.astria.org | 34.36.8.102 |
 | sequencer-ingress | rpc.sequencer.dusk-1.devnet.astria.org | 34.111.73.187 |
 
-## Get the Current Sequencer Block Height
-
-Take the `sequencer-ingress` URL and run the following command to get the
-current block height of the sequencer.
-
-<!-- TODO: replace with the cli command when ready-->
-```sh
-curl -s https://rpc.sequencer.dusk-1.devnet.astria.org/block | jq .result.block.header.height
-```
-
-Keep track of this block height as it will be used for making the rollup config
-later on. You will use this printed height in place of
-`<INITIAL_SEQUENCER_BLOCK_HEIGHT>` in the steps below.
-
 ## Creating your own Genesis Account
 
 You can add genesis account(s) to your rollup during configuration.
@@ -79,6 +65,17 @@ just install-cli
 ```
 
 ## Using the `astria-cli`
+
+### Get Current Sequencer Block Height
+
+```bash
+astria-cli sequencer blockheight get \
+  --sequencer-url https://rpc.sequencer.dusk-1.devnet.astria.org/
+```
+
+Keep track of this block height as it will be used for making the rollup config
+later on. You will use this printed height in place of
+`<INITIAL_SEQUENCER_BLOCK_HEIGHT>` in the steps below.
 
 Replace the following tags in the sections below, as follows:
 

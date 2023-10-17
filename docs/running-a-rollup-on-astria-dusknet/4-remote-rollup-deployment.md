@@ -90,16 +90,6 @@ metadata:
     kubernetes.io/ingress.class: nginx
 ```
 
-## Get Current Sequencer Block Height
-
-```bash
-curl -s https://rpc.sequencer.dusk-1.devnet.astria.org/block | jq .result.block.header.height
-```
-
-Save the returned value for later. You will replace the
-`<INITIAL_SEQUENCER_BLOCK_HEIGHT>` tag in the following sections with this
-value.
-
 ## Creating your own Genesis Account
 
 You can add genesis account(s) to your rollup during configuration.
@@ -149,7 +139,22 @@ cd astria
 just install-cli
 ```
 
+Keep track of this block height as it will be used for making the rollup config
+later on. You will use this printed height in place of
+`<INITIAL_SEQUENCER_BLOCK_HEIGHT>` in the steps below.
+
 ## Using the `astria-cli`
+
+### Get Current Sequencer Block Height
+
+```bash
+astria-cli sequencer blockheight get \
+  --sequencer-url https://rpc.sequencer.dusk-1.devnet.astria.org/
+```
+
+Save the returned value for later. You will replace the
+`<INITIAL_SEQUENCER_BLOCK_HEIGHT>` tag in the following sections with this
+value.
 
 Replace the tags in the commands and env vars below, as follows:
 
