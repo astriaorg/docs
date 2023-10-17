@@ -25,9 +25,7 @@ In the __dev-cluster repo__, run:
 ```sh
 git clone git@github.com:astriaorg/dev-cluster.git
 cd dev-cluster
-just create-cluster
-just deploy-ingress-controller
-just wait-for-ingress-controller
+just deploy-astria-ingress
 ```
 
 This creates the local environment where the rollup will run. Unlike when the
