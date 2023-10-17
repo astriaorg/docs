@@ -6,15 +6,9 @@ sidebar_position: 3
 
 ## Deploy the Local Run Environment
 
-In another directory, use the [Astria
-dev-cluster](https://github.com/astriaorg/dev-cluster), deploy 
-the local environment where your rollup will run.
-Although we are using the dev-cluster here again, this is different from
-[running the full local setup discussed
-previously](../dev-cluster/1-overview.md). In this instance, we
-are using the dev-cluster to setup the local environment in which the rollup,
-block explorer, and faucet will run (like before), but we will not be running
-the sequencer or any of the other components.
+We use part of the [Astria
+dev-cluster](https://github.com/astriaorg/dev-cluster) to setup a local
+Kubernetes (k8s) cluster where we will deploy our local rollup.
 
 :::tip
 Make sure that Docker is running before deploying with `just`.
@@ -28,9 +22,7 @@ cd dev-cluster
 just deploy-astria-ingress
 ```
 
-This creates the local environment where the rollup will run. Unlike when the
-full dev-cluster is run locally, the sequencer and DA are not spun up. The
-dev-net is already running remotely.
+This gives us a local environment compatible with our helm charts.
 
 ## Create a New Sequencer Account
 
