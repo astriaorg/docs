@@ -15,7 +15,6 @@ As before with running a local dev-cluster, you will need to have the
 [dev-cluster](https://github.com/astriaorg/dev-cluster/tree/main) and the main
 [astria repo](https://github.com/astriaorg/astria) cloned and on your machine,
 as well have the following dependencies installed:
-- [gcloud cli](https://cloud.google.com/sdk/docs/install)
 - [Foundry Cast and Forge tools](https://book.getfoundry.sh/getting-started/installation)
 - [docker](https://docs.docker.com/get-docker/)
 - [kubectl](https://kubernetes.io/docs/tasks/tools/)
@@ -29,6 +28,7 @@ Many of these dependencies are also required for running the local dev-cluster.
 
 For reference, the latest component releases that the devnet cluster is running are the
 following:
+<!-- TODO: update these to current versions -->
 - [conductor v0.6.0](https://github.com/astriaorg/astria/releases/tag/v0.6.0--conductor)
 - [composer v0.2.1](https://github.com/astriaorg/astria/releases/tag/v0.2.1--composer)
 - [sequencer-relayer v0.5.1](https://github.com/astriaorg/astria/releases/tag/v0.5.1--sequencer-relayer)
