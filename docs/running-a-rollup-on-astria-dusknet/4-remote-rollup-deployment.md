@@ -141,18 +141,12 @@ For ease of use we recommend you set this to an  key which you have access to
 
 Pull the [Astria repo](https://github.com/astriaorg/astria).
 
+Build the `astria-cli`
+
 ```bash
 git clone git@github.com:astriaorg/astria.git
 cd astria
-```
-
-Build `astria-cli` binary.
-
-```bash
-cd crates/astria-cli
-cargo build --release
-# return to top level astria dir
-cd ../..
+just install-cli
 ```
 
 ## Using the `astria-cli`
@@ -195,7 +189,7 @@ export ROLLUP_SEQUENCER_RPC=https://rpc.sequencer.dusk-1.devnet.astria.org
 Then just run the config create command:
 
 ```sh
-./target/release/astria-cli rollup config create
+astria-cli rollup config create
 ```
 
 You can then run:
@@ -234,7 +228,7 @@ export ROLLUP_CONF_FILE=<YOUR_ROLLUP_NAME>-rollup-conf.yaml
 ## Create new sequencer account
 
 ```bash
-./target/release/astria-cli sequencer account create
+astria-cli sequencer account create
 ```
 
 ```bash
@@ -267,7 +261,7 @@ export ROLLUP_CHART_PATH="/your_path_to/dev-cluster/charts/rollup"
 Use the `astria-cli` to deploy the node.
 
 ```bash
-./target/release/astria-cli rollup deployment create \
+astria-cli rollup deployment create \
   --config $ROLLUP_CONF_FILE \
   --faucet-private-key $ROLLUP_FAUCET_PRIV_KEY \
   --sequencer-private-key $SEQUENCER_PRIV_KEY
@@ -279,7 +273,7 @@ If there was an error during deployment, you can delete your deployment and try
 again with the following:
 
 ```bash
-./target/release/astria-cli rollup deployment delete --config $ROLLUP_CONF_PATH
+astria-cli rollup deployment delete --config $ROLLUP_CONF_PATH
 ```
 
 ## Default to `astria-dev-cluster` namespace

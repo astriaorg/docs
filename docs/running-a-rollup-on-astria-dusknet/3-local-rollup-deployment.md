@@ -40,7 +40,7 @@ Back in the __Astria repo__, run the cli to create the address and key
 information for a new sequencer account. 
 
 ```bash
-./target/release/astria-cli sequencer account create
+astria-cli sequencer account create
 ```
 
 The address, public and private keys will be different from those below. Save
@@ -67,7 +67,7 @@ export SEQUENCER_PRIV_KEY=<SEQUENCER_ACCOUNT_PRIV_KEY>
 Then deploy the configuration with:
 
 ```bash
-./target/release/astria-cli rollup deployment create \
+astria-cli rollup deployment create \
   --config $ROLLUP_CONF_FILE \
   --faucet-private-key $ROLLUP_FAUCET_PRIV_KEY \
   --sequencer-private-key $SEQUENCER_PRIV_KEY

@@ -72,13 +72,10 @@ For ease of use we recommend you set this to an  key which you have access to
 Clone the [Astria repo](https://github.com/astriaorg/astria/tree/main) and build
 a new config using the `astria-cli`.
 
-<!-- TODO: update this once the cli in merged -->
 ```bash
 git clone git@github.com:astriaorg/astria.git
-cd astria/crates/astria-cli
-cargo build --release
-# return to the root dir of the `astria` repo
-cd ../..
+cd astria
+just install-cli
 ```
 
 ## Using the `astria-cli`
@@ -121,7 +118,7 @@ export ROLLUP_SEQUENCER_RPC=https://rpc.sequencer.dusk-1.devnet.astria.org
 Then just run the config create command:
 
 ```sh
-./target/release/astria-cli rollup config create
+astria-cli rollup config create
 ```
 
 You can then run:
