@@ -24,7 +24,7 @@ along side, out of the sequencer blocks for execution. The data that it does sto
 for sending commitment updates to the rollup.
 
 As mentioned in the
-[Relayer](/docs/overview-of-astria/architecture/5-relayer.md) section, any data
+[Relayer](/docs/overview-of-astria/architecture/6-relayer.md) section, any data
 received by the Conductor directly from the Relayer is considered a soft commit.
 This data is filtered using the rollup's namespace and only transactions that
 are relevant to the rollup are passed on as blocks for execution. These blocks
