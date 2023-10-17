@@ -47,10 +47,9 @@ these values for later use.
 ```bash
 Create Sequencer Account
 
-# <SEQUENCER_ACCOUNT_PRIV_KEY>
-Private Key: "5562f2a6e97c01098e2ae2d64d10189716e44d36b1f2f2151695856689981622"
-Public Key:  "ec2059fc6c4cb1b29b24b75116afa88072d8dd2fcf4659b672d0301cfc74f613"
-Address:     "8a2f9c31b064b62b6154ace29bfb3498b0825f68"
+Private Key: "5562...1622" # <SEQUENCER_ACCOUNT_PRIV_KEY>
+Public Key:  "ec20...f613"
+Address:     "8a2f...5f68"
 ```
 
 Now export the private key printed above:
@@ -82,7 +81,7 @@ Your rollups utility endpoints are as follows:
 Open the URLs in your browser to view your running rollup.
 
 To deposit funds with the Faucet, open the URL for the faucet above in your browser and past
-your previously used `<ADDRESS>` into the input to give yourself some funds.
+your `<ADDRESS>` into the input to give yourself some funds.
 
 You can also open the Block Explorer in a new browser window to see the faucet
 transaction appear, or any of the transactions you have sent using `cast`.

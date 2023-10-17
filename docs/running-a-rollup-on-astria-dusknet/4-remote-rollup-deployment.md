@@ -66,7 +66,7 @@ git clone git@github.com:astriaorg/dev-cluster.git
 cd dev-cluster
 ```
 
-Update the ingress template `chart/rollup/templates/ingress.yaml` so that each hostname ends in `<YOUR_HOSTNAME>` instead of `localdev.me`
+Within the dev-cluster repo, update the ingress template `chart/rollup/templates/ingress.yaml` so that each hostname ends in `<YOUR_HOSTNAME>` instead of `localdev.me`
 
 ```bash
 ...
@@ -80,7 +80,7 @@ Update the ingress template `chart/rollup/templates/ingress.yaml` so that each h
 ...
 ```
 
-Add an IngressClass so that the `metadata` looks like:
+Add an IngressClass so that the `metadata` section in the same file looks like:
 
 ```bash
 metadata:
@@ -103,11 +103,6 @@ value.
 ## Creating your own Genesis Account
 
 You can add genesis account(s) to your rollup during configuration.
-This is done by `export`ing the additional `ROLLUP_GENESIS_ACCOUNTS` environment variable.
-
-```bash
-export ROLLUP_GENESIS_ACCOUNTS=<GENESIS_ADDRESS>:100000000000000000000
-```
 
 You can create an account using
 
@@ -123,13 +118,18 @@ Address:     0xfFe9...5f8b # <GENESIS_ADDRESS>
 Private key: 0x332e...a8fb # <GENESIS_PRIVATE_KEY>
 ```
 
+You can then `export` the genesis accounts like so:
+```bash
+export ROLLUP_GENESIS_ACCOUNTS=<GENESIS_ADDRESS>:100000000000000000000
+```
+
 Set `<GENESIS_ADDRESS>` to the address printed out from the new command, and
 `export` the private key to the env vars using:
 ```bash
 export ROLLUP_FAUCET_PRIV_KEY=<GENESIS_PRIVATE_KEY>
 ```
 
-This export is also shown in the export block in the next section.
+Exporting the genesis account(s) is also shown in the export block in the next section.
 
 :::danger
 __NEVER__ use a private key you use on a live network. 
