@@ -11,7 +11,7 @@ dev-cluster](https://github.com/astriaorg/dev-cluster), deploy
 the local environment where your rollup will run.
 Although we are using the dev-cluster here again, this is different from
 [running the full local setup discussed
-previously](../dev-cluster/2-run-dev-cluster-locally.md). In this instance, we
+previously](../dev-cluster/1-overview.md). In this instance, we
 are using the dev-cluster to setup the local environment in which the rollup,
 block explorer, and faucet will run (like before), but we will not be running
 the sequencer or any of the other components.
