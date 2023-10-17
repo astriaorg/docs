@@ -235,13 +235,20 @@ export ROLLUP_CONF_FILE=<YOUR_ROLLUP_NAME>-rollup-conf.yaml
 
 ```bash
 ./target/release/astria-cli sequencer account create
+```
 
+```bash
 Create Sequencer Account
 
-Private Key: "9c78...710d" # <SEQUENCER_PRIV_KEY>
-Public Key:  "d890...d747"
-Address:     "48fa...8145"
+Private Key: "5562...1622" # <SEQUENCER_ACCOUNT_PRIV_KEY>
+Public Key:  "ec20...f613" # <SEQUENCER_ACCOUNT_PUB_KEY>
+Address:     "8a2f...5f68"
 ```
+
+Keep track of the `<SEQUENCER_ACCOUNT_PUB_KEY>` as it will be used with the
+Faucet later on for funding your sequencer account.
+
+Export your sequencer private key as an environment variable.
 
 ```bash
 export SEQUENCER_PRIV_KEY=9c78...710d
@@ -363,3 +370,12 @@ cast send $REC_ADDR --value 10000000000000000000 --private-key $ROLLUP_FAUCET_PR
 ```bash
 cast balance $REC_ADDR
 ```
+
+## Fund you Sequencer Account
+
+Using your sequencer pub key you created in the [Create a New Sequencer
+Account](#create-a-new-sequencer-account), copy and past the
+`<SEQUENCER_ACCOUNT_PUB_KEY>` into the input on the faucet page, and mint funds
+to your account:
+
+![Sequencer Faucet](./assets/sequencer-faucet.png)

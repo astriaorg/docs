@@ -6,10 +6,11 @@ sidebar_position: 3
 
 ## Deploy the Local Run Environment
 
-In another directory, use the [Astria dev-cluster](https://github.com/astriaorg/dev-cluster), deploy
+In another directory, use the [Astria
+dev-cluster](https://github.com/astriaorg/dev-cluster), deploy 
 the local environment where your rollup will run.
-Although we are using the dev-cluster here again, this is different from [running the
-full local setup discussed
+Although we are using the dev-cluster here again, this is different from
+[running the full local setup discussed
 previously](../dev-cluster/2-run-dev-cluster-locally.md). In this instance, we
 are using the dev-cluster to setup the local environment in which the rollup,
 block explorer, and faucet will run (like before), but we will not be running
@@ -35,7 +36,8 @@ dev-net is already running remotely.
 
 ## Create a New Sequencer Account
 
-Back in the __Astria repo__, run the cli to create the address and key information for a new sequencer account.
+Back in the __Astria repo__, run the cli to create the address and key
+information for a new sequencer account. 
 
 ```bash
 ./target/release/astria-cli sequencer account create
@@ -48,9 +50,12 @@ these values for later use.
 Create Sequencer Account
 
 Private Key: "5562...1622" # <SEQUENCER_ACCOUNT_PRIV_KEY>
-Public Key:  "ec20...f613"
+Public Key:  "ec20...f613" # <SEQUENCER_ACCOUNT_PUB_KEY>
 Address:     "8a2f...5f68"
 ```
+
+Keep track of the `<SEQUENCER_ACCOUNT_PUB_KEY>` as it will be used with the
+Faucet later on for funding your sequencer account.
 
 Now export the private key printed above:
 ```bash
@@ -79,9 +84,6 @@ Your rollups utility endpoints are as follows:
 | RPC | http://executor.<YOUR_ROLLUP_NAME>.localdev.me/ |
 
 Open the URLs in your browser to view your running rollup.
-
-To deposit funds with the Faucet, open the URL for the faucet above in your browser and past
-your `<ADDRESS>` into the input to give yourself some funds.
 
 You can also open the Block Explorer in a new browser window to see the faucet
 transaction appear, or any of the transactions you have sent using `cast`.
@@ -142,3 +144,12 @@ And view your new balance:
 ```bash
 cast balance $REC_ADDR
 ```
+
+## Fund you Sequencer Account
+
+Using your sequencer pub key you created in the [Create a New Sequencer
+Account](#create-a-new-sequencer-account), copy and past the
+`<SEQUENCER_ACCOUNT_PUB_KEY>` into the input on the faucet page, and mint funds
+to your account:
+
+![Sequencer Faucet](./assets/sequencer-faucet.png)
