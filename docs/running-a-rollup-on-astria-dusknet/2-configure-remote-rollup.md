@@ -39,7 +39,6 @@ the `feature/self-serve-rollup-cli` branch, and build the new config using the `
 ```bash
 git clone git@github.com:astriaorg/astria.git
 cd astria
-git checkout feature/self-serve-rollup-cli
 cd crates/astria-cli
 cargo build --release
 # return to the root dir of the `astria` repo
