@@ -4,6 +4,11 @@ sidebar_position: 1
 
 # Dev-Cluster Overview
 
+:::tip
+To deploy your own rollup on the Astria Dusknet devnet, check out the
+[instructions here](/docs/running-a-rollup-on-astria-dusknet/overview/)!
+:::
+
 Astria's Shared Sequencer Network allows multiple rollups to share a single decentralized network of sequencers that’s permissionless to join. This shared sequencer network provides out-of-the-box censorship resistance, fast block confirmations, and atomic cross-rollup inclusion guarantees.
 
 The Astria [dev-cluster](https://github.com/astriaorg/dev-cluster) is the

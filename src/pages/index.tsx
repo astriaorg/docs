@@ -17,7 +17,7 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/overview-of-astria/introduction/">
+            to="/docs/running-a-rollup-on-astria-dusknet/overview/">
             Learn more about Astria
           </Link>
         </div>

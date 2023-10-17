@@ -6,10 +6,11 @@ sidebar_position: 3
 
 ## Deploy the Local Run Environment
 
-In another directory, use the [Astria dev-cluster](https://github.com/astriaorg/dev-cluster), deploy
+In another directory, use the [Astria
+dev-cluster](https://github.com/astriaorg/dev-cluster), deploy 
 the local environment where your rollup will run.
-Although we are using the dev-cluster here again, this is different from [running the
-full local setup discussed
+Although we are using the dev-cluster here again, this is different from
+[running the full local setup discussed
 previously](../dev-cluster/2-run-dev-cluster-locally.md). In this instance, we
 are using the dev-cluster to setup the local environment in which the rollup,
 block explorer, and faucet will run (like before), but we will not be running
@@ -35,10 +36,11 @@ dev-net is already running remotely.
 
 ## Create a New Sequencer Account
 
-Back in the __Astria repo__, run the cli to create the address and key information for a new sequencer account.
+Back in the __Astria repo__, run the cli to create the address and key
+information for a new sequencer account. 
 
 ```bash
-./target/release/astria-cli sequencer account create
+astria-cli sequencer account create
 ```
 
 The address, public and private keys will be different from those below. Save
@@ -47,15 +49,17 @@ these values for later use.
 ```bash
 Create Sequencer Account
 
-# <SEQUENCER_ACCOUNT_PRIV_KEY>
-Private Key: "5562f2a6e97c01098e2ae2d64d10189716e44d36b1f2f2151695856689981622"
-Public Key:  "ec2059fc6c4cb1b29b24b75116afa88072d8dd2fcf4659b672d0301cfc74f613"
-Address:     "8a2f9c31b064b62b6154ace29bfb3498b0825f68"
+Private Key: "5562...1622" # <SEQUENCER_ACCOUNT_PRIV_KEY>
+Public Key:  "ec20...f613" # <SEQUENCER_ACCOUNT_PUB_KEY>
+Address:     "8a2f...5f68"
 ```
+
+Keep track of the `<SEQUENCER_ACCOUNT_PUB_KEY>` as it will be used with the
+Faucet later on for funding your sequencer account.
 
 Now export the private key printed above:
 ```bash
-export COMPOSER_PRIV_KEY=<SEQUENCER_ACCOUNT_PRIV_KEY>
+export SEQUENCER_PRIV_KEY=<SEQUENCER_ACCOUNT_PRIV_KEY>
 ```
 
 ## Deploy the Configuration
@@ -63,17 +67,26 @@ export COMPOSER_PRIV_KEY=<SEQUENCER_ACCOUNT_PRIV_KEY>
 Then deploy the configuration with:
 
 ```bash
-./target/release/astria-cli rollup deployment create \
+astria-cli rollup deployment create \
   --config $ROLLUP_CONF_FILE \
   --faucet-private-key $ROLLUP_FAUCET_PRIV_KEY \
-  --sequencer-private-key $COMPOSER_PRIV_KEY
+  --sequencer-private-key $SEQUENCER_PRIV_KEY
 ```
 
-:::note
-If you did not inclue a genesis account when configuring your rollup, you can
-leave out the `--faucet-private-key $ROLLUP_FAUCET_PRIV_KEY` in the command
-above.
-:::
+## Observe your Deployment
+
+Your rollups utility endpoints are as follows:
+
+| Utility | URL |
+|-----|-----|
+| Block Explorer | http://blockscout.<YOUR_ROLLUP_NAME>.localdev.me/ |
+| Faucet | http://faucet.<YOUR_ROLLUP_NAME>.localdev.me/ |
+| RPC | http://executor.<YOUR_ROLLUP_NAME>.localdev.me/ |
+
+Open the URLs in your browser to view your running rollup.
+
+You can also open the Block Explorer in a new browser window to see the faucet
+transaction appear, or any of the transactions you have sent using `cast`.
 
 ## Use `cast` to Interact with your Rollup
 
@@ -132,18 +145,11 @@ And view your new balance:
 cast balance $REC_ADDR
 ```
 
-## Deposit Funds with the Faucet
+## Fund you Sequencer Account
 
-Your rollups utility endpoints are as follows:
+Using your sequencer pub key you created in the [Create a New Sequencer
+Account](#create-a-new-sequencer-account), copy and past the
+`<SEQUENCER_ACCOUNT_PUB_KEY>` into the input on the faucet page, and mint funds
+to your account:
 
-| Utility | URL |
-|-----|-----|
-| Block Explorer | http://blockscout.<YOUR_ROLLUP_NAME>.localdev.me/ |
-| Faucet | http://faucet.<YOUR_ROLLUP_NAME>.localdev.me/ |
-| RPC | http://executor.<YOUR_ROLLUP_NAME>.localdev.me/ |
-
-To deposit funds with the Faucet, open the URL for the faucet above in your browser and past
-your previously used `<ADDRESS>` into the input to give yourself some funds.
-
-You can also open the Block Explorer in a new browser window to see the faucet
-transaction appear, or any of the transactions you have sent using `cast`.
+![Sequencer Faucet](./assets/sequencer-faucet.png)

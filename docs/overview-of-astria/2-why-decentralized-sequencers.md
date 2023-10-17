@@ -4,6 +4,11 @@ sidebar_position: 2
 
 # Why Decentralized Sequencers?
 
+:::tip
+To deploy your own rollup on the Astria Dusknet devnet, check out the
+[instructions here](/docs/running-a-rollup-on-astria-dusknet/overview/)!
+:::
+
 Centralization is antithetical to crypto. And yet, today’s rollups almost universally depend on a single sequencer. Centralized sequencers provide fast transaction confirmations and reduce costs by batching and compressing transactions. However, these benefits come at the cost of relying on a single trusted actor for liveness and censorship resistance.
 
 **Sacrificing decentralization for an improved user experience is an unacceptable Faustian bargain.**

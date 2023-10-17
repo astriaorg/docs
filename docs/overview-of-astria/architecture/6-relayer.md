@@ -4,6 +4,11 @@ sidebar_position: 6
 
 # Relayer
 
+:::tip
+To deploy your own rollup on the Astria Dusknet devnet, check out the
+[instructions here](/docs/running-a-rollup-on-astria-dusknet/overview/)!
+:::
+
 The Relayer's responsibility is to take validated blocks from the sequencer and
 pass them along to both the Conductor and the DA layer. Because the sequencer's
 block times are much faster than those of the DA, the relayer also collects a

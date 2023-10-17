@@ -4,6 +4,11 @@ sidebar_position: 8
 
 # Data Availability Layer
 
+:::tip
+To deploy your own rollup on the Astria Dusknet devnet, check out the
+[instructions here](/docs/running-a-rollup-on-astria-dusknet/overview/)!
+:::
+
 The dev-cluster uses [Celestia](https://github.com/celestiaorg) as the data
 availability layer and is the ultimate destination of all data that has been
 ordered by the sequencer network. Once written to Celestia, the transaction
