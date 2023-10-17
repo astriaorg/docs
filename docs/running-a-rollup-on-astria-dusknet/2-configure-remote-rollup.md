@@ -21,7 +21,7 @@ Endpoints for the remote cluster are the following:
 Take the `sequencer-ingress` URL and run the following command to get the
 current block height of the sequencer.
 
-<!-- TODO: replace with the cli command -->
+<!-- TODO: replace with the cli command when ready-->
 ```sh
 curl -s https://rpc.sequencer.dusk-1.devnet.astria.org/block | jq .result.block.header.height
 ```
@@ -29,21 +29,6 @@ curl -s https://rpc.sequencer.dusk-1.devnet.astria.org/block | jq .result.block.
 Keep track of this block height as it will be used for making the rollup config
 later on. You will use this printed height in place of
 `<INITIAL_SEQUENCER_BLOCK_HEIGHT>` in the steps below.
-
-## Build the `astria-cli`
-
-Clone the [Astria repo](https://github.com/astriaorg/astria/tree/main), checkout
-the `feature/self-serve-rollup-cli` branch, and build the new config using the `astria-cli`.
-
-<!-- TODO: update this once the cli in merged -->
-```bash
-git clone git@github.com:astriaorg/astria.git
-cd astria
-cd crates/astria-cli
-cargo build --release
-# return to the root dir of the `astria` repo
-cd ../..
-```
 
 ## Creating your own Genesis Account
 
@@ -82,9 +67,23 @@ __NEVER__ use a private key you use on a live network.
 For ease of use we recommend you set this to an  key which you have access to
 :::
 
+## Build the `astria-cli`
+
+Clone the [Astria repo](https://github.com/astriaorg/astria/tree/main) and build
+a new config using the `astria-cli`.
+
+<!-- TODO: update this once the cli in merged -->
+```bash
+git clone git@github.com:astriaorg/astria.git
+cd astria/crates/astria-cli
+cargo build --release
+# return to the root dir of the `astria` repo
+cd ../..
+```
+
 ## Using the `astria-cli`
 
-Replace the tags in the commands and env vars below, as follows:
+Replace the following tags in the sections below, as follows:
 
 | Var Name | Var Type | Description |
 |-----|-----|-----|
@@ -92,8 +91,8 @@ Replace the tags in the commands and env vars below, as follows:
 | `<YOUR_NETWORK_ID>` | u64 | The id of your network |
 | `<INITIAL_SEQUENCER_BLOCK_HEIGHT>` | u64 | The height of the sequencer (found above) |
 | `<GENESIS_ADDRESS>` | [u8; 40] | A wallet address |
-| `<BALANCE>` | u64 | A balance |
-<!-- TODO: potentially remove the initial sequencer block height as that may be found automatically -->
+| `<BALANCE>` | u64 | A balance. It is useful to make this a large value. |
+<!-- TODO?: potentially remove the initial sequencer block height as that may be found automatically -->
 
 <!-- TODO: add this back in when the automated block height is added -->
 <!-- :::tip
@@ -113,7 +112,7 @@ export ROLLUP_LOG_LEVEL=DEBUG
 export ROLLUP_NAME=<YOUR_ROLLUP_NAME>
 export ROLLUP_NETWORK_ID=<YOUR_NETWORK_ID>
 export ROLLUP_SKIP_EMPTY_BLOCKS=false
-export ROLLUP_GENESIS_ACCOUNTS=<GENESIS_ADDRESS>:100000000000000000000
+export ROLLUP_GENESIS_ACCOUNTS=<GENESIS_ADDRESS>:<BALANCE>
 export ROLLUP_SEQUENCER_INITIAL_BLOCK_HEIGHT=<INITIAL_SEQUENCER_BLOCK_HEIGHT>
 export ROLLUP_SEQUENCER_WEBSOCKET=wss://rpc.sequencer.dusk-1.devnet.astria.org/websocket
 export ROLLUP_SEQUENCER_RPC=https://rpc.sequencer.dusk-1.devnet.astria.org
@@ -142,7 +141,9 @@ config:
     chainId: # derived from rollup name
     networkId: <YOUR_NETWORK_ID>
     skipEmptyBlocks: true
-    genesisAccounts: []
+    genesisAccounts: 
+      - address: 0x<GENESIS_ADDRESS>
+        balance: '<BALANCE>'
   sequencer:
     initialBlockHeight: <INITIAL_SEQUENCER_BLOCK_HEIGHT>
     websocket: ws://rpc.sequencer.dusk-1.devnet.astria.org/websocket

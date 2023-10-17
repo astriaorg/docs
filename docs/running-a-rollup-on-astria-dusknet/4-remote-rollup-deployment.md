@@ -165,7 +165,7 @@ Replace the tags in the commands and env vars below, as follows:
 | `<YOUR_NETWORK_ID>` | u64 | The id of your network |
 | `<INITIAL_SEQUENCER_BLOCK_HEIGHT>` | u64 | The height of the sequencer (found above) |
 | `<GENESIS_ADDRESS>` | [u8; 40] | A wallet address |
-| `<BALANCE>` | u64 | A balance |
+| `<BALANCE>` | u64 | A balance. It is useful to make this a large value. |
 <!-- TODO: potentially remove the initial sequencer block height as that may be found automatically -->
 
 <!-- TODO: add this back in when the automated block height is added -->
@@ -186,7 +186,7 @@ export ROLLUP_LOG_LEVEL=DEBUG
 export ROLLUP_NAME=<YOUR_ROLLUP_NAME>
 export ROLLUP_NETWORK_ID=<YOUR_NETWORK_ID>
 export ROLLUP_SKIP_EMPTY_BLOCKS=false
-export ROLLUP_GENESIS_ACCOUNTS=<GENESIS_ADDRESS>:100000000000000000000
+export ROLLUP_GENESIS_ACCOUNTS=<GENESIS_ADDRESS>:<BALANCE>
 export ROLLUP_SEQUENCER_INITIAL_BLOCK_HEIGHT=<INITIAL_SEQUENCER_BLOCK_HEIGHT>
 export ROLLUP_SEQUENCER_WEBSOCKET=wss://rpc.sequencer.dusk-1.devnet.astria.org/websocket
 export ROLLUP_SEQUENCER_RPC=https://rpc.sequencer.dusk-1.devnet.astria.org
@@ -215,7 +215,9 @@ config:
     chainId: # derived from rollup name
     networkId: <YOUR_NETWORK_ID>
     skipEmptyBlocks: true
-    genesisAccounts: []
+    genesisAccounts: 
+      - address: 0x<GENESIS_ADDRESS>
+        balance: '<BALANCE>'
   sequencer:
     initialBlockHeight: <INITIAL_SEQUENCER_BLOCK_HEIGHT>
     websocket: ws://rpc.sequencer.dusk-1.devnet.astria.org/websocket
