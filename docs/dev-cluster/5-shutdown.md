@@ -4,6 +4,11 @@ sidebar_position: 5
 
 # Shutting Down the Cluster
 
+:::tip
+To deploy your own rollup on the Astria Dusknet devnet, check out the
+[instructions here](/docs/running-a-rollup-on-astria-dusknet/overview/)!
+:::
+
 ## Deleting Specific Rollups
 
 To delete a specific rollup deployment, you can use the following command:

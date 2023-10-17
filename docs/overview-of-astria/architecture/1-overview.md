@@ -4,6 +4,11 @@ sidebar_position: 1
 
 # Architecture Overview
 
+:::tip
+To deploy your own rollup on the Astria Dusknet devnet, check out the
+[instructions here](/docs/running-a-rollup-on-astria-dusknet/overview/)!
+:::
+
 At a high level, Astria breaks out all of the components that are historically
 combined together in monolithic blockchains into individual components. This
 results in a modular ecosystem that allows users to swap out components to fit

@@ -4,7 +4,12 @@ sidebar_position: 2
 
 # Running the Dev Cluster Locally
 
-### Installation
+:::tip
+To deploy your own rollup on the Astria Dusknet devnet, check out the
+[instructions here](/docs/running-a-rollup-on-astria-dusknet/overview/)!
+:::
+
+## Installation
 You will need to pull both the [dev-cluster](https://github.com/astriaorg/dev-cluster) and [astria-web3](https://github.com/astriaorg/astria-web3) repos from our github.
 
 Install the necessary dependencies and tools listed for each repo:
@@ -19,7 +24,7 @@ For contract deployment:
 
 * Forge (part of Foundry) - https://book.getfoundry.sh/getting-started/installation
 
-### Deployment
+## Deployment
 
 :::tip
 Make sure that Docker is running before deploying with `just`.

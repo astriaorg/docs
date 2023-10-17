@@ -4,7 +4,12 @@ sidebar_position: 3
 
 # Running a Local Rollup
 
-### Faucet, Block Explorer, and Test Data
+:::tip
+To deploy your own rollup on the Astria Dusknet devnet, check out the
+[instructions here](/docs/running-a-rollup-on-astria-dusknet/overview/)!
+:::
+
+## Faucet, Block Explorer, and Test Data
 With the dev-cluster running, you can then deploy a rollup, block explorer, and
 faucet by running the following command in the terminal withing the dev-cluster:
 

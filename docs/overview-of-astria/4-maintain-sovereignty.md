@@ -4,6 +4,11 @@ sidebar_position: 4
 
 # Maintain Sovereignty
 
+:::tip
+To deploy your own rollup on the Astria Dusknet devnet, check out the
+[instructions here](/docs/running-a-rollup-on-astria-dusknet/overview/)!
+:::
+
 Sovereignty is important, so rollups must be able to receive the benefits of
 Astria without fear of being locked in. That’s why swapping out the sequencing
 layer is as simple as updating a rollup node’s software to use a different fork
