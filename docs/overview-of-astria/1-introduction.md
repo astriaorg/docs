@@ -6,7 +6,7 @@ sidebar_position: 1
 
 :::tip
 To deploy your own rollup on the Astria Dusknet devnet, check out the
-[instructions here](/docs/running-a-rollup-on-astria-dusknet/overview/)!
+[instructions here](/docs/dusknet/overview/)!
 :::
 
 Astria is a shared sequencing network that allows many rollups to share a single
