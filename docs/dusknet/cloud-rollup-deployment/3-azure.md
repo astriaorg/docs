@@ -309,4 +309,63 @@ astria-cli rollup deployment create \
   --sequencer-private-key $SEQUENCER_PRIV_KEY
 ```
 
-<!-- TODO: add observe deployment section -->
+## Observe your Deployment
+
+Your rollups utility endpoints are as follows:
+
+| Utility | URL |
+|-----|-----|
+| Block Explorer | http://blockscout.<YOUR_ROLLUP_NAME>.<YOUR_HOSTNAME>/ |
+| Faucet | http://faucet.<YOUR_ROLLUP_NAME>.<YOUR_HOSTNAME>/ |
+| RPC | http://executor.<YOUR_ROLLUP_NAME>.<YOUR_HOSTNAME>/ |
+
+Open the URLs in your browser to view your running rollup.
+
+## Debug Ingress
+
+If you would like to view the ingress logs you can use the following:
+
+```bash
+kubectl get po -n ingress-nginx
+# get the name of one of the pods
+export INGRESS_POD_1=ingress-nginx-controller-6d6559598-ll8gv
+# view the logs
+kubectl logs $INGRESS_POD_1 -n ingress-nginx
+```
+
+## Use `cast` to Interact with your Rollup
+
+```bash
+export ETH_RPC_URL=http://executor.<YOUR_ROLLUP_NAME>.<YOUR_HOSTNAME>/
+```
+
+```bash
+cast block 0
+```
+
+Use an address of your choice.
+
+```bash
+export REC_ADDR=<SOME_ADDRESS>
+```
+
+```bash
+cast balance $REC_ADDR
+```
+
+```bash
+cast send $REC_ADDR --value 10000000000000000000 --private-key $ROLLUP_FAUCET_PRIV_KEY
+```
+
+```bash
+cast balance $REC_ADDR
+```
+
+## Fund you Sequencer Account
+
+Using your sequencer pub key you created in the [Create a New Sequencer
+Account](#create-a-new-sequencer-account), copy and past the
+`<SEQUENCER_ACCOUNT_PUB_KEY>` into the input on the faucet page, and mint funds
+to your account:
+
+![Sequencer Faucet](../assets/sequencer-faucet.png)
