@@ -6,6 +6,10 @@ sidebar_position: 1
 
 Deploy your rollup to Digital Ocean.
 
+:::info
+The list of local dependencies for the following instructions [can be found here](/docs/dusknet/1-overview.md).
+:::
+
 The following assumes you are using [Digital Ocean Kubernetes
 (DOKS)](https://www.digitalocean.com/products/kubernetes).
 

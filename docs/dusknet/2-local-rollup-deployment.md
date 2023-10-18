@@ -23,7 +23,7 @@ You can add genesis account(s) to your rollup during configuration.
 This is done by `export`ing the additional `ROLLUP_GENESIS_ACCOUNTS` environment variable.
 
 ```bash
-export ROLLUP_GENESIS_ACCOUNTS=<GENESIS_ADDRESS>:100000000000000000000
+export ROLLUP_GENESIS_ACCOUNTS=<GENESIS_ADDRESS>:<BALANCE>
 ```
 
 You can create an account using

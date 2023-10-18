@@ -6,6 +6,10 @@ sidebar_position: 4
 
 Deploy your rollup to AWS.
 
+:::info
+The list of local dependencies for the following instructions [can be found here](/docs/dusknet/1-overview.md).
+:::
+
 # Astria Prerequisites?
 
 ## Create an AWS Account

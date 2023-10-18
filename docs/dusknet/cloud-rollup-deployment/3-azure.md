@@ -6,17 +6,18 @@ sidebar_position: 3
 
 Deploy your rollup to Azure.
 
+:::info
+The list of local dependencies for the following instructions [can be found here](/docs/dusknet/1-overview.md).
+:::
+
 ## Create an Azure Account
 
 https://azure.microsoft.com/en-us/free
 
 ## Install Azure `az` CLI
 
-https://learn.microsoft.com/en-us/cli/azure/install-azure-cli
-
-```bash
-brew update && brew install azure-cli
-```
+Following the instructions on how to install the cli for your OS here: 
+- https://learn.microsoft.com/en-us/cli/azure/install-azure-cli
 
 ## AKS Quickstart
 
