@@ -35,7 +35,7 @@ Follow the instructions here:
 
 ## Digital Ocean Loadbalancer
 
-Look for a new loadbalancer being created in the Digital Ocean consol:
+Look for a new loadbalancer being created in the Digital Ocean console:
 https://cloud.digitalocean.com/networking/load_balancers
 
 You can also check that your Digital Ocean load balancer was created using the
