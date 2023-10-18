@@ -19,7 +19,9 @@ In the __dev-cluster repo__, run:
 ```sh
 git clone git@github.com:astriaorg/dev-cluster.git
 cd dev-cluster
-just deploy-astria-ingress
+just create-cluster
+just deploy-ingress-controller
+just wait-for-ingress-controller
 ```
 
 This gives us a local environment compatible with our helm charts.
