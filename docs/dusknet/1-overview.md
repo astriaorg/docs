@@ -18,7 +18,7 @@ Clone the [dev-cluster](https://github.com/astriaorg/dev-cluster/tree/main) and 
 
 ```bash
 git clone git@github.com:astriaorg/astria.git
-git clone https://github.com/astriaorg/dev-cluster
+git clone git@github.com:astriaorg/dev-cluster.git
 ```
 
 And install the following tools:

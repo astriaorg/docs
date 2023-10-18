@@ -1,8 +1,10 @@
 ---
-sidebar_position: 4
+sidebar_position: 1
 ---
 
-# Cloud Rollup Deployment
+# Digital Ocean
+
+Deploy your rollup to Digital Ocean.
 
 The following assumes you are using [Digital Ocean Kubernetes
 (DOKS)](https://www.digitalocean.com/products/kubernetes).
@@ -395,4 +397,4 @@ Account](#create-a-new-sequencer-account), copy and past the
 `<SEQUENCER_ACCOUNT_PUB_KEY>` into the input on the faucet page, and mint funds
 to your account:
 
-![Sequencer Faucet](./assets/sequencer-faucet.png)
+![Sequencer Faucet](../assets/sequencer-faucet.png)
