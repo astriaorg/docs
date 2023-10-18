@@ -52,7 +52,7 @@ az aks create -g myResourceGroup -n myAKSCluster --enable-managed-identity --nod
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-# Setup Ingress Controller
+## Setup Ingress Controller
 
 ### Deploy Nginx Ingress Controller
 
@@ -66,14 +66,23 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/cont
 
 ```bash
 kubectl get svc -n ingress-nginx
+```
 
+You should see something like this:
+
+```bash
 NAME                                 TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)                      AGE
 ingress-nginx-controller             LoadBalancer   10.0.25.103   20.72.189.135   80:30513/TCP,443:30321/TCP   5m43s
 ingress-nginx-controller-admission   ClusterIP      10.0.242.54   <none>          443/TCP                      5m43s
 ```
 
+Check the external IP
+
 ```bash
 curl 20.72.189.135
+```
+
+```bash
 <html>
 <head><title>404 Not Found</title></head>
 <body>
@@ -82,17 +91,65 @@ curl 20.72.189.135
 </body>
 </html>
 ```
+## Creating your own Genesis Account
+
+You can add genesis account(s) to your rollup during configuration.
+
+You can create an account using
+
+```bash
+cast w new
+```
+
+to create a new account:
+
+```bash
+Successfully created new keypair.
+Address:     0xfFe9...5f8b # <GENESIS_ADDRESS>
+Private key: 0x332e...a8fb # <GENESIS_PRIVATE_KEY>
+```
+
+You can then `export` the genesis accounts like so:
+```bash
+export ROLLUP_GENESIS_ACCOUNTS=<GENESIS_ADDRESS>:<BALANCE>
+```
+
+`export` the private key to the env vars using:
+```bash
+export ROLLUP_FAUCET_PRIV_KEY=<GENESIS_PRIVATE_KEY>
+```
+
+:::danger
+__NEVER__ use a private key you use on a live network. 
+:::
 
 ## Configure and Deploy Rollup
 
-### Modify Dev-Cluster
+### Update the `helm` Chart
 
-<aside>
-❗ **********TODO:********** Create an example PR for this to show the diff
+Pull the [Astria dev-cluster repo](https://github.com/astriaorg/dev-cluster):
+```bash
+git clone git@github.com:astriaorg/dev-cluster.git
+cd dev-cluster
+```
 
-</aside>
+Within the dev-cluster repo, update the ingress template
+`chart/rollup/templates/ingress.yaml` so that each hostname ends in
+`<YOUR_HOSTNAME>` instead of `localdev.me`
 
-Modify https://github.com/astriaorg/dev-cluster/blob/main/charts/rollup/templates/ingress.yaml
+```yaml
+...
+- host: executor.{{ .Values.config.rollup.name }}.<YOUR_HOSTNAME>
+...
+- host: ws-executor.{{ .Values.config.rollup.name }}.<YOUR_HOSTNAME>
+...
+- host: faucet.{{ .Values.config.rollup.name }}.<YOUR_HOSTNAME>
+...
+- host: blockscout.{{ .Values.config.rollup.name }}.<YOUR_HOSTNAME>
+...
+```
+
+Add an IngressClass so that the `metadata` section in the same file looks like:
 
 ```yaml
 metadata:
@@ -102,77 +159,123 @@ metadata:
     kubernetes.io/ingress.class: nginx
 ```
 
-```yaml
-- host: executor.{{ .Values.config.rollup.name }}.basedon.io
-- host: ws-executor.{{ .Values.config.rollup.name }}.basedon.io
-- host: faucet.{{ .Values.config.rollup.name }}.basedon.io
-- host: blockscout.{{ .Values.config.rollup.name }}.basedon.io
-```
+:::tip
+You can see an example of these changes in [this PR here](https://github.com/astriaorg/dev-cluster/pull/119/files).
+:::
 
-### Get Sequencer Block Height
+## Install the `astria-cli`
+
+Pull the [Astria repo](https://github.com/astriaorg/astria) and install the `astria-cli`
 
 ```bash
-curl -s https://rpc.sequencer.dusk-1.devnet.astria.org/block | jq .result.block.header.height
-
-"6567"
+git clone git@github.com:astriaorg/astria.git
+cd astria
+just install-cli
 ```
+
+### Get Current Sequencer Block Height
+
+```bash
+astria-cli sequencer blockheight get \
+  --sequencer-url https://rpc.sequencer.dusk-1.devnet.astria.org/
+```
+
+Save the returned value for later. You will replace the
+`<INITIAL_SEQUENCER_BLOCK_HEIGHT>` tag in the following sections with this
+value.
 
 ### Set Environment Variables
 
-```yaml
+Replace the tags in the commands and env vars below, as follows:
+
+| Var Name | Var Type | Description |
+|-----|-----|-----|
+| `<YOUR_ROLLUP_NAME>` | String | The name of your rollup |
+| `<YOUR_NETWORK_ID>` | u64 | The id of your network |
+| `<INITIAL_SEQUENCER_BLOCK_HEIGHT>` | u64 | The height of the sequencer (found above) |
+| `<GENESIS_ADDRESS>` | [u8; 40] | A wallet address |
+| `<BALANCE>` | u64 | A balance. It is useful to make this a large value. |
+<!-- TODO: potentially remove the initial sequencer block height as that may be found automatically -->
+
+<!-- TODO: add this back in when the automated block height is added -->
+<!-- :::tip
+You can also optionally leave out the `--sequencer.initial-block-height` input
+in the command above, and the cli will fetch the initial sequencer block height
+for you.
+::: -->
+
+You can use environment variables to set the configuration for the rollup
+config creation. Replace all the `<>` tags with their corresponding values. 
+
+```bash
 export ROLLUP_USE_TTY=true
 export ROLLUP_LOG_LEVEL=DEBUG
-export ROLLUP_NAME=josh-azure
-export ROLLUP_CHAIN_ID=0x1234
-export ROLLUP_NETWORK_ID=111120
+export ROLLUP_NAME=<YOUR_ROLLUP_NAME>
+export ROLLUP_NETWORK_ID=<YOUR_NETWORK_ID>
 export ROLLUP_SKIP_EMPTY_BLOCKS=false
-# address from cast new
-export ROLLUP_GENESIS_ACCOUNTS=0x7380E82605879574c468959508A7A5868b8AB022:100000000000000000000
-export ROLLUP_SEQUENCER_INITIAL_BLOCK_HEIGHT=6567
+export ROLLUP_GENESIS_ACCOUNTS=<GENESIS_ADDRESS>:<BALANCE>
+export ROLLUP_SEQUENCER_INITIAL_BLOCK_HEIGHT=<INITIAL_SEQUENCER_BLOCK_HEIGHT>
 export ROLLUP_SEQUENCER_WEBSOCKET=wss://rpc.sequencer.dusk-1.devnet.astria.org/websocket
 export ROLLUP_SEQUENCER_RPC=https://rpc.sequencer.dusk-1.devnet.astria.org
 ```
 
 ### Create Config
 
+Once the environment variables shown above are set, run the following command to
+create the rollup config:
 ```bash
-./target/release/astria-cli rollup config create
+astria-cli rollup config create
 ```
 
-```bash
-cat josh-azure-rollup-conf.yaml
+You can then run:
 
+```sh
+cat <YOUR_ROLLUP_NAME>-rollup-conf.yaml
+```
+
+to print out the config file contents to double check everything:
+
+```sh
 config:
   useTTY: true
   logLevel: DEBUG
   rollup:
-    name: josh-azure
-    chainId: '0x1234'
-    networkId: 111120
-    skipEmptyBlocks: false
-    genesisAccounts:
-    - address: 7380E82605879574c468959508A7A5868b8AB022
-      balance: '100000000000000000000'
+    name: <YOUR_ROLLUP_NAME>
+    chainId: # derived from rollup name
+    networkId: <YOUR_NETWORK_ID>
+    skipEmptyBlocks: true
+    genesisAccounts: 
+      - address: 0x<GENESIS_ADDRESS>
+        balance: '<BALANCE>'
   sequencer:
-    initialBlockHeight: 6567
-    websocket: wss://rpc.sequencer.dusk-1.devnet.astria.org/websocket
-    rpc: https://rpc.sequencer.dusk-1.devnet.astria.org
+    initialBlockHeight: <INITIAL_SEQUENCER_BLOCK_HEIGHT>
+    websocket: ws://rpc.sequencer.dusk-1.devnet.astria.org/websocket
+    rpc: http://rpc.sequencer.dusk-1.devnet.astria.org
+  celestia:
+    fullNodeUrl: http://celestia-service:26658
+```
+
+Export this file to the env vars as follows:
+```bash
+export ROLLUP_CONF_FILE=<YOUR_ROLLUP_NAME>-rollup-conf.yaml
 ```
 
 ```bash
-./astria-cli sequencer account create
+astria-cli sequencer account create
+```
 
+## Create new sequencer account
+
+```bash
 Create Sequencer Account
 
-Private Key: "09812cff76bf921ddacd6b2079b5b2baee4bb6ccf1f0929617e77087b68a691c"
-Public Key:  "f08ea29bc9fed30409a4b57d028628d88dd4b35754239d2393d037a241a48a4d"
-Address:     "8f40bdc756e6f6c67f48b5b80ad5a3097ef264fb"
+Private Key: "0981...691c"
+Public Key:  "f08e...8a4d"
+Address:     "8f40...64fb"
 ```
 
 ```bash
-export COMPOSER_PRIV_KEY=09812cff76bf921ddacd6b2079b5b2baee4bb6ccf1f0929617e77087b68a691c
-# priv key from cast new
-export ROLLUP_FAUCET_PRIV_KEY=e71016b4bd662720f8424972bad190a9ed1793a020a4a96af93772c3eae6e05f
+export SEQUENCER_PRIV_KEY=0981...691c
 ```
 
 ### Create Namespace
@@ -181,11 +284,26 @@ export ROLLUP_FAUCET_PRIV_KEY=e71016b4bd662720f8424972bad190a9ed1793a020a4a96af9
 kubectl apply -f kubernetes/namespace.yml
 ```
 
-### Deploy Rollup
+### Use locally modified chart
+
+:::danger
+You __must__ have modified your local `helm` chart to use your own domain name
+as described in [this section here](#update-the-helm-chart).
+:::
+
+Because you needed to modify the host names inside your ingress template you must deploy your rollup using your local chart:
 
 ```bash
-./astria-cli rollup deployment create \
-  --config josh-azure-rollup-conf.yaml \
+export ROLLUP_CHART_PATH="/your_path_to/dev-cluster/charts/rollup"
+```
+
+### Deploy the Rollup Node
+
+Use the `astria-cli` to deploy the node.
+
+```bash
+astria-cli rollup deployment create \
+  --config $ROLLUP_CONF_FILE \
   --faucet-private-key $ROLLUP_FAUCET_PRIV_KEY \
-  --sequencer-private-key $COMPOSER_PRIV_KEY --chart-path charts/rollup
+  --sequencer-private-key $SEQUENCER_PRIV_KEY
 ```

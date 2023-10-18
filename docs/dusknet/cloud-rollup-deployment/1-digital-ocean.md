@@ -163,10 +163,6 @@ cd astria
 just install-cli
 ```
 
-Keep track of this block height as it will be used for making the rollup config
-later on. You will use this printed height in place of
-`<INITIAL_SEQUENCER_BLOCK_HEIGHT>` in the steps below.
-
 ## Using the `astria-cli`
 
 ### Get Current Sequencer Block Height
@@ -179,6 +175,8 @@ astria-cli sequencer blockheight get \
 Save the returned value for later. You will replace the
 `<INITIAL_SEQUENCER_BLOCK_HEIGHT>` tag in the following sections with this
 value.
+
+## Create Rollup Config
 
 Replace the tags in the commands and env vars below, as follows:
 
@@ -197,8 +195,6 @@ You can also optionally leave out the `--sequencer.initial-block-height` input
 in the command above, and the cli will fetch the initial sequencer block height
 for you.
 ::: -->
-
-## Create Rollup Config
 
 You can use environment variables to set the configuration for the rollup
 config creation. Replace all the `<>` tags with their corresponding values. 
