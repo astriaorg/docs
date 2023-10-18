@@ -92,6 +92,7 @@ curl 20.72.189.135
 </body>
 </html>
 ```
+
 ## Creating your own Genesis Account
 
 You can add genesis account(s) to your rollup during configuration.
@@ -261,11 +262,11 @@ Export this file to the env vars as follows:
 export ROLLUP_CONF_FILE=<YOUR_ROLLUP_NAME>-rollup-conf.yaml
 ```
 
+## Create new sequencer account
+
 ```bash
 astria-cli sequencer account create
 ```
-
-## Create new sequencer account
 
 ```bash
 Create Sequencer Account
