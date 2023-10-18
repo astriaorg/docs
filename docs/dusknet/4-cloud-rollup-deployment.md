@@ -58,7 +58,7 @@ Follow the steps here to set up an `A` record for DNS:
 - https://docs.digitalocean.com/products/networking/dns/how-to/manage-records/#a-records
 
 :::tip
-When configure=ing the `A` record for DNS, the `directs to` value should specify the `loadbalancer` which was created for the `nginx-ingress-controller` using the console. 
+When configuring the `A` record for DNS, the `directs to` value should specify the `loadbalancer` which was created by the `nginx-ingress-controller`. 
 :::
 
 ## Endpoints
@@ -76,7 +76,7 @@ Endpoints for the remote cluster are the following:
 ## Update the `helm` Chart
 
 :::danger
-Deploy a rollup to a cloud provider requires manual changes to the `helm`
+Deploying a rollup to a cloud provider requires manual changes to the `helm`
 charts. Because the default `localdev.me` hostname will not work on a cloud
 provider.
 :::
@@ -147,8 +147,6 @@ Exporting the genesis account(s) is also shown in the export block in the next s
 
 :::danger
 __NEVER__ use a private key you use on a live network. 
-
-For ease of use we recommend you set this to an  key which you have access to
 :::
 
 ## Get and Build the `astria-cli`
