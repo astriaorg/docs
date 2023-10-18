@@ -2,49 +2,64 @@
 sidebar_position: 4
 ---
 
-# Remote Rollup Deployment
+# Cloud Rollup Deployment
 
 The following assumes you are using [Digital Ocean Kubernetes
 (DOKS)](https://www.digitalocean.com/products/kubernetes).
+
+We recommend using Digital Ocean's Kubernetes [Quick Start Guide](https://docs.digitalocean.com/products/kubernetes/getting-started/quickstart/).
 
 :::warning
 You must use at least a 2 node cluster.
 :::
 
-## Manually Setup Digital Ocean Ingress
+## Setup Digital Ocean Ingress
 
-Follow the steps here to setup the nginx ingress controller:
-- https://marketplace.digitalocean.com/apps/nginx-ingress-controller
+We use the Ingress NGINX Controller for consistency across deployment environments:
+- https://kubernetes.github.io/ingress-nginx/deploy/#digital-ocean
 
-Follow the steps here to add your own domain:
+```bash
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/do/deploy.yaml
+```
+
+## Configure Your Own Domain
+
+:::tip
+You must configure a DNS record because our ingress configuration uses name based virtual routing: https://kubernetes.io/docs/concepts/services-networking/ingress/#name-based-virtual-hosting.
+:::
+
+Follow the instructions here:
 - https://docs.digitalocean.com/products/networking/dns/getting-started/dns-registrars/
 - This is where you will set `<YOUR_HOSTNAME>`
 
+
+## Digital Ocean Loadbalancer
+
+Look for a new loadbalancer being created in the Digital Ocean consol:
+https://cloud.digitalocean.com/networking/load_balancers
+
+You can also check that your Digital Ocean load balancer was created using the
+following command:
+
+```bash
+kubectl get svc -n ingress-nginx
+```
+
+You should see something like this:
+
+```bash
+NAME                                 TYPE           CLUSTER-IP      EXTERNAL-IP     PORT(S)                      AGE
+ingress-nginx-controller             LoadBalancer   10.245.63.28    161.35.240.50   80:32656/TCP,443:30158/TCP   44h
+ingress-nginx-controller-admission   ClusterIP      10.245.106.99   <none>          443/TCP                      44h
+```
+
+## Set up an `A` Record for your Load Balancer
 Follow the steps here to set up an `A` record for DNS:
 - https://docs.digitalocean.com/products/networking/dns/how-to/manage-records/#a-records
 
 :::tip
 When configure=ing the `A` record for DNS, the `directs to` value should specify the `loadbalancer` which was created for the `nginx-ingress-controller` using the console. 
 :::
-
-## Watching Ingress Deployment
-
-Look for `ingress-nginx`
-
-```bash
-kubectl get ns -w
-```
-
-Look for two pods starting with `ingress-nginx-controller` in STATUS `Running`
-
-```bash
-kubectl get po -n ingress-nginx -w
-```
-
-## Digital Ocean Loadbalancer
-
-Look for a new loadbalancer being created:
-https://cloud.digitalocean.com/networking/load_balancers
 
 ## Endpoints
 
@@ -59,6 +74,12 @@ Endpoints for the remote cluster are the following:
 | Sequencer Faucet | faucet.sequencer.dusk-1.devnet.astria.org | 34.36.8.102 |
 
 ## Update the `helm` Chart
+
+:::danger
+Deploy a rollup to a cloud provider requires manual changes to the `helm`
+charts. Because the default `localdev.me` hostname will not work on a cloud
+provider.
+:::
 
 Pull the [Astria dev-cluster repo](https://github.com/astriaorg/dev-cluster):
 ```bash
@@ -89,6 +110,9 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
 ```
+:::tip
+You can see an example of these changes in [this PR here](https://github.com/astriaorg/dev-cluster/pull/119/files).
+:::
 
 ## Creating your own Genesis Account
 
@@ -174,7 +198,7 @@ in the command above, and the cli will fetch the initial sequencer block height
 for you.
 ::: -->
 
-## Environment Variables + cli
+## Create Rollup Config
 
 You can use environment variables to set the configuration for the rollup
 config creation. Replace all the `<>` tags with their corresponding values. 
@@ -255,6 +279,11 @@ export SEQUENCER_PRIV_KEY=9c78...710d
 
 ## Use locally modified chart
 
+:::danger
+You __must__ have modified your local `helm` chart to use your own domain name
+as described in [this section here](#update-the-helm-chart).
+:::
+
 Because you needed to modify the host names inside your ingress template you must deploy your rollup using your local chart:
 
 ```bash
@@ -270,15 +299,6 @@ astria-cli rollup deployment create \
   --config $ROLLUP_CONF_FILE \
   --faucet-private-key $ROLLUP_FAUCET_PRIV_KEY \
   --sequencer-private-key $SEQUENCER_PRIV_KEY
-```
-
-## Delete Rollup Node
-
-If there was an error during deployment, you can delete your deployment and try
-again with the following:
-
-```bash
-astria-cli rollup deployment delete --config $ROLLUP_CONF_PATH
 ```
 
 ## Default to `astria-dev-cluster` namespace

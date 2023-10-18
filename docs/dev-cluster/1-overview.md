@@ -6,7 +6,7 @@ sidebar_position: 1
 
 :::tip
 To deploy your own rollup on the Astria Dusknet devnet, check out the
-[instructions here](/docs/running-a-rollup-on-astria-dusknet/overview/)!
+[instructions here](/docs/dusknet/overview/)!
 :::
 
 Astria's Shared Sequencer Network allows multiple rollups to share a single decentralized network of sequencers that’s permissionless to join. This shared sequencer network provides out-of-the-box censorship resistance, fast block confirmations, and atomic cross-rollup inclusion guarantees.
@@ -23,7 +23,7 @@ as simple as possible.
 The primary use of the dev-cluster is running the full stack completely locally.
 There are elements of it that are used for running a local rollup that connects
 to the remote dev-net, but those will be [discussed in another
-section](/docs/running-a-rollup-on-astria-dusknet/local-rollup-deployment/).
+section](/docs/dusknet/local-rollup-deployment/).
 :::
 
 See the [dev-cluster repo here.](https://github.com/astriaorg/dev-cluster)

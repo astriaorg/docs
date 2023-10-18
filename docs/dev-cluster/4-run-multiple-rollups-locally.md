@@ -6,7 +6,7 @@ sidebar_position: 4
 
 :::tip
 To deploy your own rollup on the Astria Dusknet devnet, check out the
-[instructions here](/docs/running-a-rollup-on-astria-dusknet/overview/)!
+[instructions here](/docs/dusknet/overview/)!
 :::
 
 At Astria we believe strongly that deploying a rollup should be as easy as deploying a smart contract. The dev-cluster shows this is indeed possible.

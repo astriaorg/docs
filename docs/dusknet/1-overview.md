@@ -11,10 +11,17 @@ The primary difference between running a local rollup and one that targets the
 remote devnet, is the configuration of the rollup and creating an account for
 the Sequencer.
 
-As before with running a local dev-cluster, you will need to have the
-[dev-cluster](https://github.com/astriaorg/dev-cluster/tree/main) and the main
-[astria repo](https://github.com/astriaorg/astria) cloned and on your machine,
-and also have the following dependencies installed:
+## Local Dependencies
+
+Clone the [dev-cluster](https://github.com/astriaorg/dev-cluster/tree/main) and the main
+[astria repo](https://github.com/astriaorg/astria) repo:
+
+```bash
+git clone git@github.com:astriaorg/astria.git
+git clone https://github.com/astriaorg/dev-cluster
+```
+
+And install the following tools:
 - Foundry Cast and Forge tools - https://book.getfoundry.sh/getting-started/installation
 - docker - https://docs.docker.com/get-docker/
 - kubectl - https://kubernetes.io/docs/tasks/tools/
@@ -22,7 +29,8 @@ and also have the following dependencies installed:
 - kind - https://kind.sigs.k8s.io/docs/user/quick-start/#installation
 - just - https://just.systems/man/en/chapter_4.html
 
-Many of these dependencies are also required for running the local dev-cluster.
+Many of these dependencies are also required for running the local dev-cluster
+if you have previously done that.
 
 For reference, the latest component releases that the devnet cluster is running are the
 following:

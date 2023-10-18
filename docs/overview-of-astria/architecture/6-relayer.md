@@ -6,7 +6,7 @@ sidebar_position: 6
 
 :::tip
 To deploy your own rollup on the Astria Dusknet devnet, check out the
-[instructions here](/docs/running-a-rollup-on-astria-dusknet/overview/)!
+[instructions here](/docs/dusknet/overview/)!
 :::
 
 The Relayer's responsibility is to take validated blocks from the sequencer and
