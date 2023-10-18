@@ -83,7 +83,7 @@ Check the external IP
 curl 20.72.189.135
 ```
 
-```bash
+```html
 <html>
 <head><title>404 Not Found</title></head>
 <body>

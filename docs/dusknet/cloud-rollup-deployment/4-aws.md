@@ -110,7 +110,9 @@ Balancers section using the `EXTERNAL-IP` from the previous `kubectl` output.
 
 ```bash
 curl ac1f86093ea7240c89457da3d5f71fc4-947b3172412ab75c.elb.us-east-1.amazonaws.com
+```
 
+```html
 <html>
 <head><title>404 Not Found</title></head>
 <body>
