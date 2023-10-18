@@ -228,3 +228,5 @@ kubectl apply -f kubernetes/namespace.yml
   --faucet-private-key $ROLLUP_FAUCET_PRIV_KEY \
   --sequencer-private-key $COMPOSER_PRIV_KEY --chart-path charts/rollup
 ```
+
+<!-- TODO: add observe deployment section -->

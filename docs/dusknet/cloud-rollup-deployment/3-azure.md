@@ -307,3 +307,5 @@ astria-cli rollup deployment create \
   --faucet-private-key $ROLLUP_FAUCET_PRIV_KEY \
   --sequencer-private-key $SEQUENCER_PRIV_KEY
 ```
+
+<!-- TODO: add observe deployment section -->
