@@ -12,6 +12,7 @@ To deploy your own rollup on the Astria Dusknet devnet, check out the
 ## Deleting Specific Rollups
 
 To delete a specific rollup deployment, you can use the following command:
+
 ```bash
 just delete-rollup <ROLLUP_NAME>
 ```
@@ -22,6 +23,7 @@ of the cluster running.
 ## Shutting Down the Whole Cluster
 
 If you just want to shut everything down, you can run:
+
 ```bash
 just clean
 ```
