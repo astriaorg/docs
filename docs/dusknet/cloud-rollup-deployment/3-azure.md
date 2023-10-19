@@ -93,6 +93,18 @@ curl 20.72.189.135
 </html>
 ```
 
+## Create an A Record
+
+TODO!!!
+
+:::danger
+You must configure a DNS record because our ingress configuration uses name
+based virtual routing.
+More info here: https://kubernetes.io/docs/concepts/services-networking/ingress/#name-based-virtual-hosting
+:::
+
+![CNAME record Example](../assets/cname-record-example.png)
+
 ## Creating your own Genesis Account
 
 You can add genesis account(s) to your rollup during configuration.
