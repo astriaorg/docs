@@ -140,7 +140,7 @@ Private key: 0x332e...a8fb # <GENESIS_PRIVATE_KEY>
 
 You can then `export` the genesis accounts like so:
 ```bash
-export ROLLUP_GENESIS_ACCOUNTS=<GENESIS_ADDRESS>:100000000000000000000
+export ROLLUP_GENESIS_ACCOUNTS=<GENESIS_ADDRESS>:<BALANCE>
 ```
 
 Set `<GENESIS_ADDRESS>` to the address printed out from the new command, and
@@ -392,8 +392,8 @@ cast balance $REC_ADDR
 
 ## Fund you Sequencer Account
 
-Using your sequencer pub key you created in the [Create a New Sequencer
-Account](#create-a-new-sequencer-account), copy and past the
+Using your sequencer pub key you created in the 
+[Create a New Sequencer Account](#create-new-sequencer-account) section, copy and past the
 `<SEQUENCER_ACCOUNT_PUB_KEY>` into the input on the faucet page, and mint funds
 to your account:
 

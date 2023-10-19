@@ -408,8 +408,8 @@ cast balance $REC_ADDR
 
 ## Fund you Sequencer Account
 
-Using your sequencer pub key you created in the [Create a New Sequencer
-Account](#create-a-new-sequencer-account), copy and past the
+Using your sequencer pub key you created in the 
+[Create a New Sequencer Account](#create-new-sequencer-account) section, copy and past the
 `<SEQUENCER_ACCOUNT_PUB_KEY>` into the input on the faucet page, and mint funds
 to your account:
 

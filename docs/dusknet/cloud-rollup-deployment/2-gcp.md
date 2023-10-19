@@ -117,15 +117,17 @@ curl 34.42.184.206
 
 ## Create an A Record
 
-TODO!!!
+Creating an A record will depend on where you purchased your domain from. Each
+domain provider will have different steps required to set up an A record.
+
+An example (for Google domains) can be seen here:
+- https://support.google.com/a/answer/2579934?hl=en
 
 :::danger
 You must configure a DNS record because our ingress configuration uses name
 based virtual routing.
 More info here: https://kubernetes.io/docs/concepts/services-networking/ingress/#name-based-virtual-hosting
 :::
-
-![CNAME record Example](../assets/cname-record-example.png)
 
 ## Creating your own Genesis Account
 
@@ -403,8 +405,8 @@ cast balance $REC_ADDR
 
 ## Fund you Sequencer Account
 
-Using your sequencer pub key you created in the [Create a New Sequencer
-Account](#create-a-new-sequencer-account), copy and past the
+Using your sequencer pub key you created in the 
+[Create a New Sequencer Account](#create-new-sequencer-account) section, copy and past the
 `<SEQUENCER_ACCOUNT_PUB_KEY>` into the input on the faucet page, and mint funds
 to your account:
 
