@@ -28,6 +28,10 @@ module.exports = {
           code_block_line_length: 120,
           tables: false
         }],
+        'markdownlint/md024': [ 'error', {
+            allow_different_nesting: true
+          }
+        ],
         'markdownlint/md032': "off",
       }
     },
