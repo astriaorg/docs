@@ -286,3 +286,7 @@ p {
   font-family: Nb akademie webfont, sans-serif;
   font-weight: 400;
 }
+
+.menu__link {
+  letter-spacing: -0.04em;
+}

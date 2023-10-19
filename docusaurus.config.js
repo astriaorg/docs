@@ -80,8 +80,8 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Running a rollup on Astria Dusknet',
-                to: '/docs/running-a-rollup-on-astria-dusknet/overview/',
+                label: 'Astria Dusknet',
+                to: '/docs/dusknet/overview/',
               },
               {
                 label: 'Overview',

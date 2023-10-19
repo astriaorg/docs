@@ -1,8 +1,8 @@
 {
   "label": "Running a Rollup on Dusknet",
-  "position": 1,
+  "position": 3,
   "link": {
     "type": "doc",
-    "id": "running-a-rollup-on-astria-dusknet/overview"
+    "id": "dusknet/overview"
   }
 }
