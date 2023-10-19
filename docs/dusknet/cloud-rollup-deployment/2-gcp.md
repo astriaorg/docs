@@ -115,9 +115,9 @@ curl 34.42.184.206
 </html>
 ```
 
-## Create an A Record
+## Create an `A` Record
 
-Creating an A record will depend on where you purchased your domain from. Each
+Creating an `A` record will depend on where you purchased your domain from. Each
 domain provider will have different steps required to set up an A record.
 
 An example (for Google domains) can be seen here:

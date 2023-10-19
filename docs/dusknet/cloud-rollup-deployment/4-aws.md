@@ -122,7 +122,7 @@ curl ac1f86093ea7240c89457da3d5f71fc4-947b3172412ab75c.elb.us-east-1.amazonaws.c
 </html>
 ```
 
-## Create a CNAME record
+## Create a `CNAME` record
 
 :::danger
 You must configure a DNS record because our ingress configuration uses name
