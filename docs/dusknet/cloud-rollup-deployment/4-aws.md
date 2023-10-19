@@ -39,7 +39,8 @@ Create an access key for your `root` user.
 
 ```bash
 aws configure
-
+```
+```bash
 # Fill out interactive fields with your access key
 AWS Access Key ID [None]: 
 AWS Secret Access Key [None]: 
@@ -79,8 +80,9 @@ aws eks update-kubeconfig --region <region-code> --name <my-cluster>
 ```
 
 ```bash
-> kubectl get svc
-
+kubectl get svc
+```
+```bash
 NAME             TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
 svc/kubernetes   ClusterIP   10.100.0.1   <none>        443/TCP   1m
 ```
