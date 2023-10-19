@@ -27,7 +27,6 @@ function HomepageHeader() {
 }
 
 export default function Home(): JSX.Element {
-  const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
       description="Homepage for Astria Docs">

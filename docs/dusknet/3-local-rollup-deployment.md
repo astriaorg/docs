@@ -16,11 +16,10 @@ Endpoints for the remote cluster are the following:
 | Sequencer RPC | rpc.sequencer.dusk-1.devnet.astria.org | 34.111.73.187 |
 | Sequencer Faucet | faucet.sequencer.dusk-1.devnet.astria.org | 34.36.8.102 |
 
-
 ## Creating your own Genesis Account
 
-You can add genesis account(s) to your rollup during configuration.
-This is done by `export`ing the additional `ROLLUP_GENESIS_ACCOUNTS` environment variable.
+You can add genesis account(s) to your rollup during configuration. This is done
+by `export`ing the additional `ROLLUP_GENESIS_ACCOUNTS` environment variable.
 
 ```bash
 export ROLLUP_GENESIS_ACCOUNTS=<GENESIS_ADDRESS>:100000000000000000000
@@ -42,6 +41,7 @@ Private key: 0x332e...a8fb # <GENESIS_PRIVATE_KEY>
 
 Set `<GENESIS_ADDRESS>` to the address printed out from the new command, and
 `export` the private key to the env vars using:
+
 ```bash
 export ROLLUP_FAUCET_PRIV_KEY=<GENESIS_PRIVATE_KEY>
 ```
@@ -49,7 +49,7 @@ export ROLLUP_FAUCET_PRIV_KEY=<GENESIS_PRIVATE_KEY>
 This export is also shown in the export block in the next section.
 
 :::danger
-__NEVER__ use a private key you use on a live network. 
+__NEVER__ use a private key you use on a live network.
 
 For ease of use we recommend you set this to an  key which you have access to
 :::
@@ -87,7 +87,6 @@ Replace the following tags in the sections below, as follows:
 | `<INITIAL_SEQUENCER_BLOCK_HEIGHT>` | u64 | The height of the sequencer (found above) |
 | `<GENESIS_ADDRESS>` | [u8; 40] | A wallet address |
 | `<BALANCE>` | u64 | A balance. It is useful to make this a large value. |
-<!-- TODO?: potentially remove the initial sequencer block height as that may be found automatically -->
 
 <!-- TODO: add this back in when the automated block height is added -->
 <!-- :::tip
@@ -99,7 +98,7 @@ for you.
 ## Create Rollup Config
 
 You can use environment variables to set the configuration for the rollup
-config creation. Replace all the `<>` tags with their corresponding values. 
+config creation. Replace all the `<>` tags with their corresponding values.
 
 ```bash
 export ROLLUP_USE_TTY=true
@@ -148,6 +147,7 @@ config:
 ```
 
 Export this file to the env vars as follows:
+
 ```bash
 export ROLLUP_CONF_FILE=<YOUR_ROLLUP_NAME>-rollup-conf.yaml
 ```
@@ -182,7 +182,7 @@ This gives us a local environment compatible with our helm charts.
 ## Create a New Sequencer Account
 
 Back in the __Astria repo__, run the cli to create the address and key
-information for a new sequencer account. 
+information for a new sequencer account.
 
 ```bash
 astria-cli sequencer account create
@@ -203,6 +203,7 @@ Keep track of the `<SEQUENCER_ACCOUNT_PUB_KEY>` as it will be used with the
 Faucet later on for funding your sequencer account.
 
 Now export the private key printed above:
+
 ```bash
 export SEQUENCER_PRIV_KEY=<SEQUENCER_ACCOUNT_PRIV_KEY>
 ```
@@ -224,9 +225,9 @@ Your rollups utility endpoints are as follows:
 
 | Utility | URL |
 |-----|-----|
-| Block Explorer | http://blockscout.<YOUR_ROLLUP_NAME>.localdev.me/ |
-| Faucet | http://faucet.<YOUR_ROLLUP_NAME>.localdev.me/ |
-| RPC | http://executor.<YOUR_ROLLUP_NAME>.localdev.me/ |
+| Block Explorer | `http://blockscout.<YOUR_ROLLUP_NAME>.localdev.me/` |
+| Faucet | `http://faucet.<YOUR_ROLLUP_NAME>.localdev.me/` |
+| RPC | `http://executor.<YOUR_ROLLUP_NAME>.localdev.me/` |
 
 Open the URLs in your browser to view your running rollup.
 
@@ -271,21 +272,25 @@ transactions:        []
 
 If you have an address you would like to deposit funds to, export that address
 to the env vars:
+
 ```bash
 export REC_ADDR=<ADDRESS>
 ```
 
 You can also use `cast` to view your balance:
+
 ```bash
 cast balance $REC_ADDR
 ```
 
 Send an ammount to your address:
+
 ```bash
 cast send $REC_ADDR --value 10000000000000000000 --private-key $ROLLUP_FAUCET_PRIV_KEY
 ```
 
 And view your new balance:
+
 ```bash
 cast balance $REC_ADDR
 ```
