@@ -1,6 +1,6 @@
-# Website
+# Astria Docs
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+The Astria Docs website is built using [Docusaurus 2](https://docusaurus.io/).
 
 ### Installation
 
@@ -25,6 +25,10 @@ $ yarn build
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
 ### Deployment
+
+The main astria docs website is deployed using the [github deploy action](.github/workflows/deploy.yml).
+
+To deploy manually:
 
 Using SSH:
 

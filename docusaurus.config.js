@@ -12,14 +12,11 @@ const config = {
 
   // Set the production url of your site here
   url: 'https://docs.astria.org',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
   // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'AstriaOrg', // Usually your GitHub org/user name.
-  projectName: 'docs', // Usually your repo name.
+  organizationName: 'AstriaOrg',
+  projectName: 'docs', // repo name.
   trailingSlash: true,
 
   onBrokenLinks: 'throw',
@@ -40,18 +37,10 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/astriaorg/docs',
         },
-        // blog: {
-        //   showReadingTime: true,
-        //   // Please change this to your repo.
-        //   // Remove this to remove the "edit this page" links.
-        //   editUrl:
-        //     'https://github.com/astriaorg/docs',
-        // },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -62,7 +51,6 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // Replace with your project's social card
       image: 'img/astria-social.png',
       navbar: {
         logo: {
@@ -128,7 +116,7 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/astriaorg/docs',
+                href: 'https://github.com/astriaorg',
               },
             ],
           },
