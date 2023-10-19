@@ -283,13 +283,18 @@ astria-cli sequencer account create
 ```bash
 Create Sequencer Account
 
-Private Key: "0981...691c"
-Public Key:  "f08e...8a4d"
-Address:     "8f40...64fb"
+Private Key: "5562...1622" # <SEQUENCER_ACCOUNT_PRIV_KEY>
+Public Key:  "ec20...f613" # <SEQUENCER_ACCOUNT_PUB_KEY>
+Address:     "8a2f...5f68"
 ```
 
+Keep track of the `<SEQUENCER_ACCOUNT_PUB_KEY>` as it will be used with the
+Faucet later on for funding your sequencer account.
+
+Export your sequencer private key as an environment variable.
+
 ```bash
-export SEQUENCER_PRIV_KEY=0981...691c
+export SEQUENCER_PRIV_KEY=9c78...710d
 ```
 
 ### Create Namespace
