@@ -14,24 +14,24 @@ The list of local dependencies for the following instructions [can be found here
 
 ## Create an AWS Account
 
-https://portal.aws.amazon.com/gp/aws/developer/registration/index.html
+<https://portal.aws.amazon.com/gp/aws/developer/registration/index.html>
 
 ## Install `aws` CLI
 
 Installation links for your OS can be found here:
-- https://aws.amazon.com/cli/
+- <https://aws.amazon.com/cli/>
 
 ## Create an Access Key
 
 To create an access key, follow the instructions here:
-- https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html
+- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html>
 
 :::danger
 This doesn’t follow best security practices, do not do this on an important AWS
 account which has production resources on it. 
 :::
 
-Go to IAM section of console: https://console.aws.amazon.com/iam/
+Go to IAM section of console: <https://console.aws.amazon.com/iam/>
 
 Create an access key for your `root` user.
 
@@ -50,7 +50,7 @@ Default output format [None]:
 
 # Create Amazon EKS Cluster
 
-https://docs.aws.amazon.com/eks/latest/userguide/getting-started-console.html
+<https://docs.aws.amazon.com/eks/latest/userguide/getting-started-console.html>
 
 ```bash
 aws cloudformation create-stack \

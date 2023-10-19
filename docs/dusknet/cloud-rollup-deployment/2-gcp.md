@@ -12,16 +12,16 @@ The list of local dependencies for the following instructions [can be found here
 
 ## Create a GCP (Google) Account
 
-Follow instructions here: https://console.cloud.google.com/
+Follow instructions here: <https://console.cloud.google.com/>
 
 ## Install GCP `gcloud` CLI
 
-Find the correct cli for your OS here: https://cloud.google.com/sdk/docs/install
+Find the correct cli for your OS here: <https://cloud.google.com/sdk/docs/install>
 
 ## Create a Google Cloud Project
 
 See the full instructions here:
-- https://cloud.google.com/resource-manager/docs/creating-managing-projects
+- <https://cloud.google.com/resource-manager/docs/creating-managing-projects>
 
 We recommend using the cli commands, which can be found on the above page by selecting
 the `gcloud` tabs within the instructions:
@@ -39,7 +39,7 @@ gcloud config set project PROJECT_ID
 ## Enable Billing
 
 See the following page for setting up a billing account that suits your needs:
-- https://cloud.google.com/billing/docs/how-to/verify-billing-enabled#console
+- <https://cloud.google.com/billing/docs/how-to/verify-billing-enabled#console>
 
 ## Enable GKE API
 
@@ -50,7 +50,7 @@ gcloud services enable container.googleapis.com
 ## GKE Quickstart
 
 Follow the Quickstart guide to create your GKE cluster:
-- https://cloud.google.com/kubernetes-engine/docs/deploy-app-cluster
+- <https://cloud.google.com/kubernetes-engine/docs/deploy-app-cluster>
 
 ### Create a GKE Cluster
 
@@ -80,7 +80,7 @@ gcloud container clusters get-credentials hello-cluster \
 ## Deploy Ingress Nginx Controller
 
 See the Kubernetes GCE-GKE nginx installation guid here:
-- https://kubernetes.github.io/ingress-nginx/deploy/#gce-gke
+- <https://kubernetes.github.io/ingress-nginx/deploy/#gce-gke>
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/cloud/deploy.yaml
@@ -121,7 +121,7 @@ Creating an `A` record will depend on where you purchased your domain from. Each
 domain provider will have different steps required to set up an A record.
 
 An example (for Google domains) can be seen here:
-- https://support.google.com/a/answer/2579934?hl=en
+- <https://support.google.com/a/answer/2579934?hl=en>
 
 :::danger
 You must configure a DNS record because our ingress configuration uses name

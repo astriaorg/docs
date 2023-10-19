@@ -12,16 +12,18 @@ The list of local dependencies for the following instructions [can be found here
 
 ## Create an Azure Account
 
-https://azure.microsoft.com/en-us/free
+Create your account here:
+- <https://azure.microsoft.com/en-us/free>
 
 ## Install Azure `az` CLI
 
 Following the instructions on how to install the cli for your OS here: 
-- https://learn.microsoft.com/en-us/cli/azure/install-azure-cli
+- <https://learn.microsoft.com/en-us/cli/azure/install-azure-cli>
 
 ## AKS Quickstart
 
-https://learn.microsoft.com/en-us/azure/aks/learn/quick-kubernetes-deploy-cli
+See the quickstart guide here:
+- <https://learn.microsoft.com/en-us/azure/aks/learn/quick-kubernetes-deploy-cli>
 
 ### Prerequisites
 
@@ -57,7 +59,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 ### Deploy Nginx Ingress Controller
 
-https://kubernetes.github.io/ingress-nginx/deploy/#azure
+<https://kubernetes.github.io/ingress-nginx/deploy/#azure>
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/cloud/deploy.yaml
@@ -99,7 +101,7 @@ Creating an `A` record will depend on where you purchased your domain from. Each
 domain provider will have different steps required to set up an A record.
 
 An example (for Google domains) can be seen here:
-- https://support.google.com/a/answer/2579934?hl=en
+- <https://support.google.com/a/answer/2579934?hl=en>
 
 :::danger
 You must configure a DNS record because our ingress configuration uses name

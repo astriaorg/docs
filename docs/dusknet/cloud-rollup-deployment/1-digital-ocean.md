@@ -22,7 +22,7 @@ You must use at least a 2 node cluster.
 ## Setup Digital Ocean Ingress
 
 We use the Ingress NGINX Controller for consistency across deployment environments:
-- https://kubernetes.github.io/ingress-nginx/deploy/#digital-ocean
+- <https://kubernetes.github.io/ingress-nginx/deploy/#digital-ocean>
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/do/deploy.yaml
@@ -35,7 +35,7 @@ You must configure a DNS record because our ingress configuration uses name base
 :::
 
 Follow the instructions here:
-- https://docs.digitalocean.com/products/networking/dns/getting-started/dns-registrars/
+- <https://docs.digitalocean.com/products/networking/dns/getting-started/dns-registrars/>
 - This is where you will set `<YOUR_HOSTNAME>`
 
 
@@ -61,7 +61,7 @@ ingress-nginx-controller-admission   ClusterIP      10.245.106.99   <none>      
 
 ## Set up an `A` Record for your Load Balancer
 Follow the steps here to set up an `A` record for DNS:
-- https://docs.digitalocean.com/products/networking/dns/how-to/manage-records/#a-records
+- <https://docs.digitalocean.com/products/networking/dns/how-to/manage-records/#a-records>
 
 :::tip
 When configuring the `A` record for DNS, the `directs to` value should specify the `loadbalancer` which was created by the `nginx-ingress-controller`. 
