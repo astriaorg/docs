@@ -33,7 +33,7 @@ account which has production resources on it.
 
 Go to IAM section of console: https://console.aws.amazon.com/iam/
 
-Create an access key for your `root` user 
+Create an access key for your `root` user.
 
 ## Authenticate the `aws` cli
 
