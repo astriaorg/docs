@@ -53,8 +53,6 @@ To create your EKS cluster, follow the instructions here:
 
 ## Deploy Ingress Controller
 
-### Deploy Nginx Ingress Controller
-
 <https://kubernetes.github.io/ingress-nginx/deploy/#aws>
 
 ```bash
