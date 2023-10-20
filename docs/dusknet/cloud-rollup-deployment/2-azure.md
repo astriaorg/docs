@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 ---
 
 # Azure
@@ -8,6 +8,11 @@ Deploy your rollup to Azure.
 
 :::info
 The list of local dependencies for the following instructions [can be found here](/docs/dusknet/1-overview.md).
+:::
+
+:::tip
+You should not need to use the Azure console when deploying. All commands can be
+run from your command line.
 :::
 
 ## Create an Azure Account
@@ -65,8 +70,9 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/cloud/deploy.yaml
 ```
 
-### Verify Loadbalancer with external IP
+## Verify Loadbalancer with external IP
 
+Run the following command:
 ```bash
 kubectl get svc -n ingress-nginx
 ```
@@ -74,25 +80,9 @@ kubectl get svc -n ingress-nginx
 You should see something like this:
 
 ```bash
-NAME                                 TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)                      AGE
-ingress-nginx-controller             LoadBalancer   10.0.25.103   20.72.189.135   80:30513/TCP,443:30321/TCP   5m43s
-ingress-nginx-controller-admission   ClusterIP      10.0.242.54   <none>          443/TCP                      5m43s
-```
-
-Check the external IP
-
-```bash
-curl 20.72.189.135
-```
-
-```html
-<html>
-<head><title>404 Not Found</title></head>
-<body>
-<center><h1>404 Not Found</h1></center>
-<hr><center>nginx</center>
-</body>
-</html>
+NAME                                 TYPE           CLUSTER-IP      EXTERNAL-IP     PORT(S)                      AGE
+ingress-nginx-controller             LoadBalancer   34.118.228.98   34.42.184.206   80:31623/TCP,443:31357/TCP   57s
+ingress-nginx-controller-admission   ClusterIP      34.118.229.71   <none>          443/TCP                      57s
 ```
 
 ## Create an `A` Record
@@ -127,15 +117,17 @@ Address:     0xfFe9...5f8b # <GENESIS_ADDRESS>
 Private key: 0x332e...a8fb # <GENESIS_PRIVATE_KEY>
 ```
 
-You can then `export` the genesis accounts like so:
+`export` the genesis address:
 ```bash
-export ROLLUP_GENESIS_ACCOUNTS=<GENESIS_ADDRESS>:<BALANCE>
+export GENESIS_ADDRESS=<GENESIS_ADDRESS>
 ```
 
-`export` the private key to the env vars using:
+`export` the genesis private key:
 ```bash
 export ROLLUP_FAUCET_PRIV_KEY=<GENESIS_PRIVATE_KEY>
 ```
+
+Exporting the genesis account(s) is also shown in the export block in the next section.
 
 :::danger
 __NEVER__ use a private key you use on a live network. 
@@ -144,6 +136,10 @@ __NEVER__ use a private key you use on a live network.
 ## Configure and Deploy Rollup
 
 ### Update the `helm` Chart
+
+:::tip
+You can see an example of these changes in [this PR here](https://github.com/astriaorg/dev-cluster/pull/119/files).
+:::
 
 Pull the [Astria dev-cluster repo](https://github.com/astriaorg/dev-cluster):
 ```bash
@@ -177,10 +173,6 @@ metadata:
     kubernetes.io/ingress.class: nginx
 ```
 
-:::tip
-You can see an example of these changes in [this PR here](https://github.com/astriaorg/dev-cluster/pull/119/files).
-:::
-
 ## Install the `astria-cli`
 
 Pull the [Astria repo](https://github.com/astriaorg/astria) and install the `astria-cli`
@@ -198,11 +190,12 @@ astria-cli sequencer blockheight get \
   --sequencer-url https://rpc.sequencer.dusk-1.devnet.astria.org/
 ```
 
-Save the returned value for later. You will replace the
-`<INITIAL_SEQUENCER_BLOCK_HEIGHT>` tag in the following sections with this
-value.
+`export` the initial sequencer block height as an environment variable:
+```bash
+export INITIAL_SEQUENCER_BLOCK_HEIGHT=<INITIAL_SEQUENCER_BLOCK_HEIGHT>
+```
 
-### Set Environment Variables
+## Create Rollup Config
 
 Replace the tags in the commands and env vars below, as follows:
 
@@ -210,9 +203,7 @@ Replace the tags in the commands and env vars below, as follows:
 |-----|-----|-----|
 | `<YOUR_ROLLUP_NAME>` | String | The name of your rollup |
 | `<YOUR_NETWORK_ID>` | u64 | The id of your network |
-| `<INITIAL_SEQUENCER_BLOCK_HEIGHT>` | u64 | The height of the sequencer (found above) |
-| `<GENESIS_ADDRESS>` | [u8; 40] | A wallet address |
-| `<BALANCE>` | u64 | A balance. It is useful to make this a large value. |
+| `<BALANCE>` | u64 | A balance. We recommend using `100000000000000000000`. |
 <!-- TODO: potentially remove the initial sequencer block height as that may be found automatically -->
 
 <!-- TODO: add this back in when the automated block height is added -->
@@ -231,13 +222,11 @@ export ROLLUP_LOG_LEVEL=DEBUG
 export ROLLUP_NAME=<YOUR_ROLLUP_NAME>
 export ROLLUP_NETWORK_ID=<YOUR_NETWORK_ID>
 export ROLLUP_SKIP_EMPTY_BLOCKS=false
-export ROLLUP_GENESIS_ACCOUNTS=<GENESIS_ADDRESS>:<BALANCE>
-export ROLLUP_SEQUENCER_INITIAL_BLOCK_HEIGHT=<INITIAL_SEQUENCER_BLOCK_HEIGHT>
+export ROLLUP_GENESIS_ACCOUNTS=$GENESIS_ADDRESS:<BALANCE>
+export ROLLUP_SEQUENCER_INITIAL_BLOCK_HEIGHT=$INITIAL_SEQUENCER_BLOCK_HEIGHT
 export ROLLUP_SEQUENCER_WEBSOCKET=wss://rpc.sequencer.dusk-1.devnet.astria.org/websocket
 export ROLLUP_SEQUENCER_RPC=https://rpc.sequencer.dusk-1.devnet.astria.org
 ```
-
-### Create Config
 
 Once the environment variables shown above are set, run the following command to
 create the rollup config:
@@ -342,18 +331,6 @@ Your rollups utility endpoints are as follows:
 | RPC | http://executor.<YOUR_ROLLUP_NAME>.<YOUR_HOSTNAME>/ |
 
 Open the URLs in your browser to view your running rollup.
-
-## Debug Ingress
-
-If you would like to view the ingress logs you can use the following:
-
-```bash
-kubectl get po -n ingress-nginx
-# get the name of one of the pods
-export INGRESS_POD_1=ingress-nginx-controller-6d6559598-ll8gv
-# view the logs
-kubectl logs $INGRESS_POD_1 -n ingress-nginx
-```
 
 ## Use `cast` to Interact with your Rollup
 

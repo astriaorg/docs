@@ -81,6 +81,10 @@ Endpoints for the remote cluster are the following:
 
 ## Update the `helm` Chart
 
+:::tip
+You can see an example of these changes in [this PR here](https://github.com/astriaorg/dev-cluster/pull/119/files).
+:::
+
 :::danger
 Deploying a rollup to a cloud provider requires manual changes to the `helm`
 charts. Because the default `localdev.me` hostname will not work on a cloud
@@ -116,21 +120,16 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
 ```
-:::tip
-You can see an example of these changes in [this PR here](https://github.com/astriaorg/dev-cluster/pull/119/files).
-:::
 
 ## Creating your own Genesis Account
 
 You can add genesis account(s) to your rollup during configuration.
 
-You can create an account using
+You can create an account using:
 
 ```bash
 cast w new
 ```
-
-to create a new account:
 
 ```bash
 Successfully created new keypair.
@@ -138,13 +137,12 @@ Address:     0xfFe9...5f8b # <GENESIS_ADDRESS>
 Private key: 0x332e...a8fb # <GENESIS_PRIVATE_KEY>
 ```
 
-You can then `export` the genesis accounts like so:
+`export` the genesis address:
 ```bash
-export ROLLUP_GENESIS_ACCOUNTS=<GENESIS_ADDRESS>:<BALANCE>
+export GENESIS_ADDRESS=<GENESIS_ADDRESS>
 ```
 
-Set `<GENESIS_ADDRESS>` to the address printed out from the new command, and
-`export` the private key to the env vars using:
+`export` the genesis private key:
 ```bash
 export ROLLUP_FAUCET_PRIV_KEY=<GENESIS_PRIVATE_KEY>
 ```
@@ -157,9 +155,7 @@ __NEVER__ use a private key you use on a live network.
 
 ## Get and Build the `astria-cli`
 
-Pull the [Astria repo](https://github.com/astriaorg/astria).
-
-Build the `astria-cli`
+Pull the [Astria repo](https://github.com/astriaorg/astria) and build the `astria-cli`
 
 ```bash
 git clone git@github.com:astriaorg/astria.git
@@ -176,9 +172,10 @@ astria-cli sequencer blockheight get \
   --sequencer-url https://rpc.sequencer.dusk-1.devnet.astria.org/
 ```
 
-Save the returned value for later. You will replace the
-`<INITIAL_SEQUENCER_BLOCK_HEIGHT>` tag in the following sections with this
-value.
+`export` the initial sequencer block height as an environment variable:
+```bash
+export INITIAL_SEQUENCER_BLOCK_HEIGHT=<INITIAL_SEQUENCER_BLOCK_HEIGHT>
+```
 
 ## Create Rollup Config
 
@@ -188,9 +185,7 @@ Replace the tags in the commands and env vars below, as follows:
 |-----|-----|-----|
 | `<YOUR_ROLLUP_NAME>` | String | The name of your rollup |
 | `<YOUR_NETWORK_ID>` | u64 | The id of your network |
-| `<INITIAL_SEQUENCER_BLOCK_HEIGHT>` | u64 | The height of the sequencer (found above) |
-| `<GENESIS_ADDRESS>` | [u8; 40] | A wallet address |
-| `<BALANCE>` | u64 | A balance. It is useful to make this a large value. |
+| `<BALANCE>` | u64 | A balance. We recommend using `100000000000000000000`. |
 <!-- TODO: potentially remove the initial sequencer block height as that may be found automatically -->
 
 <!-- TODO: add this back in when the automated block height is added -->
@@ -209,8 +204,8 @@ export ROLLUP_LOG_LEVEL=DEBUG
 export ROLLUP_NAME=<YOUR_ROLLUP_NAME>
 export ROLLUP_NETWORK_ID=<YOUR_NETWORK_ID>
 export ROLLUP_SKIP_EMPTY_BLOCKS=false
-export ROLLUP_GENESIS_ACCOUNTS=<GENESIS_ADDRESS>:<BALANCE>
-export ROLLUP_SEQUENCER_INITIAL_BLOCK_HEIGHT=<INITIAL_SEQUENCER_BLOCK_HEIGHT>
+export ROLLUP_GENESIS_ACCOUNTS=$GENESIS_ADDRESS:<BALANCE>
+export ROLLUP_SEQUENCER_INITIAL_BLOCK_HEIGHT=$INITIAL_SEQUENCER_BLOCK_HEIGHT
 export ROLLUP_SEQUENCER_WEBSOCKET=wss://rpc.sequencer.dusk-1.devnet.astria.org/websocket
 export ROLLUP_SEQUENCER_RPC=https://rpc.sequencer.dusk-1.devnet.astria.org
 ```
@@ -349,18 +344,6 @@ Your rollups utility endpoints are as follows:
 | RPC | http://executor.<YOUR_ROLLUP_NAME>.<YOUR_HOSTNAME>/ |
 
 Open the URLs in your browser to view your running rollup.
-
-## Debug Ingress
-
-If you would like to view the ingress logs you can use the following:
-
-```bash
-kubectl get po -n ingress-nginx
-# get the name of one of the pods
-export INGRESS_POD_1=ingress-nginx-controller-6d6559598-ll8gv
-# view the logs
-kubectl logs $INGRESS_POD_1 -n ingress-nginx
-```
 
 ## Use `cast` to Interact with your Rollup
 

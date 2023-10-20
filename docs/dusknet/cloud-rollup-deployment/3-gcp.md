@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # GCP
@@ -16,7 +16,17 @@ Follow instructions here: <https://console.cloud.google.com/>
 
 ## Install GCP `gcloud` CLI
 
-Find the correct cli for your OS here: <https://cloud.google.com/sdk/docs/install>
+Find the correct cli for your OS here:
+<https://cloud.google.com/sdk/docs/install>
+
+## Authenticate the CLI
+
+Following instructions here:
+<https://cloud.google.com/sdk/gcloud/reference/auth/login>
+
+```bash
+gcloud auth login
+```
 
 ## Create a Google Cloud Project
 
@@ -101,20 +111,6 @@ ingress-nginx-controller             LoadBalancer   34.118.228.98   34.42.184.20
 ingress-nginx-controller-admission   ClusterIP      34.118.229.71   <none>          443/TCP                      57s
 ```
 
-Curl the `EXTERNAL-IP`:
-```bash
-curl 34.42.184.206
-```
-```html
-<html>
-<head><title>404 Not Found</title></head>
-<body>
-<center><h1>404 Not Found</h1></center>
-<hr><center>nginx</center>
-</body>
-</html>
-```
-
 ## Create an `A` Record
 
 Creating an `A` record will depend on where you purchased your domain from. Each
@@ -147,15 +143,17 @@ Address:     0xfFe9...5f8b # <GENESIS_ADDRESS>
 Private key: 0x332e...a8fb # <GENESIS_PRIVATE_KEY>
 ```
 
-You can then `export` the genesis accounts like so:
+`export` the genesis address:
 ```bash
-export ROLLUP_GENESIS_ACCOUNTS=<GENESIS_ADDRESS>:<BALANCE>
+export GENESIS_ADDRESS=<GENESIS_ADDRESS>
 ```
 
-`export` the private key to the env vars using:
+`export` the genesis private key:
 ```bash
 export ROLLUP_FAUCET_PRIV_KEY=<GENESIS_PRIVATE_KEY>
 ```
+
+Exporting the genesis account(s) is also shown in the export block in the next section.
 
 :::danger
 __NEVER__ use a private key you use on a live network. 
@@ -218,11 +216,12 @@ astria-cli sequencer blockheight get \
   --sequencer-url https://rpc.sequencer.dusk-1.devnet.astria.org/
 ```
 
-Save the returned value for later. You will replace the
-`<INITIAL_SEQUENCER_BLOCK_HEIGHT>` tag in the following sections with this
-value.
+`export` the initial sequencer block height as an environment variable:
+```bash
+export INITIAL_SEQUENCER_BLOCK_HEIGHT=<INITIAL_SEQUENCER_BLOCK_HEIGHT>
+```
 
-### Set Environment Variables
+## Create Rollup Config
 
 Replace the tags in the commands and env vars below, as follows:
 
@@ -230,9 +229,7 @@ Replace the tags in the commands and env vars below, as follows:
 |-----|-----|-----|
 | `<YOUR_ROLLUP_NAME>` | String | The name of your rollup |
 | `<YOUR_NETWORK_ID>` | u64 | The id of your network |
-| `<INITIAL_SEQUENCER_BLOCK_HEIGHT>` | u64 | The height of the sequencer (found above) |
-| `<GENESIS_ADDRESS>` | [u8; 40] | A wallet address |
-| `<BALANCE>` | u64 | A balance. It is useful to make this a large value. |
+| `<BALANCE>` | u64 | A balance. We recommend using `100000000000000000000`. |
 <!-- TODO: potentially remove the initial sequencer block height as that may be found automatically -->
 
 <!-- TODO: add this back in when the automated block height is added -->
@@ -251,13 +248,11 @@ export ROLLUP_LOG_LEVEL=DEBUG
 export ROLLUP_NAME=<YOUR_ROLLUP_NAME>
 export ROLLUP_NETWORK_ID=<YOUR_NETWORK_ID>
 export ROLLUP_SKIP_EMPTY_BLOCKS=false
-export ROLLUP_GENESIS_ACCOUNTS=<GENESIS_ADDRESS>:<BALANCE>
-export ROLLUP_SEQUENCER_INITIAL_BLOCK_HEIGHT=<INITIAL_SEQUENCER_BLOCK_HEIGHT>
+export ROLLUP_GENESIS_ACCOUNTS=$GENESIS_ADDRESS:<BALANCE>
+export ROLLUP_SEQUENCER_INITIAL_BLOCK_HEIGHT=$INITIAL_SEQUENCER_BLOCK_HEIGHT
 export ROLLUP_SEQUENCER_WEBSOCKET=wss://rpc.sequencer.dusk-1.devnet.astria.org/websocket
 export ROLLUP_SEQUENCER_RPC=https://rpc.sequencer.dusk-1.devnet.astria.org
 ```
-
-### Create Config
 
 Once the environment variables shown above are set, run the following command to
 create the rollup config:
@@ -363,17 +358,7 @@ Your rollups utility endpoints are as follows:
 
 Open the URLs in your browser to view your running rollup.
 
-## Debug Ingress
 
-If you would like to view the ingress logs you can use the following:
-
-```bash
-kubectl get po -n ingress-nginx
-# get the name of one of the pods
-export INGRESS_POD_1=ingress-nginx-controller-6d6559598-ll8gv
-# view the logs
-kubectl logs $INGRESS_POD_1 -n ingress-nginx
-```
 
 ## Use `cast` to Interact with your Rollup
 

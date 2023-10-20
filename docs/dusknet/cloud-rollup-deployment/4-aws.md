@@ -10,8 +10,6 @@ Deploy your rollup to AWS.
 The list of local dependencies for the following instructions [can be found here](/docs/dusknet/1-overview.md).
 :::
 
-# Astria Prerequisites?
-
 ## Create an AWS Account
 
 <https://portal.aws.amazon.com/gp/aws/developer/registration/index.html>
@@ -50,42 +48,8 @@ Default output format [None]:
 
 # Create Amazon EKS Cluster
 
-<https://docs.aws.amazon.com/eks/latest/userguide/getting-started-console.html>
-
-```bash
-aws cloudformation create-stack \
-  --region <region-code> \
-  --stack-name <my-eks-vpc-stack> \
-  --template-url https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/amazon-eks-vpc-private-subnets.yaml
-```
-
-```bash
-aws iam create-role \
-  --role-name myAmazonEKSClusterRole \
-  --assume-role-policy-document file://"eks-cluster-role-trust-policy.json"
-```
-
-```bash
-aws iam attach-role-policy \
-  --policy-arn arn:aws:iam::aws:policy/AmazonEKSClusterPolicy \
-  --role-name myAmazonEKSClusterRole
-```
-
-Complete the rest of the steps on the Console
-
-## Authenticate `kubectl` to EKS Cluster
-
-```bash
-aws eks update-kubeconfig --region <region-code> --name <my-cluster>
-```
-
-```bash
-kubectl get svc
-```
-```bash
-NAME             TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
-svc/kubernetes   ClusterIP   10.100.0.1   <none>        443/TCP   1m
-```
+To create your EKS cluster, follow the instructions here:
+- <https://docs.aws.amazon.com/eks/latest/userguide/getting-started-console.html>
 
 ## Deploy Ingress Controller
 
@@ -105,23 +69,6 @@ You should see something like this:
 NAME                                 TYPE           CLUSTER-IP       EXTERNAL-IP                                                                     PORT(S)                      AGE
 ingress-nginx-controller             LoadBalancer   10.100.151.220   ac1f86093ea7240c89457da3d5f71fc4-947b3172412ab75c.elb.us-east-1.amazonaws.com   80:30416/TCP,443:31448/TCP   3m55s
 ingress-nginx-controller-admission   ClusterIP      10.100.208.56    <none>                                                                          443/TCP                      3m55s
-```
-
-Check the console for a new Elastic Load Balancer (ELB) in the EC2 > Load
-Balancers section using the `EXTERNAL-IP` from the previous `kubectl` output. 
-
-```bash
-curl ac1f86093ea7240c89457da3d5f71fc4-947b3172412ab75c.elb.us-east-1.amazonaws.com
-```
-
-```html
-<html>
-<head><title>404 Not Found</title></head>
-<body>
-<center><h1>404 Not Found</h1></center>
-<hr><center>nginx</center>
-</body>
-</html>
 ```
 
 ## Create a `CNAME` record
@@ -152,15 +99,17 @@ Address:     0xfFe9...5f8b # <GENESIS_ADDRESS>
 Private key: 0x332e...a8fb # <GENESIS_PRIVATE_KEY>
 ```
 
-You can then `export` the genesis accounts like so:
+`export` the genesis address:
 ```bash
-export ROLLUP_GENESIS_ACCOUNTS=<GENESIS_ADDRESS>:<BALANCE>
+export GENESIS_ADDRESS=<GENESIS_ADDRESS>
 ```
 
-`export` the private key to the env vars using:
+`export` the genesis private key:
 ```bash
 export ROLLUP_FAUCET_PRIV_KEY=<GENESIS_PRIVATE_KEY>
 ```
+
+Exporting the genesis account(s) is also shown in the export block in the next section.
 
 :::danger
 __NEVER__ use a private key you use on a live network. 
@@ -223,11 +172,12 @@ astria-cli sequencer blockheight get \
   --sequencer-url https://rpc.sequencer.dusk-1.devnet.astria.org/
 ```
 
-Save the returned value for later. You will replace the
-`<INITIAL_SEQUENCER_BLOCK_HEIGHT>` tag in the following sections with this
-value.
+`export` the initial sequencer block height as an environment variable:
+```bash
+export INITIAL_SEQUENCER_BLOCK_HEIGHT=<INITIAL_SEQUENCER_BLOCK_HEIGHT>
+```
 
-### Set Environment Variables
+## Create Rollup Config
 
 Replace the tags in the commands and env vars below, as follows:
 
@@ -235,9 +185,7 @@ Replace the tags in the commands and env vars below, as follows:
 |-----|-----|-----|
 | `<YOUR_ROLLUP_NAME>` | String | The name of your rollup |
 | `<YOUR_NETWORK_ID>` | u64 | The id of your network |
-| `<INITIAL_SEQUENCER_BLOCK_HEIGHT>` | u64 | The height of the sequencer (found above) |
-| `<GENESIS_ADDRESS>` | [u8; 40] | A wallet address |
-| `<BALANCE>` | u64 | A balance. It is useful to make this a large value. |
+| `<BALANCE>` | u64 | A balance. We recommend using `100000000000000000000`. |
 <!-- TODO: potentially remove the initial sequencer block height as that may be found automatically -->
 
 <!-- TODO: add this back in when the automated block height is added -->
@@ -256,13 +204,11 @@ export ROLLUP_LOG_LEVEL=DEBUG
 export ROLLUP_NAME=<YOUR_ROLLUP_NAME>
 export ROLLUP_NETWORK_ID=<YOUR_NETWORK_ID>
 export ROLLUP_SKIP_EMPTY_BLOCKS=false
-export ROLLUP_GENESIS_ACCOUNTS=<GENESIS_ADDRESS>:<BALANCE>
-export ROLLUP_SEQUENCER_INITIAL_BLOCK_HEIGHT=<INITIAL_SEQUENCER_BLOCK_HEIGHT>
+export ROLLUP_GENESIS_ACCOUNTS=$GENESIS_ADDRESS:<BALANCE>
+export ROLLUP_SEQUENCER_INITIAL_BLOCK_HEIGHT=$INITIAL_SEQUENCER_BLOCK_HEIGHT
 export ROLLUP_SEQUENCER_WEBSOCKET=wss://rpc.sequencer.dusk-1.devnet.astria.org/websocket
 export ROLLUP_SEQUENCER_RPC=https://rpc.sequencer.dusk-1.devnet.astria.org
 ```
-
-### Create Config
 
 Once the environment variables shown above are set, run the following command to
 create the rollup config:
