@@ -10,11 +10,6 @@ Deploy your rollup to Azure.
 The list of local dependencies for the following instructions [can be found here](/docs/dusknet/1-overview.md).
 :::
 
-:::tip
-You should not need to use the Azure console when deploying. All commands can be
-run from your command line.
-:::
-
 ## Create an Azure Account
 
 Create your account here:
