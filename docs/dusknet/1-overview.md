@@ -18,7 +18,7 @@ the main [astria repo](https://github.com/astriaorg/astria) repo:
 
 ```bash
 git clone git@github.com:astriaorg/astria.git
-git clone https://github.com/astriaorg/dev-cluster
+git clone git@github.com:astriaorg/dev-cluster.git
 ```
 
 And install the following tools:

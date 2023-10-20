@@ -1,14 +1,19 @@
 ---
-sidebar_position: 4
+sidebar_position: 1
 ---
 
-# Cloud Rollup Deployment
+# Digital Ocean
+
+Deploy your rollup to Digital Ocean.
+
+:::info
+The list of local dependencies for the following instructions [can be found here](/docs/dusknet/1-overview.md).
+:::
 
 The following assumes you are using [Digital Ocean Kubernetes
 (DOKS)](https://www.digitalocean.com/products/kubernetes).
 
-We recommend using Digital Ocean's Kubernetes [Quick Start
-Guide](https://docs.digitalocean.com/products/kubernetes/getting-started/quickstart/).
+We recommend using Digital Ocean's Kubernetes [Quick Start Guide](https://docs.digitalocean.com/products/kubernetes/getting-started/quickstart/).
 
 :::warning
 You must use at least a 2 node cluster.
@@ -25,19 +30,19 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/cont
 
 ## Configure Your Own Domain
 
-:::tip You must configure a DNS record because our ingress configuration uses
-name based virtual routing:
-<https://kubernetes.io/docs/concepts/services-networking/ingress/#name-based-virtual-hosting.>
+:::tip
+You must configure a DNS record because our ingress configuration uses name based virtual routing: https://kubernetes.io/docs/concepts/services-networking/ingress/#name-based-virtual-hosting.
 :::
 
 Follow the instructions here:
 - <https://docs.digitalocean.com/products/networking/dns/getting-started/dns-registrars/>
 - This is where you will set `<YOUR_HOSTNAME>`
 
+
 ## Digital Ocean Loadbalancer
 
 Look for a new loadbalancer being created in the Digital Ocean console:
-<https://cloud.digitalocean.com/networking/load_balancers>
+https://cloud.digitalocean.com/networking/load_balancers
 
 You can also check that your Digital Ocean load balancer was created using the
 following command:
@@ -55,13 +60,11 @@ ingress-nginx-controller-admission   ClusterIP      10.245.106.99   <none>      
 ```
 
 ## Set up an `A` Record for your Load Balancer
-
 Follow the steps here to set up an `A` record for DNS:
 - <https://docs.digitalocean.com/products/networking/dns/how-to/manage-records/#a-records>
 
 :::tip
-When configuring the `A` record for DNS, the `directs to` value should specify
-the `loadbalancer` which was created by the `nginx-ingress-controller`.
+When configuring the `A` record for DNS, the `directs to` value should specify the `loadbalancer` which was created by the `nginx-ingress-controller`. 
 :::
 
 ## Endpoints
@@ -78,6 +81,10 @@ Endpoints for the remote cluster are the following:
 
 ## Update the `helm` Chart
 
+:::tip
+You can see an example of these changes in [this PR here](https://github.com/astriaorg/dev-cluster/pull/119/files).
+:::
+
 :::danger
 Deploying a rollup to a cloud provider requires manual changes to the `helm`
 charts. Because the default `localdev.me` hostname will not work on a cloud
@@ -85,15 +92,12 @@ provider.
 :::
 
 Pull the [Astria dev-cluster repo](https://github.com/astriaorg/dev-cluster):
-
 ```bash
 git clone git@github.com:astriaorg/dev-cluster.git
 cd dev-cluster
 ```
 
-Within the dev-cluster repo, update the ingress template
-`chart/rollup/templates/ingress.yaml` so that each hostname ends in
-`<YOUR_HOSTNAME>` instead of `localdev.me`
+Within the dev-cluster repo, update the ingress template `chart/rollup/templates/ingress.yaml` so that each hostname ends in `<YOUR_HOSTNAME>` instead of `localdev.me`
 
 ```bash
 ...
@@ -117,21 +121,15 @@ metadata:
     kubernetes.io/ingress.class: nginx
 ```
 
-:::tip
-You can see an example of these changes in [this PR here](https://github.com/astriaorg/dev-cluster/pull/119/files).
-:::
-
 ## Creating your own Genesis Account
 
 You can add genesis account(s) to your rollup during configuration.
 
-You can create an account using
+You can create an account using:
 
 ```bash
 cast w new
 ```
-
-to create a new account:
 
 ```bash
 Successfully created new keypair.
@@ -139,15 +137,12 @@ Address:     0xfFe9...5f8b # <GENESIS_ADDRESS>
 Private key: 0x332e...a8fb # <GENESIS_PRIVATE_KEY>
 ```
 
-You can then `export` the genesis accounts like so:
-
+`export` the genesis address:
 ```bash
-export ROLLUP_GENESIS_ACCOUNTS=<GENESIS_ADDRESS>:100000000000000000000
+export GENESIS_ADDRESS=<GENESIS_ADDRESS>
 ```
 
-Set `<GENESIS_ADDRESS>` to the address printed out from the new command, and
-`export` the private key to the env vars using:
-
+`export` the genesis private key:
 ```bash
 export ROLLUP_FAUCET_PRIV_KEY=<GENESIS_PRIVATE_KEY>
 ```
@@ -155,24 +150,18 @@ export ROLLUP_FAUCET_PRIV_KEY=<GENESIS_PRIVATE_KEY>
 Exporting the genesis account(s) is also shown in the export block in the next section.
 
 :::danger
-__NEVER__ use a private key you use on a live network.
+__NEVER__ use a private key you use on a live network. 
 :::
 
 ## Get and Build the `astria-cli`
 
-Pull the [Astria repo](https://github.com/astriaorg/astria).
-
-Build the `astria-cli`
+Pull the [Astria repo](https://github.com/astriaorg/astria) and build the `astria-cli`
 
 ```bash
 git clone git@github.com:astriaorg/astria.git
 cd astria
 just install-cli
 ```
-
-Keep track of this block height as it will be used for making the rollup config
-later on. You will use this printed height in place of
-`<INITIAL_SEQUENCER_BLOCK_HEIGHT>` in the steps below.
 
 ## Using the `astria-cli`
 
@@ -183,9 +172,12 @@ astria-cli sequencer blockheight get \
   --sequencer-url https://rpc.sequencer.dusk-1.devnet.astria.org/
 ```
 
-Save the returned value for later. You will replace the
-`<INITIAL_SEQUENCER_BLOCK_HEIGHT>` tag in the following sections with this
-value.
+`export` the initial sequencer block height as an environment variable:
+```bash
+export INITIAL_SEQUENCER_BLOCK_HEIGHT=<INITIAL_SEQUENCER_BLOCK_HEIGHT>
+```
+
+## Create Rollup Config
 
 Replace the tags in the commands and env vars below, as follows:
 
@@ -193,9 +185,8 @@ Replace the tags in the commands and env vars below, as follows:
 |-----|-----|-----|
 | `<YOUR_ROLLUP_NAME>` | String | The name of your rollup |
 | `<YOUR_NETWORK_ID>` | u64 | The id of your network |
-| `<INITIAL_SEQUENCER_BLOCK_HEIGHT>` | u64 | The height of the sequencer (found above) |
-| `<GENESIS_ADDRESS>` | [u8; 40] | A wallet address |
-| `<BALANCE>` | u64 | A balance. It is useful to make this a large value. |
+| `<BALANCE>` | u64 | A balance. We recommend using `100000000000000000000`. |
+<!-- TODO: potentially remove the initial sequencer block height as that may be found automatically -->
 
 <!-- TODO: add this back in when the automated block height is added -->
 <!-- :::tip
@@ -204,10 +195,8 @@ in the command above, and the cli will fetch the initial sequencer block height
 for you.
 ::: -->
 
-## Create Rollup Config
-
 You can use environment variables to set the configuration for the rollup
-config creation. Replace all the `<>` tags with their corresponding values.
+config creation. Replace all the `<>` tags with their corresponding values. 
 
 ```bash
 export ROLLUP_USE_TTY=true
@@ -215,8 +204,8 @@ export ROLLUP_LOG_LEVEL=DEBUG
 export ROLLUP_NAME=<YOUR_ROLLUP_NAME>
 export ROLLUP_NETWORK_ID=<YOUR_NETWORK_ID>
 export ROLLUP_SKIP_EMPTY_BLOCKS=false
-export ROLLUP_GENESIS_ACCOUNTS=<GENESIS_ADDRESS>:<BALANCE>
-export ROLLUP_SEQUENCER_INITIAL_BLOCK_HEIGHT=<INITIAL_SEQUENCER_BLOCK_HEIGHT>
+export ROLLUP_GENESIS_ACCOUNTS=$GENESIS_ADDRESS:<BALANCE>
+export ROLLUP_SEQUENCER_INITIAL_BLOCK_HEIGHT=$INITIAL_SEQUENCER_BLOCK_HEIGHT
 export ROLLUP_SEQUENCER_WEBSOCKET=wss://rpc.sequencer.dusk-1.devnet.astria.org/websocket
 export ROLLUP_SEQUENCER_RPC=https://rpc.sequencer.dusk-1.devnet.astria.org
 ```
@@ -256,7 +245,6 @@ config:
 ```
 
 Export this file to the env vars as follows:
-
 ```bash
 export ROLLUP_CONF_FILE=<YOUR_ROLLUP_NAME>-rollup-conf.yaml
 ```
@@ -291,8 +279,7 @@ You __must__ have modified your local `helm` chart to use your own domain name
 as described in [this section here](#update-the-helm-chart).
 :::
 
-Because you needed to modify the host names inside your ingress template you
-must deploy your rollup using your local chart:
+Because you needed to modify the host names inside your ingress template you must deploy your rollup using your local chart:
 
 ```bash
 export ROLLUP_CHART_PATH="/your_path_to/dev-cluster/charts/rollup"
@@ -341,19 +328,9 @@ kubectl logs $GETH_POD_NAME -c conductor
 ```
 
 ```bash
-2023-10-16T20:49:16.858852Z  INFO run_until_stopped: astria_conductor::executor:
-    executed sequencer block sequencer_block_hash=Hash::Sha256
-    (93C233F2A2A109FF6CC3162A98916BECAE6D8EC43520C995E82B6D1F2B2742EF)
-    sequencer_block_height=423755
-    execution_block_hash="2d8b2219a30ea4cc409347320f377de937b9ca2425f670c4f913724a2d53b2aa"
-2023-10-16T20:49:18.922694Z  INFO run_until_stopped: astria_conductor::executor:
-    executing block with given parent block height=423756
-    parent_block_hash="2d8b2219a30ea4cc409347320f377de937b9ca2425f670c4f913724a2d53b2aa"
-2023-10-16T20:49:18.926380Z  INFO run_until_stopped: astria_conductor::executor:
-  executed sequencer block sequencer_block_hash=Hash::Sha256
-  (EAD8701CB15D9B487DC7400ABC2FCB7A4F7E09E09F39D4D6B8FA97B74B5EC50F)
-  sequencer_block_height=423756
-  execution_block_hash="de20c29febc808b7a2ded8513eb23be116fe441745ccf62d1366b4b9bb160d04"
+2023-10-16T20:49:16.858852Z  INFO run_until_stopped: astria_conductor::executor: executed sequencer block sequencer_block_hash=Hash::Sha256(93C233F2A2A109FF6CC3162A98916BECAE6D8EC43520C995E82B6D1F2B2742EF) sequencer_block_height=423755 execution_block_hash="2d8b2219a30ea4cc409347320f377de937b9ca2425f670c4f913724a2d53b2aa"
+2023-10-16T20:49:18.922694Z  INFO run_until_stopped: astria_conductor::executor: executing block with given parent block height=423756 parent_block_hash="2d8b2219a30ea4cc409347320f377de937b9ca2425f670c4f913724a2d53b2aa"
+2023-10-16T20:49:18.926380Z  INFO run_until_stopped: astria_conductor::executor: executed sequencer block sequencer_block_hash=Hash::Sha256(EAD8701CB15D9B487DC7400ABC2FCB7A4F7E09E09F39D4D6B8FA97B74B5EC50F) sequencer_block_height=423756 execution_block_hash="de20c29febc808b7a2ded8513eb23be116fe441745ccf62d1366b4b9bb160d04"
 ```
 
 ## Observe your Deployment
@@ -362,23 +339,11 @@ Your rollups utility endpoints are as follows:
 
 | Utility | URL |
 |-----|-----|
-| Block Explorer | `http://blockscout.<YOUR_ROLLUP_NAME>.<YOUR_HOSTNAME>/` |
-| Faucet | `http://faucet.<YOUR_ROLLUP_NAME>.<YOUR_HOSTNAME>/` |
-| RPC | `http://executor.<YOUR_ROLLUP_NAME>.<YOUR_HOSTNAME>/` |
+| Block Explorer | http://blockscout.<YOUR_ROLLUP_NAME>.<YOUR_HOSTNAME>/ |
+| Faucet | http://faucet.<YOUR_ROLLUP_NAME>.<YOUR_HOSTNAME>/ |
+| RPC | http://executor.<YOUR_ROLLUP_NAME>.<YOUR_HOSTNAME>/ |
 
 Open the URLs in your browser to view your running rollup.
-
-## Debug Ingress
-
-If you would like to view the ingress logs you can use the following:
-
-```bash
-kubectl get po -n ingress-nginx
-# get the name of one of the pods
-export INGRESS_POD_1=ingress-nginx-controller-6d6559598-ll8gv
-# view the logs
-kubectl logs $INGRESS_POD_1 -n ingress-nginx
-```
 
 ## Use `cast` to Interact with your Rollup
 
@@ -410,9 +375,9 @@ cast balance $REC_ADDR
 
 ## Fund you Sequencer Account
 
-Using your sequencer pub key you created in the [Create a New Sequencer
-Account](#create-new-sequencer-account), copy and past the
+Using your sequencer pub key you created in the 
+[Create a New Sequencer Account](#create-new-sequencer-account) section, copy and past the
 `<SEQUENCER_ACCOUNT_PUB_KEY>` into the input on the faucet page, and mint funds
 to your account:
 
-![Sequencer Faucet](./assets/sequencer-faucet.png)
+![Sequencer Faucet](../assets/sequencer-faucet.png)
