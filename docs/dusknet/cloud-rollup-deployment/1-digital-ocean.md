@@ -252,6 +252,18 @@ Export your sequencer private key as an environment variable.
 export SEQUENCER_PRIV_KEY=9c78...710d
 ```
 
+## Fund your Sequencer Account
+
+In your web browser, navigate to `http://faucet.<YOUR_ROLLUP_NAME>.<YOUR_HOSTNAME>/`
+to view the faucet.
+
+Using your sequencer pub key you created in the 
+[Create a New Sequencer Account](#create-new-sequencer-account) section, copy and paste the
+`<SEQUENCER_ACCOUNT_PUB_KEY>` into the input on the faucet page, and mint funds
+to your account:
+
+![Sequencer Faucet](../assets/sequencer-faucet.png)
+
 ### Use locally modified chart
 
 :::danger
@@ -352,12 +364,3 @@ cast send $REC_ADDR --value 10000000000000000000 --private-key $ROLLUP_FAUCET_PR
 ```bash
 cast balance $REC_ADDR
 ```
-
-## Fund you Sequencer Account
-
-Using your sequencer pub key you created in the 
-[Create a New Sequencer Account](#create-new-sequencer-account) section, copy and past the
-`<SEQUENCER_ACCOUNT_PUB_KEY>` into the input on the faucet page, and mint funds
-to your account:
-
-![Sequencer Faucet](../assets/sequencer-faucet.png)

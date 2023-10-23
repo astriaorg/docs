@@ -210,6 +210,9 @@ export SEQUENCER_PRIV_KEY=<SEQUENCER_ACCOUNT_PRIV_KEY>
 
 ## Fund your Sequencer Account
 
+In your web browser, navigate to `http://faucet.<YOUR_ROLLUP_NAME>.localdev.me/`
+to view the faucet.
+
 Using your sequencer pub key you created in the [Create a New Sequencer
 Account](#create-a-new-sequencer-account), copy and paste the
 `<SEQUENCER_ACCOUNT_PUB_KEY>` into the input on the faucet page, and mint funds
