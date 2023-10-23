@@ -81,10 +81,6 @@ Endpoints for the remote cluster are the following:
 
 ## Update the `helm` Chart
 
-:::tip
-You can see an example of these changes in [this PR here](https://github.com/astriaorg/dev-cluster/pull/119/files).
-:::
-
 :::danger
 Deploying a rollup to a cloud provider requires manual changes to the `helm`
 charts. Because the default `localdev.me` hostname will not work on a cloud
@@ -97,28 +93,13 @@ git clone git@github.com:astriaorg/dev-cluster.git
 cd dev-cluster
 ```
 
-Within the dev-cluster repo, update the ingress template `chart/rollup/templates/ingress.yaml` so that each hostname ends in `<YOUR_HOSTNAME>` instead of `localdev.me`
+Within the dev-cluster repo, update the `chart/rollup/values.yaml` file so that
+the `ingress.hostname` value is set to your chosen hostname instead of
+`localdev.me`: 
 
-```bash
-...
-- host: executor.{{ .Values.config.rollup.name }}.<YOUR_HOSTNAME>
-...
-- host: ws-executor.{{ .Values.config.rollup.name }}.<YOUR_HOSTNAME>
-...
-- host: faucet.{{ .Values.config.rollup.name }}.<YOUR_HOSTNAME>
-...
-- host: blockscout.{{ .Values.config.rollup.name }}.<YOUR_HOSTNAME>
-...
-```
-
-Add an IngressClass so that the `metadata` section in the same file looks like:
-
-```bash
-metadata:
-  name: {{ .Values.config.rollup.name }}-ingress
-  namespace: {{ .Values.namespace }}
-  annotations:
-    kubernetes.io/ingress.class: nginx
+```yaml
+ingress:
+  hostname: <YOUR_HOSTNAME> # changed from localdev.me
 ```
 
 ## Creating your own Genesis Account
@@ -153,9 +134,9 @@ Exporting the genesis account(s) is also shown in the export block in the next s
 __NEVER__ use a private key you use on a live network. 
 :::
 
-## Get and Build the `astria-cli`
+## Using the `astria-cli`
 
-Pull the [Astria repo](https://github.com/astriaorg/astria) and build the `astria-cli`
+Pull the [Astria repo](https://github.com/astriaorg/astria) and install the `astria-cli`
 
 ```bash
 git clone git@github.com:astriaorg/astria.git
@@ -163,21 +144,7 @@ cd astria
 just install-cli
 ```
 
-## Using the `astria-cli`
-
-### Get Current Sequencer Block Height
-
-```bash
-astria-cli sequencer blockheight get \
-  --sequencer-url https://rpc.sequencer.dusk-1.devnet.astria.org/
-```
-
-`export` the initial sequencer block height as an environment variable:
-```bash
-export INITIAL_SEQUENCER_BLOCK_HEIGHT=<INITIAL_SEQUENCER_BLOCK_HEIGHT>
-```
-
-## Create Rollup Config
+### Create Rollup Config
 
 Replace the tags in the commands and env vars below, as follows:
 
@@ -185,15 +152,9 @@ Replace the tags in the commands and env vars below, as follows:
 |-----|-----|-----|
 | `<YOUR_ROLLUP_NAME>` | String | The name of your rollup |
 | `<YOUR_NETWORK_ID>` | u64 | The id of your network |
+| `<YOUR_HOSTNAME>` | String | The chosen hostname for your network |
+| `<YOUR_NAMESPACE>` | String | The chosen deployment namespace |
 | `<BALANCE>` | u64 | A balance. We recommend using `100000000000000000000`. |
-<!-- TODO: potentially remove the initial sequencer block height as that may be found automatically -->
-
-<!-- TODO: add this back in when the automated block height is added -->
-<!-- :::tip
-You can also optionally leave out the `--sequencer.initial-block-height` input
-in the command above, and the cli will fetch the initial sequencer block height
-for you.
-::: -->
 
 You can use environment variables to set the configuration for the rollup
 config creation. Replace all the `<>` tags with their corresponding values. 
@@ -203,12 +164,27 @@ export ROLLUP_USE_TTY=true
 export ROLLUP_LOG_LEVEL=DEBUG
 export ROLLUP_NAME=<YOUR_ROLLUP_NAME>
 export ROLLUP_NETWORK_ID=<YOUR_NETWORK_ID>
+export ROLLUP_HOSTNAME=<YOUR_HOSTNAME>
+export ROLLUP_NAMESPACE=<YOUR_NAMESPACE>
 export ROLLUP_SKIP_EMPTY_BLOCKS=false
 export ROLLUP_GENESIS_ACCOUNTS=$GENESIS_ADDRESS:<BALANCE>
-export ROLLUP_SEQUENCER_INITIAL_BLOCK_HEIGHT=$INITIAL_SEQUENCER_BLOCK_HEIGHT
 export ROLLUP_SEQUENCER_WEBSOCKET=wss://rpc.sequencer.dusk-1.devnet.astria.org/websocket
 export ROLLUP_SEQUENCER_RPC=https://rpc.sequencer.dusk-1.devnet.astria.org
 ```
+
+:::tip
+The initial sequencer block height is automatically fetched and set if not
+specified when creating the config. If you need to set this value manually you
+can export the height as an environment variable:
+```bash
+export ROLLUP_SEQUENCER_INITIAL_BLOCK_HEIGHT=<INITIAL_SEQUENCER_BLOCK_HEIGHT>
+```
+Or use the following flag when running the `astria-cli rollup config create`
+command below:
+```bash
+--sequencer.initial-block-height <INITIAL_SEQUENCER_BLOCK_HEIGHT>
+```
+:::
 
 Then just run the config create command:
 
@@ -249,7 +225,7 @@ Export this file to the env vars as follows:
 export ROLLUP_CONF_FILE=<YOUR_ROLLUP_NAME>-rollup-conf.yaml
 ```
 
-## Create new sequencer account
+### Create new sequencer account
 
 ```bash
 astria-cli sequencer account create
@@ -272,7 +248,7 @@ Export your sequencer private key as an environment variable.
 export SEQUENCER_PRIV_KEY=9c78...710d
 ```
 
-## Use locally modified chart
+### Use locally modified chart
 
 :::danger
 You __must__ have modified your local `helm` chart to use your own domain name
@@ -285,7 +261,7 @@ Because you needed to modify the host names inside your ingress template you mus
 export ROLLUP_CHART_PATH="/your_path_to/dev-cluster/charts/rollup"
 ```
 
-## Deploy the Rollup Node
+### Deploy the Rollup Node
 
 Use the `astria-cli` to deploy the node.
 
