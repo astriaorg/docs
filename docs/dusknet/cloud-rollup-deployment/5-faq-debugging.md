@@ -4,6 +4,30 @@ sidebar_position: 5
 
 # FAQ and Debugging
 
+## Manually Fetch Sequencer Block Height
+
+### Install the `astria-cli`
+
+Pull the [Astria repo](https://github.com/astriaorg/astria) and install the `astria-cli`
+
+```bash
+git clone git@github.com:astriaorg/astria.git
+cd astria
+just install-cli
+```
+
+### Get Current Sequencer Block Height
+
+```bash
+astria-cli sequencer blockheight get \
+  --sequencer-url https://rpc.sequencer.dusk-1.devnet.astria.org/
+```
+
+`export` the initial sequencer block height as an environment variable:
+```bash
+export INITIAL_SEQUENCER_BLOCK_HEIGHT=<INITIAL_SEQUENCER_BLOCK_HEIGHT>
+```
+
 ## Debug Ingress
 
 If you would like to view the ingress logs you can use the following:

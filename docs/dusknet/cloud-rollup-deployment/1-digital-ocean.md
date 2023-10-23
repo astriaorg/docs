@@ -93,7 +93,7 @@ git clone git@github.com:astriaorg/dev-cluster.git
 cd dev-cluster
 ```
 
-Within the dev-cluster repo, update the `chart/rollup/values.yaml` file so that
+Within the `dev-cluster` repo, update the `chart/rollup/values.yaml` file so that
 the `ingress.hostname` value is set to your chosen hostname instead of
 `localdev.me`: 
 
@@ -153,7 +153,7 @@ Replace the tags in the commands and env vars below, as follows:
 | `<YOUR_ROLLUP_NAME>` | String | The name of your rollup |
 | `<YOUR_NETWORK_ID>` | u64 | The id of your network |
 | `<YOUR_HOSTNAME>` | String | The chosen hostname for your network |
-| `<YOUR_NAMESPACE>` | String | The chosen deployment namespace |
+| `<YOUR_NAMESPACE>` | String | The chosen k8s deployment namespace |
 | `<BALANCE>` | u64 | A balance. We recommend using `100000000000000000000`. |
 
 You can use environment variables to set the configuration for the rollup
@@ -176,14 +176,22 @@ export ROLLUP_SEQUENCER_RPC=https://rpc.sequencer.dusk-1.devnet.astria.org
 The initial sequencer block height is automatically fetched and set if not
 specified when creating the config. If you need to set this value manually you
 can export the height as an environment variable:
+
 ```bash
 export ROLLUP_SEQUENCER_INITIAL_BLOCK_HEIGHT=<INITIAL_SEQUENCER_BLOCK_HEIGHT>
 ```
+
 Or use the following flag when running the `astria-cli rollup config create`
 command below:
+
 ```bash
 --sequencer.initial-block-height <INITIAL_SEQUENCER_BLOCK_HEIGHT>
 ```
+
+See the [FAQ and
+Debugging](5-faq-debugging.md#manually-fetch-sequencer-block-height) docs for
+how to manually fetch the sequencer block height. 
+
 :::
 
 Then just run the config create command:
