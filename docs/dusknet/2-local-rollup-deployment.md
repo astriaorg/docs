@@ -4,6 +4,28 @@ sidebar_position: 2
 
 # Local Rollup Deployment
 
+## Setup Local Environment
+
+We use part of the [Astria
+dev-cluster](https://github.com/astriaorg/dev-cluster) to setup a local
+Kubernetes (k8s) cluster where we will deploy our local rollup.
+
+:::tip
+Make sure that Docker is running before deploying with `just`.
+:::
+
+In the __dev-cluster repo__, run:
+
+```sh
+git clone git@github.com:astriaorg/dev-cluster.git
+cd dev-cluster
+just create-cluster
+just deploy-ingress-controller
+just wait-for-ingress-controller
+```
+
+This gives us a local environment compatible with our helm charts.
+
 ## Endpoints
 
 Endpoints for the remote cluster are the following:
@@ -157,28 +179,6 @@ can move on to the next section.
 
 If you do want to add an account(s), see the next section.
 
-## Setup Local Environment
-
-We use part of the [Astria
-dev-cluster](https://github.com/astriaorg/dev-cluster) to setup a local
-Kubernetes (k8s) cluster where we will deploy our local rollup.
-
-:::tip
-Make sure that Docker is running before deploying with `just`.
-:::
-
-In the __dev-cluster repo__, run:
-
-```sh
-git clone git@github.com:astriaorg/dev-cluster.git
-cd dev-cluster
-just create-cluster
-just deploy-ingress-controller
-just wait-for-ingress-controller
-```
-
-This gives us a local environment compatible with our helm charts.
-
 ## Create a New Sequencer Account
 
 Back in the __Astria repo__, run the cli to create the address and key
@@ -207,6 +207,15 @@ Now export the private key printed above:
 ```bash
 export SEQUENCER_PRIV_KEY=<SEQUENCER_ACCOUNT_PRIV_KEY>
 ```
+
+## Fund your Sequencer Account
+
+Using your sequencer pub key you created in the [Create a New Sequencer
+Account](#create-a-new-sequencer-account), copy and paste the
+`<SEQUENCER_ACCOUNT_PUB_KEY>` into the input on the faucet page, and mint funds
+to your account:
+
+![Sequencer Faucet](./assets/sequencer-faucet.png)
 
 ## Deploy the Configuration
 
@@ -294,12 +303,3 @@ And view your new balance:
 ```bash
 cast balance $REC_ADDR
 ```
-
-## Fund you Sequencer Account
-
-Using your sequencer pub key you created in the [Create a New Sequencer
-Account](#create-a-new-sequencer-account), copy and past the
-`<SEQUENCER_ACCOUNT_PUB_KEY>` into the input on the faucet page, and mint funds
-to your account:
-
-![Sequencer Faucet](./assets/sequencer-faucet.png)
