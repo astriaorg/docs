@@ -15,10 +15,6 @@ The following assumes you are using [Digital Ocean Kubernetes
 
 We recommend using Digital Ocean's Kubernetes [Quick Start Guide](https://docs.digitalocean.com/products/kubernetes/getting-started/quickstart/).
 
-:::warning
-You must use at least a 2 node cluster.
-:::
-
 ## Setup Digital Ocean Ingress
 
 We use the Ingress NGINX Controller for consistency across deployment environments:
