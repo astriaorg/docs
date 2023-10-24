@@ -69,7 +69,7 @@ gcloud container clusters create-auto hello-cluster \
     --region=us-central1
 ```
 
-## Configure Kubectl for your GKE Cluster
+## Configure Kubectl 
 
 :::danger
 Due to https://github.com/kubernetes/kubectl/issues/1338 you must run the following commands before configuring your cluster’s credentials, otherwise `helm` will not work.
@@ -113,19 +113,22 @@ ingress-nginx-controller-admission   ClusterIP      34.118.229.71   <none>      
 
 ## Create an `A` Record
 
-Creating an `A` record will depend on where you purchased your domain from. Each
-domain provider will have different steps required to set up an A record.
-
-An example (for Google domains) can be seen here:
-- <https://support.google.com/a/answer/2579934?hl=en>
-
-:::danger
+:::tip
 You must configure a DNS record because our ingress configuration uses name
-based virtual routing.
+based virtual routing.  
 More info here: https://kubernetes.io/docs/concepts/services-networking/ingress/#name-based-virtual-hosting
 :::
 
-## Creating your own Genesis Account
+How you create an `A` record will depend on where you purchased your domain from. Each
+domain provider will have different steps required to set up an A record.
+
+An example for Google domains can be seen here: <https://support.google.com/a/answer/2579934?hl=en>
+
+Create a wildcard `*` record pointing to the `EXTERNAL-IP` of your `ingress-nginx-controller`:
+
+![a record screenshot](../assets/a-record.png)
+
+## Creating your rollup Genesis Account(s)
 
 You can add genesis account(s) to your rollup during configuration.
 
