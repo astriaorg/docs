@@ -172,7 +172,7 @@ config:
     websocket: wss://rpc.sequencer.dusk-1.devnet.astria.org/websocket
     rpc: https://rpc.sequencer.dusk-1.devnet.astria.org
 ingress:
-  hostname: niven.io
+  hostname: <YOUR_HOSTNAME>
 ```
 
 ## Create new sequencer account
