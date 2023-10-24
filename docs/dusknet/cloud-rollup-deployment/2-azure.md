@@ -55,9 +55,7 @@ az aks create -g myResourceGroup -n myAKSCluster --enable-managed-identity --nod
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-## Setup Ingress Controller
-
-### Deploy Nginx Ingress Controller
+## Deploy Ingress Nginx Controller
 
 <https://kubernetes.github.io/ingress-nginx/deploy/#azure>
 
@@ -82,17 +80,20 @@ ingress-nginx-controller-admission   ClusterIP      34.118.229.71   <none>      
 
 ## Create an `A` Record
 
-Creating an `A` record will depend on where you purchased your domain from. Each
-domain provider will have different steps required to set up an A record.
-
-An example (for Google domains) can be seen here:
-- <https://support.google.com/a/answer/2579934?hl=en>
-
-:::danger
+:::tip
 You must configure a DNS record because our ingress configuration uses name
-based virtual routing.
+based virtual routing.  
 More info here: https://kubernetes.io/docs/concepts/services-networking/ingress/#name-based-virtual-hosting
 :::
+
+How you create an `A` record will depend on where you purchased your domain from. Each
+domain provider will have different steps required to set up an A record.
+
+An example for Google domains can be seen here: <https://support.google.com/a/answer/2579934?hl=en>
+
+Create a wildcard `*` record pointing to the `EXTERNAL-IP` of your `ingress-nginx-controller`:
+
+![a record screenshot](../assets/a-record.png)
 
 ## Creating your own Genesis Account
 
@@ -129,44 +130,6 @@ __NEVER__ use a private key you use on a live network.
 :::
 
 ## Configure and Deploy Rollup
-
-### Update the `helm` Chart
-
-:::tip
-You can see an example of these changes in [this PR here](https://github.com/astriaorg/dev-cluster/pull/119/files).
-:::
-
-Pull the [Astria dev-cluster repo](https://github.com/astriaorg/dev-cluster):
-```bash
-git clone git@github.com:astriaorg/dev-cluster.git
-cd dev-cluster
-```
-
-Within the dev-cluster repo, update the ingress template
-`chart/rollup/templates/ingress.yaml` so that each hostname ends in
-`<YOUR_HOSTNAME>` instead of `localdev.me`
-
-```yaml
-...
-- host: executor.{{ .Values.config.rollup.name }}.<YOUR_HOSTNAME>
-...
-- host: ws-executor.{{ .Values.config.rollup.name }}.<YOUR_HOSTNAME>
-...
-- host: faucet.{{ .Values.config.rollup.name }}.<YOUR_HOSTNAME>
-...
-- host: blockscout.{{ .Values.config.rollup.name }}.<YOUR_HOSTNAME>
-...
-```
-
-Add an IngressClass so that the `metadata` section in the same file looks like:
-
-```yaml
-metadata:
-  name: {{ .Values.config.rollup.name }}-ingress
-  namespace: {{ .Values.namespace }}
-  annotations:
-    kubernetes.io/ingress.class: nginx
-```
 
 ## Install the `astria-cli`
 

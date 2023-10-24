@@ -4,6 +4,18 @@ sidebar_position: 5
 
 # FAQ and Debugging
 
+## Endpoints
+
+Endpoints for the remote cluster are the following:
+
+| NAME | HOSTS | ADDRESS |
+|-----|-----|-----|
+| EVM JSON RPC | rpc.evm.dusk-1.devnet.astria.org | 34.160.214.22 |
+| EVM Block Explorer | explorer.evm.dusk-1.devnet.astria.org | 34.111.167.16 |
+| EVM Faucet | faucet.evm.dusk-1.devnet.astria.org | 130.211.4.120 |
+| Sequencer RPC | rpc.sequencer.dusk-1.devnet.astria.org | 34.111.73.187 |
+| Sequencer Faucet | faucet.sequencer.dusk-1.devnet.astria.org | 34.36.8.102 |
+
 ## Manually Fetch Sequencer Block Height
 
 ### Install the `astria-cli`
@@ -16,18 +28,29 @@ cd astria
 just install-cli
 ```
 
-### Get Current Sequencer Block Height
+### Sequencer Block Height
+
+The initial sequencer block height is automatically fetched and set if not specified when creating the config. 
+
+You can manually retrieve it with the `astria-cli`:
 
 ```bash
 astria-cli sequencer blockheight get \
   --sequencer-url https://rpc.sequencer.dusk-1.devnet.astria.org/
 ```
 
-`export` the initial sequencer block height as an environment variable:
+If you need to set this to a different value you can set it as an an environment variable:
+
 ```bash
-export INITIAL_SEQUENCER_BLOCK_HEIGHT=<INITIAL_SEQUENCER_BLOCK_HEIGHT>
+export ROLLUP_SEQUENCER_INITIAL_BLOCK_HEIGHT=<INITIAL_SEQUENCER_BLOCK_HEIGHT>
 ```
 
+Or use the following flag when running the `astria-cli rollup config create`
+command below:
+
+```bash
+--sequencer.initial-block-height <INITIAL_SEQUENCER_BLOCK_HEIGHT>
+```
 ## Debug Ingress
 
 If you would like to view the ingress logs you can use the following:

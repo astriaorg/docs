@@ -44,3 +44,15 @@ dev-cluster repo.
 
 Once all of the dependencies have been installed, you can move on to running the
 rollup.
+
+## Endpoints
+
+Endpoints for the remote cluster are the following:
+
+| NAME | HOSTS | ADDRESS |
+|-----|-----|-----|
+| EVM JSON RPC | rpc.evm.dusk-1.devnet.astria.org | 34.160.214.22 |
+| EVM Block Explorer | explorer.evm.dusk-1.devnet.astria.org | 34.111.167.16 |
+| EVM Faucet | faucet.evm.dusk-1.devnet.astria.org | 130.211.4.120 |
+| Sequencer RPC | rpc.sequencer.dusk-1.devnet.astria.org | 34.111.73.187 |
+| Sequencer Faucet | faucet.sequencer.dusk-1.devnet.astria.org | 34.36.8.102 |

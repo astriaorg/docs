@@ -26,34 +26,19 @@ just wait-for-ingress-controller
 
 This gives us a local environment compatible with our helm charts.
 
-## Endpoints
+## Create your Rollup Genesis Account(s)
 
-Endpoints for the remote cluster are the following:
+:::danger
+__NEVER__ use a private key you use on a live network. 
+:::
 
-| NAME | HOSTS | ADDRESS |
-|-----|-----|-----|
-| EVM JSON RPC | rpc.evm.dusk-1.devnet.astria.org | 34.160.214.22 |
-| EVM Block Explorer | explorer.evm.dusk-1.devnet.astria.org | 34.111.167.16 |
-| EVM Faucet | faucet.evm.dusk-1.devnet.astria.org | 130.211.4.120 |
-| Sequencer RPC | rpc.sequencer.dusk-1.devnet.astria.org | 34.111.73.187 |
-| Sequencer Faucet | faucet.sequencer.dusk-1.devnet.astria.org | 34.36.8.102 |
+You can add genesis account(s) to your rollup during configuration.
 
-## Creating your own Genesis Account
-
-You can add genesis account(s) to your rollup during configuration. This is done
-by `export`ing the additional `ROLLUP_GENESIS_ACCOUNTS` environment variable.
-
-```bash
-export ROLLUP_GENESIS_ACCOUNTS=<GENESIS_ADDRESS>:<BALANCE>
-```
-
-You can create an account using
+You can create an account using:
 
 ```bash
 cast w new
 ```
-
-to create a new account:
 
 ```bash
 Successfully created new keypair.
@@ -61,22 +46,23 @@ Address:     0xfFe9...5f8b # <GENESIS_ADDRESS>
 Private key: 0x332e...a8fb # <GENESIS_PRIVATE_KEY>
 ```
 
-Set `<GENESIS_ADDRESS>` to the address printed out from the new command, and
-`export` the private key to the env vars using:
-
+Export the genesis private key, this will be used by the faucet included with the rollup:
 ```bash
 export ROLLUP_FAUCET_PRIV_KEY=<GENESIS_PRIVATE_KEY>
 ```
 
-This export is also shown in the export block in the next section.
+Export the genesis address alongside with your desired initial balance, in Wei, we recommend using a value of `100000000000000000000` or larger:
+```bash
+export ROLLUP_GENESIS_ACCOUNTS=<GENESIS_ADDRESS>:<BALANCE>
+```
 
-:::danger
-__NEVER__ use a private key you use on a live network.
+You can specify multiple accounts to be funded at genesis as comma deliminated tuples of `<ADDRESS>:<BALANCE>`
 
-For ease of use we recommend you set this to an  key which you have access to
-:::
+```
+export ROLLUP_GENESIS_ACCOUNTS=<ADDRESS_1>:<BALANCE_1>,<ADDRESS_2>:<BALANCE_2>
+```
 
-## Build the `astria-cli`
+## Install the `astria-cli`
 
 Clone the [Astria repo](https://github.com/astriaorg/astria/tree/main) and build
 a new config using the `astria-cli`.
@@ -87,138 +73,95 @@ cd astria
 just install-cli
 ```
 
-## Using the `astria-cli`
+## Create Rollup Config
 
-### Get Current Sequencer Block Height
-
-```bash
-astria-cli sequencer blockheight get \
-  --sequencer-url https://rpc.sequencer.dusk-1.devnet.astria.org/
-```
-
-Keep track of this block height as it will be used for making the rollup config
-later on. You will use this printed height in place of
-`<INITIAL_SEQUENCER_BLOCK_HEIGHT>` in the steps below.
-
-Replace the following tags in the sections below, as follows:
+Replace the tags in the commands and env vars below, as follows:
 
 | Var Name | Var Type | Description |
 |-----|-----|-----|
-| `<YOUR_ROLLUP_NAME>` | String | The name of your rollup |
-| `<YOUR_NETWORK_ID>` | u64 | The id of your network |
-| `<INITIAL_SEQUENCER_BLOCK_HEIGHT>` | u64 | The height of the sequencer (found above) |
-| `<GENESIS_ADDRESS>` | [u8; 40] | A wallet address |
-| `<BALANCE>` | u64 | A balance. It is useful to make this a large value. |
-
-<!-- TODO: add this back in when the automated block height is added -->
-<!-- :::tip
-You can also optionally leave out the `--sequencer.initial-block-height` input
-in the command above, and the cli will fetch the initial sequencer block height
-for you.
-::: -->
-
-## Create Rollup Config
+| `<YOUR_ROLLUP_NAME>` | String | The name of your rollup. This must be alphanumeric, `-` is allowed, this will be included in URLs|
+| `<YOUR_NETWORK_ID>` | u64 | The id of your network. Pick a > 6 digit number (eg. `123456`) |
 
 You can use environment variables to set the configuration for the rollup
-config creation. Replace all the `<>` tags with their corresponding values.
+config creation. Replace all the `<>` tags with their corresponding values. 
 
 ```bash
-export ROLLUP_USE_TTY=true
-export ROLLUP_LOG_LEVEL=DEBUG
 export ROLLUP_NAME=<YOUR_ROLLUP_NAME>
 export ROLLUP_NETWORK_ID=<YOUR_NETWORK_ID>
-export ROLLUP_SKIP_EMPTY_BLOCKS=false
-export ROLLUP_GENESIS_ACCOUNTS=<GENESIS_ADDRESS>:<BALANCE>
-export ROLLUP_SEQUENCER_INITIAL_BLOCK_HEIGHT=<INITIAL_SEQUENCER_BLOCK_HEIGHT>
-export ROLLUP_SEQUENCER_WEBSOCKET=wss://rpc.sequencer.dusk-1.devnet.astria.org/websocket
-export ROLLUP_SEQUENCER_RPC=https://rpc.sequencer.dusk-1.devnet.astria.org
 ```
 
-Then just run the config create command:
+Run the config create command:
 
 ```sh
 astria-cli rollup config create
 ```
 
-You can then run:
-
-```sh
-cat <YOUR_ROLLUP_NAME>-rollup-conf.yaml
+Export the config file name as an env vars:
+```bash
+export ROLLUP_CONF_FILE=$ROLLUP_NAME-rollup-conf.yaml
 ```
 
-to print out the config file contents to double check everything:
+Verify the config
 
 ```sh
+cat $ROLLUP_CONF_FILE
+```
+
+```sh
+namespace: astria-dev-cluster
 config:
-  useTTY: true
-  logLevel: DEBUG
+  useTTY: false
+  logLevel: debug
   rollup:
     name: <YOUR_ROLLUP_NAME>
-    chainId: # derived from rollup name
-    networkId: <YOUR_NETWORK_ID>
-    skipEmptyBlocks: true
-    genesisAccounts: 
-      - address: 0x<GENESIS_ADDRESS>
-        balance: '<BALANCE>'
+    chainId: <YOUR_ROLLUP_NAME>-chain
+    networkId: '<YOUR_NETWORK_ID>'
+    skipEmptyBlocks: false
+    genesisAccounts:
+    - address: <GENESIS_ADDRESS>
+      balance: '<BALANCE>'
   sequencer:
     initialBlockHeight: <INITIAL_SEQUENCER_BLOCK_HEIGHT>
-    websocket: ws://rpc.sequencer.dusk-1.devnet.astria.org/websocket
-    rpc: http://rpc.sequencer.dusk-1.devnet.astria.org
-  celestia:
-    fullNodeUrl: http://celestia-service:26658
+    websocket: wss://rpc.sequencer.dusk-1.devnet.astria.org/websocket
+    rpc: https://rpc.sequencer.dusk-1.devnet.astria.org
+  ingress:
+    hostname: localdev.me
 ```
-
-Export this file to the env vars as follows:
-
-```bash
-export ROLLUP_CONF_FILE=<YOUR_ROLLUP_NAME>-rollup-conf.yaml
-```
-
-At this point, if you do not want to add any genesis accounts to your rollup you
-can move on to the next section.
-
-If you do want to add an account(s), see the next section.
 
 ## Create a New Sequencer Account
-
-Back in the __Astria repo__, run the cli to create the address and key
-information for a new sequencer account.
 
 ```bash
 astria-cli sequencer account create
 ```
 
-The address, public and private keys will be different from those below. Save
-these values for later use.
-
 ```bash
 Create Sequencer Account
 
 Private Key: "5562...1622" # <SEQUENCER_ACCOUNT_PRIV_KEY>
-Public Key:  "ec20...f613" # <SEQUENCER_ACCOUNT_PUB_KEY>
-Address:     "8a2f...5f68"
+Public Key:  "ec20...f613" # 
+Address:     "8a2f...5f68" # <SEQUENCER_ACCOUNT_ADDRESS>
 ```
 
-Keep track of the `<SEQUENCER_ACCOUNT_PUB_KEY>` as it will be used with the
-Faucet later on for funding your sequencer account.
-
-Now export the private key printed above:
+Export your sequencer private key and address as environment variables:
 
 ```bash
-export SEQUENCER_PRIV_KEY=<SEQUENCER_ACCOUNT_PRIV_KEY>
+export SEQUENCER_PRIV_KEY=9c78...710d
+export SEQUENCER_ACCOUNT_ADDRESS=8a2f...5f68
 ```
 
 ## Fund your Sequencer Account
 
-In your web browser, navigate to `http://faucet.<YOUR_ROLLUP_NAME>.localdev.me/`
-to view the faucet.
+Navigate to <https://faucet.sequencer.dusk-1.devnet.astria.org/> to view the sequencer faucet.
 
-Using your sequencer pub key you created in the [Create a New Sequencer
-Account](#create-a-new-sequencer-account), copy and paste the
-`<SEQUENCER_ACCOUNT_PUB_KEY>` into the input on the faucet page, and mint funds
-to your account:
+Enter your `<SEQUENCER_ACCOUNT_ADDRESS>` into the text box to send funds to your account:
 
-![Sequencer Faucet](./assets/sequencer-faucet.png)
+![Sequencer Faucet](assets/sequencer-faucet.png)
+
+Verify your account received the funds
+
+```bash
+astria-cli sequencer balance get $SEQUENCER_ACCOUNT_ADDRESS --sequencer-url=https://rpc.sequencer.dusk-1.devnet.astria.org
+```
 
 ## Deploy the Configuration
 
@@ -229,6 +172,19 @@ astria-cli rollup deployment create \
   --config $ROLLUP_CONF_FILE \
   --faucet-private-key $ROLLUP_FAUCET_PRIV_KEY \
   --sequencer-private-key $SEQUENCER_PRIV_KEY
+```
+
+## Watch for pod startup
+
+```bash
+kubectl get pods -n astria-dev-cluster -w
+```
+
+```bash
+NAME                                             READY   STATUS    RESTARTS      AGE
+<YOUR_ROLLUP_NAME>-blockscout-647745c66d-vz4ks   6/6     Running   1 (56s ago)   72s
+<YOUR_ROLLUP_NAME>-faucet-68667bd895-pwqmz       1/1     Running   0             72s
+<YOUR_ROLLUP_NAME>-geth-755cb8dd97-k5xp8         3/3     Running   0             72s
 ```
 
 ## Observe your Deployment
