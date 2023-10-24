@@ -29,7 +29,7 @@ This gives us a local environment compatible with our helm charts.
 ## Create your Rollup Genesis Account(s)
 
 :::danger
-__NEVER__ use a private key you use on a live network. 
+__NEVER__ use a private key you use on a live network.
 :::
 
 You can add genesis account(s) to your rollup during configuration.
@@ -46,19 +46,24 @@ Address:     0xfFe9...5f8b # <GENESIS_ADDRESS>
 Private key: 0x332e...a8fb # <GENESIS_PRIVATE_KEY>
 ```
 
-Export the genesis private key, this will be used by the faucet included with the rollup:
+Export the genesis private key, this will be used by the
+ faucet included with the rollup:
+
 ```bash
 export ROLLUP_FAUCET_PRIV_KEY=<GENESIS_PRIVATE_KEY>
 ```
 
-Export the genesis address alongside with your desired initial balance, in Wei, we recommend using a value of `100000000000000000000` or larger:
+Export the genesis address alongside with your desired initial balance,
+ in Wei, we recommend using a value of `100000000000000000000` or larger:
+
 ```bash
 export ROLLUP_GENESIS_ACCOUNTS=<GENESIS_ADDRESS>:<BALANCE>
 ```
 
-You can specify multiple accounts to be funded at genesis as comma deliminated tuples of `<ADDRESS>:<BALANCE>`
+You can specify multiple accounts to be funded at
+ genesis as comma deliminated tuples of `<ADDRESS>:<BALANCE>`
 
-```
+```bash
 export ROLLUP_GENESIS_ACCOUNTS=<ADDRESS_1>:<BALANCE_1>,<ADDRESS_2>:<BALANCE_2>
 ```
 
@@ -83,7 +88,7 @@ Replace the tags in the commands and env vars below, as follows:
 | `<YOUR_NETWORK_ID>` | u64 | The id of your network. Pick a > 6 digit number (eg. `123456`) |
 
 You can use environment variables to set the configuration for the rollup
-config creation. Replace all the `<>` tags with their corresponding values. 
+config creation. Replace all the `<>` tags with their corresponding values.
 
 ```bash
 export ROLLUP_NAME=<YOUR_ROLLUP_NAME>
@@ -97,6 +102,7 @@ astria-cli rollup config create
 ```
 
 Export the config file name as an env vars:
+
 ```bash
 export ROLLUP_CONF_FILE=$ROLLUP_NAME-rollup-conf.yaml
 ```
@@ -151,9 +157,11 @@ export SEQUENCER_ACCOUNT_ADDRESS=8a2f...5f68
 
 ## Fund your Sequencer Account
 
-Navigate to <https://faucet.sequencer.dusk-1.devnet.astria.org/> to view the sequencer faucet.
+Navigate to <https://faucet.sequencer.dusk-1.devnet.astria.org/> to view the
+ sequencer faucet.
 
-Enter your `<SEQUENCER_ACCOUNT_ADDRESS>` into the text box to send funds to your account:
+Enter your `<SEQUENCER_ACCOUNT_ADDRESS>` into the text box to send
+ funds to your account:
 
 ![Sequencer Faucet](assets/sequencer-faucet.png)
 
