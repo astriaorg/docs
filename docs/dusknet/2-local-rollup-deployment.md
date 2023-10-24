@@ -215,7 +215,7 @@ transaction appear, or any of the transactions you have sent using `cast`.
 Use `cast` to view the blocks on your rollup.
 
 ```bash
-# replace <your_rollup_name> with the name you used in your configuration
+# set the Eth RPC url to point at your rollup
 export ETH_RPC_URL=http://executor.$ROLLUP_NAME.localdev.me/
 cast block 0
 ```
