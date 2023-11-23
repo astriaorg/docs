@@ -73,7 +73,7 @@ export ROLLUP_GENESIS_ACCOUNTS=<ADDRESS_1>:<BALANCE_1>,<ADDRESS_2>:<BALANCE_2>
 ## Install the `astria-cli`
 
 Navigate to your [Astria repo](https://github.com/astriaorg/astria/tree/main)
-and build a new config using the `astria-cli`.
+and install the `astria-cli`.
 
 ```bash
 cd astria
