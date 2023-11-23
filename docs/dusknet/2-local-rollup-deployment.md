@@ -19,7 +19,6 @@ In the __dev-cluster repo__, run:
 ```sh
 just create-cluster
 just deploy-ingress-controller
-just wait-for-ingress-controller
 ```
 
 This gives us a local environment compatible with our helm charts.
