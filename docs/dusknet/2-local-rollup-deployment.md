@@ -29,11 +29,6 @@ This gives us a local environment compatible with our helm charts.
 __NEVER__ use a private key you use on a live network.
 :::
 
-:::tip
-Open a new terminal window for the following instructions.
-Keep your initial terminal process running.
-:::
-
 You can add genesis account(s) to your rollup during configuration.
 
 You can create an account using:
