@@ -31,7 +31,8 @@ __NEVER__ use a private key you use on a live network.
 :::
 
 :::tip
-Open a new terminal window for the following instructions. Keep your original terminal process running. 
+Open a new terminal window for the following instructions. 
+Keep your initial terminal process running.
 :::
 
 You can add genesis account(s) to your rollup during configuration.
@@ -71,8 +72,8 @@ export ROLLUP_GENESIS_ACCOUNTS=<ADDRESS_1>:<BALANCE_1>,<ADDRESS_2>:<BALANCE_2>
 
 ## Install the `astria-cli`
 
-Navigate to your [Astria repo](https://github.com/astriaorg/astria/tree/main) and build
-a new config using the `astria-cli`.
+Navigate to your [Astria repo](https://github.com/astriaorg/astria/tree/main) 
+and build a new config using the `astria-cli`.
 
 ```bash
 cd astria
