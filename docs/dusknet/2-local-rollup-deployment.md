@@ -86,7 +86,7 @@ Replace the tags in the commands and env vars below, as follows:
 
 | Var Name | Var Type | Description |
 |-----|-----|-----|
-| `<YOUR_ROLLUP_NAME>` | String | The name of your rollup. This must be alphanumeric, `-` is allowed, this will be included in URLs. Letters must be in lowercase.|
+| `<YOUR_ROLLUP_NAME>` | String | The name of your rollup. This must be lowercase alphanumeric, `-` is allowed, this will be included in your rollup's URLs.|
 | `<YOUR_NETWORK_ID>` | u64 | The id of your network. Pick a >= 6 digit number (eg. `123456`) |
 
 You can use environment variables to set the configuration for the rollup
