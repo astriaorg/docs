@@ -19,6 +19,9 @@ You must also install and configure `doctl`: https://docs.digitalocean.com/refer
 
 ## Configure `kubectl` with `doctl`
 
+In your Digital Ocean control panel, navigate to "Connecting to Kubernetes." Run the following command with the `magic-id` 
+generated for you.
+
 ```bash
 doctl kubernetes cluster kubeconfig save <magic-id>
 ```
