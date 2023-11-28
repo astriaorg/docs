@@ -14,11 +14,11 @@ the Sequencer.
 ## Local Dependencies
 
 Clone the [dev-cluster](https://github.com/astriaorg/dev-cluster/tree/main) and
-the main [astria repo](https://github.com/astriaorg/astria) repo:
+install the astria cli [astria repo](https://github.com/astriaorg/astria):
 
 ```bash
-git clone git@github.com:astriaorg/astria.git
 git clone git@github.com:astriaorg/dev-cluster.git
+cargo install astria-cli --git=https://github.com/astriaorg/astria --locked
 ```
 
 And install the following tools:

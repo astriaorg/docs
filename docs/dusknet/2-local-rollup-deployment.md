@@ -11,17 +11,14 @@ dev-cluster](https://github.com/astriaorg/dev-cluster) to setup a local
 Kubernetes (k8s) cluster where we will deploy our local rollup.
 
 :::tip
-Make sure that Docker is running before deploying with `just`.
+Make sure that Docker is running before continuing.
 :::
 
 In the __dev-cluster repo__, run:
 
 ```sh
-git clone git@github.com:astriaorg/dev-cluster.git
-cd dev-cluster
 just create-cluster
 just deploy-ingress-controller
-just wait-for-ingress-controller
 ```
 
 This gives us a local environment compatible with our helm charts.
@@ -67,25 +64,14 @@ You can specify multiple accounts to be funded at
 export ROLLUP_GENESIS_ACCOUNTS=<ADDRESS_1>:<BALANCE_1>,<ADDRESS_2>:<BALANCE_2>
 ```
 
-## Install the `astria-cli`
-
-Clone the [Astria repo](https://github.com/astriaorg/astria/tree/main) and build
-a new config using the `astria-cli`.
-
-```bash
-git clone git@github.com:astriaorg/astria.git
-cd astria
-just install-cli
-```
-
 ## Create Rollup Config
 
 Replace the tags in the commands and env vars below, as follows:
 
 | Var Name | Var Type | Description |
 |-----|-----|-----|
-| `<YOUR_ROLLUP_NAME>` | String | The name of your rollup. This must be alphanumeric, `-` is allowed, this will be included in URLs|
-| `<YOUR_NETWORK_ID>` | u64 | The id of your network. Pick a > 6 digit number (eg. `123456`) |
+| `<YOUR_ROLLUP_NAME>` | String | The name of your rollup. This must be lowercase alphanumeric, `-` is allowed, this will be included in your rollup's URLs.|
+| `<YOUR_NETWORK_ID>` | u64 | The id of your network. You must select an id that has not already been claimed. You can view claimed chain IDs [here](https://chainlist.org/).|
 
 You can use environment variables to set the configuration for the rollup
 config creation. Replace all the `<>` tags with their corresponding values.
