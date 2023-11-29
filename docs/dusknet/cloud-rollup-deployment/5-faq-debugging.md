@@ -10,11 +10,11 @@ Endpoints for the remote cluster are the following:
 
 | NAME | HOSTS | ADDRESS |
 |-----|-----|-----|
-| EVM JSON RPC | rpc.evm.dusk-1.devnet.astria.org | 34.160.214.22 |
-| EVM Block Explorer | explorer.evm.dusk-1.devnet.astria.org | 34.111.167.16 |
-| EVM Faucet | faucet.evm.dusk-1.devnet.astria.org | 130.211.4.120 |
-| Sequencer RPC | rpc.sequencer.dusk-1.devnet.astria.org | 34.111.73.187 |
-| Sequencer Faucet | faucet.sequencer.dusk-1.devnet.astria.org | 34.36.8.102 |
+| EVM JSON RPC | rpc.evm.dusk-2.devnet.astria.org | 34.160.214.22 |
+| EVM Block Explorer | explorer.evm.dusk-2.devnet.astria.org | 34.111.167.16 |
+| EVM Faucet | faucet.evm.dusk-2.devnet.astria.org | 130.211.4.120 |
+| Sequencer RPC | rpc.sequencer.dusk-2.devnet.astria.org | 34.111.73.187 |
+| Sequencer Faucet | faucet.sequencer.dusk-2.devnet.astria.org | 34.36.8.102 |
 
 ## Manually Fetch Sequencer Block Height
 
@@ -36,7 +36,7 @@ You can manually retrieve it with the `astria-cli`:
 
 ```bash
 astria-cli sequencer blockheight get \
-  --sequencer-url https://rpc.sequencer.dusk-1.devnet.astria.org/
+  --sequencer-url https://rpc.sequencer.dusk-2.devnet.astria.org/
 ```
 
 If you need to set this to a different value you can set it as an an environment variable:

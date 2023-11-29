@@ -172,8 +172,8 @@ config:
       balance: '<BALANCE>'
   sequencer:
     initialBlockHeight: <INITIAL_SEQUENCER_BLOCK_HEIGHT>
-    websocket: wss://rpc.sequencer.dusk-1.devnet.astria.org/websocket
-    rpc: https://rpc.sequencer.dusk-1.devnet.astria.org
+    websocket: wss://rpc.sequencer.dusk-2.devnet.astria.org/websocket
+    rpc: https://rpc.sequencer.dusk-2.devnet.astria.org
 ingress:
   hostname: <YOUR_HOSTNAME>
 ```
@@ -201,7 +201,7 @@ export SEQUENCER_ACCOUNT_ADDRESS=8a2f...5f68
 
 ## Fund your Sequencer Account
 
-Navigate to <https://faucet.sequencer.dusk-1.devnet.astria.org/> to view the sequencer faucet.
+Navigate to <https://faucet.sequencer.dusk-2.devnet.astria.org/> to view the sequencer faucet.
 
 Enter your `<SEQUENCER_ACCOUNT_ADDRESS>` into the text box to send funds to your account:
 
@@ -210,7 +210,7 @@ Enter your `<SEQUENCER_ACCOUNT_ADDRESS>` into the text box to send funds to your
 Verify your account received the funds
 
 ```bash
-astria-cli sequencer balance get $SEQUENCER_ACCOUNT_ADDRESS --sequencer-url=https://rpc.sequencer.dusk-1.devnet.astria.org
+astria-cli sequencer balance get $SEQUENCER_ACCOUNT_ADDRESS --sequencer-url=https://rpc.sequencer.dusk-2.devnet.astria.org
 ```
 
 ## Deploy the Rollup Node

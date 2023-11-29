@@ -171,7 +171,7 @@ just install-cli
 
 ```bash
 astria-cli sequencer blockheight get \
-  --sequencer-url https://rpc.sequencer.dusk-1.devnet.astria.org/
+  --sequencer-url https://rpc.sequencer.dusk-2.devnet.astria.org/
 ```
 
 `export` the initial sequencer block height as an environment variable:
@@ -208,8 +208,8 @@ export ROLLUP_NETWORK_ID=<YOUR_NETWORK_ID>
 export ROLLUP_SKIP_EMPTY_BLOCKS=false
 export ROLLUP_GENESIS_ACCOUNTS=$GENESIS_ADDRESS:<BALANCE>
 export ROLLUP_SEQUENCER_INITIAL_BLOCK_HEIGHT=$INITIAL_SEQUENCER_BLOCK_HEIGHT
-export ROLLUP_SEQUENCER_WEBSOCKET=wss://rpc.sequencer.dusk-1.devnet.astria.org/websocket
-export ROLLUP_SEQUENCER_RPC=https://rpc.sequencer.dusk-1.devnet.astria.org
+export ROLLUP_SEQUENCER_WEBSOCKET=wss://rpc.sequencer.dusk-2.devnet.astria.org/websocket
+export ROLLUP_SEQUENCER_RPC=https://rpc.sequencer.dusk-2.devnet.astria.org
 ```
 
 Once the environment variables shown above are set, run the following command to
@@ -240,8 +240,8 @@ config:
         balance: '<BALANCE>'
   sequencer:
     initialBlockHeight: <INITIAL_SEQUENCER_BLOCK_HEIGHT>
-    websocket: ws://rpc.sequencer.dusk-1.devnet.astria.org/websocket
-    rpc: http://rpc.sequencer.dusk-1.devnet.astria.org
+    websocket: ws://rpc.sequencer.dusk-2.devnet.astria.org/websocket
+    rpc: http://rpc.sequencer.dusk-2.devnet.astria.org
   celestia:
     fullNodeUrl: http://celestia-service:26658
 ```
