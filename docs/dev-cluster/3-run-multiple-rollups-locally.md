@@ -18,13 +18,13 @@ and network id:
 
 :::warning
 
-**NOTE:** The default rollup name and network id are `astria` and `912559`. When
+**NOTE:** The default rollup name and network id are `astria` and `1337`. When
 deploying your second rollup you _**must**_ use a different name and number.
 
 :::
 
 ```sh
-just deploy-rollup <rollup_name> <network_id>
+just deploy-dev-rollup <rollup_name> <network_id>
 ```
 
 As before, it will take a moment for everything to spin up, but in the meantime
