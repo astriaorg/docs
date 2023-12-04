@@ -15,7 +15,7 @@ With the dev-cluster running, you can then deploy a rollup, block explorer, and
 faucet by running the following command in the terminal withing the dev-cluster:
 
 ```sh
-just deploy-rollup
+just deploy-dev-rollup
 ```
 
 This `just` command launches a local rollup, block explorer, and faucet using
