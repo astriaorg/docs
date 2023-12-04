@@ -15,7 +15,7 @@ With the dev-cluster running, you can then deploy a rollup, block explorer, and
 faucet by running the following command in the terminal withing the dev-cluster:
 
 ```sh
-just deploy-rollup
+just deploy-dev-rollup
 ```
 
 This `just` command launches a local rollup, block explorer, and faucet using
@@ -25,7 +25,7 @@ in the `config.rollup` definition.
 
 For reference, these are:
 - Rollup name: `astria`
-- Network Id: `912559`
+- Network Id: `1337`
 
 This will also take a moment as the rollup node, block explorer, and faucet spin
 up. You can check the progress of the deployment with the following command:
