@@ -15,17 +15,32 @@ We use Docker Desktop and Kubernetes in Docker (Kind)
 This guide has been tested on MacOS and Linux but not Windows
 :::
 
-Clone the Astria [dev-cluster](https://github.com/astriaorg/dev-cluster/tree/main):
+### Clone the Astria [dev-cluster](https://github.com/astriaorg/dev-cluster/tree/main)
 
 ```bash
 git clone --branch dusk-2 https://github.com/astriaorg/dev-cluster.git
 ```
 
-Install the astria cli:
+### Install the latest [astria cli](https://github.com/astriaorg/astria/releases/tag/cli-v0.2.0)
+
+#### ARM Mac
 
 ```bash
-TODO: pull binaries
-cargo install astria-cli --git=https://github.com/astriaorg/astria --locked
+curl -L https://github.com/astriaorg/astria/releases/download/cli-v0.2.0/astria-cli-aarch64-apple-darwin.tar.gz > astria-cli.tar.gz
+tar -xvzf astria-cli.tar.gz 
+```
+
+#### x86_64 Linux
+
+```bash
+curl -L https://github.com/astriaorg/astria/releases/download/cli-v0.2.0/astria-cli-x86_64-unknown-linux-gnu.tar.gz > astria-cli.tar.gz
+tar -xvzf astria-cli.tar.gz 
+```
+
+#### From Source
+
+```bash
+cargo install astria-cli --git=https://github.com/astriaorg/astria --tag=cli-v2 --locked
 ```
 
 You'll also need to install the following tools:

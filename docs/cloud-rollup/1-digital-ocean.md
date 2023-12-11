@@ -9,12 +9,26 @@ Digital Ocean which uses the remote Astria shared sequencer network.
 
 ## Local Dependencies
 
-Clone the [dev-cluster](https://github.com/astriaorg/dev-cluster/tree/main) and
-install the astria cli [astria repo](https://github.com/astriaorg/astria):
+### Install the latest [astria cli](https://github.com/astriaorg/astria/releases/tag/cli-v0.2.0)
+
+#### ARM Mac
 
 ```bash
-git clone git@github.com:astriaorg/dev-cluster.git
-cargo install astria-cli --git=https://github.com/astriaorg/astria --locked
+curl -L https://github.com/astriaorg/astria/releases/download/cli-v0.2.0/astria-cli-aarch64-apple-darwin.tar.gz > astria-cli.tar.gz
+tar -xvzf astria-cli.tar.gz 
+```
+
+#### x86_64 Linux
+
+```bash
+curl -L https://github.com/astriaorg/astria/releases/download/cli-v0.2.0/astria-cli-x86_64-unknown-linux-gnu.tar.gz > astria-cli.tar.gz
+tar -xvzf astria-cli.tar.gz 
+```
+
+#### From Source
+
+```bash
+cargo install astria-cli --git=https://github.com/astriaorg/astria --tag=cli-v2 --locked
 ```
 
 You'll also need to install the following tools:
