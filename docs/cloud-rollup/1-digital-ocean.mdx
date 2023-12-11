@@ -2,22 +2,12 @@
 sidebar_position: 1
 ---
 
-# Overview
+# Digital Ocean
 
 This guide will walk you through deploying a rollup full node on
-a local Kubernetes cluster which uses the Astria shared sequencer network.
+a Kubernetes cluster on Digital Ocean which uses the Astria shared sequencer network.
 
 ## Local Dependencies
-
-:::info
-This guide has been tested on MacOS and Linux but not Windows
-:::
-
-### Clone the Astria [dev-cluster](https://github.com/astriaorg/dev-cluster/tree/main)
-
-```bash
-git clone --branch dusk-2 https://github.com/astriaorg/dev-cluster.git
-```
 
 ### Install the latest [astria cli](https://github.com/astriaorg/astria/releases/tag/cli-v0.2.0)
 
@@ -27,10 +17,9 @@ import TabItem from '@theme/TabItem';
 <Tabs>
   <TabItem value="ARM Mac" label="ARM Mac" default>
 
-
     curl -L https://github.com/astriaorg/astria/releases/download/cli-v0.2.0/astria-cli-aarch64-apple-darwin.tar.gz > astria-cli.tar.gz
     tar -xvzf astria-cli.tar.gz 
-    
+
   </TabItem>
   <TabItem value="X86_64 Mac" label="X86_64 Mac">
 
@@ -47,25 +36,14 @@ import TabItem from '@theme/TabItem';
    <TabItem value="From Source" label="From Source">
 
     cargo install astria-cli --git=https://github.com/astriaorg/astria --tag=cli-v2 --locked
-    
+
   </TabItem>
 </Tabs>
 
-You'll also need to install the following tools:
+### You'll also need to install the following tools
 
-:::warning
-There is a bug in the latest Docker desktop release for MacOS  
-Please install the following release:
-<https://docs.docker.com/desktop/release-notes/#4252>  
-For more details see [here](https://github.com/docker/for-mac/issues/7100)
-:::
-
-- docker - <https://docs.docker.com/get-docker/>
 - kubectl - <https://kubernetes.io/docs/tasks/tools/>
 - helm - <https://helm.sh/docs/intro/install/>
-- kind - <https://kind.sigs.k8s.io/docs/user/quick-start/#installation>
-- just - <https://just.systems/man/en/chapter_4.html>
-- Foundry Cast and Forge tools - <https://book.getfoundry.sh/getting-started/installation>
 
 ## Dusknet Endpoints
 
@@ -76,24 +54,69 @@ The endpoints for the remote shared sequencer are:
 | Sequencer RPC | rpc.sequencer.dusk-2.devnet.astria.org | 34.111.73.187 |
 | Sequencer Faucet | faucet.sequencer.dusk-2.devnet.astria.org | 34.36.8.102 |
 
-## Setup Local Environment
+## Create a New Cluster
 
-We use the [Astria
-dev-cluster](https://github.com/astriaorg/dev-cluster) to setup a local
-Kubernetes (k8s) cluster where we will deploy our local rollup.
+This guide assumes you're using Digital Ocean's Kubernetes (K8s) service.
 
-:::tip
-Make sure that Docker is running before continuing.
-:::
+Install and configure `doctl`: <https://docs.digitalocean.com/reference/doctl/how-to/install/>
 
-In the __dev-cluster__ repo, run:
+Follow the instructions in Digital Ocean's [Quick Start Guide](https://docs.digitalocean.com/products/kubernetes/getting-started/)
+to create a new cluster in the region of your choosing.
 
-```sh
-just create-cluster
-just deploy-ingress-controller
+## Configure `kubectl` with `doctl`
+
+Once your k8s cluster is created configure `kubectl`.
+
+![doctl screenshot](assets/do-setup.png)
+
+## Deploy Ingress Nginx Controller
+
+We use the Nginx Ingress Controller, documentation can be found [here](https://kubernetes.github.io/ingress-nginx/deploy/#digital-ocean/)
+
+To install it run:
+
+```bash
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/do/deploy.yaml
 ```
 
-This sets up a local environment compatible with our helm charts.
+This will create several Kubernetes (k8s) resources and a Digital Ocean loadbalancer.
+
+## Verify Loadbalancer with external IP
+
+You should see a new loadbalancer being created in the Digital Ocean console:
+<https://cloud.digitalocean.com/networking/load_balancers>
+
+You can also check that your Digital Ocean load balancer was created with:
+
+```bash
+kubectl get svc -n ingress-nginx
+```
+
+It may take a few minutes for the `EXTERNAL-IP` field to be populated,
+you should eventually see something like this:
+
+```bash
+NAME                                 TYPE           CLUSTER-IP      EXTERNAL-IP     PORT(S)                      AGE
+ingress-nginx-controller             LoadBalancer   10.245.63.28    161.35.240.50   80:32656/TCP,443:30158/TCP   44h
+ingress-nginx-controller-admission   ClusterIP      10.245.106.99   <none>          443/TCP                      44h
+```
+
+## Create an `A` Record
+
+:::tip
+You must configure a DNS record because our ingress configuration uses name
+based virtual routing.  
+
+More info can be found [here](https://kubernetes.io/docs/concepts/services-networking/ingress/#name-based-virtual-hosting)
+:::
+
+How you create an `A` record will depend on where you manage your domain.
+
+An example for Google domains can be seen here: <https://support.google.com/a/answer/2579934?hl=en>
+
+Create a wildcard record `*` pointing to the `EXTERNAL-IP` of your `ingress-nginx-controller`:
+
+![a record screenshot](assets/a-record.png)
 
 ## Create your Rollup Genesis Account(s)
 
@@ -115,8 +138,8 @@ Address:     0xfFe9...5f8b # <GENESIS_ADDRESS>
 Private key: 0x332e...a8fb # <GENESIS_PRIVATE_KEY>
 ```
 
-Export the genesis private key, this will be used by the
- faucet included with the rollup:
+Export the genesis private key,
+this will be used by the faucet included with the rollup:
 
 ```bash
 export ROLLUP_FAUCET_PRIV_KEY=<GENESIS_PRIVATE_KEY>
@@ -129,8 +152,8 @@ We recommend using a value of `100000000000000000000` or larger:
 export ROLLUP_GENESIS_ACCOUNTS=<GENESIS_ADDRESS>:<BALANCE>
 ```
 
-You can specify multiple accounts to be funded at
- genesis as comma deliminated tuples of `<ADDRESS>:<BALANCE>`
+You can specify multiple accounts to be funded at genesis as
+ comma deliminated tuples of `<ADDRESS>:<BALANCE>`
 
 ```bash
 export ROLLUP_GENESIS_ACCOUNTS=<ADDRESS_1>:<BALANCE_1>,<ADDRESS_2>:<BALANCE_2>
@@ -144,8 +167,9 @@ Replace the tags in the commands and env vars below, as follows:
 
 | Var Name | Var Type | Description |
 |-----|-----|-----|
-| `<YOUR_ROLLUP_NAME>` | String | The name of your rollup. This must be lowercase alphanumeric, `-` is allowed, this will be included in your rollup's URLs.|
-| `<YOUR_NETWORK_ID>` | u64 | The id of your network. You must select an id that has not already been claimed. You can view claimed chain IDs [here](https://chainlist.org/).|
+| `<YOUR_ROLLUP_NAME>` | String | The name of your rollup. This must be alphanumeric, `-` is allowed, this will be included in URLs|
+| `<YOUR_NETWORK_ID>` | u64 | The id of your network. Pick a > 6 digit number (eg. `123456`) |
+| `<YOUR_HOSTNAME>` | String | The chosen hostname for your network (eg. `astria.org`) |
 
 You can use environment variables to set the configuration for the rollup
 config creation. Replace all the `<>` tags with their corresponding values.
@@ -153,6 +177,7 @@ config creation. Replace all the `<>` tags with their corresponding values.
 ```bash
 export ROLLUP_NAME=<YOUR_ROLLUP_NAME>
 export ROLLUP_NETWORK_ID=<YOUR_NETWORK_ID>
+export ROLLUP_HOSTNAME=<YOUR_HOSTNAME>
 ```
 
 Run the config create command:
@@ -191,13 +216,13 @@ config:
     websocket: wss://rpc.sequencer.dusk-2.devnet.astria.org/websocket
     rpc: https://rpc.sequencer.dusk-2.devnet.astria.org
 ingress:
-  hostname: localdev.me
+  hostname: <YOUR_HOSTNAME>
 celestia-node:
   config:
     labelPrefix: <YOUR_ROLLUP_NAME>
 ```
 
-## Create a New Sequencer Account
+## Create new sequencer account
 
 Create an account on the Astria shared sequencer network
  for your rollup to submit transactions.
@@ -223,11 +248,11 @@ export SEQUENCER_ACCOUNT_ADDRESS=8a2f...5f68
 
 ## Fund your Sequencer Account
 
-Navigate to <https://faucet.sequencer.dusk-2.devnet.astria.org/> to view the
- sequencer faucet.
+Navigate to <https://faucet.sequencer.dusk-2.devnet.astria.org/>
+to view the sequencer faucet.
 
-Enter your `<SEQUENCER_ACCOUNT_ADDRESS>` into the text box to send
- funds to your account:
+Enter your `<SEQUENCER_ACCOUNT_ADDRESS>` into the text box
+ to send funds to your account:
 
 ![Sequencer Faucet](assets/sequencer-faucet.png)
 
@@ -257,7 +282,7 @@ kubectl get pods -n astria-dev-cluster -w
 ```
 
 ```bash
-NAME                                             READY   STATUS    RESTARTS      AGE
+NAME                                               READY   STATUS    RESTARTS      AGE
 <YOUR_ROLLUP_NAME>-blockscout-647745c66d-vz4ks     6/6     Running   1 (56s ago)   72s
 <YOUR_ROLLUP_NAME>-celestia-node-light-mocha-4-0   2/2     Running   1 (56s ago)   72s
 <YOUR_ROLLUP_NAME>-faucet-68667bd895-pwqmz         1/1     Running   0             72s
@@ -266,19 +291,19 @@ NAME                                             READY   STATUS    RESTARTS     
 
 ## Your Rollup Endpoints
 
-Your rollup will automatically be configured
-with the several locally accessible endpoints:
+Your rollup will automatically be configured with
+several public endpoints using the DNS you configured:
 
 | Utility | URL |
 |-----|-----|
-| Block Explorer | `http://blockscout.<YOUR_ROLLUP_NAME>.localdev.me/` |
-| Faucet | `http://faucet.<YOUR_ROLLUP_NAME>.localdev.me/` |
-| RPC | `http://executor.<YOUR_ROLLUP_NAME>.localdev.me/` |
+| Block Explorer | <http://blockscout>.<YOUR_ROLLUP_NAME>.<YOUR_HOSTNAME>/ |
+| Faucet | <http://faucet>.<YOUR_ROLLUP_NAME>.<YOUR_HOSTNAME>/ |
+| RPC | <http://executor>.<YOUR_ROLLUP_NAME>.<YOUR_HOSTNAME>/ |
 
 ## Interact with your Rollup
 
 ```bash
-export ETH_RPC_URL=http://executor.$ROLLUP_NAME.localdev.me/
+export ETH_RPC_URL=http://executor.$ROLLUP_NAME.$ROLLUP_HOSTNAME/
 ```
 
 ```bash
