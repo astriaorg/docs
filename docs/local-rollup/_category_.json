@@ -1,0 +1,8 @@
+{
+  "label": "Deploy a Local Rollup",
+  "position": 2,
+  "link": {
+    "type": "doc",
+    "id": "local-rollup/introduction"
+  }
+}
