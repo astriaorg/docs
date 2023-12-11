@@ -185,20 +185,20 @@ export ROLLUP_CONF_FILE=$ROLLUP_NAME-rollup-conf.yaml
 
 Verify the config
 
-```sh
+```bash
 cat $ROLLUP_CONF_FILE
 ```
 
-```sh
-namespace: astria-dev-cluster
-config:
+```bash
+global:
+  namespace: astria-dev-cluster
   useTTY: false
   logLevel: debug
+config:
   rollup:
     name: <YOUR_ROLLUP_NAME>
     chainId: <YOUR_ROLLUP_NAME>-chain
     networkId: '<YOUR_NETWORK_ID>'
-    skipEmptyBlocks: false
     genesisAccounts:
     - address: <GENESIS_ADDRESS>
       balance: '<BALANCE>'
@@ -208,6 +208,9 @@ config:
     rpc: https://rpc.sequencer.dusk-2.devnet.astria.org
 ingress:
   hostname: <YOUR_HOSTNAME>
+celestia-node:
+  config:
+    labelPrefix: <YOUR_ROLLUP_NAME>
 ```
 
 ## Create new sequencer account
@@ -247,7 +250,7 @@ Enter your `<SEQUENCER_ACCOUNT_ADDRESS>` into the text box
 Verify your account received the funds
 
 ```bash
-astria-cli sequencer balance get $SEQUENCER_ACCOUNT_ADDRESS --sequencer-url=https://rpc.sequencer.dusk-2.devnet.astria.org
+astria-cli sequencer account balance $SEQUENCER_ACCOUNT_ADDRESS
 ```
 
 ## Deploy the Rollup Node

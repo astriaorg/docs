@@ -159,20 +159,20 @@ export ROLLUP_CONF_FILE=$ROLLUP_NAME-rollup-conf.yaml
 
 Verify the config
 
-```sh
+```bash
 cat $ROLLUP_CONF_FILE
 ```
 
-```sh
-namespace: astria-dev-cluster
-config:
+```bash
+global:
+  namespace: astria-dev-cluster
   useTTY: false
   logLevel: debug
+config:
   rollup:
     name: <YOUR_ROLLUP_NAME>
     chainId: <YOUR_ROLLUP_NAME>-chain
     networkId: '<YOUR_NETWORK_ID>'
-    skipEmptyBlocks: false
     genesisAccounts:
     - address: <GENESIS_ADDRESS>
       balance: '<BALANCE>'
@@ -180,8 +180,11 @@ config:
     initialBlockHeight: <INITIAL_SEQUENCER_BLOCK_HEIGHT>
     websocket: wss://rpc.sequencer.dusk-2.devnet.astria.org/websocket
     rpc: https://rpc.sequencer.dusk-2.devnet.astria.org
-  ingress:
-    hostname: localdev.me
+ingress:
+  hostname: localdev.me
+celestia-node:
+  config:
+    labelPrefix: <YOUR_ROLLUP_NAME>
 ```
 
 ## Create a New Sequencer Account
@@ -221,7 +224,7 @@ Enter your `<SEQUENCER_ACCOUNT_ADDRESS>` into the text box to send
 Verify your account received the funds
 
 ```bash
-astria-cli sequencer balance get $SEQUENCER_ACCOUNT_ADDRESS --sequencer-url=https://rpc.sequencer.dusk-2.devnet.astria.org
+astria-cli sequencer account balance $SEQUENCER_ACCOUNT_ADDRESS
 ```
 
 ## Deploy the Rollup Node
@@ -245,9 +248,10 @@ kubectl get pods -n astria-dev-cluster -w
 
 ```bash
 NAME                                             READY   STATUS    RESTARTS      AGE
-<YOUR_ROLLUP_NAME>-blockscout-647745c66d-vz4ks   6/6     Running   1 (56s ago)   72s
-<YOUR_ROLLUP_NAME>-faucet-68667bd895-pwqmz       1/1     Running   0             72s
-<YOUR_ROLLUP_NAME>-geth-755cb8dd97-k5xp8         3/3     Running   0             72s
+<YOUR_ROLLUP_NAME>-blockscout-647745c66d-vz4ks     6/6     Running   1 (56s ago)   72s
+<YOUR_ROLLUP_NAME>-celestia-node-light-mocha-4-0   2/2     Running   1 (56s ago)   72s
+<YOUR_ROLLUP_NAME>-faucet-68667bd895-pwqmz         1/1     Running   0             72s
+<YOUR_ROLLUP_NAME>-geth-755cb8dd97-k5xp8           3/3     Running   0             72s
 ```
 
 ## Your Rollup Endpoints
