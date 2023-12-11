@@ -16,21 +16,42 @@ Endpoints for the remote cluster are the following:
 | Sequencer RPC | rpc.sequencer.dusk-2.devnet.astria.org | 34.111.73.187 |
 | Sequencer Faucet | faucet.sequencer.dusk-2.devnet.astria.org | 34.36.8.102 |
 
+## Software Versions
+
+The latest Devnet (dusk-2) runs the following software versions:
+- [conductor v0.11.0](https://github.com/astriaorg/astria/releases/tag/v0.11.0--conductor)
+- [composer v0.3.0](https://github.com/astriaorg/astria/releases/tag/v0.3.0--composer)
+- [sequencer-relayer v0.9.0](https://github.com/astriaorg/astria/releases/tag/v0.9.0--sequencer-relayer)
+- [sequencer v0.7.0](https://github.com/astriaorg/astria/releases/tag/v0.7.0--sequencer)
+
 ## Manually Fetch Sequencer Block Height
 
-### Install the `astria-cli`
+### Install the latest [astria cli](https://github.com/astriaorg/astria/releases/tag/cli-v0.2.0)
 
-Pull the [Astria repo](https://github.com/astriaorg/astria) and install the `astria-cli`
+#### ARM Mac
 
 ```bash
-git clone git@github.com:astriaorg/astria.git
-cd astria
-just install-cli
+curl -L https://github.com/astriaorg/astria/releases/download/cli-v0.2.0/astria-cli-aarch64-apple-darwin.tar.gz > astria-cli.tar.gz
+tar -xvzf astria-cli.tar.gz 
+```
+
+#### x86_64 Linux
+
+```bash
+curl -L https://github.com/astriaorg/astria/releases/download/cli-v0.2.0/astria-cli-x86_64-unknown-linux-gnu.tar.gz > astria-cli.tar.gz
+tar -xvzf astria-cli.tar.gz 
+```
+
+#### From Source
+
+```bash
+cargo install astria-cli --git=https://github.com/astriaorg/astria --tag=cli-v2 --locked
 ```
 
 ### Sequencer Block Height
 
-The initial sequencer block height is automatically fetched and set if not specified when creating the config. 
+The initial sequencer block height is automatically fetched and set
+(if not manually specified) when creating the rollup config.
 
 You can manually retrieve it with the `astria-cli`:
 
@@ -39,7 +60,8 @@ astria-cli sequencer blockheight get \
   --sequencer-url https://rpc.sequencer.dusk-2.devnet.astria.org/
 ```
 
-If you need to set this to a different value you can set it as an an environment variable:
+If you need to set this to a different value
+you can set it as an an environment variable:
 
 ```bash
 export ROLLUP_SEQUENCER_INITIAL_BLOCK_HEIGHT=<INITIAL_SEQUENCER_BLOCK_HEIGHT>
@@ -51,25 +73,10 @@ command below:
 ```bash
 --sequencer.initial-block-height <INITIAL_SEQUENCER_BLOCK_HEIGHT>
 ```
-## Debug Ingress
 
-If you would like to view the ingress logs you can use the following:
+## Loadbalancer Information
 
-```bash
-kubectl get po -n ingress-nginx
-# get the name of one of the pods
-export INGRESS_POD_1=ingress-nginx-controller-6d6559598-ll8gv
-# view the logs
-kubectl logs $INGRESS_POD_1 -n ingress-nginx
-```
-
-## Verify Your Loadbalancer
-
-If you want to verify your loadbalancer with an external IP you can do the
-following.
-
-After you have deployed your ingress controller with `kubectl apply`, run the
-following command and then `curl` the external IP:
+You can retrieve the kubernetes service for your loadbalancer with
 
 ```bash
 kubectl get svc -n ingress-nginx
@@ -81,14 +88,14 @@ ingress-nginx-controller             LoadBalancer   34.118.228.98   34.42.184.20
 ingress-nginx-controller-admission   ClusterIP      34.118.229.71   <none>          443/TCP                      57s
 ```
 
-:::note
-If you are using AWS you will be given a URL instead of an IP.
-:::
+You can check that the loadbalancer is working by making a `curl` request
 
 ```bash
 # use the EXTERNAL-IP from the result above
 curl 34.42.184.206 
 ```
+
+This should return the nginx 404 page
 
 ```html
 <html>
@@ -98,4 +105,12 @@ curl 34.42.184.206
 <hr><center>nginx</center>
 </body>
 </html>
+```
+
+## Ingress Information
+
+You can check the kubernetes ingress resource for your rollup with:
+
+```bash
+kubectl get ingress -n astria-dev-cluster
 ```

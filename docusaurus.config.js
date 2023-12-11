@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Astria Docs',
+  title: 'Astria',
   tagline: 'The Shared Sequencer Network',
   favicon: 'img/favicon.png',
 
@@ -84,18 +84,17 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Astria Dusknet',
-                to: '/docs/dusknet/overview/',
+                label: 'Local Rollup on Dusknet',
+                to: '/docs/local-rollup/introduction/',
+              },
+              {
+                label: 'Cloud Rollup on Dusknet',
+                to: '/docs/cloud-rollup/digital-ocean/',
               },
               {
                 label: 'Overview',
-                to: '/docs/overview-of-astria/introduction/',
+                to: '/docs/overview/introduction/',
               },
-              {
-                label: 'Dev Cluster',
-                to: '/docs/dev-cluster/overview/',
-              },
-
             ],
           },
           {
