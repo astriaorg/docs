@@ -4,63 +4,58 @@ sidebar_position: 1
 
 # Overview
 
-After running the Astria stack locally, the next step is to run a rollup against
-the remote Astria network.
+This guide will walk you through deploying a rollup full node on
+a local Kubernetes (k8s) cluster which uses the remote Astria shared sequencer network.
 
-The primary difference between running a local rollup and one that targets the
-remote devnet, is the configuration of the rollup and creating an account for
-the Sequencer.
+We use Docker Desktop and Kubernetes in Docker (Kind)
 
 ## Local Dependencies
 
-Clone the [dev-cluster](https://github.com/astriaorg/dev-cluster/tree/main) and
-install the astria cli [astria repo](https://github.com/astriaorg/astria):
+:::info
+This guide has been tested on MacOS and Linux but not Windows
+:::
+
+Clone the Astria [dev-cluster](https://github.com/astriaorg/dev-cluster/tree/main):
 
 ```bash
-git clone git@github.com:astriaorg/dev-cluster.git
+git clone --branch dusk-2 https://github.com/astriaorg/dev-cluster.git
+```
+
+Install the astria cli:
+
+```bash
+TODO: pull binaries
 cargo install astria-cli --git=https://github.com/astriaorg/astria --locked
 ```
 
-And install the following tools:
-- Foundry Cast and Forge tools - <https://book.getfoundry.sh/getting-started/installation>
+You'll also need to install the following tools:
+
+:::warning
+There is a bug in the latest Docker desktop release for MacOS  
+Please install the following release:
+<https://docs.docker.com/desktop/release-notes/#4252>  
+For more details see [here](https://github.com/docker/for-mac/issues/7100)
+:::
+
 - docker - <https://docs.docker.com/get-docker/>
 - kubectl - <https://kubernetes.io/docs/tasks/tools/>
 - helm - <https://helm.sh/docs/intro/install/>
 - kind - <https://kind.sigs.k8s.io/docs/user/quick-start/#installation>
 - just - <https://just.systems/man/en/chapter_4.html>
+- Foundry Cast and Forge tools - <https://book.getfoundry.sh/getting-started/installation>
 
-Many of these dependencies are also required for running the local dev-cluster
-if you have previously done that.
+## Dusknet Endpoints
 
-For reference, the latest component releases that the devnet cluster is running
-are the following:
-- [conductor v0.7.0](https://github.com/astriaorg/astria/releases/tag/v0.7.0--conductor)
-- [composer v0.2.2](https://github.com/astriaorg/astria/releases/tag/v0.2.2--composer)
-- [sequencer-relayer v0.5.1](https://github.com/astriaorg/astria/releases/tag/v0.5.1--sequencer-relayer)
-- [sequencer v0.4.1](https://github.com/astriaorg/astria/releases/tag/v0.4.1--sequencer)
-
-You do not need to download these independently, they are already within the
-dev-cluster repo.
-
-Once all of the dependencies have been installed, you can move on to running the
-rollup.
-
-## Endpoints
-
-Endpoints for the remote cluster are the following:
+The endpoints for the remote shared sequencer are:
 
 | NAME | HOSTS | ADDRESS |
 |-----|-----|-----|
-| EVM JSON RPC | rpc.evm.dusk-2.devnet.astria.org | 34.160.214.22 |
-| EVM Block Explorer | explorer.evm.dusk-2.devnet.astria.org | 34.111.167.16 |
-| EVM Faucet | faucet.evm.dusk-2.devnet.astria.org | 130.211.4.120 |
 | Sequencer RPC | rpc.sequencer.dusk-2.devnet.astria.org | 34.111.73.187 |
 | Sequencer Faucet | faucet.sequencer.dusk-2.devnet.astria.org | 34.36.8.102 |
 
-
 ## Setup Local Environment
 
-We use part of the [Astria
+We use the [Astria
 dev-cluster](https://github.com/astriaorg/dev-cluster) to setup a local
 Kubernetes (k8s) cluster where we will deploy our local rollup.
 
@@ -68,14 +63,14 @@ Kubernetes (k8s) cluster where we will deploy our local rollup.
 Make sure that Docker is running before continuing.
 :::
 
-In the __dev-cluster repo__, run:
+In the __dev-cluster__ repo, run:
 
 ```sh
 just create-cluster
 just deploy-ingress-controller
 ```
 
-This gives us a local environment compatible with our helm charts.
+This sets up a local environment compatible with our helm charts.
 
 ## Create your Rollup Genesis Account(s)
 
@@ -83,7 +78,7 @@ This gives us a local environment compatible with our helm charts.
 __NEVER__ use a private key you use on a live network.
 :::
 
-You can add genesis account(s) to your rollup during configuration.
+Specify the accounts which will be funded at the genesis block of your EVM rollup.
 
 You can create an account using:
 
@@ -104,8 +99,8 @@ Export the genesis private key, this will be used by the
 export ROLLUP_FAUCET_PRIV_KEY=<GENESIS_PRIVATE_KEY>
 ```
 
-Export the genesis address alongside with your desired initial balance,
- in Wei, we recommend using a value of `100000000000000000000` or larger:
+Export the genesis address alongside with your desired initial balance in Wei.  
+We recommend using a value of `100000000000000000000` or larger:
 
 ```bash
 export ROLLUP_GENESIS_ACCOUNTS=<GENESIS_ADDRESS>:<BALANCE>
@@ -119,6 +114,8 @@ export ROLLUP_GENESIS_ACCOUNTS=<ADDRESS_1>:<BALANCE_1>,<ADDRESS_2>:<BALANCE_2>
 ```
 
 ## Create Rollup Config
+
+Create the configuration manifest for your rollup.
 
 Replace the tags in the commands and env vars below, as follows:
 
@@ -176,6 +173,9 @@ config:
 
 ## Create a New Sequencer Account
 
+Create an account on the Astria shared sequencer network
+ for your rollup to submit transactions.
+
 ```bash
 astria-cli sequencer account create
 ```
@@ -211,9 +211,9 @@ Verify your account received the funds
 astria-cli sequencer balance get $SEQUENCER_ACCOUNT_ADDRESS --sequencer-url=https://rpc.sequencer.dusk-2.devnet.astria.org
 ```
 
-## Deploy the Configuration
+## Deploy the Rollup Node
 
-Then deploy the configuration with:
+Use the `astria-cli` to deploy the rollup node
 
 ```bash
 astria-cli rollup deployment create \
@@ -222,7 +222,9 @@ astria-cli rollup deployment create \
   --sequencer-private-key $SEQUENCER_PRIV_KEY
 ```
 
-## Watch for pod startup
+## Watch for rollup startup
+
+You can watch for the Kubernetes pods of the rollup to start with:
 
 ```bash
 kubectl get pods -n astria-dev-cluster -w
@@ -235,9 +237,10 @@ NAME                                             READY   STATUS    RESTARTS     
 <YOUR_ROLLUP_NAME>-geth-755cb8dd97-k5xp8         3/3     Running   0             72s
 ```
 
-## Observe your Deployment
+## Your Rollup Endpoints
 
-Your rollups utility endpoints are as follows:
+Your rollup will automatically be configured
+with the several locally accessible endpoints:
 
 | Utility | URL |
 |-----|-----|
@@ -245,67 +248,29 @@ Your rollups utility endpoints are as follows:
 | Faucet | `http://faucet.<YOUR_ROLLUP_NAME>.localdev.me/` |
 | RPC | `http://executor.<YOUR_ROLLUP_NAME>.localdev.me/` |
 
-Open the URLs in your browser to view your running rollup.
-
-You can also open the Block Explorer in a new browser window to see the faucet
-transaction appear, or any of the transactions you have sent using `cast`.
-
-## Use `cast` to Interact with your Rollup
-
-Use `cast` to view the blocks on your rollup.
+## Interact with your Rollup
 
 ```bash
-# set the Eth RPC url to point at your rollup
 export ETH_RPC_URL=http://executor.$ROLLUP_NAME.localdev.me/
+```
+
+```bash
 cast block 0
 ```
 
-Which should print something like this:
+Use an address of your choice.
 
 ```bash
-baseFeePerGas        1000000000
-difficulty           10000000
-extraData            0x
-gasLimit             8000000
-gasUsed              0
-hash                 0xa2d5f000ef275b5f6ce6af5a0de50c17e5893c5ea664b77f534eb62f317caff1
-logsBloom            0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-miner                0x0000000000000000000000000000000000000000
-mixHash              0x0000000000000000000000000000000000000000000000000000000000000000
-nonce                0x0000000000000000
-number               0
-parentHash           0x0000000000000000000000000000000000000000000000000000000000000000
-receiptsRoot         0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421
-sealFields           []
-sha3Uncles           0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347
-size                 512
-stateRoot            0xc1a913facf57b18de72d25155293c53b2a463d93a1de735269410b8663f2efca
-timestamp            0
-withdrawalsRoot
-totalDifficulty      10000000
-transactions:        []
+export REC_ADDR=<SOME_ADDRESS>
 ```
-
-If you have an address you would like to deposit funds to, export that address
-to the env vars:
-
-```bash
-export REC_ADDR=<ADDRESS>
-```
-
-You can also use `cast` to view your balance:
 
 ```bash
 cast balance $REC_ADDR
 ```
 
-Send an ammount to your address:
-
 ```bash
 cast send $REC_ADDR --value 10000000000000000000 --private-key $ROLLUP_FAUCET_PRIV_KEY
 ```
-
-And view your new balance:
 
 ```bash
 cast balance $REC_ADDR

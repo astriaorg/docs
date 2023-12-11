@@ -5,7 +5,7 @@ sidebar_position: 1
 # Digital Ocean
 
 This guide will walk you through deploying a rollup full node on
-Digital Ocean which uses the remote Astria shared sequencer network. 
+Digital Ocean which uses the remote Astria shared sequencer network.
 
 ## Local Dependencies
 
@@ -30,26 +30,24 @@ The endpoints for the remote shared sequencer are:
 | Sequencer RPC | rpc.sequencer.dusk-2.devnet.astria.org | 34.111.73.187 |
 | Sequencer Faucet | faucet.sequencer.dusk-2.devnet.astria.org | 34.36.8.102 |
 
-# Digital Ocean
-
-We assume you are using Digital Ocean's hosted Kubernetes (K8s) service, we recommend following their [Quick Start Guide](https://docs.digitalocean.com/products/kubernetes/getting-started/quickstart/). 
-
-You must also install and configure `doctl`: https://docs.digitalocean.com/reference/doctl/how-to/install/
-
 ## Create a New Cluster
 
+This guide assumes you're using Digital Ocean's Kubernetes (K8s) service.
+
+Install and configure `doctl`: <https://docs.digitalocean.com/reference/doctl/how-to/install/>
+
 Follow the instructions in Digital Ocean's [Quick Start Guide](https://docs.digitalocean.com/products/kubernetes/getting-started/)
-create a (2) node cluster in the region of your choosing.
+to create a new cluster in the region of your choosing.
 
 ## Configure `kubectl` with `doctl`
 
-Once your k8s cluster is created configure `kubectl`. 
+Once your k8s cluster is created configure `kubectl`.
 
 ![doctl screenshot](assets/do-setup.png)
 
 ## Deploy Ingress Nginx Controller
 
-We use the Nginx Ingress Controller, its documentation can be found [here](https://kubernetes.github.io/ingress-nginx/deploy/#digital-ocean/)
+We use the Nginx Ingress Controller, documentation can be found [here](https://kubernetes.github.io/ingress-nginx/deploy/#digital-ocean/)
 
 To install it run:
 
@@ -62,7 +60,7 @@ This will create several Kubernetes (k8s) resources and a Digital Ocean loadbala
 ## Verify Loadbalancer with external IP
 
 You should see a new loadbalancer being created in the Digital Ocean console:
-https://cloud.digitalocean.com/networking/load_balancers
+<https://cloud.digitalocean.com/networking/load_balancers>
 
 You can also check that your Digital Ocean load balancer was created with:
 
@@ -70,7 +68,8 @@ You can also check that your Digital Ocean load balancer was created with:
 kubectl get svc -n ingress-nginx
 ```
 
-It may take a few minutes for the `EXTERNAL-IP` field to be populated, you should see something like this:
+It may take a few minutes for the `EXTERNAL-IP` field to be populated,
+you should eventually see something like this:
 
 ```bash
 NAME                                 TYPE           CLUSTER-IP      EXTERNAL-IP     PORT(S)                      AGE
@@ -98,10 +97,10 @@ Create a wildcard record `*` pointing to the `EXTERNAL-IP` of your `ingress-ngin
 ## Create your Rollup Genesis Account(s)
 
 :::danger
-__NEVER__ use a private key you use on a live network. 
+__NEVER__ use a private key you use on a live network.
 :::
 
-You will now specify the accounts which will be funded at the genesis block of your EVM rollup.
+Specify the accounts which will be funded at the genesis block of your EVM rollup.
 
 You can create an account using:
 
@@ -115,25 +114,30 @@ Address:     0xfFe9...5f8b # <GENESIS_ADDRESS>
 Private key: 0x332e...a8fb # <GENESIS_PRIVATE_KEY>
 ```
 
-Export the genesis private key, this will be used by the faucet included with the rollup:
+Export the genesis private key,
+this will be used by the faucet included with the rollup:
+
 ```bash
 export ROLLUP_FAUCET_PRIV_KEY=<GENESIS_PRIVATE_KEY>
 ```
 
-Export the genesis address alongside with your desired initial balance (in Wei), we recommend using a value of `100000000000000000000` or larger:
+Export the genesis address alongside with your desired initial balance in Wei.  
+We recommend using a value of `100000000000000000000` or larger:
+
 ```bash
 export ROLLUP_GENESIS_ACCOUNTS=<GENESIS_ADDRESS>:<BALANCE>
 ```
 
-You can specify multiple accounts to be funded at genesis as comma deliminated tuples of `<ADDRESS>:<BALANCE>`
+You can specify multiple accounts to be funded at genesis as
+ comma deliminated tuples of `<ADDRESS>:<BALANCE>`
 
-```
+```bash
 export ROLLUP_GENESIS_ACCOUNTS=<ADDRESS_1>:<BALANCE_1>,<ADDRESS_2>:<BALANCE_2>
 ```
 
 ## Create Rollup Config
 
-You will now create the configuration manifest for your rollup.
+Create the configuration manifest for your rollup.
 
 Replace the tags in the commands and env vars below, as follows:
 
@@ -144,7 +148,7 @@ Replace the tags in the commands and env vars below, as follows:
 | `<YOUR_HOSTNAME>` | String | The chosen hostname for your network (eg. `astria.org`) |
 
 You can use environment variables to set the configuration for the rollup
-config creation. Replace all the `<>` tags with their corresponding values. 
+config creation. Replace all the `<>` tags with their corresponding values.
 
 ```bash
 export ROLLUP_NAME=<YOUR_ROLLUP_NAME>
@@ -159,6 +163,7 @@ astria-cli rollup config create
 ```
 
 Export the config file name as an env vars:
+
 ```bash
 export ROLLUP_CONF_FILE=$ROLLUP_NAME-rollup-conf.yaml
 ```
@@ -192,7 +197,8 @@ ingress:
 
 ## Create new sequencer account
 
-You must create an account on the Astria shared sequencer network where your rollup full node will submit transactions.
+Create an account on the Astria shared sequencer network
+ for your rollup to submit transactions.
 
 ```bash
 astria-cli sequencer account create
@@ -215,9 +221,11 @@ export SEQUENCER_ACCOUNT_ADDRESS=8a2f...5f68
 
 ## Fund your Sequencer Account
 
-Navigate to <https://faucet.sequencer.dusk-2.devnet.astria.org/> to view the sequencer faucet.
+Navigate to <https://faucet.sequencer.dusk-2.devnet.astria.org/>
+to view the sequencer faucet.
 
-Enter your `<SEQUENCER_ACCOUNT_ADDRESS>` into the text box to send funds to your account:
+Enter your `<SEQUENCER_ACCOUNT_ADDRESS>` into the text box
+ to send funds to your account:
 
 ![Sequencer Faucet](assets/sequencer-faucet.png)
 
@@ -229,7 +237,7 @@ astria-cli sequencer balance get $SEQUENCER_ACCOUNT_ADDRESS --sequencer-url=http
 
 ## Deploy the Rollup Node
 
-Use the `astria-cli` to deploy the node providing both the rollup faucet private key and the sequencer private key. 
+Use the `astria-cli` to deploy the rollup node
 
 ```bash
 astria-cli rollup deployment create \
@@ -256,14 +264,14 @@ NAME                                               READY   STATUS    RESTARTS   
 
 ## Your Rollup Endpoints
 
-Your rollup will automatically be configured with the several public endpoints using the DNS you configured:
+Your rollup will automatically be configured with
+several public endpoints using the DNS you configured:
 
 | Utility | URL |
 |-----|-----|
-| Block Explorer | http://blockscout.<YOUR_ROLLUP_NAME>.<YOUR_HOSTNAME>/ |
-| Faucet | http://faucet.<YOUR_ROLLUP_NAME>.<YOUR_HOSTNAME>/ |
-| RPC | http://executor.<YOUR_ROLLUP_NAME>.<YOUR_HOSTNAME>/ |
-
+| Block Explorer | <http://blockscout>.<YOUR_ROLLUP_NAME>.<YOUR_HOSTNAME>/ |
+| Faucet | <http://faucet>.<YOUR_ROLLUP_NAME>.<YOUR_HOSTNAME>/ |
+| RPC | <http://executor>.<YOUR_ROLLUP_NAME>.<YOUR_HOSTNAME>/ |
 
 ## Interact with your Rollup
 

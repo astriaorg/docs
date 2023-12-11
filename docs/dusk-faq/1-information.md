@@ -16,6 +16,14 @@ Endpoints for the remote cluster are the following:
 | Sequencer RPC | rpc.sequencer.dusk-2.devnet.astria.org | 34.111.73.187 |
 | Sequencer Faucet | faucet.sequencer.dusk-2.devnet.astria.org | 34.36.8.102 |
 
+## Software Versions
+
+The latest Devnet (dusk-2) runs the following software versions:
+- [conductor v0.11.0](https://github.com/astriaorg/astria/releases/tag/v0.11.0--conductor)
+- [composer v0.3.0](https://github.com/astriaorg/astria/releases/tag/v0.3.0--composer)
+- [sequencer-relayer v0.9.0](https://github.com/astriaorg/astria/releases/tag/v0.9.0--sequencer-relayer)
+- [sequencer v0.7.0](https://github.com/astriaorg/astria/releases/tag/v0.7.0--sequencer)
+
 ## Manually Fetch Sequencer Block Height
 
 ### Install the `astria-cli`
@@ -30,7 +38,8 @@ just install-cli
 
 ### Sequencer Block Height
 
-The initial sequencer block height is automatically fetched and set (if not manually specified) when creating the rollup config. 
+The initial sequencer block height is automatically fetched and set
+(if not manually specified) when creating the rollup config.
 
 You can manually retrieve it with the `astria-cli`:
 
@@ -39,7 +48,8 @@ astria-cli sequencer blockheight get \
   --sequencer-url https://rpc.sequencer.dusk-2.devnet.astria.org/
 ```
 
-If you need to set this to a different value you can set it as an an environment variable:
+If you need to set this to a different value
+you can set it as an an environment variable:
 
 ```bash
 export ROLLUP_SEQUENCER_INITIAL_BLOCK_HEIGHT=<INITIAL_SEQUENCER_BLOCK_HEIGHT>
@@ -66,14 +76,14 @@ ingress-nginx-controller             LoadBalancer   34.118.228.98   34.42.184.20
 ingress-nginx-controller-admission   ClusterIP      34.118.229.71   <none>          443/TCP                      57s
 ```
 
-You can check that the loadbalancer is working by making a `curl` request 
+You can check that the loadbalancer is working by making a `curl` request
 
 ```bash
 # use the EXTERNAL-IP from the result above
 curl 34.42.184.206 
 ```
 
-This should return the nginx 404 page 
+This should return the nginx 404 page
 
 ```html
 <html>
@@ -92,4 +102,3 @@ You can check the kubernetes ingress resource for your rollup with:
 ```bash
 kubectl get ingress -n astria-dev-cluster
 ```
-
