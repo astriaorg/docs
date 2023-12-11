@@ -5,10 +5,9 @@ sidebar_position: 1
 # Introduction
 
 :::tip
-To deploy your own rollup on the Astria Dusknet devnet, check out the
-[instructions here](/docs/dusknet/overview/)!
+To deploy your own rollup on the Astria Dusknet, check out the
+[instructions here](/docs/local-rollup/introduction/)!
 :::
-
 Astria is a shared sequencing network that allows many rollups to share a single
 decentralized network of sequencers. These sequencers are simple and
 permissionless to join, completely replacing centralized sequencers.

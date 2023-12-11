@@ -5,8 +5,8 @@ sidebar_position: 3
 # Cross-Rollup Composability
 
 :::tip
-To deploy your own rollup on the Astria Dusknet devnet, check out the
-[instructions here](/docs/dusknet/overview/)!
+To deploy your own rollup on the Astria Dusknet, check out the
+[instructions here](/docs/local-rollup/introduction/)!
 :::
 
 Because Astria handles the transaction ordering for multiple rollups, it’s able
