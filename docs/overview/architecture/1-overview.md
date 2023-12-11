@@ -5,8 +5,8 @@ sidebar_position: 1
 # Architecture Overview
 
 :::tip
-To deploy your own rollup on the Astria Dusknet devnet, check out the
-[instructions here](/docs/dusknet/overview/)!
+To deploy your own rollup on the Astria Dusknet, check out the
+[instructions here](/docs/local-rollup/introduction/)!
 :::
 
 At a high level, Astria breaks out all of the components that are historically

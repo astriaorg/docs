@@ -5,8 +5,8 @@ sidebar_position: 4
 # Composer
 
 :::tip
-To deploy your own rollup on the Astria Dusknet devnet, check out the
-[instructions here](/docs/dusknet/overview/)!
+To deploy your own rollup on the Astria Dusknet, check out the
+[instructions here](/docs/local-rollup/introduction/)!
 :::
 
 The Composer is an in-house abstraction over the potential actors in Astria's

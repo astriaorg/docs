@@ -5,8 +5,8 @@ sidebar_position: 3
 # Rollups
 
 :::tip
-To deploy your own rollup on the Astria Dusknet devnet, check out the
-[instructions here](/docs/dusknet/overview/)!
+To deploy your own rollup on the Astria Dusknet, check out the
+[instructions here](/docs/local-rollup/introduction/)!
 :::
 
 Astria is designed for permissionless rollup integration and takes advantage of [lazy](https://en.wikipedia.org/wiki/Lazy_evaluation?ref=blog.astria.org) shared sequencing. This means that rollup developers have total sovereignty over their own execution state and can swap out sequencing layers without fear of being locked in. You do not need to ask for permission or go through a governance process to gain access. A rollup simply needs to satisfy the following interfaces:
