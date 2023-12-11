@@ -21,25 +21,35 @@ git clone --branch dusk-2 https://github.com/astriaorg/dev-cluster.git
 
 ### Install the latest [astria cli](https://github.com/astriaorg/astria/releases/tag/cli-v0.2.0)
 
-#### ARM Mac
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-```bash
-curl -L https://github.com/astriaorg/astria/releases/download/cli-v0.2.0/astria-cli-aarch64-apple-darwin.tar.gz > astria-cli.tar.gz
-tar -xvzf astria-cli.tar.gz 
-```
+<Tabs>
+  <TabItem value="ARM Mac" label="ARM Mac" default>
 
-#### x86_64 Linux
 
-```bash
-curl -L https://github.com/astriaorg/astria/releases/download/cli-v0.2.0/astria-cli-x86_64-unknown-linux-gnu.tar.gz > astria-cli.tar.gz
-tar -xvzf astria-cli.tar.gz 
-```
+    curl -L https://github.com/astriaorg/astria/releases/download/cli-v0.2.0/astria-cli-aarch64-apple-darwin.tar.gz > astria-cli.tar.gz
+    tar -xvzf astria-cli.tar.gz 
+    
+  </TabItem>
+  <TabItem value="X86_64 Mac" label="X86_64 Mac">
 
-#### From Source
+    curl -L https://github.com/astriaorg/astria/releases/download/cli-v0.2.0/astria-cli-x86_64-apple-darwin.tar.gz > astria-cli.tar.gz
+    tar -xvzf astria-cli.tar.gz 
 
-```bash
-cargo install astria-cli --git=https://github.com/astriaorg/astria --tag=cli-v2 --locked
-```
+  </TabItem>
+  <TabItem value="x86_64 Linux" label="x86_64 Linux">
+
+    curl -L https://github.com/astriaorg/astria/releases/download/cli-v0.2.0/astria-cli-x86_64-unknown-linux-gnu.tar.gz > astria-cli.tar.gz
+    tar -xvzf astria-cli.tar.gz 
+
+  </TabItem>
+   <TabItem value="From Source" label="From Source">
+
+    cargo install astria-cli --git=https://github.com/astriaorg/astria --tag=cli-v2 --locked
+    
+  </TabItem>
+</Tabs>
 
 You'll also need to install the following tools:
 
@@ -207,7 +217,7 @@ Address:     "8a2f...5f68" # <SEQUENCER_ACCOUNT_ADDRESS>
 Export your sequencer private key and address as environment variables:
 
 ```bash
-export SEQUENCER_PRIV_KEY=9c78...710d
+export SEQUENCER_PRIV_KEY=5562...1622
 export SEQUENCER_ACCOUNT_ADDRESS=8a2f...5f68
 ```
 
