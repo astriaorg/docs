@@ -5,7 +5,7 @@ sidebar_position: 1
 # Digital Ocean
 
 This guide will walk you through deploying a rollup full node on
-Digital Ocean which uses the remote Astria shared sequencer network.
+a Kubernetes cluster on Digital Ocean which uses the Astria shared sequencer network.
 
 ## Local Dependencies
 
@@ -31,7 +31,8 @@ tar -xvzf astria-cli.tar.gz
 cargo install astria-cli --git=https://github.com/astriaorg/astria --tag=cli-v2 --locked
 ```
 
-You'll also need to install the following tools:
+### You'll also need to install the following tools
+
 - kubectl - <https://kubernetes.io/docs/tasks/tools/>
 - helm - <https://helm.sh/docs/intro/install/>
 

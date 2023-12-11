@@ -5,9 +5,7 @@ sidebar_position: 1
 # Overview
 
 This guide will walk you through deploying a rollup full node on
-a local Kubernetes (k8s) cluster which uses the remote Astria shared sequencer network.
-
-We use Docker Desktop and Kubernetes in Docker (Kind)
+a local Kubernetes cluster which uses the Astria shared sequencer network.
 
 ## Local Dependencies
 
