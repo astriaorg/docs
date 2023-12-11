@@ -26,14 +26,26 @@ The latest Devnet (dusk-2) runs the following software versions:
 
 ## Manually Fetch Sequencer Block Height
 
-### Install the `astria-cli`
+### Install the latest [astria cli](https://github.com/astriaorg/astria/releases/tag/cli-v0.2.0)
 
-Pull the [Astria repo](https://github.com/astriaorg/astria) and install the `astria-cli`
+#### ARM Mac
 
 ```bash
-git clone git@github.com:astriaorg/astria.git
-cd astria
-just install-cli
+curl -L https://github.com/astriaorg/astria/releases/download/cli-v0.2.0/astria-cli-aarch64-apple-darwin.tar.gz > astria-cli.tar.gz
+tar -xvzf astria-cli.tar.gz 
+```
+
+#### x86_64 Linux
+
+```bash
+curl -L https://github.com/astriaorg/astria/releases/download/cli-v0.2.0/astria-cli-x86_64-unknown-linux-gnu.tar.gz > astria-cli.tar.gz
+tar -xvzf astria-cli.tar.gz 
+```
+
+#### From Source
+
+```bash
+cargo install astria-cli --git=https://github.com/astriaorg/astria --tag=cli-v2 --locked
 ```
 
 ### Sequencer Block Height
