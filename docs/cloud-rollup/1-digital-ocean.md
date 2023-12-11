@@ -238,9 +238,9 @@ astria-cli rollup deployment create \
   --sequencer-private-key $SEQUENCER_PRIV_KEY
 ```
 
-## Watch for startup
+## Watch for rollup startup
 
-You can watch for the 
+You can watch for the Kubernetes pods of the rollup to start with:
 
 ```bash
 kubectl get pods -n astria-dev-cluster -w
