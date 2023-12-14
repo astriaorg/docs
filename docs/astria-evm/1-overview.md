@@ -9,12 +9,12 @@ sidebar_position: 1
 | Property | Value |
 |-----|-----|
 | Network Name | dusk-2 |
-| RPC URL | <https://rpc-archive.evm.dusk-2.devnet.astria.org> |
+| RPC URL | <https://rpc.evm.dusk-2.devnet.astria.org> |
 | Chain ID | 912559 |
 | Currency Symbol | RIA |
 | Dora | <https://www.ondora.xyz/network/astria-devnet> |
 | Faucet | <https://faucet.evm.dusk-2.devnet.astria.org> |
-| Block Scout | <https://explorer-archive.evm.dusk-2.devnet.astria.org/> |
+| Block Scout | <https://explorer.evm.dusk-2.devnet.astria.org/> |
 
 ## Adding to Metamask
 
@@ -22,7 +22,7 @@ Follow Metamask's official documentation to [manually add a custom network.](htt
 
 Your settings should look like the image below
 
-![Metamask](assets/evm-metamask.png)
+![Metamask](assets/metamask-dusk2.png)
 
 ## Using Cast
 
