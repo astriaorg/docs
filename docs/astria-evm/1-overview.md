@@ -31,3 +31,19 @@ Set your `ETH_RPC_URL`:
 ```bash
 export ETH_RPC_URL=https://rpc-archive.evm.dusk-2.devnet.astria.org/
 ```
+
+```bash
+export REC_ADDR=<SOME_ADDRESS>
+```
+
+```bash
+cast balance $REC_ADDR
+```
+
+```bash
+cast send $REC_ADDR --value 10000000000000000000 --private-key <PRIVATE-KEY>
+```
+
+```bash
+cast balance $REC_ADDR
+```
