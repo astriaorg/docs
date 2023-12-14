@@ -1,8 +1,0 @@
-{
-  "label": "Cloud Rollup Deployment",
-  "position": 3,
-  "link": {
-    "type": "generated-index",
-    "description": "To deploy your rollup to a cloud provider of your choice, select one of the guides below. From an ease of use perspective, we have ordered the deployment methods from \"easiest\" to \"most complicated\"."
-  }
-}
