@@ -14,7 +14,8 @@ sidebar_position: 1
 | Currency Symbol | RIA |
 | Dora | <https://www.ondora.xyz/network/astria-devnet> |
 | Faucet | <https://faucet.evm.dusk-2.devnet.astria.org> |
-| Block Scout | <https://explorer.evm.dusk-2.devnet.astria.org/> |
+| Block Scout | <https://explorer.evm.dusk-2.devnet.astria.org> |
+| Hyperlane Bridge | <https://bridge.evm.dusk-2.devnet.astria.org> |
 
 ## Adding to Metamask
 
