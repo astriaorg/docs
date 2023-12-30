@@ -10,7 +10,7 @@ To deploy your own rollup on the Astria Dusknet, check out the
 :::
 
 The Composer is an in-house abstraction over the potential actors in Astria's
-MEV supply chain. It currently contains a naive implementations of the role a
+MEV supply chain. It currently contains a naive implementation of the role a
 searcher will fulfill, with the intention of having working examples that
 economically incentivized third parties can use as a starting point for their
 own implementations. As we progress from design to implementation of Astria's
