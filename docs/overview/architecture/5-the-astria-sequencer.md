@@ -19,7 +19,7 @@ participates in the production and finalization of new blocks.
 Components of note that are not shown in the above diagram are the [Composer](/docs/overview/architecture/4-composer.md),
 [Relayer](/docs/overview/architecture/6-relayer.md), and [Conductor](/docs/overview/architecture/7-conductor.md). 
 
-These components facilitate the delivery transactions,
+These components facilitate the delivery of transactions,
 batches, and different commits shown above, back to the users.
 
 See the [Sequencer code here.](https://github.com/astriaorg/astria/tree/main/crates/astria-sequencer)
