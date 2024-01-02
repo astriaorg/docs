@@ -4,10 +4,9 @@ sidebar_position: 7
 
 # Conductor
 
-:::tip
-To deploy your own rollup on the Astria Dusknet, check out the
-[instructions here](/docs/local-rollup/introduction/)!
-:::
+import DeploymentsRedirect from '../../components/_deployment-instructions-redirect.mdx';
+
+<DeploymentsRedirect />
 
 Conductor's role is to drive the deterministic execution of sequencer blocks to
 rollups. 
@@ -24,7 +23,7 @@ along side, out of the sequencer blocks for execution. The data that it does sto
 for sending commitment updates to the rollup.
 
 As mentioned in the
-[Relayer](/docs/overview/architecture/6-relayer.md) section, any data
+[Relayer](/docs/overview/architecture/6-relayer.mdx) section, any data
 received by the Conductor directly from the Relayer is considered a soft commit.
 This data is filtered using the rollup's namespace and only transactions that
 are relevant to the rollup are passed on as blocks for execution. These blocks
