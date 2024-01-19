@@ -24,7 +24,7 @@ import RemoteEndpoints from '../components/_remote-endpoints.mdx';
 
 This guide assumes you're using Digital Ocean's Kubernetes (K8s) service.
 
-Install and configure `doctl`: <https://docs.digitalocean.com/reference/doctl/how-to/install/>
+Install and configure `doctl`: [https://docs.digitalocean.com/reference/doctl/how-to/install/](https://docs.digitalocean.com/reference/doctl/how-to/install/)
 
 Follow the instructions in Digital Ocean's [Quick Start Guide](https://docs.digitalocean.com/products/kubernetes/getting-started/)
 to create a new cluster in the region of your choosing.
@@ -49,8 +49,7 @@ This will create several Kubernetes (k8s) resources and a Digital Ocean loadbala
 
 ## Verify Loadbalancer with external IP
 
-You should see a new loadbalancer being created in the Digital Ocean console:
-<https://cloud.digitalocean.com/networking/load_balancers>
+You should see a new loadbalancer being created in the Digital Ocean console: [https://cloud.digitalocean.com/networking/load_balancers](https://cloud.digitalocean.com/networking/load_balancers)
 
 You can also check that your Digital Ocean load balancer was created with:
 
@@ -78,7 +77,7 @@ More info can be found [here](https://kubernetes.io/docs/concepts/services-netwo
 
 How you create an `A` record will depend on where you manage your domain.
 
-An example for Google domains can be seen here: <https://support.google.com/a/answer/2579934?hl=en>
+An example for Google domains can be seen here: [https://support.google.com/a/answer/2579934?hl=en](https://support.google.com/a/answer/2579934?hl=en)
 
 Create a wildcard record `*` pointing to the `EXTERNAL-IP` of your `ingress-nginx-controller`:
 
@@ -214,7 +213,7 @@ export SEQUENCER_ACCOUNT_ADDRESS=8a2f...5f68
 
 ## Fund your Sequencer Account
 
-Navigate to <https://faucet.sequencer.dusk-3.devnet.astria.org/>
+Navigate to [https://faucet.sequencer.dusk-3.devnet.astria.org/](https://faucet.sequencer.dusk-3.devnet.astria.org/)
 to view the sequencer faucet.
 
 Enter your `<SEQUENCER_ACCOUNT_ADDRESS>` into the text box
@@ -262,9 +261,9 @@ several public endpoints using the DNS you configured:
 
 | Utility | URL |
 |-----|-----|
-| Block Explorer | <http://blockscout>.<YOUR_ROLLUP_NAME>.<YOUR_HOSTNAME>/ |
-| Faucet | <http://faucet>.<YOUR_ROLLUP_NAME>.<YOUR_HOSTNAME>/ |
-| RPC | <http://executor>.<YOUR_ROLLUP_NAME>.<YOUR_HOSTNAME>/ |
+| Block Explorer | `http://blockscout.<YOUR_ROLLUP_NAME>.<YOUR_HOSTNAME>/` |
+| Faucet | `http://faucet.<YOUR_ROLLUP_NAME>.<YOUR_HOSTNAME>/` |
+| RPC | `http://executor.<YOUR_ROLLUP_NAME>.<YOUR_HOSTNAME>/` |
 
 ## Interact with your Rollup
 

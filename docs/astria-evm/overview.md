@@ -9,12 +9,12 @@ sidebar_position: 1
 | Property | Value |
 |-----|-----|
 | Network Name | dusk-3 |
-| RPC URL | <https://rpc.evm.dusk-3.devnet.astria.org> |
+| RPC URL | [https://rpc.evm.dusk-3.devnet.astria.org](https://rpc.evm.dusk-3.devnet.astria.org) |
 | Chain ID | 912559 |
 | Currency Symbol | RIA |
-| Dora | <https://www.ondora.xyz/network/astria-devnet> |
-| Faucet | <https://faucet.evm.dusk-3.devnet.astria.org> |
-| Block Scout | <https://explorer.evm.dusk-3.devnet.astria.org/> |
+| Dora | [https://www.ondora.xyz/network/astria-devnet](https://www.ondora.xyz/network/astria-devnet) |
+| Faucet | [https://faucet.evm.dusk-3.devnet.astria.org](https://faucet.evm.dusk-3.devnet.astria.org) |
+| Block Scout | [https://explorer.evm.dusk-3.devnet.astria.org/](https://explorer.evm.dusk-3.devnet.astria.org/) |
 
 ## Adding to Metamask
 
