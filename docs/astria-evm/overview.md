@@ -8,13 +8,13 @@ sidebar_position: 1
 
 | Property | Value |
 |-----|-----|
-| Network Name | dusk-2 |
-| RPC URL | <https://rpc.evm.dusk-2.devnet.astria.org> |
+| Network Name | dusk-3 |
+| RPC URL | [https://rpc.evm.dusk-3.devnet.astria.org](https://rpc.evm.dusk-3.devnet.astria.org) |
 | Chain ID | 912559 |
 | Currency Symbol | RIA |
-| Dora | <https://www.ondora.xyz/network/astria-devnet> |
-| Faucet | <https://faucet.evm.dusk-2.devnet.astria.org> |
-| Block Scout | <https://explorer.evm.dusk-2.devnet.astria.org/> |
+| Dora | [https://www.ondora.xyz/network/astria-devnet](https://www.ondora.xyz/network/astria-devnet) |
+| Faucet | [https://faucet.evm.dusk-3.devnet.astria.org](https://faucet.evm.dusk-3.devnet.astria.org) |
+| Block Scout | [https://explorer.evm.dusk-3.devnet.astria.org/](https://explorer.evm.dusk-3.devnet.astria.org/) |
 
 ## Adding to Metamask
 
@@ -29,7 +29,7 @@ Your settings should look like the image below
 Set your `ETH_RPC_URL`:
 
 ```bash
-export ETH_RPC_URL=https://rpc-archive.evm.dusk-2.devnet.astria.org/
+export ETH_RPC_URL=https://rpc-archive.evm.dusk-3.devnet.astria.org/
 ```
 
 ```bash
