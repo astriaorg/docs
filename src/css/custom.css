@@ -18,7 +18,6 @@
   --ifm-heading-font-weight: 500;
   --ifm-heading-line-height: 90%;
   --ifm-button-font-weight: 500;
-  --ifm-footer-background-color: #050a0d;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
@@ -31,8 +30,13 @@
   --ifm-color-primary-light: #74a4bf;
   --ifm-color-primary-lighter: #74a4bf;
   --ifm-color-primary-lightest: #74a4bf;
-  --ifm-footer-background-color: #050a0d;
+  --ifm-background-color: #202020ba !important;
+  --ifm-navbar-background-color: #050a0d !important;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+.footer--dark {
+  --ifm-footer-background-color: #050a0d;
 }
 
 @font-face {
@@ -267,9 +271,6 @@ p {
   letter-spacing: -0.02em;
 }
 
-.footer--dark {
-  background-color: var(--ifm-color-primary-darker);
-}
 
 .body---large {
   color: #fff;
