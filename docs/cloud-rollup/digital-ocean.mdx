@@ -9,7 +9,6 @@ a Kubernetes cluster on Digital Ocean which uses the Astria shared sequencer net
 
 ## Local Dependencies
 
-### Install the latest Astria cli
 import RemoteCli from '../components/_cli-cloud.mdx';
 
 <RemoteCli />
@@ -28,6 +27,11 @@ Install and configure `doctl`: [https://docs.digitalocean.com/reference/doctl/ho
 
 Follow the instructions in Digital Ocean's [Quick Start Guide](https://docs.digitalocean.com/products/kubernetes/getting-started/)
 to create a new cluster in the region of your choosing.
+
+:::tip
+The celestia pod has a minimum requirement of 1vCPU and 4GB RAM and will not start if the
+cluster has no nodes that meet those requirements. You will need a node with >1vCPU and >4GB RAM.
+:::
 
 ## Configure `kubectl` with `doctl`
 
@@ -132,7 +136,7 @@ Replace the tags in the commands and env vars below, as follows:
 
 | Var Name | Var Type | Description |
 |-----|-----|-----|
-| `<YOUR_ROLLUP_NAME>` | String | The name of your rollup. This must be alphanumeric, `-` is allowed, this will be included in URLs|
+| `<YOUR_ROLLUP_NAME>` | String | The name of your rollup. This must be alphanumeric, `-` is allowed, this will be included in URLs. Must not be more than 22 characters.|
 | `<YOUR_NETWORK_ID>` | u64 | The id of your network. Pick a > 6 digit number (eg. `123456`) |
 | `<YOUR_HOSTNAME>` | String | The chosen hostname for your network (eg. `astria.org`) |
 
