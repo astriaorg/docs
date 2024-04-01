@@ -4,7 +4,7 @@ sidebar_position: 8
 
 # Data Availability Layer
 
-import DeploymentsRedirect from '../../components/_deployment-instructions-redirect.mdx';
+<!--@include: ./../../components/_deployment-instructions-redirect.md-->
 
 <DeploymentsRedirect />
 

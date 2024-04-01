@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Cross-Rollup Composability
 
-import DeploymentsRedirect from '../components/_deployment-instructions-redirect.mdx';
+<!--@include: ./../components/_deployment-instructions-redirect.md-->
 
 <DeploymentsRedirect />
 

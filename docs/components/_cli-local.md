@@ -1,4 +1,4 @@
-import CLI from '../components/_astria-cli-install.mdx';
+<!--@include: ./_astria-cli-install.md-->
 
 <CLI />
 

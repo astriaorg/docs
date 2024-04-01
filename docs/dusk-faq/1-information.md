@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # FAQ and Debugging
 
-import DeploymentsRedirect from '../components/_deployment-instructions-redirect.mdx';
+<!--@include: ./../components/_deployment-instructions-redirect.md-->
 
 <DeploymentsRedirect />
 
@@ -31,7 +31,7 @@ The latest Devnet (dusk-3) runs the following software versions:
 - [CometBFT v0.37.x](https://github.com/cometbft/cometbft/releases/tag/v0.37.4)
 
 ## Install the latest Astria cli
-import CLI from '../components/_cli-local.mdx';
+<!--@include: ./../components/_cli-local.md-->
 
 <CLI />
 

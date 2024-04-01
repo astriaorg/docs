@@ -23,14 +23,13 @@ This guide has been tested on MacOS and Linux but not Windows
 ```bash
 git clone --branch dusk-3 https://github.com/astriaorg/dev-cluster.git
 ```
-
-import LocalCli from '../components/_cli-local.mdx';
+<!--@include: ./../components/_cli-local.md-->
 
 <LocalCli />
 
 ## Dusknet Endpoints
 
-import RemoteEndpoints from '../components/_remote-endpoints.mdx';
+<!--@include: ./../components/_remote-endpoints.md-->
 
 <RemoteEndpoints />
 

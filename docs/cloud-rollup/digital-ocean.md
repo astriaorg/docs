@@ -9,13 +9,13 @@ a Kubernetes cluster on Digital Ocean which uses the Astria shared sequencer net
 
 ## Local Dependencies
 
-import RemoteCli from '../components/_cli-cloud.mdx';
+<!--@include: ./../components/_cli-cloud.md-->
 
 <RemoteCli />
 
 ## Dusknet Endpoints
 
-import RemoteEndpoints from '../components/_remote-endpoints.mdx';
+<!--@include: ../components/_remote-endpoints.md-->
 
 <RemoteEndpoints />
 
