@@ -11,13 +11,13 @@ a Kubernetes cluster on Digital Ocean which uses the Astria shared sequencer net
 
 <!--@include: ./../components/_cli-cloud.md-->
 
-<RemoteCli />
+<!-- <RemoteCli /> -->
 
 ## Dusknet Endpoints
 
 <!--@include: ../components/_remote-endpoints.md-->
 
-<RemoteEndpoints />
+<!-- <RemoteEndpoints /> -->
 
 ## Create a New Cluster
 

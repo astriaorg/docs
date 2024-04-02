@@ -1,27 +1,29 @@
+
 ### Install the latest [astria cli](https://github.com/astriaorg/astria/releases/tag/cli-v0.2.2)
 
 ::: code-group
-   ```bash [ARM Mac]
-   curl -L https://github.com/astriaorg/astria/releases/download/cli-v0.3.1/astria-cli-aarch64-apple-darwin.tar.gz > astria-cli.tar.gz
-   tar -xvzf astria-cli.tar.gz
-   mv astria-cli /usr/local/bin/
-   ```
 
-   ```bash [X86_64 Mac]
+  ```bash [ARM Mac]
+  curl -L https://github.com/astriaorg/astria/releases/download/cli-v0.3.1/astria-cli-aarch64-apple-darwin.tar.gz > astria-cli.tar.gz
+  tar -xvzf astria-cli.tar.gz
+  mv astria-cli /usr/local/bin/
+  ```
+
+  ```bash [X86_64 Mac]
   curl -L https://github.com/astriaorg/astria/releases/download/cli-v0.3.1/astria-cli-x86_64-apple-darwin.tar.gz > astria-cli.tar.gz
   tar -xvzf astria-cli.tar.gz
   mv astria-cli /usr/local/bin/
-   ```
+  ```
 
-   ```bash [x86_64 Linux]
+  ```bash [x86_64 Linux]
   curl -L https://github.com/astriaorg/astria/releases/download/cli-v0.3.1/astria-cli-x86_64-unknown-linux-gnu.tar.gz > astria-cli.tar.gz
   tar -xvzf astria-cli.tar.gz
   mv astria-cli /usr/local/bin/
-   ```
+  ```
   
   ```bash [From Source]
   cargo install astria-cli --git=https://github.com/astriaorg/astria --tag=cli-v0.3.1 --locked
-   ```
+  ```
 
 :::
 
