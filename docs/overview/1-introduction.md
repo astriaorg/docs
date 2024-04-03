@@ -22,4 +22,12 @@ To achieve this vision, we believe that deploying an economically secure,
 decentralized, and censorship-resistant rollup should be as easy as deploying a
 smart contract.
 
-See the [Astria repo here.](https://github.com/astriaorg/astria)
+## What should I read?
+Want to learn more about the sequencer? check out the [Astria overview section](/overview/2-why-decentralized-sequencers.md)
+If you're a developer eager to get started, you should go straight to our Quick Start guide, which will walk you through deploying a rollup full node on a local Kubernetes cluster which uses the Astria shared sequencer network. Once you've gone through the Quick Start, you can move on to running on cloud.
+You can find our endpoints and FAQ [here](/astria-evm/overview.md)
+
+## What If I Need More Help?
+While this documentation should include everything you need, if you can't find what you're looking for, please reach out to us on [Twitter](https://twitter.com/AstriaOrg) or check the [Astria repository](https://github.com/astriaorg/astria).
+
+

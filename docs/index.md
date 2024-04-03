@@ -24,5 +24,8 @@ features:
   - title: Deploy
     details: This guide will walk you through deploying a rollup full node on a local Kubernetes cluster which uses the Astria shared sequencer network.
     link: /local-rollup/1-introduction
+  - title: Developers
+    details: Use the Astria stack to create, integrate and build your own modular rollups.
+    link: /developer/tutorials/1-using-astria-go-cli
 ---
 
