@@ -180,7 +180,7 @@ export SEQUENCER_ACCOUNT_ADDRESS=8a2f...5f68
 
 ## Fund your Sequencer Account
 
-Navigate to < https://faucet.sequencer.dusk-3.devnet.astria.org/ > to view the
+Navigate to < <https://faucet.sequencer.dusk-3.devnet.astria.org/> > to view the
  sequencer faucet.
 
 Enter your `<SEQUENCER_ACCOUNT_ADDRESS>` into the text box to send

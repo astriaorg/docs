@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+const { BASE: base = "/" } = process.env;
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -7,6 +8,7 @@ export default defineConfig({
   lastUpdated: true,
   cleanUrls: true,
   ignoreDeadLinks: true,
+  base: base,
 
   themeConfig: {
     editLink: {
@@ -31,13 +33,13 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: 'Overview',
-        link: '/overview/1-introduction',
+
         items: [
           {
             text: 'What is Astria?',
             collapsed: true,
             items: [
+              { text: 'Overview', link: '/overview/1-introduction' },
               { text: 'Why Decentralized Sequencers?', link: '/overview/2-why-decentralized-sequencers' },
               { text: 'Cross-Rollup Composability', link: '/overview/3-cross-rollup-composability' },
 
@@ -85,16 +87,16 @@ export default defineConfig({
         ]
       },
       {
-        text: 'Community',
-        collapsed: true,
-        items: [
-          { text: 'Overview', link: '/community/1-overview' }
-        ]
-      },
-      {
         text: 'Resources',
         collapsed: true,
         items: [
+          {
+            text: 'Community',
+            collapsed: true,
+            items: [
+              { text: 'Overview', link: '/community/1-overview' }
+            ]
+          },
           { text: 'Dusknet FAQ', link: '/dusk-faq/1-information' }
         ]
       }
