@@ -1,140 +1,115 @@
 /* .vitepress/theme/custom.css */
-/* :root {
-    --vp-c-brand-1: #646cff;
-    --vp-c-brand-2: #747bff;
-} */
-
-/* Set the background color to black */
-:root {
-  --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: -webkit-linear-gradient(89.6222deg, rgb(240, 151, 39) 0.520833%, rgb(221, 80, 34) 100%);
-  --vp-home-hero-image-background-image: linear-gradient(-45deg,
-      #bd6711 50%,
-      #bd6711 50%);
-  --vp-home-hero-image-filter: blur(40px);
-}
-
-
-
-
-:root {
-  --vp-custom-block-tip-border: var(--vp-c-brand);
-  --vp-custom-block-tip-text: var(--vp-c-brand-darker);
-  --vp-custom-block-tip-bg: var(--vp-c-brand-dimm);
-  --tab-text-color: #000;
-}
-
-.dark {
-  --vp-custom-block-tip-border: var(--vp-c-brand);
-  --vp-custom-block-tip-text: var(--vp-c-brand-lightest);
-  --vp-custom-block-tip-bg: var(--vp-c-brand-dimm);
-  --tab-text-color: #fff;
-}
-
-
-
-
-:root {
-  --vp-c-brand: linear-gradient(89.6222deg, rgb(240, 151, 39) 0.520833%, rgb(221, 80, 34) 100%);
-  /* Light Orange */
-  --vp-c-brand-light: linear-gradient(89.6222deg, rgb(221, 80, 34) 0.520833%, rgb(204, 128, 0) 100%);
-  /* Lighter Orange */
-  --vp-c-brand-lighter: linear-gradient(89.6222deg, rgb(255, 243, 224) 0.520833%, rgb(255, 243, 224) 100%);
-  /* Lightest Orange */
-  --vp-c-brand-dark: linear-gradient(89.6222deg, rgb(204, 128, 0) 0.520833%, rgb(153, 99, 0) 100%);
-  /* Dark Orange */
-  --vp-c-brand-darker: linear-gradient(89.6222deg, rgb(153, 99, 0) 0.520833%, rgb(102, 66, 0) 100%);
-  /* Darker Orange */
-  --vp-c-brand-dimm: rgba(240, 151, 39, 0.08);
-  /* Dim Orange */
-}
-
-:root {
-  --vp-c-brand: #ffaa00;
-  /* Light Orange */
-  --vp-c-brand-light: #ffd966;
-  /* Lighter Orange */
-  --vp-c-brand-lighter: #fff3e0;
-  /* Lightest Orange */
-  --vp-c-brand-dark: #cc8000;
-  /* Dark Orange */
-  --vp-c-brand-darker: #996300;
-  /* Darker Orange */
-  /* --vp-c-brand-dimm: rgba(255, 170, 0, 0.08); */
-  /* Dim Orange */
-}
-
-:root {
-  --text-color-light: #333;
-  /* Default text color for light mode */
-  --text-color-dark: #ccc;
-  /* Default text color for dark mode */
-}
-
-/* Optionally, style links to be orange */
-a {
-  color: orange;
-}
-
-
-
-
-/* Footer
-footer {
-  background-color: orange;
-  color: orange;
-  padding: 20px;
-  text-align: center;
-} */
-
-
-
 /**
- * Customize default theme styling by overriding CSS variables:
- * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
- */
-
-/**
- * Colors
+ * Colors: Palette
+ *
+ * The primitive colors used for accent colors. These colors are referenced
+ * by functional colors such as "Text", "Background", or "Brand".
  *
  * Each colors have exact same color scale system with 3 levels of solid
  * colors with different brightness, and 1 soft color.
- * 
+ *
  * - `XXX-1`: The most solid color used mainly for colored text. It must
  *   satisfy the contrast ratio against when used on top of `XXX-soft`.
  *
  * - `XXX-2`: The color used mainly for hover state of the button.
  *
  * - `XXX-3`: The color for solid background, such as bg color of the button.
- *   It must satisfy the contrast ratio with pure white (#ffffff) text on
- *   top of it.
+ *    It must satisfy the contrast ratio with pure white (#ffffff) text on
+ *    top of it.
  *
  * - `XXX-soft`: The color used for subtle background such as custom container
- *   or badges. It must satisfy the contrast ratio when putting `XXX-1` colors
- *   on top of it.
+ *    or badges. It must satisfy the contrast ratio when putting `XXX-1` colors
+ *    on top of it.
  *
- *   The soft color must be semi transparent alpha channel. This is crucial
- *   because it allows adding multiple "soft" colors on top of each other
- *   to create a accent, such as when having inline code block inside
- *   custom containers.
- *
- * - `default`: The color used purely for subtle indication without any
- *   special meanings attched to it such as bg color for menu hover state.
- *
- * - `brand`: Used for primary brand colors, such as link text, button with
- *   brand theme, etc.
- *
- * - `tip`: Used to indicate useful information. The default theme uses the
- *   brand color for this by default.
- *
- * - `warning`: Used to indicate warning to the users. Used in custom
- *   container, badges, etc.
- *
- * - `danger`: Used to show error, or dangerous message to the users. Used
- *   in custom container, badges, etc.
+ *    The soft color must be semi transparent alpha channel. This is crucial
+ *    because it allows adding multiple "soft" colors on top of each other
+ *    to create a accent, such as when having inline code block inside
+ *    custom containers.
  * -------------------------------------------------------------------------- */
 
-/* :root {
+:root {
+
+  --vp-c-grad-1: linear-gradient(83.18deg, #EA9B57 0%, #CB513F 100%);
+  --vp-c-gray-1: #dddde3;
+  --vp-c-gray-2: #e4e4e9;
+  --vp-c-gray-3: #ebebef;
+  --vp-c-gray-soft: rgba(142, 150, 170, 0.14);
+
+  --vp-c-indigo-1: #3451b2;
+  --vp-c-indigo-2: #3a5ccc;
+  --vp-c-indigo-3: #5672cd;
+  --vp-c-indigo-soft: rgba(100, 108, 255, 0.14);
+
+  --vp-c-purple-1: #6f42c1;
+  --vp-c-purple-2: #7e4cc9;
+  --vp-c-purple-3: #8e5cd9;
+  --vp-c-purple-soft: rgba(159, 122, 234, 0.14);
+
+  --vp-c-green-1: #18794e;
+  --vp-c-green-2: #299764;
+  --vp-c-green-3: #30a46c;
+  --vp-c-green-soft: rgba(16, 185, 129, 0.14);
+
+  --vp-c-yellow-1: #915930;
+  --vp-c-yellow-2: #946300;
+  --vp-c-yellow-3: #9f6a00;
+  --vp-c-yellow-soft: rgba(234, 179, 8, 0.14);
+
+  --vp-c-red-1: #b8272c;
+  --vp-c-red-2: #d5393e;
+  --vp-c-red-3: #e0575b;
+  --vp-c-red-soft: rgba(244, 63, 94, 0.14);
+
+  --vp-c-sponsor: #db2777;
+}
+
+.dark {
+  --vp-c-gray-1: #515c67;
+  --vp-c-gray-2: #414853;
+  --vp-c-gray-3: #32363f;
+  --vp-c-gray-soft: rgba(101, 117, 133, 0.16);
+
+  --vp-c-indigo-1: #a8b1ff;
+  --vp-c-indigo-2: #5c73e7;
+  --vp-c-indigo-3: #3e63dd;
+  --vp-c-indigo-soft: rgba(100, 108, 255, 0.16);
+
+  --vp-c-purple-1: #c8abfa;
+  --vp-c-purple-2: #a879e6;
+  --vp-c-purple-3: #8e5cd9;
+  --vp-c-purple-soft: rgba(159, 122, 234, 0.16);
+
+  --vp-c-green-1: #3dd68c;
+  --vp-c-green-2: #30a46c;
+  --vp-c-green-3: #298459;
+  --vp-c-green-soft: rgba(16, 185, 129, 0.16);
+
+  --vp-c-yellow-1: #f9b44e;
+  --vp-c-yellow-2: #da8b17;
+  --vp-c-yellow-3: #a46a0a;
+  --vp-c-yellow-soft: rgba(234, 179, 8, 0.08);
+
+  --vp-c-red-1: #f66f81;
+  --vp-c-red-2: #f14158;
+  --vp-c-red-3: #b62a3c;
+  --vp-c-red-soft: rgba(244, 63, 94, 0.08);
+}
+
+/* Set the background color to black */
+:root {
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(89.6222deg, rgb(240, 151, 39) 0.520833%, rgb(221, 80, 34) 100%);
+
+  --vp-home-hero-image-filter: blur(40px);
+}
+
+/* .dark {
+  --vp-home-hero-image-background-image: linear-gradient(-45deg,
+      #7c440c 50%,
+      #884707 50%);
+} */
+
+:root {
   --vp-c-default-1: var(--vp-c-gray-1);
   --vp-c-default-2: var(--vp-c-gray-2);
   --vp-c-default-3: var(--vp-c-gray-3);
@@ -145,10 +120,29 @@ footer {
   --vp-c-brand-3: var(--vp-c-indigo-3);
   --vp-c-brand-soft: var(--vp-c-indigo-soft);
 
+
+  /* DEPRECATED: Use `--vp-c-brand-1` instead. */
+  --vp-c-brand: var(--vp-c-brand-1);
+
   --vp-c-tip-1: var(--vp-c-brand-1);
   --vp-c-tip-2: var(--vp-c-brand-2);
   --vp-c-tip-3: var(--vp-c-brand-3);
   --vp-c-tip-soft: var(--vp-c-brand-soft);
+
+  --vp-c-note-1: rgba(82, 82, 89, 0.32);
+  --vp-c-note-2: var(--vp-c-brand-2);
+  --vp-c-note-3: var(--vp-c-brand-3);
+  --vp-c-note-soft: rgba(37, 37, 41, 1);
+
+  --vp-c-success-1: var(--vp-c-green-1);
+  --vp-c-success-2: var(--vp-c-green-2);
+  --vp-c-success-3: var(--vp-c-green-3);
+  --vp-c-success-soft: var(--vp-c-green-soft);
+
+  --vp-c-important-1: var(--vp-c-purple-1);
+  --vp-c-important-2: var(--vp-c-purple-2);
+  --vp-c-important-3: var(--vp-c-purple-3);
+  --vp-c-important-soft: var(--vp-c-purple-soft);
 
   --vp-c-warning-1: var(--vp-c-yellow-1);
   --vp-c-warning-2: var(--vp-c-yellow-2);
@@ -159,71 +153,84 @@ footer {
   --vp-c-danger-2: var(--vp-c-red-2);
   --vp-c-danger-3: var(--vp-c-red-3);
   --vp-c-danger-soft: var(--vp-c-red-soft);
-} */
 
-/**
- * Component: Button
- * -------------------------------------------------------------------------- */
+  --vp-c-caution-1: var(--vp-c-red-1);
+  --vp-c-caution-2: var(--vp-c-red-2);
+  --vp-c-caution-3: var(--vp-c-red-3);
+  --vp-c-caution-soft: var(--vp-c-red-soft);
+}
 
-/* :root {
-  --vp-button-brand-border: transparent;
+
+
+
+:root {
+  --vp-custom-block-tip-border: var(--vp-c-warning-soft);
+  --vp-custom-block-tip-text: var(--vp-c-brand-darker);
+  --vp-custom-block-tip-bg: rgba(100, 108, 255, 0.08);
+
+  --vp-custom-block-danger-border: var(--vp-c-danger-soft);
+  --vp-custom-block-danger-text: var(--vp-c-text-1);
+  --vp-custom-block-danger-bg: var(--vp-c-danger-soft);
+
+  --vp-custom-block-warning-text: var(--vp-c-text-1);
+  --vp-custom-block-warning-bg: var(--vp-c-warning-soft);
+  --vp-custom-block-warning-border: var(--vp-c-warning-soft);
+
+  --vp-custom-block-info-border: var(--vp-c-note-1);
+  --vp-custom-block-info-text: var(--vp-c-text-1);
+  --vp-custom-block-info-bg: var(--vp-c-note-1);
+  --tab-text-color: #000;
+}
+
+.dark {
+  --vp-custom-block-tip-text: var(--vp-c-brand-lightest);
+  --vp-custom-block-tip-bg: var(--vp-c-brand-dimm);
+
+  --vp-custom-block-danger-border: var(--vp-c-danger-soft);
+  --vp-custom-block-danger-text: var(--vp-c-text-1);
+  --vp-custom-block-danger-bg: var(--vp-c-danger-soft);
+
+  --tab-text-color: #fff;
+}
+
+
+
+
+:root {
+  /* Darker Orange */
+  --vp-c-brand-dimm: rgba(240, 151, 39, 0.08);
+  /* Dim Orange */
+}
+
+:root {
+  --vp-c-brand: #ffaa00d5;
+  /* Light Orange */
+  --vp-c-brand-light: #ffd966bb;
+  /* Lighter Orange */
+  --vp-c-brand-lighter: #fff3e0;
+  /* Lightest Orange */
+  --vp-c-brand-dark: #cc8000;
+  /* Dark Orange */
+  --vp-c-brand-darker: #996300;
+}
+
+:root {
+  --text-color-light: #333;
+  /* Default text color for light mode */
+  --text-color-dark: #ccc;
+  /* Default text color for dark mode */
+}
+
+
+
+:root {
+  --vp-button-brand-border: rgba(234, 155, 87, 1);
   --vp-button-brand-text: var(--vp-c-white);
-  --vp-button-brand-bg: var(--vp-c-brand-3);
-  --vp-button-brand-hover-border: transparent;
+  --vp-button-brand-bg: rgba(234, 155, 87, 1);
+  --vp-button-brand-hover-border: var(--vp-c-brand-light);
   --vp-button-brand-hover-text: var(--vp-c-white);
-  --vp-button-brand-hover-bg: var(--vp-c-brand-2);
-  --vp-button-brand-active-border: transparent;
+  --vp-button-brand-hover-bg: var(--vp-c-brand-dark);
+  --vp-button-brand-active-border: var(--vp-c-brand-light);
   --vp-button-brand-active-text: var(--vp-c-white);
-  --vp-button-brand-active-bg: var(--vp-c-brand-1);
-} */
-
-/**
- * Component: Home
- * -------------------------------------------------------------------------- */
-
-/* :root {
-  --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: -webkit-linear-gradient(
-    120deg,
-    #bd34fe 30%,
-    #41d1ff
-  );
-
-  --vp-home-hero-image-background-image: linear-gradient(
-    -45deg,
-    #bd34fe 50%,
-    #47caff 50%
-  );
-  --vp-home-hero-image-filter: blur(44px);
+  --vp-button-brand-active-bg: var(--vp-button-brand-bg);
 }
-
-@media (min-width: 640px) {
-  :root {
-    --vp-home-hero-image-filter: blur(56px);
-  }
-}
-
-@media (min-width: 960px) {
-  :root {
-    --vp-home-hero-image-filter: blur(68px);
-  }
-} */
-
-/**
- * Component: Custom Block
- * -------------------------------------------------------------------------- */
-
-/* :root {
-  --vp-custom-block-tip-border: transparent;
-  --vp-custom-block-tip-text: var(--vp-c-text-1);
-  --vp-custom-block-tip-bg: var(--vp-c-brand-soft);
-  --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
-} */
-
-/**
- * Component: Algolia
- * -------------------------------------------------------------------------- */
-
-/* .DocSearch {
-  --docsearch-primary-color: var(--vp-c-brand-1) !important;
-} */
