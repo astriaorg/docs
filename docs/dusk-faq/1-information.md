@@ -6,8 +6,6 @@ sidebar_position: 5
 
 <!--@include: ./../components/_deployment-instructions-redirect.md-->
 
-<DeploymentsRedirect />
-
 ## Endpoints
 
 Endpoints for the remote cluster are the following:
@@ -32,8 +30,6 @@ The latest Devnet (dusk-3) runs the following software versions:
 
 ## Install the latest Astria cli
 <!--@include: ./../components/_cli-local.md-->
-
-<CLI />
 
 ## Manually Fetch Sequencer Block Height
 

@@ -1,7 +1,5 @@
 <!--@include: ./_astria-cli-install.md-->
 
-<CLI />
-
 - docker - [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)
 - kubectl - [https://kubernetes.io/docs/tasks/tools/](https://kubernetes.io/docs/tasks/tools/)
 - helm - [https://helm.sh/docs/intro/install/](https://helm.sh/docs/intro/install/)

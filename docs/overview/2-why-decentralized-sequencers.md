@@ -6,8 +6,6 @@ sidebar_position: 2
 
 <!--@include: ./../components/_deployment-instructions-redirect.md-->
 
-<DeploymentsRedirect />
-
 Centralization is antithetical to crypto. And yet, today’s rollups almost
 universally depend on a single sequencer. Centralized sequencers provide fast
 transaction confirmations and reduce costs by batching and compressing

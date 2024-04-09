@@ -6,8 +6,6 @@ sidebar_position: 3
 
 <!--@include: ./../components/_deployment-instructions-redirect.md-->
 
-<DeploymentsRedirect />
-
 Because Astria handles the transaction ordering for multiple rollups, it’s able
 to provide guarantees that transactions are only included as part of an atomic
 bundle. This allows users to specify that a transaction on Rollup A can be

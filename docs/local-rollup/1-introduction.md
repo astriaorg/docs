@@ -25,13 +25,9 @@ git clone --branch dusk-3 https://github.com/astriaorg/dev-cluster.git
 ```
 <!--@include: ./../components/_cli-local.md-->
 
-<LocalCli />
-
 ## Dusknet Endpoints
 
 <!--@include: ./../components/_remote-endpoints.md-->
-
-<RemoteEndpoints />
 
 ## Setup Local Environment
 

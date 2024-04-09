@@ -6,8 +6,6 @@ sidebar_position: 1
 
 <!--@include: ./../components/_deployment-instructions-redirect.md-->
 
-<DeploymentsRedirect />
-
 Astria is a shared sequencing network that allows many rollups to share a single
 decentralized network of sequencers. These sequencers are simple and
 permissionless to join, completely replacing centralized sequencers.
