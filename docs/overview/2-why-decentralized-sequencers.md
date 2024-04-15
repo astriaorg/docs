@@ -4,9 +4,7 @@ sidebar_position: 2
 
 # Why Decentralized Sequencers?
 
-import DeploymentsRedirect from '../components/_deployment-instructions-redirect.mdx';
-
-<DeploymentsRedirect />
+<!--@include: ./../components/_deployment-instructions-redirect.md-->
 
 Centralization is antithetical to crypto. And yet, today’s rollups almost
 universally depend on a single sequencer. Centralized sequencers provide fast

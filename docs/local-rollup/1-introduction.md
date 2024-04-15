@@ -9,7 +9,7 @@ a local Kubernetes cluster which uses the Astria shared sequencer network.
 
 :::tip
 If you would like to deploy a rollup on a remote Kubernetes cluster,
- please see the [remote deployment guide](/docs/cloud-rollup/digital-ocean/) here.
+ please see the [remote deployment guide](/cloud-rollup/digital-ocean) here.
 :::
 
 ## Local Dependencies
@@ -23,16 +23,11 @@ This guide has been tested on MacOS and Linux but not Windows
 ```bash
 git clone --branch dusk-3 https://github.com/astriaorg/dev-cluster.git
 ```
-
-import LocalCli from '../components/_cli-local.mdx';
-
-<LocalCli />
+<!--@include: ./../components/_cli-local.md-->
 
 ## Dusknet Endpoints
 
-import RemoteEndpoints from '../components/_remote-endpoints.mdx';
-
-<RemoteEndpoints />
+<!--@include: ./../components/_remote-endpoints.md-->
 
 ## Setup Local Environment
 
@@ -181,7 +176,7 @@ export SEQUENCER_ACCOUNT_ADDRESS=8a2f...5f68
 
 ## Fund your Sequencer Account
 
-Navigate to < https://faucet.sequencer.dusk-3.devnet.astria.org/ > to view the
+Navigate to < <https://faucet.sequencer.dusk-3.devnet.astria.org/> > to view the
  sequencer faucet.
 
 Enter your `<SEQUENCER_ACCOUNT_ADDRESS>` into the text box to send

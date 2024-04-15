@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # Composer
 
-import DeploymentsRedirect from '../../components/_deployment-instructions-redirect.mdx';
+<!--@include: ./../../components/_deployment-instructions-redirect.md-->
 
 <DeploymentsRedirect />
 
@@ -19,8 +19,6 @@ on our architecture design by stubbing out the roles and requiring other
 components to interact with them through an interface.
 
 While a real searcher implementation would create profit-generating bundles of rollup transactions and submit them to a builder, the Composer implementation simply bundles every rollup transaction it receives into a sequencer transaction and submits it to the sequencer. As our approach to proposer-builder separation is still in its design phase, there is currently no explicit builder role in the MEV supply chain and transactions are submitted directly to validator nodes' CometBFT mempool.
-
-Once Astria's block builder design moves to its implementation phase, the Composer will include a reference builder implementation as well. Similarly to the searcher, while a real builder implementation would run a profit-generating auction, the composer implementation will simply run a FIFO queue that will add all the sequencer transactions it receives and submits a block to the sequencer's proposer.
 
 Once Astria's block builder design moves to its implementation phase, the Composer will include a reference builder implementation as well. Similarly to the searcher, while a real builder implementation would run a profit-generating auction, the composer implementation will simply run a FIFO queue that will add all the sequencer transactions it receives and submits a block to the sequencer's proposer.
 

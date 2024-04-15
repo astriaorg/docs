@@ -1,45 +1,39 @@
 # Astria Docs
 
-The Astria Docs website is built using [Docusaurus 2](https://docusaurus.io/).
+The Astria Docs website built with [VitePress](https://vitepress.dev/)
 
 ### Installation
 
 ```
-$ yarn
+npm add -D vitepress
 ```
 
 ### Local Development
 
 ```
-$ yarn start
+npm run docs:dev
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+This command starts a local development server. Most changes are reflected live without having to restart the server.
+
 
 ### Build
 
 ```
-$ yarn build
+npm run docs:build
 ```
+
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
 ### Deployment
 
+```
+npm run docs:preview
+```
+
+This command starts a local server from the static content generated above for preview before deployment.
+
 The main astria docs website is deployed using the [github deploy action](.github/workflows/deploy.yml).
-
-To deploy manually:
-
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
 
 If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.

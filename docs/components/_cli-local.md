@@ -1,6 +1,4 @@
-import CLI from '../components/_astria-cli-install.mdx';
-
-<CLI />
+<!--@include: ./_astria-cli-install.md-->
 
 - docker - [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)
 - kubectl - [https://kubernetes.io/docs/tasks/tools/](https://kubernetes.io/docs/tasks/tools/)

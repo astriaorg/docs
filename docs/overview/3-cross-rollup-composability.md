@@ -4,9 +4,7 @@ sidebar_position: 3
 
 # Cross-Rollup Composability
 
-import DeploymentsRedirect from '../components/_deployment-instructions-redirect.mdx';
-
-<DeploymentsRedirect />
+<!--@include: ./../components/_deployment-instructions-redirect.md-->
 
 Because Astria handles the transaction ordering for multiple rollups, it’s able
 to provide guarantees that transactions are only included as part of an atomic

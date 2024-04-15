@@ -24,15 +24,13 @@ module.exports = {
       extends: ['plugin:markdownlint/recommended'],
       rules: {
         'markdownlint/md001': "off",
-        'markdownlint/md013': [ 'error', {
-          code_block_line_length: 120,
-          tables: false
-        }],
-        'markdownlint/md024': [ 'error', {
-            allow_different_nesting: true
-          }
+        'markdownlint/md013': "off",
+        'markdownlint/md024': ['error', {
+          allow_different_nesting: true
+        }
         ],
         'markdownlint/md032': "off",
+        'markdownlint/md041': "off",
       }
     },
   ],
