@@ -9,7 +9,7 @@ a local Kubernetes cluster which uses the Astria shared sequencer network.
 
 :::tip
 If you would like to deploy a rollup on a remote Kubernetes cluster,
- please see the [remote deployment guide](/docs/cloud-rollup/digital-ocean/) here.
+ please see the [remote deployment guide](/cloud-rollup/digital-ocean/) here.
 :::
 
 ## Local Dependencies
