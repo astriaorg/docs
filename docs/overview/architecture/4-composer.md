@@ -22,7 +22,5 @@ While a real searcher implementation would create profit-generating bundles of r
 
 Once Astria's block builder design moves to its implementation phase, the Composer will include a reference builder implementation as well. Similarly to the searcher, while a real builder implementation would run a profit-generating auction, the composer implementation will simply run a FIFO queue that will add all the sequencer transactions it receives and submits a block to the sequencer's proposer.
 
-Once Astria's block builder design moves to its implementation phase, the Composer will include a reference builder implementation as well. Similarly to the searcher, while a real builder implementation would run a profit-generating auction, the composer implementation will simply run a FIFO queue that will add all the sequencer transactions it receives and submits a block to the sequencer's proposer.
-
 See the [Conductor code
 here.](https://github.com/astriaorg/astria/tree/main/crates/astria-conductor)
