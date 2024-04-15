@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress'
-const { BASE: base = "/docs" } = process.env;
+const { BASE: base = "/" } = process.env;
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
