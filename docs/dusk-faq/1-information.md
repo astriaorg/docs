@@ -21,6 +21,7 @@ Endpoints for the remote cluster are the following:
 ## Software Versions
 
 The latest Devnet (dusk-3) runs the following software versions:
+
 - [conductor v0.11.1](https://github.com/astriaorg/astria/releases/tag/conductor-v0.11.1)
 - [composer v0.3.1](https://github.com/astriaorg/astria/releases/tag/composer-v0.3.1)
 - [sequencer-relayer v0.9.1](https://github.com/astriaorg/astria/releases/tag/sequencer-relayer-v0.9.1)

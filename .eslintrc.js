@@ -29,7 +29,6 @@ module.exports = {
           allow_different_nesting: true
         }
         ],
-        'markdownlint/md032': "off",
         'markdownlint/md041': "off",
       }
     },

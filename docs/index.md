@@ -11,7 +11,7 @@ hero:
     alt: Astria
   actions:
     - theme: brand
-      text: Just rollup
+      text: Just Deploy
       link: /local-rollup/1-introduction
     - theme: alt
       text: Introduction
