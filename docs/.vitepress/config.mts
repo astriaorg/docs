@@ -9,6 +9,8 @@ export default defineConfig({
   cleanUrls: true,
   ignoreDeadLinks: true,
   base: base,
+  head: [
+    ["link", { rel: "icon", href: "/favicon.png" }]],
   themeConfig: {
     editLink: {
       pattern: "https://github.com/astriaorg/docs/edit/main/docs/:path",
