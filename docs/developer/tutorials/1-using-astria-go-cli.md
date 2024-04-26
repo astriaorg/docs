@@ -147,7 +147,7 @@ Then initialized and start Geth:
 
 ```bash
 # in go-etherium dir
-just clean # this is specifically for mac os
+just clean
 just init
 just run
 ```
