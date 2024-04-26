@@ -102,6 +102,7 @@ just clean-restart
 ### Start the Local Astria Sequencer
 
 ```bash
+astria-go dev clean
 astria-go dev init
 astria-go dev run --local
 ```
@@ -115,8 +116,9 @@ additional genesis information to work with the remote sequencer. Run the
 following using the Astira cli:
 
 ```bash
+astria-go dev clean
 astria-go dev init
-astria-go sequencer get-blockheight
+astria-go sequencer blockheight --url=https://rpc.sequencer.dusk-4.devnet.astria.org
 ```
 
 Then, open the `geth-genesis-local.json` file and update the chain ID and rollup
@@ -145,6 +147,7 @@ Then initialized and start Geth:
 
 ```bash
 # in go-etherium dir
+just clean
 just init
 just run
 ```
@@ -162,8 +165,9 @@ When running against the remote sequencer, you will also need to create a new
 sequencer account.
 
 ```bash
+astria-go dev clean
 astria-go dev init
-astria-go sequencer create-account
+astria-go sequencer createaccount
 ```
 
 Navigate to the `~/.astria` directory. If you have run the commands shown above, you should find a `default` directory.
@@ -218,7 +222,8 @@ just generate-transactions
 If everything worked correctly you see the transactions going through in both
 the `forge` script and in the `conductor` and `composer` windows in the go cli.
 
-:::note
+:::info
+
 These test transactions should work if you are running everything locally with
 `astria-go dev run --local` or if you are running against a remote sequencer
 with `astria-go dev run --remote`. If test transactions are not going through
