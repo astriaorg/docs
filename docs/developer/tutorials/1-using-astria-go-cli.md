@@ -222,7 +222,7 @@ just generate-transactions
 If everything worked correctly you see the transactions going through in both
 the `forge` script and in the `conductor` and `composer` windows in the go cli.
 
-:::note
+:::info
 
 These test transactions should work if you are running everything locally with
 `astria-go dev run --local` or if you are running against a remote sequencer
