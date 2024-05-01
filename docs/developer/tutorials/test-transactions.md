@@ -48,7 +48,7 @@ against a remote sequencer with `astria-go dev run --remote`.
 
 ### `EvmError: OutOfFunds`
 
-If you see a an `out of funds` error when running the testing script, this means
+If you see a an `OutOfFunds` error when running the testing script, this means
 that your rollup genesis account was not configured correctly. To fix this
 issue:
 1. Go back to the `astria-geth` repo.
