@@ -26,3 +26,7 @@ just run "version"
 mv ./bin/astria-go /usr/local/bin/
 astria-go version
 ```
+
+## Available Commands
+
+<!--@include: ../../components/_astria-go-cli-commands.md-->
