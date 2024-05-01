@@ -85,8 +85,16 @@ function sidebar() {
                 { text: 'Digital Ocean', link: '/cloud-rollup/digital-ocean' },
               ]
             },
-            { text: 'Using the astria cli', link: '/developer/tutorials/1-using-astria-go-cli.md' },
-
+            { 
+              text: 'Using the Astria cli', 
+              collapsed: true,
+              items: [
+                {text: 'Install the CLI', link: '/developer/tutorials/install-the-cli.md'},
+                {text: 'Run a Local Rollup and Sequencer', link: '/developer/tutorials/run-local-rollup-and-sequencer.md' },
+                {text: 'Run a Local Rollup against a Remote Sequencer', link: '/developer/tutorials/run-local-rollup-against-remote-sequencer.md' },
+                {text: 'Test Transactions', link: '/developer/tutorials/test-transactions.md' },
+              ]
+            }
           ]
         },
         {
