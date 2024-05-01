@@ -28,16 +28,25 @@ cast w new
 ```
 
 Open the `geth-genesis-local.json` file in your Geth repo and update the
-`"alloc"` account with your new one:
+`"alloc"` account with the new address you just created, as well as updating the
+`"chainId"` and `"astriaRollupName"` to something of your choosing:
 
 ```json
-   "alloc": {
-        "<your new address>": { "balance": "300000000000000000000" }
+{
+    "config": {
+        "chainId": <6 digit number>,
+        ...
+        "astriaRollupName": "<your rollup name>",
+        ...
+        "alloc": {
+            "<your new address>": { "balance": "300000000000000000000" }
+        }
     }
+}
 ```
 
-You will use the private key for your new account with the [test
-transactions](./test-transactions.md) later on.
+You will use the private key for your new account, and the `"chainId"` you chose,
+with the [test transactions](./test-transactions.md) later on.
 
 <!-- ## Download and Build the Messenger Rollup
 
