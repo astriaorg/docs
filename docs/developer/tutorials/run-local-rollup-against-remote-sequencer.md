@@ -106,6 +106,12 @@ just clean-restart
 
 ## Configure the Local Astria components
 
+Open a new terminal window and initialize the cli:
+
+```bash
+astria-go dev init
+```
+
 When running against the remote sequencer, you will also need to create a new
 sequencer account.
 
@@ -126,17 +132,19 @@ ASTRIA_COMPOSER_ROLLUPS="<your rollup name>::ws://127.0.0.1:8546"
 ASTRIA_COMPOSER_PRIVATE_KEY="<sequencer account private key>"
 ```
 
+::: warning
+Only update `<your rollup name>` in `ASTRIA_COMPOSER_ROLLUPS`.
+:::
+
 You can then use the [Sequencer
 Faucet](https://faucet.sequencer.dusk-5.devnet.astria.org/) to fund the account
 you just created using the account address.
 
 ## Run the local Astria components against the Remote Sequencer
 
-Use the following command to run the local Astria components against the remote
-sequencer:
+Run the local Astria components against the remote sequencer:
 
 ```bash
-astria-go dev init
 astria-go dev run --remote
 ```
 

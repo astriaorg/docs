@@ -76,13 +76,33 @@ If you need to restart the rollup and want to also clear the state data, you can
 just clean-restart
 ```
 
-## Start the Local Astria Sequencer
+## Configure and Start the Local Astria Sequencer
 
-Open a new terminal window and initialize and run a local Astria sequencer using
-the cli:
+Open a new terminal window and initialize the cli:
 
 ```bash
 astria-go dev init
+```
+
+Navigate to the `~/.astria` directory. If you have run the commands shown above,
+you should find a `default` directory.
+
+Open the `~/.astria/default/config-local/.env` file and update the
+`ASTRIA_COMPOSER_ROLLUPS` environment variable using the same
+`"astriaRollupName"` you used when [setting up your Geth
+rollup](#setup-a-geth-rollup).
+
+```bash
+In ASTRIA_COMPOSER_ROLLUPS="<your rollup name>::ws://127.0.0.1:8546"
+```
+
+::: warning
+Only update `<your rollup name>` in `ASTRIA_COMPOSER_ROLLUPS`.
+:::
+
+Use the cli to run a local Astria Sequencer.
+
+```bash
 astria-go dev run
 ```
 
