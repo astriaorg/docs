@@ -9,14 +9,14 @@ sidebar_position: 7
 <DeploymentsRedirect />
 
 Conductor's role is to drive the deterministic execution of sequencer blocks to
-rollups. 
+rollups.
 
 It abstracts away the logic required to read data from the DA and the
 Sequencer, tracking firm and soft commitments, block and header shapes, as well
 as verification of the data. The rollup implements the Execution API server, and
 runs the Conductor alongside to drive deterministic execution. The Conductor is
 effectively stateless but does ephemerally store some information about the
-blocks it has seen and passed on to be executed. 
+blocks it has seen and passed on to be executed.
 
 It filters the transactions that are relevant to the given rollup it is running
 along side, out of the sequencer blocks for execution. The data that it does store is

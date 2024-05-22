@@ -10,9 +10,9 @@ Astria stack locally on your machine.
 
 Requires `Go`, `just`, and `Foundry`:
 
-- Go: https://go.dev/doc/install
-- just: https://github.com/casey/just
-- Foundry: https://book.getfoundry.sh/getting-started/installation
+- Go: <https://go.dev/doc/install>
+- just: <https://github.com/casey/just>
+- Foundry: <https://book.getfoundry.sh/getting-started/installation>
 
 Open a new terminal window and clone and build Geth.
 
@@ -26,12 +26,12 @@ just build
 ### Configure the Geth Genesis Information
 
 Once you have built the Geth node, you will need to update some
-additional genesis information to work with the remote sequencer. 
+additional genesis information to work with the remote sequencer.
 
 Run the following using the Astira cli:
 
 ```bash
-astria-go sequencer blockheight --url https://rpc.sequencer.dusk-5.devnet.astria.org
+astria-go sequencer blockheight --sequencer-url https://rpc.sequencer.dusk-5.devnet.astria.org
 ```
 
 Then, open the `geth-genesis-local.json` file and update the `chainId` and
@@ -116,25 +116,33 @@ When running against the remote sequencer, you will also need to create a new
 sequencer account.
 
 ```bash
-astria-go sequencer create-account
+astria-go sequencer createaccount --insecure
 ```
 
 Navigate to the `~/.astria` directory. If you have run the commands shown above,
 you should find a `default` directory.
 
-Open the `~/.astria/default/config-remote/.env` file and update the following
-environment variables. Use the same rollup name you used for [setting up
-Geth](#setup-a-geth-rollup) above, and the private key from the sequencer
-account you just created.
+Open the `~/.astria/default/networks-config.toml` file and update the
+`rollup_name` variable in the `[dusk]` sections using the same
+`"astriaRollupName"` you used when [setting up your Geth
+rollup](#setup-a-geth-rollup).
 
-```bash
-ASTRIA_COMPOSER_ROLLUPS="<your rollup name>::ws://127.0.0.1:8546"
-ASTRIA_COMPOSER_PRIVATE_KEY="<sequencer account private key>"
+```toml
+[dusk]
+sequencer_chain_id = 'astria-dusk-5'
+sequencer_grpc = 'https://grpc.sequencer.dusk-5.devnet.astria.org/'
+sequencer_rpc = 'https://rpc.sequencer.dusk-5.devnet.astria.org/'
+rollup_name = '<your rollup name>' # update this value
+default_denom = 'nria'
 ```
 
-::: warning
-Only update `<your rollup name>` in `ASTRIA_COMPOSER_ROLLUPS`.
-:::
+Then open the `~/.astria/default/config/base-config.toml` and update the
+`astria_composer_private_key` variable with the private key from the sequencer
+account you just created.
+
+```toml
+astria_composer_private_key = '<your priv key>'
+```
 
 You can then use the [Sequencer
 Faucet](https://faucet.sequencer.dusk-5.devnet.astria.org/) to fund the account
@@ -145,7 +153,7 @@ you just created using the account address.
 Run the local Astria components against the remote sequencer:
 
 ```bash
-astria-go dev run --remote
+astria-go dev run --network dusk
 ```
 
 When running against the remote sequencer, you will see a TUI that displays the logs

@@ -3,7 +3,7 @@
 ## Configure the Testing Script
 
 To run the test transactions script you will need `Foundry`:
-- Foundry: https://book.getfoundry.sh/getting-started/installation
+- Foundry: <https://book.getfoundry.sh/getting-started/installation>
 
 In a new terminal window, clone and configure the evm test transactions repo:
 
@@ -25,7 +25,7 @@ Geth](./run-local-rollup-and-sequencer.md#setup-a-geth-rollup) previously:
 ```bash
 # this value should be the same as what you used for configuring Geth above
 CHAIN_ID=<6 digit number>
-PRIVATE_KEY=<your account private key>
+PRIVATE_KEY=<your evm account private key>
 ```
 
 ## Run the Testing Script
@@ -40,8 +40,8 @@ log windows in the `astria-go` cli.
 :::tip
 The test script sends transactions directly to the local rollup running on your
 machine. Thus, the transactions will work regardless of whether you are running
-everything locally with `astria-go dev run --local` or if you are running
-against a remote sequencer with `astria-go dev run --remote`. 
+everything locally with `astria-go dev run --network local` or if you are running
+against a remote sequencer with `astria-go dev run --network dusk`.
 :::
 
 ## Common Issues
@@ -72,10 +72,10 @@ issue:
    use an existing account if you already have one for testing, and fund the
    account using the [Sequencer
    Faucet](https://faucet.sequencer.dusk-5.devnet.astria.org/).
-3. Make sure the `ASTRIA_COMPOSER_PRIVATE_KEY` env var in the
-   `~/.astria/default/config-remote/.env` is the private key for your funded
+3. Make sure the `astria_composer_private_key` variable  in the
+   `~/.astria/default/config/base-config.toml` is set to the private key for your funded
    sequencer account.
-4. Re-launch the cli with `astria-go dev run --remote`.
+4. Re-launch the cli with `astria-go dev run --network dusk`.
 5. Rerun the transactions testing script.
 
 ### Chain Data Mismatch

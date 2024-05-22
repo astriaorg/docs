@@ -98,6 +98,22 @@ function sidebar() {
           ]
         },
         {
+          text: 'References',
+          collapsed: true,
+          items: [
+            {text: 'Astria Endpoints', link: '/developer/references/endpoints.md'},
+            {
+              text: 'astria-go cli', 
+              collapsed: true,
+              items: [
+                {text: 'Installation', link: '/developer/references/astria-go/cli-installation.md'},
+                {text: 'Commands', link: '/developer/references/astria-go/cli-commands.md'},
+                {text: 'Networks Configuration', link: '/developer/references/astria-go/cli-networks-configuration.md'},
+              ]
+            }
+          ]
+        },
+        {
           text: 'The Astria EVM', link: '/astria-evm/overview'
         },
       ]
