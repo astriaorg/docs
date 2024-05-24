@@ -224,7 +224,6 @@ export SEQUENCER_ACCOUNT_ADDRESS=8a2f...5f68
 
 You can find the sequencer faucet [here](https://faucet.sequencer.dusk-7.devnet.astria.org/).
 
-
 Enter your `<SEQUENCER_ACCOUNT_ADDRESS>` into the text box
  to send funds to your account:
 
