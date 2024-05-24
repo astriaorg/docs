@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # Introduction
 
 ![Astria Architecture](./assets/astria-architecture.png)
@@ -42,7 +38,6 @@ removing consensus bottlenecks and allowing for more flexibility for rollup
 developers. For example, since the data is executed lazily, a rollup may choose
 to have 2 rollup blocks per Astria block, or 1 rollup block per Astria block.
 The rollup’s consensus and execution logic is not enshrined in the sequencer.
-
 
 ## What should I read?
 

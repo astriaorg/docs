@@ -126,7 +126,6 @@ chain and verify and sync its headers, without executing the full transaction
 data of the chain. A rollup light node needs to do a few more things to verify
 headers than an L1 light node.
 
-
 A rollup light node needs to:
 
 * implement an L1 consensus light client
