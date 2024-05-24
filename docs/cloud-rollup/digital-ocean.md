@@ -9,15 +9,20 @@ a Kubernetes cluster on Digital Ocean which uses the Astria shared sequencer net
 
 ## Local Dependencies
 
-<!--@include: ./../components/_cli-cloud.md-->
+Install the following dependencies:
 
-<!-- <RemoteCli /> -->
+- kubectl - [https://kubernetes.io/docs/tasks/tools/](https://kubernetes.io/docs/tasks/tools/)
+- helm - [https://helm.sh/docs/intro/install/](https://helm.sh/docs/intro/install/)
+
+## Install the latest Astria Rust cli
+
+See the latest release [here](https://github.com/astriaorg/astria/releases/tag/cli-v0.3.1).
+
+<!--@include: ../components/_astria-cli-install.md-->
 
 ## Dusknet Endpoints
 
-<!--@include: ../components/_remote-endpoints.md-->
-
-<!-- <RemoteEndpoints /> -->
+<!--@include: ./../components/_remote-endpoints.md-->
 
 ## Create a New Cluster
 
@@ -217,8 +222,8 @@ export SEQUENCER_ACCOUNT_ADDRESS=8a2f...5f68
 
 ## Fund your Sequencer Account
 
-Navigate to [https://faucet.sequencer.dusk-3.devnet.astria.org/](https://faucet.sequencer.dusk-3.devnet.astria.org/)
-to view the sequencer faucet.
+You can find the sequencer faucet [here](https://faucet.sequencer.dusk-7.devnet.astria.org/).
+
 
 Enter your `<SEQUENCER_ACCOUNT_ADDRESS>` into the text box
  to send funds to your account:
