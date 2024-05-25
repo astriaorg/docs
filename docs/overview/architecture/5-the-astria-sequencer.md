@@ -16,7 +16,7 @@ participates in the production and finalization of new blocks.
 ![Astria Shared Sequencer](../assets/shared-sequencer-overview.png)
 
 Components of note that are not shown in the above diagram are the [Composer](/docs/overview/architecture/4-composer.mdx),
-[Relayer](/docs/overview/architecture/6-relayer.mdx), and [Conductor](/docs/overview/architecture/7-conductor.mdx). 
+[Relayer](/docs/overview/architecture/6-relayer.mdx), and [Conductor](/docs/overview/architecture/7-conductor.mdx).
 
 These components facilitate the delivery transactions,
 batches, and different commits shown above, back to the users.

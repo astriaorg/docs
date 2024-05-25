@@ -23,4 +23,4 @@ The Composer and Conductor are explained in more detail in future sections.
 Both composer and conductor expose [gRPC](https://grpc.io/) interfaces. See the [astria-protos](https://github.com/astriaorg/astria/tree/main/crates/astria-proto) repo for specific implementation details.
 
 Astria currently deploys a fork of
-[Geth](https://github.com/astriaorg/go-ethereum) as an EVM rollup. 
+[Geth](https://github.com/astriaorg/go-ethereum) as an EVM rollup.

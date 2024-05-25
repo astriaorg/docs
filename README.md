@@ -5,6 +5,7 @@ The Astria Docs website built with [VitePress](https://vitepress.dev/)
 ### Installation
 
 To get started, clone the repository and run the following:
+
 ```
 npm add -D vitepress
 ```
@@ -12,20 +13,18 @@ npm add -D vitepress
 ### Local Development
 
 To run a local development site:
+
 ```
 npm run docs:dev
 ```
 
 This command starts a local development server. Most changes are reflected live without having to restart the server.
 
-
 ### Build
-
 
 ```
 npm run docs:build
 ```
-
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
