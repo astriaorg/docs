@@ -76,14 +76,6 @@ function sidebar() {
           text: 'Tutorials',
           collapsed: true,
           items: [
-            { text: 'Deploy a Local Rollup', link: '/local-rollup/dev-cluster-local-rollup' },
-            {
-              text: 'Deploy a Cloud Rollup',
-              collapsed: true,
-              items: [
-                { text: 'Digital Ocean', link: '/cloud-rollup/digital-ocean' },
-              ]
-            },
             { 
               text: 'Using the Astria cli', 
               collapsed: true,
