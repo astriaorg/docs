@@ -1,4 +1,4 @@
-The endpoints for the remote shared sequencer are:
+The endpoints for the remote sequencer are:
 
 | Name | Endpoint |
 |---|---|

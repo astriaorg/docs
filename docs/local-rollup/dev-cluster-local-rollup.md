@@ -5,7 +5,7 @@ sidebar_position: 1
 # Overview
 
 This guide will walk you through deploying a rollup full node on
-a local Kubernetes cluster which uses the Astria shared sequencer network.
+a local Kubernetes cluster which uses the Astria sequencing layer network.
 
 :::tip
 If you would like to deploy a rollup on a remote Kubernetes cluster,
@@ -167,7 +167,7 @@ celestia-node:
 
 ## Create a New Sequencer Account
 
-Create an account on the Astria shared sequencer network
+Create an account on the Astria sequencing layer network
  for your rollup to submit transactions.
 
 ```bash

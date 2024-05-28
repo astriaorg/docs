@@ -4,7 +4,7 @@ const { BASE: base = "/" } = process.env;
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Astria",
-  description: "The Shared Sequencer Network",
+  description: "The Sequencing Layer Network",
   lastUpdated: true,
   cleanUrls: true,
   ignoreDeadLinks: true,

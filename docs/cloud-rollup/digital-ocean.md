@@ -5,7 +5,7 @@ sidebar_position: 1
 # Digital Ocean
 
 This guide will walk you through deploying a rollup full node on
-a Kubernetes cluster on Digital Ocean which uses the Astria shared sequencer network.
+a Kubernetes cluster on Digital Ocean which uses the Astria sequencing layer network.
 
 ## Local Dependencies
 
@@ -18,7 +18,7 @@ Install the following dependencies:
 
 See the latest release [here](https://github.com/astriaorg/astria/releases/tag/cli-v0.3.1).
 
-<!--@include: ../components/_astria-cli-install.md-->
+<!--@include: ../components/_astria-rust-cli-install.md-->
 
 ## Dusknet Endpoints
 
@@ -198,7 +198,7 @@ celestia-node:
 
 ## Create new sequencer account
 
-Create an account on the Astria shared sequencer network
+Create an account on the Astria sequencing layer network
  for your rollup to submit transactions.
 
 ```bash

@@ -2,7 +2,7 @@
 
 ## Fee payments
 
-With a shared sequencer, transaction data touches three different chains: the
+With a sequencing layer, transaction data touches three different chains: the
 sequencer chain, the data availability chain, and the rollup chain. Each of
 these requires a fee payment for DoS prevention. If each chain requires a
 different token for fee payment, this causes a poor UX. Many rollups built on

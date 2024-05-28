@@ -20,4 +20,4 @@ The current implementation of the composer is naive and doesn’t perform any
 searching or bundling, although it could be extended to do so. Our hope is that
 the Composer serves as a starting point for searchers and block builders
 interested in collecting end user order flow for one or more rollups and
-submitting it to the shared sequencer as bundles or blocks.
+submitting it to the sequencing layer as bundles or blocks.

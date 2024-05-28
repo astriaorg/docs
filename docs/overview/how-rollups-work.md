@@ -89,9 +89,9 @@ network. The first is to create a native asset on the sequencer network to be
 used for staking, as well as for transaction fees. The second is to use the
 asset of an underlying data availability layer for staking and transaction fees.
 
-## Shared Sequencers
+## Sequencing Layers
 
-![Rollups with a decentralized shared sequencer](./assets/rollups-with-a-decentralized-shared-sequencer.png)
+![Rollups with a decentralized sequencing layer](./assets/rollups-with-a-decentralized-sequencer.png)
 
 Currently, sequencers are implemented for one specific rollup. Instead of this,
 we can have a sequencer batch transactions for many rollups. With data
@@ -107,15 +107,15 @@ execute any transactions at all, and remain ignorant of the rollup state
 machines it’s sequencing for (known as lazy sequencing).
 
 The downside to executing the transactions for each rollup is that it’s much
-more difficult to add new rollups to the shared sequencer, as the sequencer
+more difficult to add new rollups to the sequencing layer, as the sequencer
 needs to be forked and made aware of a new state machine. Additionally, as the
 state of the rollups grows, the sequencer execution time gets slower and slower
 (the same way state bloat affects L1s), but it’s potentially even worse over
 time since many states are involved.
 
-The better solution is the second, where the shared sequencer’s function is
-reduced to only sequencing and not executing. In this model, the shared
-sequencer batches and orders generic transaction data, where the data is tagged
+The better solution is the second, where the sequencing layer’s function is
+reduced to only sequencing and not executing. In this model, the sequencing
+layer batches and orders generic transaction data, where the data is tagged
 with the rollup it’s destined for, and only after the sequencer commits to the
 batch is the data executed by rollup nodes.
 
@@ -132,7 +132,7 @@ A rollup light node needs to:
 * implement an L2 consensus light client
 * ensure that the transaction data for each L2 block was published
 
-A light node of a rollup that uses a shared sequencer needs to verify the
+A light node of a rollup that uses a sequencing layer needs to verify the
 consensus of the sequencer chain, as the sequencer acts as the equivalent of the
 L1 - i.e. it’s where transaction inclusion and ordering is finalized. It needs
 to follow the headers and verify consensus of the sequencer chain. Since light
