@@ -1,33 +1,49 @@
 # The Astria Composer
-- abstraction over mev supply chain
-- naively a gas station
+As a sequencing layer, Astria is designed to provide lazy sequencing for multiple
+rollups. This requires abstracting rollup-specific order flow via the sequencer
+network's transactions, which operate on opaque bytes that are not executed. By
+remaining agnostic to rollup-specific transaction formats, the sequencer network
+is able to provide a robust MEV supply chain for rollups built on top of it,
+with features like native bundle support.
 
-As a sequencing layer, Astria is designed to provide lazy sequencing for multiple rollups.
-This requires abstracting rollup-specific order flow via the sequencer network's transactions,
-which operate on opaque bytes that are not executed. By remaining agnostic to rollup-specific
-transaction formats, the sequencer network is able to provide a robust MEV supply chain
-for rollups built on top of it.
+While the sequencing layer provides a powerful tool for sophisticated users,
+supporting a wider range of users requires additional tooling. The Astria Composer
+is "gas station" side car that makes it easier for ordinary users to easily
+use rollups that support more complex order flow mechanisms.
 
-This 
+## The Composer as a UX solution
+While sophisticated users, such as arbitrageurs, can leverage the sequencing layer
+directly to pay for better transaction ordering guarantees, most users will not
+require (or be interested) in this level of control. Specifically, interacting
+directly with the sequencing layer requires users to hold sequencer tokens and
+to maintain a sequencer wallet, both of which result in a poor user experience.
 
-To use a rollup on Astria, users need to somehow submit rollup transactions as
-sequencer transactions to the sequencer network. However, this requires having
-access to two different nodes (rollup and sequencer), as well as having tokens
-for fees on both networks. This is not ideal for UX.
+Instead, we provide rollup operators with tooling to abstract this complexity
+away using the Astria Composer. Rollup operators run the Composer as side-car
+software to their nodes. The Composer can be described as a "gas station",
+underwriting the sequencing costs for users' rollup transactions.
 
-A solution to this is to have a dedicated service that wraps rollup transactions
-as a sequencer transaction and submits them on a rollup user’s behalf. In the
-Astria stack, we have a service called the composer that performs this function.
-The composer only needs sequencer tokens, while the user only needs rollup
-tokens. The user submits transactions as normal to a rollup node. The composer
-picks up these transactions and ensures they are sequenced.
+This allows order-agnostic users to simply pay for transaction execution in the
+rollup's native gas token without needing to maintain a sequencer wallet, as long
+as the operator keeps the Composer funded. The Composer then bundles these
+transactions and submits them to the sequencer network on the user's behalf.
 
-The incentive for the composer is the ability to make bundles of rollup
-transactions, ensuring they are included in a specific order. In this regard,
-the composer can be thought of as a MEV searcher.
+## Heterogenous order flow support
+This allows Astria-based rollups to support a wide range of users, from those
+who want to pay for better transaction ordering to those with no explicit
+sequencing preferences.
 
-The current implementation of the composer is naive and doesn’t perform any
-searching or bundling, although it could be extended to do so. Our hope is that
-the Composer serves as a starting point for searchers and block builders
-interested in collecting end user order flow for one or more rollups and
-submitting it to the shared sequencer as bundles or blocks.
+Sophisticated users can submit their transactions directly to the sequencing
+layer, controlling the order by which their transactions are bundled and the
+fees they pay for bundle ordering.
+
+In contrast, regular users are able to route their transactions through the
+rollup node, which will run the Composer as a sidecar to underwrite the cost
+of inclusion but with no control over the ordering.
+
+## Naive ordering preferences
+The Composer provides users with no ordering guarantees, bundling transactions
+by the order they are received. Bundles are capped in size to ensure they fit
+in a sequencer block, and are submitted to the sequencer network in a timely
+manner to ensure they can be included in the next sequencer block.
+
