@@ -1,4 +1,14 @@
 # The Astria Composer
+- abstraction over mev supply chain
+- naively a gas station
+
+As a sequencing layer, Astria is designed to provide lazy sequencing for multiple rollups.
+This requires abstracting rollup-specific order flow via the sequencer network's transactions,
+which operate on opaque bytes that are not executed. By remaining agnostic to rollup-specific
+transaction formats, the sequencer network is able to provide a robust MEV supply chain
+for rollups built on top of it.
+
+This 
 
 To use a rollup on Astria, users need to somehow submit rollup transactions as
 sequencer transactions to the sequencer network. However, this requires having
