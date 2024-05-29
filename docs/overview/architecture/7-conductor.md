@@ -27,7 +27,7 @@ As mentioned in the
 received by the Conductor directly from the Relayer is considered a soft commit.
 This data is filtered using the rollup's namespace and only transactions that
 are relevant to the rollup are passed on as blocks for execution. These blocks
-are also marked as "safe" withing the rollup. The Conductor regularly polls Celestia for new data
+are also marked as "safe" within the rollup. The Conductor regularly polls Celestia for new data
 and when it sees the same blocks in Celestia that it has already seen from the
 Relayer, it sends a firm commit message to the rollup to update that block to
 "finalized."
