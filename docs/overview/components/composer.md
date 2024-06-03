@@ -46,4 +46,3 @@ The Composer provides users with no ordering guarantees, bundling transactions
 by the order they are received. Bundles are capped in size to ensure they fit
 in a sequencer block, and are submitted to the sequencer network in a timely
 manner to ensure they can be included in the next sequencer block.
-

@@ -4,7 +4,7 @@ const { BASE: base = "/" } = process.env;
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Astria",
-  description: "The Shared Sequencer Network",
+  description: "The Sequencing Layer Network",
   lastUpdated: true,
   cleanUrls: true,
   ignoreDeadLinks: true,
@@ -76,14 +76,6 @@ function sidebar() {
           text: 'Tutorials',
           collapsed: true,
           items: [
-            { text: 'Deploy a Local Rollup', link: '/local-rollup/dev-cluster-local-rollup' },
-            {
-              text: 'Deploy a Cloud Rollup',
-              collapsed: true,
-              items: [
-                { text: 'Digital Ocean', link: '/cloud-rollup/digital-ocean' },
-              ]
-            },
             { 
               text: 'Using the Astria cli', 
               collapsed: true,
