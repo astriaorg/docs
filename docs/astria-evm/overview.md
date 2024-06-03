@@ -21,6 +21,7 @@ sidebar_position: 1
 Follow Metamask's official documentation to [manually add a custom network.](https://support.metamask.io/hc/en-us/articles/360043227612-How-to-add-a-custom-network-RPC#h_01G63GGJ83DGDRCS2ZWXM37CV5)
 
 Your settings should be the following:
+
 * Network Name: `dusk-7`
 * New RPC URL: `https://rpc.evm.dusk-7.devnet.astria.org`
 * Chain ID: `912559`
