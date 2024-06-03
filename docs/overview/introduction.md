@@ -9,6 +9,7 @@ At a high level, the Astria stack performs the following functions:
 * sequences arbitrary data for usage by multiple rollups
 * makes this data available to rollup nodes
 * allows rollup nodes to easily fetch and verify sequenced data
+* batches rollup blocks and posts these batches to Celestia
 
 The first two are mandatory, while the last is implemented more for the
 developer experience, allowing rollup developers to focus only on the
