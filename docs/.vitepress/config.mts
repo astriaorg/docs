@@ -120,7 +120,7 @@ function sidebar() {
             { text: 'Overview', link: '/community/1-overview' }
           ]
         },
-        { text: 'Dusknet FAQ', link: '/dusk-faq/1-information' }
+        { text: 'Dusknet FAQ', link: '/dusk-faq/faq' }
       ]
     }
   ]
