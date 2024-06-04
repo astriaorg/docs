@@ -354,6 +354,162 @@ Set private key for an address in system keyring.
 astria-go sequencer setkey [address] [private key] [flags]
 ```
 
+## `sequencer sudo`
+
+The root command for all sudo commands for interacting with the sequencer.
+
+### Usage
+
+```bash
+astria-go sequencer sudo [command]
+```
+
+## `sequencer sudo fee-asset`
+
+Interact with fee assets on the sequencer.
+
+### Usage
+
+```bash
+astria-go sequencer sudo fee-asset [command]
+```
+
+## `sequencer sudo fee-asset add`
+
+Add a fee asset to the sequencer.
+
+### Usage
+
+```bash
+astria-go sequencer sudo fee-asset add [asset] [--keyfile | --keyring-address | --privkey] [flags]
+```
+
+### Flags
+
+| Flag | Arg Type | Override Env Var | Description |
+|---|---|---|---|
+| `--json` | bool | `ASTRIA_GO_JSON` | Output the command result in JSON format. |
+| `--keyfile` | string | `ASTRIA_GO_KEYFILE` | Path to secure keyfile for sender. |
+| `--keyring-address` | string | `ASTRIA_GO_KEYRING_ADDRESS` | The address of the sender. Requires private key be stored in keyring. |
+| `--privkey` | string | `ASTRIA_GO_PRIVKEY` | The private key of the sender. |
+| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "sequencer-test-chain-0") |
+| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to add fee asset to. (default "http://127.0.0.1:26657") |
+
+## `sequencer sudo fee-asset remove`
+
+Remove a fee asset from the sequencer.
+
+### Usage
+
+```bash
+astria-go sequencer sudo fee-asset remove [asset] [--keyfile | --keyring-address | --privkey] [flags]
+```
+
+### Flags
+
+| Flag | Arg Type | Override Env Var | Description |
+|---|---|---|---|
+| `--json` | bool | `ASTRIA_GO_JSON` | Output the command result in JSON format. |
+| `--keyfile` | string | `ASTRIA_GO_KEYFILE` | Path to secure keyfile for sender. |
+| `--keyring-address` | string | `ASTRIA_GO_KEYRING_ADDRESS` | The address of the sender. Requires private key be stored in keyring. |
+| `--privkey` | string | `ASTRIA_GO_PRIVKEY` | The private key of the sender. |
+| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "sequencer-test-chain-0") |
+| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to remove fee asset from. (default "http://127.0.0.1:26657") |
+
+## `sequencer sudo ibc-relayer`
+
+Interact with IBC Relayers on the sequencer.
+
+### Usage
+
+```bash
+astria-go sequencer sudo ibc-relayer [command]
+```
+
+## `sequencer sudo ibc-relayer add`
+
+Add an address to the IBC Relayer set on the sequencer.
+
+### Usage
+
+```bash
+astria-go sequencer sudo ibc-relayer add [address] [--keyfile | --keyring-address | --privkey] [flags]
+```
+
+### Flags
+
+| Flag | Arg Type | Override Env Var | Description |
+|---|---|---|---|
+| `--json` | bool | `ASTRIA_GO_JSON` | Output the command result in JSON format. |
+| `--keyfile` | string | `ASTRIA_GO_KEYFILE` | Path to secure keyfile for sender. |
+| `--keyring-address` | string | `ASTRIA_GO_KEYRING_ADDRESS` | The address of the sender. Requires private key be stored in keyring. |
+| `--privkey` | string | `ASTRIA_GO_PRIVKEY` | The private key of the sender. |
+| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "sequencer-test-chain-0") |
+| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to add the relayer address to. (default "http://127.0.0.1:26657") |
+
+## `sequencer sudo ibc-relayer remove`
+
+Remove an address from the IBC Relayer set on the sequencer.
+
+### Usage
+
+```bash
+astria-go sequencer sudo ibc-relayer remove [address] [--keyfile | --keyring-address | --privkey] [flags]
+```
+
+### Flags
+
+| Flag | Arg Type | Override Env Var | Description |
+|---|---|---|---|
+| `--json` | bool | `ASTRIA_GO_JSON` | Output the command result in JSON format. |
+| `--keyfile` | string | `ASTRIA_GO_KEYFILE` | Path to secure keyfile for sender. |
+| `--keyring-address` | string | `ASTRIA_GO_KEYRING_ADDRESS` | The address of the sender. Requires private key be stored in keyring. |
+| `--privkey` | string | `ASTRIA_GO_PRIVKEY` | The private key of the sender. |
+| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "sequencer-test-chain-0") |
+| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to remove the relayer address from. (default "http://127.0.0.1:26657") |
+
+## `sequencer sudo sudo-address-change`
+
+Update the sequencer's sudo address to a new address.
+
+### Usage
+
+```bash
+astria-go sequencer sudo sudo-address-change [address] [--keyfile | --keyring-address | --privkey] [flags]
+```
+
+### Flags
+
+| Flag | Arg Type | Override Env Var | Description |
+|---|---|---|---|
+| `--json` | bool | `ASTRIA_GO_JSON` | Output the command result in JSON format. |
+| `--keyfile` | string | `ASTRIA_GO_KEYFILE` | Path to secure keyfile for sender. |
+| `--keyring-address` | string | `ASTRIA_GO_KEYRING_ADDRESS` | The address of the sender. Requires private key be stored in keyring. |
+| `--privkey` | string | `ASTRIA_GO_PRIVKEY` | The private key of the sender. |
+| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "sequencer-test-chain-0") |
+| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to update the sudo address on. (default "http://127.0.0.1:26657") |
+
+## `sequencer sudo validator-update`
+
+Update a validator on the sequencer.
+
+### Usage
+
+```bash
+astria-go sequencer sudo validator-update [public key] [power] [--keyfile | --keyring-address | --privkey] [flags]
+```
+
+### Flags
+
+| Flag | Arg Type | Override Env Var | Description |
+|---|---|---|---|
+| `--json` | bool | `ASTRIA_GO_JSON` | Output the command result in JSON format. |
+| `--keyfile` | string | `ASTRIA_GO_KEYFILE` | Path to secure keyfile for sender. |
+| `--keyring-address` | string | `ASTRIA_GO_KEYRING_ADDRESS` | The address of the sender. Requires private key be stored in keyring. |
+| `--privkey` | string | `ASTRIA_GO_PRIVKEY` | The private key of the sender. |
+| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "sequencer-test-chain-0") |
+| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to update the validator on. (default "http://127.0.0.1:26657") |
+
 ## `sequencer transfer`
 
 Transfer tokens from one account to another.
