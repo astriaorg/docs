@@ -5,7 +5,7 @@ over some subset of data contained in another blockchain, the L1. Bridging
 to/from the L1 (by enshrining the rollup’s state transition in the L1) is
 implemented by non-sovereign rollups.
 
-## Rollup full node architecture
+## Rollup Full Node Architecture
 
 A rollup needs to perform the following:
 
@@ -37,7 +37,7 @@ However, rollup nodes may still wish to form a p2p network for two reasons: fast
 confirmations, which can be received from the sequencer, or for rollup light
 nodes.
 
-## Rollup sequencers
+## Rollup Sequencers
 
 In the above section, we discussed how a rollup derives its transactions, but
 how does the rollup data end up on L1?
@@ -65,7 +65,7 @@ the potential for transaction censorship. While there is always the “escape
 hatch” by which users post their rollup transactions directly to the L1 for
 inclusion on the rollup, this is a poor UX alternative.
 
-## Decentralized sequencers
+## Decentralized Sequencers
 
 A decentralized sequencer network is an alternative to the centralized service,
 where multiple sequencer nodes each have the ability to propose a batch of
@@ -89,7 +89,7 @@ network. The first is to create a native asset on the sequencer network to be
 used for staking, as well as for transaction fees. The second is to use the
 asset of an underlying data availability layer for staking and transaction fees.
 
-## Sequencing Layers
+## Sequencing Layer
 
 ![Rollups with a decentralized sequencing layer](./assets/rollups-with-a-decentralized-sequencer.png)
 

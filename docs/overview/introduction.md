@@ -2,7 +2,7 @@
 
 ![Astria Architecture](./assets/astria-architecture.png)
 
-Astria is building a decentralized sequencer network that can be shared by many rollups.
+Astria is building a decentralized sequencing layer that can be shared amongst multiple rollups.
 
 At a high level, the Astria stack performs the following functions:
 
@@ -40,7 +40,7 @@ developers. For example, since the data is executed lazily, a rollup may choose
 to have 2 rollup blocks per Astria block, or 1 rollup block per Astria block.
 The rollup’s consensus and execution logic is not enshrined in the sequencer.
 
-## What should I read?
+## What Should I Read?
 
 Want to learn more about about rollups or the sequencer? Check out the [How
 Rollups Work](/overview/how-rollups-work) or [The Astria Sequencer
@@ -54,9 +54,8 @@ a local Kubernetes cluster [here](../local-rollup/1-introduction.md).
 
 You can find our endpoints and FAQ [here](/astria-evm/overview.md)
 
-## What If I Need More Help?
+## Still Need More Help
 
 While this documentation hopefully includes everything you need, if you can't
-find what you're looking for, please reach out to us on
-[Twitter](https://twitter.com/AstriaOrg) or check the [Astria
+find what you're looking for, please reach out on Discord [Discord](https://discord.gg/3qZCbmZxvF) or check the [Astria
 repository](https://github.com/astriaorg/astria).

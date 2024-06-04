@@ -4,7 +4,7 @@ const { BASE: base = "/" } = process.env;
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Astria",
-  description: "The Sequencing Layer Network",
+  description: "The Sequencing Layer",
   lastUpdated: true,
   cleanUrls: true,
   ignoreDeadLinks: true,
@@ -77,7 +77,7 @@ function sidebar() {
           collapsed: true,
           items: [
             { 
-              text: 'Using the Astria cli', 
+              text: 'Using the Astria CLI', 
               collapsed: true,
               items: [
                 {text: 'Install the CLI', link: '/developer/tutorials/install-the-cli.md'},
