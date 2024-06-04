@@ -11,18 +11,14 @@ At a high level, the Astria stack performs the following functions:
 * allows rollup nodes to easily fetch and verify sequenced data
 * batches rollup blocks and posts these batches to Celestia
 
-The first two are mandatory, while the last is implemented more for the
-developer experience, allowing rollup developers to focus only on the
-rollup-specific application logic, as opposed to the other aspects such as
-rollup consensus.
-
 The first requirement (sequencing of arbitrary data for rollups) is implemented
-by the Astria sequencer network, a PoS network of sequencer nodes that use
-CometBFT for consensus. The sequencer network comes to consensus on the ordering
-and inclusion of rollup transactions of the form (rollup_id, tx_bytes). The
-rollup_id can be any arbitrary string; it’s used only by rollup nodes to
-determine which data is for them. The second (making data available to rollup
-nodes) is achieved by publishing the sequenced data via Celestia.
+by the Astria sequencer network, a decentralized network of sequencer nodes that
+use CometBFT for consensus. The sequencer network comes to consensus on the
+ordering and inclusion of rollup transactions of the form `(rollup_id,
+tx_bytes)`. The `rollup_id` can be any arbitrary string; it’s used only by
+rollup nodes to determine which data is for them. The second (making data
+available to rollup nodes) is achieved by publishing the sequenced data via
+Celestia.
 
 The third (allowing rollup nodes to easily fetch and verify sequenced data) is
 achieved by the Astria “Conductor”, which works similarly to existing rollup
