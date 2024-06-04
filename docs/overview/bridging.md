@@ -2,11 +2,11 @@
 
 ## Fee payments
 
-With a sequencing layer, transaction data touches three different chains: the
+With the Astria Sequencing Layer, transaction data touches three different chains: the
 sequencer chain, the data availability chain, and the rollup chain. Each of
 these requires a fee payment for DoS prevention. If each chain requires a
 different token for fee payment, this causes a poor UX. Many rollups built on
-Ethereum allow for bridged ETH to be used to pay fees, alleviating UX concerns,
+Ethereum allows for bridged ETH to be used to pay fees, alleviating UX concerns,
 as users only need to obtain one, widely-available token (ETH).
 
 We can do something similar with the sequencer network. Assuming the data
@@ -17,7 +17,7 @@ derivation) method. In our case, this means bridging TIA (Celestia) to Astria
 via IBC, and allowing it to be used for fee payments. Then, a rollup can
 optionally choose to accept (IBC-)TIA as a token for fee payments as well.
 
-## Rollup bridging
+## Rollup Bridging
 
 To bridge tokens to a rollup built on Astria, the rollup needs to add the
 ability to derive deposit transactions from the sequencer or DA network. In

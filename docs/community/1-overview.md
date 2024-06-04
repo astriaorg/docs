@@ -1,3 +1,4 @@
-# Community overview
+# Community Overview
 
-This section will highlight all the different resources and activities for the Astria community.
+Reach out on [Twitter](https://x.com/AstriaOrg) or
+[Discord](https://discord.gg/3qZCbmZxvF) if you would like addition help.

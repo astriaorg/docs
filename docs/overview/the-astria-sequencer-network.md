@@ -1,7 +1,7 @@
-# The Astria Sequencer Network
+# The Astria Sequencing Layer
 
-The Astria sequencer network uses CometBFT (formerly Tendermint) as its
-consensus algorithm. At a minimum, the sequencer network needs to implement a
+The Astria Sequencing Layer uses CometBFT (formerly Tendermint) as its
+consensus algorithm. At a minimum, the sequencing layer  needs to implement a
 decentralized leader selection algorithm which rotates between proposers.
 Ideally, it is also able to provide single-slot (“fast”) finality, which
 prevents forks from occurring, allowing for simplified chain derivation logic on
