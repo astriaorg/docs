@@ -10,7 +10,7 @@ sidebar_position: 5
 
 Endpoints for the remote cluster are the following:
 
-| NAME | HOSTS | ADDRESS |
+| NAME | HOSTS | ADDRESS | 
 |-----|-----|-----|
 | EVM JSON RPC | rpc.evm.dusk-3.devnet.astria.org | 34.160.214.22 |
 | EVM Block Explorer | explorer.evm.dusk-3.devnet.astria.org | 34.111.167.16 |
