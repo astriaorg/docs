@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "Astria"
-  text: "The Sequencing Layer Network"
+  text: "The Sequencing Layer"
   tagline: The easiest way to deploy decentralized rollups.
   image:
     src: /hero-img.svg
