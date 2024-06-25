@@ -58,7 +58,7 @@ astria-go dev init [flags]
 |---|---|---|---|
 | `--instance` | string | `ASTRIA_GO_INSTANCE` | Choose the target instance. (default "default") |
 | `--local-native-denom` | string | `ASTRIA_GO_LOCAL_NATIVE_DENOM` | Set the native denom for the local instance. This is used to set the 'native_asset_base_denomination' and 'allowed_fee_assets' in the CometBFT genesis.json file. (default "nria") |
-| `--local-network-name` | string | `ASTRIA_GO_LOCAL_NETWORK_NAME` | Set the local network name for the instance. This is used to set the chain ID in the CometBFT genesis.json file. (default "sequencer-test-chain-0") |
+| `--local-network-name` | string | `ASTRIA_GO_LOCAL_NETWORK_NAME` | Set the local network name for the instance. This is used to set the chain ID in the CometBFT genesis.json file. (default "astria-dusk-8") |
 
 ## `dev purge`
 
@@ -132,7 +132,7 @@ astria-go dev reset config [flags]
 |---|---|---|---|
 | `--instance` | string | `ASTRIA_GO_INSTANCE` | Choose the target instance. (default "default") |
 | `--local-native-denom` | string | `ASTRIA_GO_LOCAL_NATIVE_DENOM` | Set the native denom for the local instance. This is used to set the 'native_asset_base_denomination' and 'allowed_fee_assets' in the CometBFT genesis.json file. (default "nria") |
-| `--local-network-name` | string | `ASTRIA_GO_LOCAL_NETWORK_NAME` | Set the local network name for the instance. This is used to set the chain ID in the CometBFT genesis.json file. (default "sequencer-test-chain-0") |
+| `--local-network-name` | string | `ASTRIA_GO_LOCAL_NETWORK_NAME` | Set the local network name for the instance. This is used to set the chain ID in the CometBFT genesis.json file. (default "astria-dusk-8") |
 
 ## `dev reset networks`
 
@@ -151,7 +151,7 @@ astria-go dev reset networks [flags]
 |---|---|---|---|
 | `--instance` | string | `ASTRIA_GO_INSTANCE` | Choose the target instance. (default "default") |
 | `--local-native-denom` | string | `ASTRIA_GO_LOCAL_NATIVE_DENOM` | Set the native denom for the local instance. This is used to set the 'native_asset_base_denomination' and 'allowed_fee_assets' in the CometBFT genesis.json file. (default "nria") |
-| `--local-network-name` | string | `ASTRIA_GO_LOCAL_NETWORK_NAME` | Set the local network name for the instance. This is used to set the chain ID in the CometBFT genesis.json file. (default "sequencer-test-chain-0") |
+| `--local-network-name` | string | `ASTRIA_GO_LOCAL_NETWORK_NAME` | Set the local network name for the instance. This is used to set the chain ID in the CometBFT genesis.json file. (default "astria-dusk-8") |
 
 ## `dev reset state`
 
@@ -173,7 +173,8 @@ astria-go dev reset state [flags]
 ## `dev run`
 
 Runs a minimal, local Astria stack. You can choose to run a local sequencer
-stack or target a remote network by using the `--network` flag.
+stack or target a remote network by using the `--network` flag. `astria-go dev
+init` must be run before using `dev run`.
 
 ### Usage
 
@@ -223,7 +224,7 @@ astria-go sequencer balance [address] [flags]
 | Flag | Arg Type | Override Env Var | Description |
 |---|---|---|---|
 | `--json` | N/A | bool | `ASTRIA_GO_JSON` | Output an account's balances in JSON format. |
-| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to retrieve the balance from. (default "<http://127.0.0.1:26657>") |
+| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to retrieve the balance from. (default "https://rpc.sequencer.dusk-8.devnet.astria.org") |
 
 ## `sequencer blockheight`
 
@@ -240,7 +241,7 @@ astria-go sequencer blockheight [flags]
 | Flag | Arg Type | Override Env Var | Description |
 |---|---|---|---|
 | `--json` | N/A | bool | `ASTRIA_GO_JSON` | Output an account's balances in JSON format. |
-| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to retrieve the balance from. (default "<http://127.0.0.1:26657>") |
+| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to retrieve the balance from. (default "https://rpc.sequencer.dusk-8.devnet.astria.org") |
 
 ## `sequencer bridge`
 
@@ -266,14 +267,16 @@ astria-go sequencer bridge init [rollup-id] [flags]
 
 | Flag | Arg Type | Override Env Var | Description |
 |---|---|---|---|
-| `--asset-id` | string | `ASTRIA_GO_ASSET_ID`  | The asset id of the asset we want to bridge (default "transfer/channel-0/utia") |
+| `--asset-id` | string | `ASTRIA_GO_ASSET_ID`  | The asset id of the asset we want to bridge (default "utia") |
 | `--fee-asset-id` | string | `ASTRIA_GO_FEE_ASSET_ID` | The fee asset id of the asset used for fees (default "nria") |
 | `--json` | bool | `ASTRIA_GO_JSON` | Output bridge account as JSON |
 | `--keyfile` | string | `ASTRIA_GO_KEYFILE` | Path to secure keyfile for the bridge account. |
 | `--keyring-address` | string | `ASTRIA_GO_KEYRING_ADDRESS` | The address of the bridge account. Requires private key be stored in keyring. |
 | `--privkey` | string | `ASTRIA_GO_PRIVKEY` | The private key of the bridge account. |
-| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "astria-dusk-5") |
-| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to init bridge account (default "<http://127.0.0.1:26657>") |
+| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "astria-dusk-8") |
+| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to init bridge account (default "https://rpc.sequencer.dusk-8.devnet.astria.org") |
+| `--sudo-address` | string | `ASTRIA_GO_SUDO_ADDRESS` | Set the sudo address to use for the bridge account. The address of the sender is used if this is not set. |
+| `--withdrawer-address` | string | `ASTRIA_GO_WITHDRAWER_ADDRESS` | Set the withdrawer address to use for the bridge account. The address of the sender is used if this is not set. |
 
 ## `sequencer bridge lock`
 
@@ -289,12 +292,14 @@ astria-go sequencer bridge lock [address] [amount] [destination-chain-address] [
 
 | Flag | Arg Type | Override Env Var | Description |
 |---|---|---|---|
+| `--asset-id` | string | `ASTRIA_GO_ASSET_ID`  | The asset id of the asset we want to bridge (default "utia") |
+| `--fee-asset-id` | string | `ASTRIA_GO_FEE_ASSET_ID` | The fee asset id of the asset used for fees (default "nria") |
 | `--json` | bool | `ASTRIA_GO_JSON` | Output bridge account as JSON |
 | `--keyfile` | string | `ASTRIA_GO_KEYFILE` | Path to secure keyfile for the bridge account. |
 | `--keyring-address` | string | `ASTRIA_GO_KEYRING_ADDRESS` | The address of the bridge account. Requires private key be stored in keyring. |
 | `--privkey` | string | `ASTRIA_GO_PRIVKEY` | The private key of the bridge account. |
-| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "astria-dusk-5") |
-| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer where the bridge account resides (default "<http://127.0.0.1:26657>") |
+| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "astria-dusk-8") |
+| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer where the bridge account resides (default "https://rpc.sequencer.dusk-8.devnet.astria.org") |
 
 ## `sequencer createaccount`
 
@@ -342,7 +347,7 @@ astria-go sequencer nonce [address] [flags]
 | Flag | Arg Type | Override Env Var | Description |
 |---|---|---|---|
 | `--json` | N/A | bool | `ASTRIA_GO_JSON` | Output in JSON format. |
-| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer. (default "<http://127.0.0.1:26657>") |
+| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer. (default "https://rpc.sequencer.dusk-8.devnet.astria.org") |
 
 ## `sequencer setkey`
 
@@ -392,8 +397,8 @@ astria-go sequencer sudo fee-asset add [asset] [--keyfile | --keyring-address | 
 | `--keyfile` | string | `ASTRIA_GO_KEYFILE` | Path to secure keyfile for sender. |
 | `--keyring-address` | string | `ASTRIA_GO_KEYRING_ADDRESS` | The address of the sender. Requires private key be stored in keyring. |
 | `--privkey` | string | `ASTRIA_GO_PRIVKEY` | The private key of the sender. |
-| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "sequencer-test-chain-0") |
-| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to add fee asset to. (default "http://127.0.0.1:26657") |
+| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "astria-dusk-8") |
+| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to add fee asset to. (default "https://rpc.sequencer.dusk-8.devnet.astria.org") |
 
 ## `sequencer sudo fee-asset remove`
 
@@ -413,8 +418,8 @@ astria-go sequencer sudo fee-asset remove [asset] [--keyfile | --keyring-address
 | `--keyfile` | string | `ASTRIA_GO_KEYFILE` | Path to secure keyfile for sender. |
 | `--keyring-address` | string | `ASTRIA_GO_KEYRING_ADDRESS` | The address of the sender. Requires private key be stored in keyring. |
 | `--privkey` | string | `ASTRIA_GO_PRIVKEY` | The private key of the sender. |
-| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "sequencer-test-chain-0") |
-| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to remove fee asset from. (default "http://127.0.0.1:26657") |
+| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "astria-dusk-8") |
+| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to remove fee asset from. (default "https://rpc.sequencer.dusk-8.devnet.astria.org") |
 
 ## `sequencer sudo ibc-relayer`
 
@@ -444,8 +449,8 @@ astria-go sequencer sudo ibc-relayer add [address] [--keyfile | --keyring-addres
 | `--keyfile` | string | `ASTRIA_GO_KEYFILE` | Path to secure keyfile for sender. |
 | `--keyring-address` | string | `ASTRIA_GO_KEYRING_ADDRESS` | The address of the sender. Requires private key be stored in keyring. |
 | `--privkey` | string | `ASTRIA_GO_PRIVKEY` | The private key of the sender. |
-| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "sequencer-test-chain-0") |
-| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to add the relayer address to. (default "http://127.0.0.1:26657") |
+| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "astria-dusk-8") |
+| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to add the relayer address to. (default "https://rpc.sequencer.dusk-8.devnet.astria.org") |
 
 ## `sequencer sudo ibc-relayer remove`
 
@@ -465,8 +470,8 @@ astria-go sequencer sudo ibc-relayer remove [address] [--keyfile | --keyring-add
 | `--keyfile` | string | `ASTRIA_GO_KEYFILE` | Path to secure keyfile for sender. |
 | `--keyring-address` | string | `ASTRIA_GO_KEYRING_ADDRESS` | The address of the sender. Requires private key be stored in keyring. |
 | `--privkey` | string | `ASTRIA_GO_PRIVKEY` | The private key of the sender. |
-| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "sequencer-test-chain-0") |
-| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to remove the relayer address from. (default "http://127.0.0.1:26657") |
+| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "astria-dusk-8") |
+| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to remove the relayer address from. (default "https://rpc.sequencer.dusk-8.devnet.astria.org") |
 
 ## `sequencer sudo sudo-address-change`
 
@@ -486,8 +491,8 @@ astria-go sequencer sudo sudo-address-change [address] [--keyfile | --keyring-ad
 | `--keyfile` | string | `ASTRIA_GO_KEYFILE` | Path to secure keyfile for sender. |
 | `--keyring-address` | string | `ASTRIA_GO_KEYRING_ADDRESS` | The address of the sender. Requires private key be stored in keyring. |
 | `--privkey` | string | `ASTRIA_GO_PRIVKEY` | The private key of the sender. |
-| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "sequencer-test-chain-0") |
-| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to update the sudo address on. (default "http://127.0.0.1:26657") |
+| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "astria-dusk-8") |
+| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to update the sudo address on. (default "https://rpc.sequencer.dusk-8.devnet.astria.org") |
 
 ## `sequencer sudo validator-update`
 
@@ -507,8 +512,8 @@ astria-go sequencer sudo validator-update [public key] [power] [--keyfile | --ke
 | `--keyfile` | string | `ASTRIA_GO_KEYFILE` | Path to secure keyfile for sender. |
 | `--keyring-address` | string | `ASTRIA_GO_KEYRING_ADDRESS` | The address of the sender. Requires private key be stored in keyring. |
 | `--privkey` | string | `ASTRIA_GO_PRIVKEY` | The private key of the sender. |
-| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "sequencer-test-chain-0") |
-| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to update the validator on. (default "http://127.0.0.1:26657") |
+| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "astria-dusk-8") |
+| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to update the validator on. (default "https://rpc.sequencer.dusk-8.devnet.astria.org") |
 
 ## `sequencer transfer`
 
@@ -528,5 +533,5 @@ astria-go sequencer transfer [amount] [to] [flags]
 | `--keyfile` | string | `ASTRIA_GO_KEYFILE` | Path to secure keyfile for sender. |
 | `--keyring-address` | string | `ASTRIA_GO_KEYRING_ADDRESS` | The address of the sender. Requires private key be stored in keyring. |
 | `--privkey` | string | `ASTRIA_GO_PRIVKEY` | The private key of the sender. |
-| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "astria-dusk-5") |
-| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer. (default "<http://127.0.0.1:26657>") |
+| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "astria-dusk-8") |
+| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer. (default "https://rpc.sequencer.dusk-8.devnet.astria.org") |
