@@ -120,7 +120,7 @@ function sidebar() {
             { text: 'Overview', link: '/community/1-overview' }
           ]
         },
-        { text: 'Dusknet FAQ', link: '/dusk-faq/faq' }
+        { text: 'Astria Devnet FAQ', link: '/dusk-faq/faq' }
       ]
     }
   ]
@@ -130,7 +130,7 @@ function nav() {
   return [
     { text: 'Home', link: '/' },
     {
-      text: "Join the network",
+      text: "Join the Network",
       items: [
         { text: "Learn", link: "/overview/introduction" },
         { text: "Developers", link: "/developer/tutorials/1-using-astria-cli-go" },
