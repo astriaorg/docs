@@ -19,9 +19,9 @@ For example, the default Astria Dusk dev net configuration is as follows:
 
 ```toml
 [dusk]
-sequencer_chain_id = 'astria-dusk-7'
-sequencer_grpc = 'https://grpc.sequencer.dusk-7.devnet.astria.org/'
-sequencer_rpc = 'https://rpc.sequencer.dusk-7.devnet.astria.org/'
+sequencer_chain_id = 'astria-dusk-8'
+sequencer_grpc = 'https://grpc.sequencer.dusk-8.devnet.astria.org/'
+sequencer_rpc = 'https://rpc.sequencer.dusk-8.devnet.astria.org/'
 rollup_name = ''
 default_denom = 'nria'
 ```

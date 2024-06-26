@@ -272,7 +272,7 @@ astria-go sequencer bridge init [rollup-id] [flags]
 | `--keyfile` | string | `ASTRIA_GO_KEYFILE` | Path to secure keyfile for the bridge account. |
 | `--keyring-address` | string | `ASTRIA_GO_KEYRING_ADDRESS` | The address of the bridge account. Requires private key be stored in keyring. |
 | `--privkey` | string | `ASTRIA_GO_PRIVKEY` | The private key of the bridge account. |
-| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "astria-dusk-5") |
+| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "astria-dusk-8") |
 | `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to init bridge account (default "<http://127.0.0.1:26657>") |
 
 ## `sequencer bridge lock`
@@ -293,7 +293,7 @@ astria-go sequencer bridge lock [address] [amount] [destination-chain-address] [
 | `--keyfile` | string | `ASTRIA_GO_KEYFILE` | Path to secure keyfile for the bridge account. |
 | `--keyring-address` | string | `ASTRIA_GO_KEYRING_ADDRESS` | The address of the bridge account. Requires private key be stored in keyring. |
 | `--privkey` | string | `ASTRIA_GO_PRIVKEY` | The private key of the bridge account. |
-| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "astria-dusk-5") |
+| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "astria-dusk-8") |
 | `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer where the bridge account resides (default "<http://127.0.0.1:26657>") |
 
 ## `sequencer createaccount`
@@ -372,5 +372,5 @@ astria-go sequencer transfer [amount] [to] [flags]
 | `--keyfile` | string | `ASTRIA_GO_KEYFILE` | Path to secure keyfile for sender. |
 | `--keyring-address` | string | `ASTRIA_GO_KEYRING_ADDRESS` | The address of the sender. Requires private key be stored in keyring. |
 | `--privkey` | string | `ASTRIA_GO_PRIVKEY` | The private key of the sender. |
-| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "astria-dusk-5") |
+| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "astria-dusk-8") |
 | `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer. (default "<http://127.0.0.1:26657>") |
