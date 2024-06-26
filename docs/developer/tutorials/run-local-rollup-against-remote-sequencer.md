@@ -31,7 +31,7 @@ additional genesis information to work with the remote sequencer.
 Run the following using the Astira cli:
 
 ```bash
-astria-go sequencer blockheight --sequencer-url https://rpc.sequencer.dusk-7.devnet.astria.org
+astria-go sequencer blockheight
 ```
 
 Then, open the `geth-genesis-local.json` file and update the `chainId` and
@@ -129,9 +129,9 @@ rollup](#setup-a-geth-rollup).
 
 ```toml
 [dusk]
-sequencer_chain_id = 'astria-dusk-7'
-sequencer_grpc = 'https://grpc.sequencer.dusk-7.devnet.astria.org/'
-sequencer_rpc = 'https://rpc.sequencer.dusk-7.devnet.astria.org/'
+sequencer_chain_id = 'astria-dusk-8'
+sequencer_grpc = 'https://grpc.sequencer.dusk-8.devnet.astria.org/'
+sequencer_rpc = 'https://rpc.sequencer.dusk-8.devnet.astria.org/'
 rollup_name = '<your rollup name>' # update this value
 default_denom = 'nria'
 ```
@@ -146,7 +146,7 @@ but your Composer will not be able to write transactions to the sequencer.
 :::
 
 You can then use the [Sequencer
-Faucet](https://faucet.sequencer.dusk-7.devnet.astria.org/) to fund the account
+Faucet](https://faucet.sequencer.dusk-8.devnet.astria.org/) to fund the account
 you just created using the account address.
 
 ## Run the local Astria components against the Remote Sequencer
