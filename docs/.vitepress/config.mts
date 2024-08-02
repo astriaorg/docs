@@ -133,7 +133,7 @@ function nav() {
       text: "Join the Network",
       items: [
         { text: "Learn", link: "/overview/introduction" },
-        { text: "Developers", link: "/developer/tutorials/1-using-astria-cli-go" },
+        { text: "Developers", link: "/developer/tutorials/install-the-cli.md" },
         { text: "Community", link: '/community/1-overview' },
       ],
     },
