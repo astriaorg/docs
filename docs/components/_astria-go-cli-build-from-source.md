@@ -1,5 +1,6 @@
 
 ::: code-group
+
 ```bash [SSH]
 git clone git@github.com:astriaorg/astria-cli-go.git
 cd astria-cli-go
@@ -25,6 +26,7 @@ just run version
 mv ./bin/astria-go /usr/local/bin/
 astria-go version
 ```
+
 :::
 
 <!-- <Tabs>

@@ -1,5 +1,6 @@
 
 ::: code-group
+
 ```bash [SSH]
 git clone git@github.com:astriaorg/astria-geth.git
 cd astria-geth
@@ -13,6 +14,7 @@ cd astria-geth
 git checkout local-dev
 just build
 ```
+
 :::
 
 <!-- <Tabs>
