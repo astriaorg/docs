@@ -16,12 +16,7 @@ Requires `Go`, `just`, and `Foundry`:
 
 Open a new terminal window and clone and build Geth.
 
-```bash
-git clone git@github.com:astriaorg/astria-geth.git
-cd astria-geth
-git checkout local-dev
-just build
-```
+<!--@include: ../../components/_clone-geth.md-->
 
 ### Configure the Geth Genesis Information
 
