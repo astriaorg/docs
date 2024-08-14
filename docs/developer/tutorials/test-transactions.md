@@ -71,7 +71,7 @@ issue:
 2. Create a new sequencer account with `astria-go sequencer createaccount` or
    use an existing account if you already have one for testing, and fund the
    account using the [Sequencer
-   Faucet](https://faucet.sequencer.dusk-5.devnet.astria.org/).
+   Faucet](https://faucet.sequencer.dusk-8.devnet.astria.org/).
 3. Make sure the `astria_composer_private_key` variable  in the
    `~/.astria/default/config/base-config.toml` is set to the private key for your funded
    sequencer account.
