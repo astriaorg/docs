@@ -28,7 +28,13 @@ Service Versions:
 
 ## Install the latest Astria cli
 
+Download using curl:
+
 <!--@include: ../components/_astria-go-cli-install.md-->
+
+Build from source:
+
+<!--@include: ../components/_astria-go-cli-build-from-source.md-->
 
 ## `astria-go` CLI Commands
 
