@@ -48,10 +48,6 @@ Open the `geth-genesis-local.json` file in your Geth repo and update the
 You will use the private key for your new account, and the `"chainId"` you chose,
 with the [test transactions](./test-transactions.md) later on.
 
-<!-- ## Download and Build the Messenger Rollup
-
-tbd -->
-
 ## Start Geth
 
 In your Geth terminal window, run the following to initialize and run the Geth rollup:
