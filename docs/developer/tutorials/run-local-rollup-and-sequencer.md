@@ -34,8 +34,8 @@ Open the `geth-genesis-local.json` file in your Geth repo and update the
 ```json
 {
     "config": {
-        "chainId": <6 digit number>,
         ...
+        "chainId": <6 digit number>,
         "astriaRollupName": "<your rollup name>",
         ...
         "alloc": {

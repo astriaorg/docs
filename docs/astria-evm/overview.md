@@ -4,13 +4,13 @@
 
 | Property | Value |
 |-----|-----|
-| Network Name | dusk-8 |
-| RPC URL | [https://rpc.evm.dusk-8.devnet.astria.org](https://rpc.evm.dusk-8.devnet.astria.org) |
+| Network Name | dusk-10 |
+| RPC URL | [https://rpc.evm.dusk-10.devnet.astria.org](https://rpc.evm.dusk-10.devnet.astria.org) |
 | Chain ID | 912559 |
-| Currency Symbol | RIA |
+| Currency Symbol | TIA |
 | Dora | [https://www.ondora.xyz/network/astria-devnet](https://www.ondora.xyz/network/astria-devnet) |
-| Faucet | [https://faucet.evm.dusk-8.devnet.astria.org](https://faucet.evm.dusk-8.devnet.astria.org) |
-| Block Scout | [https://explorer.evm.dusk-8.devnet.astria.org/](https://explorer.evm.dusk-8.devnet.astria.org/) |
+| EVM Faucet | [https://faucet.evm.dusk-10.devnet.astria.org](https://faucet.evm.dusk-10.devnet.astria.org) |
+| Block Scout | [https://explorer.evm.dusk-10.devnet.astria.org/](https://explorer.evm.dusk-10.devnet.astria.org/) |
 
 ## Adding to Metamask
 
@@ -18,10 +18,10 @@ Follow Metamask's official documentation to [manually add a custom network.](htt
 
 Your settings should be the following:
 
-* Network Name: `dusk-8`
-* New RPC URL: `https://rpc.evm.dusk-8.devnet.astria.org`
+* Network Name: `dusk-10`
+* New RPC URL: `https://rpc.evm.dusk-10.devnet.astria.org`
 * Chain ID: `912559`
-* Currency symbol: `RIA`
+* Currency symbol: `TIA`
 * Block Explorer URL: `<empty>`
 
 ## Using Cast
@@ -29,7 +29,7 @@ Your settings should be the following:
 Set your `ETH_RPC_URL`:
 
 ```bash
-export ETH_RPC_URL=https://rpc.evm.dusk-8.devnet.astria.org
+export ETH_RPC_URL=https://rpc.evm.dusk-10.devnet.astria.org
 ```
 
 ```bash

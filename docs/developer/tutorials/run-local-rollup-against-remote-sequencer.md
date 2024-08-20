@@ -39,14 +39,28 @@ Then, open the `geth-genesis-local.json` file and update the `chainId` and
 `astriaSequencerInitialHeight` using the block height from the previous command
 to choose which sequencer block the first block of your rollup will be in:
 
+Create a new genesis account for your Geth rollup:
+
+```bash
+cast w new
+```
+
+Also in the `geth-genesis-local.json` file, update the `"alloc"` account with
+your new one:
+
 ```json
+{
     "config": {
         ...
         "chainId": <6 digit number>,
         "astriaRollupName": "<your rollup name>",
         "astriaSequencerInitialHeight": <sequencer block height>,
         ...
-    },
+        "alloc": {
+            "<your new address>": { "balance": "300000000000000000000" }
+        }
+    }
+}
 ```
 
 Keep the `chainId` and `astriaRollupName` you chose on hand, as they will also
@@ -61,21 +75,6 @@ Conductor will always start syncing the rollup from the
 will work but will cause your rollup to sync potentially millions of blocks that
 have no relevant data for your new rollup.
 :::
-
-Create a new genesis account for your Geth rollup:
-
-```bash
-cast w new
-```
-
-Also in the `geth-genesis-local.json` file, update the `"alloc"` account with
-your new one:
-
-```json
-   "alloc": {
-        "<your new address>": { "balance": "300000000000000000000" }
-    }
-```
 
 You will use the private key for your new account with the [test
 transactions](./test-transactions.md) later on.
