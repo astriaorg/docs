@@ -8,9 +8,9 @@ Astria stack locally on your machine.
 
 Requires `Go`, `just`, and `Foundry`:
 
-- Go: <https://go.dev/doc/install>
-- just: <https://github.com/casey/just>
-- Foundry: <https://book.getfoundry.sh/getting-started/installation>
+- [Go](https://go.dev/doc/install)
+- [just](https://github.com/casey/just)
+- [Foundry](https://book.getfoundry.sh/getting-started/installation)
 
 Open a new terminal window and clone and build Geth:
 
