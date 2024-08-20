@@ -8,18 +8,13 @@ Astria stack locally on your machine.
 
 Requires `Go`, `just`, and `Foundry`:
 
-- Go: <https://go.dev/doc/install>
-- just: <https://github.com/casey/just>
-- Foundry: <https://book.getfoundry.sh/getting-started/installation>
+- [Go](https://go.dev/doc/install)
+- [just](https://github.com/casey/just)
+- [Foundry](https://book.getfoundry.sh/getting-started/installation)
 
 Open a new terminal window and clone and build Geth:
 
-```bash
-git clone git@github.com:astriaorg/astria-geth.git
-cd astria-geth
-git checkout local-dev
-just build
-```
+<!--@include: ../../components/_clone-geth.md-->
 
 Create a new genesis account for your Geth rollup:
 

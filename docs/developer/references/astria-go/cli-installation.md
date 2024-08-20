@@ -10,4 +10,9 @@ View all releases [here](https://github.com/astriaorg/astria-cli-go/releases).
 
 ## Build from Source
 
+This requires `Go` and `just` to be installed on your system.
+
+- Go: <https://go.dev/doc/install>
+- just: <https://github.com/casey/just>
+
 <!--@include: ../../../components/_astria-go-cli-build-from-source.md-->
