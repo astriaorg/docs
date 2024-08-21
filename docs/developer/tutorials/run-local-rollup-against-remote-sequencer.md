@@ -71,8 +71,9 @@ will work but will cause your rollup to sync potentially millions of blocks that
 have no relevant data for your new rollup.
 :::
 
-You will use the private key for your new account with the [test
-transactions](./test-transactions.md) later on.
+You will use the private key for your new account to send [test
+transactions](./test-transactions.md) later on. 
+
 
 ## Start Geth
 
@@ -94,7 +95,6 @@ just run
 If you need to restart the rollup and want to also clear the state data, you can use:
 
 ```bash
-# in astria-geth dir
 just clean-restart
 ```
 
@@ -117,15 +117,15 @@ Navigate to the `~/.astria` directory. If you have run the commands shown above,
 you should find a `default` directory.
 
 Open the `~/.astria/default/networks-config.toml` file and update the
-`rollup_name` variable in the `[dusk]` sections using the same
+`rollup_name` variable in the `[networks.dusk]` sections using the same
 `"astriaRollupName"` you used when [setting up your Geth
 rollup](#setup-a-geth-rollup).
 
 ```toml
-[dusk]
-sequencer_chain_id = 'astria-dusk-8'
-sequencer_grpc = 'https://grpc.sequencer.dusk-8.devnet.astria.org/'
-sequencer_rpc = 'https://rpc.sequencer.dusk-8.devnet.astria.org/'
+[networks.dusk]
+sequencer_chain_id = 'astria-dusk-10'
+sequencer_grpc = 'https://grpc.sequencer.dusk-10.devnet.astria.org/'
+sequencer_rpc = 'https://rpc.sequencer.dusk-10.devnet.astria.org/'
 rollup_name = '<your rollup name>' # update this value
 default_denom = 'nria'
 ```
@@ -136,11 +136,11 @@ created.
 
 :::warning
 If you skip updating the priv key the Astria services will still start correctly
-but your Composer will not be able to write transactions to the sequencer.
+but your Composer will not be able to submit transactions to the sequencer.
 :::
 
 You can then use the [Sequencer
-Faucet](https://faucet.sequencer.dusk-8.devnet.astria.org/) to fund the account
+Faucet](https://faucet.sequencer.dusk-10.devnet.astria.org/) to fund the account
 you just created using the account address.
 
 ## Run the local Astria components against the Remote Sequencer

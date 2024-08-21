@@ -18,7 +18,7 @@ against a different sequencer rpc/grpc.
 For example, the default Astria Dusk dev net configuration is as follows:
 
 ```toml
-[dusk]
+[networks.dusk]
 sequencer_chain_id = 'astria-dusk-10'
 sequencer_grpc = 'https://grpc.sequencer.dusk-10.devnet.astria.org/'
 sequencer_rpc = 'https://rpc.sequencer.dusk-10.devnet.astria.org/'
@@ -56,7 +56,7 @@ astria-go dev init \
 Your local networks config will look like this:
 
 ```toml
-[local]
+[networks.local]
 sequencer_chain_id = 'test-chain'
 sequencer_grpc = 'http://127.0.0.1:8080'
 sequencer_rpc = 'http://127.0.0.1:26657'
