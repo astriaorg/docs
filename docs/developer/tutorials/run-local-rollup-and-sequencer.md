@@ -29,8 +29,8 @@ Open the `geth-genesis-local.json` file in your Geth repo and update the
 ```json
 {
     "config": {
-        "chainId": <6 digit number>,
         ...
+        "chainId": <6 digit number>,
         "astriaRollupName": "<your rollup name>",
         ...
         "alloc": {
@@ -40,8 +40,8 @@ Open the `geth-genesis-local.json` file in your Geth repo and update the
 }
 ```
 
-You will use the private key for your new account, and the `"chainId"` you chose,
-with the [test transactions](./test-transactions.md) later on.
+You will use the private key for your new account to send [test
+transactions](./test-transactions.md) later on. 
 
 ## Start Geth
 
@@ -63,7 +63,6 @@ just run
 If you need to restart the rollup and want to also clear the state data, you can use:
 
 ```bash
-# in astria-geth dir
 just clean-restart
 ```
 
@@ -84,7 +83,7 @@ Open the `~/.astria/default/networks-config.toml` file and update the
 rollup](#setup-a-geth-rollup).
 
 ```toml
-[local]
+[networks.local]
 sequencer_chain_id = 'sequencer-test-chain-0'
 sequencer_grpc = 'http://127.0.0.1:8080'
 sequencer_rpc = 'http://127.0.0.1:26657'
