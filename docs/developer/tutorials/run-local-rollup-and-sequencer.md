@@ -94,7 +94,7 @@ default_denom = 'nria'
 Use the cli to run a local Astria Sequencer.
 
 ```bash
-astria-go dev run
+astria-go dev run --network local
 ```
 
 :::tip
