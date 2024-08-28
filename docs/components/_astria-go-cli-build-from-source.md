@@ -4,7 +4,7 @@
 ```bash [SSH]
 git clone git@github.com:astriaorg/astria-cli-go.git
 cd astria-cli-go
-just build
+just build-cli
 
 # run the cli in the repo directory
 just run version
@@ -17,7 +17,7 @@ astria-go version
 ```bash [HTTPS]
 git clone https://github.com/astriaorg/astria-cli-go.git
 cd astria-cli-go
-just build
+just build-cli
 
 # run the cli in the repo directory
 just run version

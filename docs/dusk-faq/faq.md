@@ -19,3 +19,7 @@ Build from source:
 ## `astria-go` CLI Commands
 
 [View all the `astria-go` cli commands.](../developer/references/astria-go/cli-commands.md)
+
+## Install the Rust `astria-cli`
+
+<!--@include: ../components/_astria-rust-cli-install.md-->
