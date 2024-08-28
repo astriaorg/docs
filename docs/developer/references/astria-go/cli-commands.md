@@ -88,6 +88,12 @@ astria-go dev purge all [flags]
 |---|---|---|---|
 | `--instance` | string | `ASTRIA_GO_INSTANCE` | Choose the target instance. (default "default") |
 
+### Flags
+
+| Flag | Arg Type | Override Env Var | Description |
+|---|---|---|---|
+| `--instance` | string | `ASTRIA_GO_INSTANCE` | Choose the target instance. (default "default") |
+
 ## `dev purge binaries`
 
 Delete all downloaded binaries for a given instance. `astria-go dev init` must be run before `astria-go dev run`
@@ -104,6 +110,17 @@ astria-go dev purge binaries [flags]
 | Flag | Arg Type | Override Env Var | Description |
 |---|---|---|---|
 | `--instance` | string | `ASTRIA_GO_INSTANCE` | Choose the target instance. (default "default") |
+
+## `dev purge logs`
+
+Delete all logs for a given instance. This deletes all data in the
+`~/.astria/logs` directory. Re-initializing is NOT required after using this command.
+
+### Usage
+
+```bash
+astria-go dev purge logs [flags]
+```
 
 ## `dev reset`
 

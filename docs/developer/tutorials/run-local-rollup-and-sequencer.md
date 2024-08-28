@@ -8,18 +8,13 @@ Astria stack locally on your machine.
 
 Requires `Go`, `just`, and `Foundry`:
 
-- Go: <https://go.dev/doc/install>
-- just: <https://github.com/casey/just>
-- Foundry: <https://book.getfoundry.sh/getting-started/installation>
+- [Go](https://go.dev/doc/install)
+- [just](https://github.com/casey/just)
+- [Foundry](https://book.getfoundry.sh/getting-started/installation)
 
 Open a new terminal window and clone and build Geth:
 
-```bash
-git clone git@github.com:astriaorg/astria-geth.git
-cd astria-geth
-git checkout local-dev
-just build
-```
+<!--@include: ../../components/_clone-geth.md-->
 
 Create a new genesis account for your Geth rollup:
 
@@ -34,8 +29,8 @@ Open the `geth-genesis-local.json` file in your Geth repo and update the
 ```json
 {
     "config": {
-        "chainId": <6 digit number>,
         ...
+        "chainId": <6 digit number>,
         "astriaRollupName": "<your rollup name>",
         ...
         "alloc": {
@@ -45,12 +40,8 @@ Open the `geth-genesis-local.json` file in your Geth repo and update the
 }
 ```
 
-You will use the private key for your new account, and the `"chainId"` you chose,
-with the [test transactions](./test-transactions.md) later on.
-
-<!-- ## Download and Build the Messenger Rollup
-
-tbd -->
+You will use the private key for your new account to send [test
+transactions](./test-transactions.md) later on. 
 
 ## Start Geth
 
@@ -72,7 +63,6 @@ just run
 If you need to restart the rollup and want to also clear the state data, you can use:
 
 ```bash
-# in astria-geth dir
 just clean-restart
 ```
 
@@ -93,7 +83,7 @@ Open the `~/.astria/default/networks-config.toml` file and update the
 rollup](#setup-a-geth-rollup).
 
 ```toml
-[local]
+[networks.local]
 sequencer_chain_id = 'sequencer-test-chain-0'
 sequencer_grpc = 'http://127.0.0.1:8080'
 sequencer_rpc = 'http://127.0.0.1:26657'
@@ -104,7 +94,7 @@ default_denom = 'nria'
 Use the cli to run a local Astria Sequencer.
 
 ```bash
-astria-go dev run
+astria-go dev run --network local
 ```
 
 :::tip
@@ -117,7 +107,7 @@ When running the Astria stack locally, you will see a TUI that displays the logs
 of the Astria Sequencer, the underlying Cometbft node, the Astria Conductor, and
 Astria Composer:
 ![Running a local sequencer in the Astria
-cli](./assets/go-cli-local-sequencer.png)
+cli](./assets/dusk-10-go-cli-local-sequencer.png)
 
 ## Test your Rollup
 

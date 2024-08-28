@@ -10,18 +10,13 @@ Astria stack locally on your machine.
 
 Requires `Go`, `just`, and `Foundry`:
 
-- Go: <https://go.dev/doc/install>
-- just: <https://github.com/casey/just>
-- Foundry: <https://book.getfoundry.sh/getting-started/installation>
+- [Go](https://go.dev/doc/install)
+- [just](https://github.com/casey/just)
+- [Foundry](https://book.getfoundry.sh/getting-started/installation)
 
 Open a new terminal window and clone and build Geth.
 
-```bash
-git clone git@github.com:astriaorg/astria-geth.git
-cd astria-geth
-git checkout local-dev
-just build
-```
+<!--@include: ../../components/_clone-geth.md-->
 
 ### Configure the Geth Genesis Information
 
@@ -39,14 +34,28 @@ Then, open the `geth-genesis-local.json` file and update the `chainId` and
 `astriaSequencerInitialHeight` using the block height from the previous command
 to choose which sequencer block the first block of your rollup will be in:
 
+Create a new genesis account for your Geth rollup:
+
+```bash
+cast w new
+```
+
+Also in the `geth-genesis-local.json` file, update the `"alloc"` account with
+your new one:
+
 ```json
+{
     "config": {
         ...
         "chainId": <6 digit number>,
         "astriaRollupName": "<your rollup name>",
         "astriaSequencerInitialHeight": <sequencer block height>,
         ...
-    },
+        "alloc": {
+            "<your new address>": { "balance": "300000000000000000000" }
+        }
+    }
+}
 ```
 
 Keep the `chainId` and `astriaRollupName` you chose on hand, as they will also
@@ -62,23 +71,9 @@ will work but will cause your rollup to sync potentially millions of blocks that
 have no relevant data for your new rollup.
 :::
 
-Create a new genesis account for your Geth rollup:
+You will use the private key for your new account to send [test
+transactions](./test-transactions.md) later on. 
 
-```bash
-cast w new
-```
-
-Also in the `geth-genesis-local.json` file, update the `"alloc"` account with
-your new one:
-
-```json
-   "alloc": {
-        "<your new address>": { "balance": "300000000000000000000" }
-    }
-```
-
-You will use the private key for your new account with the [test
-transactions](./test-transactions.md) later on.
 
 ## Start Geth
 
@@ -100,7 +95,6 @@ just run
 If you need to restart the rollup and want to also clear the state data, you can use:
 
 ```bash
-# in astria-geth dir
 just clean-restart
 ```
 
@@ -123,15 +117,15 @@ Navigate to the `~/.astria` directory. If you have run the commands shown above,
 you should find a `default` directory.
 
 Open the `~/.astria/default/networks-config.toml` file and update the
-`rollup_name` variable in the `[dusk]` sections using the same
+`rollup_name` variable in the `[networks.dusk]` sections using the same
 `"astriaRollupName"` you used when [setting up your Geth
 rollup](#setup-a-geth-rollup).
 
 ```toml
-[dusk]
-sequencer_chain_id = 'astria-dusk-8'
-sequencer_grpc = 'https://grpc.sequencer.dusk-8.devnet.astria.org/'
-sequencer_rpc = 'https://rpc.sequencer.dusk-8.devnet.astria.org/'
+[networks.dusk]
+sequencer_chain_id = 'astria-dusk-10'
+sequencer_grpc = 'https://grpc.sequencer.dusk-10.devnet.astria.org/'
+sequencer_rpc = 'https://rpc.sequencer.dusk-10.devnet.astria.org/'
 rollup_name = '<your rollup name>' # update this value
 default_denom = 'nria'
 ```
@@ -142,11 +136,11 @@ created.
 
 :::warning
 If you skip updating the priv key the Astria services will still start correctly
-but your Composer will not be able to write transactions to the sequencer.
+but your Composer will not be able to submit transactions to the sequencer.
 :::
 
 You can then use the [Sequencer
-Faucet](https://faucet.sequencer.dusk-8.devnet.astria.org/) to fund the account
+Faucet](https://faucet.sequencer.dusk-10.devnet.astria.org/) to fund the account
 you just created using the account address.
 
 ## Run the local Astria components against the Remote Sequencer
@@ -160,7 +154,7 @@ astria-go dev run --network dusk
 When running against the remote sequencer, you will see a TUI that displays the logs
 of the Astria Conductor and Composer:
 ![Running against a remote sequencer using the Astria
-cli](./assets/go-cli-remote-sequencer.png)
+cli](./assets/dusk-10-go-cli-remote-sequencer.png)
 
 ## Test your Rollup
 
