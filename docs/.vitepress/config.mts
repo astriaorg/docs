@@ -99,7 +99,7 @@ function sidebar() {
               items: [
                 {text: 'Installation', link: '/developer/references/astria-go/cli-installation.md'},
                 {text: 'Commands', link: '/developer/references/astria-go/cli-commands.md'},
-                {text: 'Networks Configuration', link: '/developer/references/astria-go/cli-networks-configuration.md'},
+                {text: 'CLI Configuration', link: '/developer/references/astria-go/cli-config.md'},
               ]
             }
           ]

@@ -107,7 +107,7 @@ When running the Astria stack locally, you will see a TUI that displays the logs
 of the Astria Sequencer, the underlying Cometbft node, the Astria Conductor, and
 Astria Composer:
 ![Running a local sequencer in the Astria
-cli](./assets/go-cli-local-sequencer.png)
+cli](./assets/dusk-10-go-cli-local-sequencer.png)
 
 ## Test your Rollup
 

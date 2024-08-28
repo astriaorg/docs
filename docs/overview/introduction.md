@@ -43,10 +43,7 @@ Rollups Work](/overview/how-rollups-work) or [The Astria Sequencer
 Network](/overview/the-astria-sequencer-network).
 
 If you're a rollup developer eager to get started, you should go straight to our
-[`astria-go` cli tutorials](../developer/tutorials/dev-cluster-local-rollup).
-
-For more advanced development, you can read about deploying a rollup full using
-a local Kubernetes cluster [here](../local-rollup/1-introduction.md).
+[`astria-go` cli tutorials](../developer/tutorials/install-the-cli.md).
 
 You can find our endpoints and FAQ [here](/astria-evm/overview.md)
 

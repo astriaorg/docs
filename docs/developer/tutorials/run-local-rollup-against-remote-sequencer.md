@@ -154,7 +154,7 @@ astria-go dev run --network dusk
 When running against the remote sequencer, you will see a TUI that displays the logs
 of the Astria Conductor and Composer:
 ![Running against a remote sequencer using the Astria
-cli](./assets/go-cli-remote-sequencer.png)
+cli](./assets/dusk-10-go-cli-remote-sequencer.png)
 
 ## Test your Rollup
 
