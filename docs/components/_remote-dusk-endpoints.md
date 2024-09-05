@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD041 -->
+
 | Name | Endpoint |
 |---|---|
 | EVM JSON RPC | [https://rpc.evm.dusk-10.devnet.astria.org](https://rpc.evm.dusk-10.devnet.astria.org) |

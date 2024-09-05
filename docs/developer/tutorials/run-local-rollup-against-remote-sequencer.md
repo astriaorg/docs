@@ -72,12 +72,12 @@ have no relevant data for your new rollup.
 :::
 
 You will use the private key for your new account to send [test
-transactions](./test-transactions.md) later on. 
-
+transactions](./test-transactions.md) later on.
 
 ## Start Geth
 
-In your Geth terminal window, run the following to initialize and run the Geth rollup:
+In your Geth terminal window, run the following to initialize and run the Geth
+rollup:
 
 ```bash
 # in astria-geth dir
@@ -92,7 +92,8 @@ restart with:
 just run
 ```
 
-If you need to restart the rollup and want to also clear the state data, you can use:
+If you need to restart the rollup and want to also clear the state data, you can
+use:
 
 ```bash
 just clean-restart
@@ -132,7 +133,7 @@ default_denom = 'nria'
 
 Then open the `~/.astria/default/config/composer_dev_priv_key` and replace dev private
 key in that file with your private key from the sequencer account you just
-created. 
+created.
 
 :::warning
 If you skip updating the priv key the Astria services will still start correctly

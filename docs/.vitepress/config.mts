@@ -41,37 +41,81 @@ export default defineConfig({
 function sidebar() {
   return [
     {
-
+      text: 'What is Astria?',
+      collapsed: true,
       items: [
+        { text: 'Overview', link: '/overview/introduction' },
+        { text: 'How Rollups Work', link: '/overview/how-rollups-work'},
+        { text: 'The Astria Sequencer Network', link: '/overview/the-astria-sequencer-network' },
+        { text: 'Bridging', link: '/overview/bridging' },
+        { text: 'Transaction Flow', link: '/overview/transaction-flow' },
         {
-          text: 'What is Astria?',
+          text: 'Components',
           collapsed: true,
           items: [
-            { text: 'Overview', link: '/overview/introduction' },
-            { text: 'How Rollups Work', link: '/overview/how-rollups-work'},
-            { text: 'The Astria Sequencer Network', link: '/overview/the-astria-sequencer-network' },
-            { text: 'Bridging', link: '/overview/bridging' },
-            { text: 'Transaction Flow', link: '/overview/transaction-flow' },
-            {
-              text: 'Components',
-              collapsed: true,
-              items: [
-                { text: 'Composer', link: '/overview/components/composer' },
-                { text: 'The Astria Sequencer', link: '/overview/components/the-astria-sequencer' },
-                { text: 'Relayer', link: '/overview/components/relayer' },
-                { text: 'Data Availability Layer', link: '/overview/components/data-availability-layer' },
-                { text: 'Conductor', link: '/overview/components/conductor' },
+            { text: 'Composer', link: '/overview/components/composer' },
+            { text: 'The Astria Sequencer', link: '/overview/components/the-astria-sequencer' },
+            { text: 'Relayer', link: '/overview/components/relayer' },
+            { text: 'Data Availability Layer', link: '/overview/components/data-availability-layer' },
+            { text: 'Conductor', link: '/overview/components/conductor' },
 
-              ]
-            },
           ]
-        }
-      ],
+        },
+      ]
+    },
+    {
+      text: 'Networks',
+      collapsed: true,
+      items: [
+        { text: 'Astria Dawn Testnet', link: '/networks/testnet.md' },
+        { text: 'Astria Dusk Devnet', link: '/networks/devnet.md' },
+        { text: 'Local Network', link: '/networks/local.md' },
+      ]
+    },
+    {
+      text: 'Flame EVM',
+      collapsed: true,
+      items: [
+        { text: 'The Flame EVM', link: '/flame-evm/flame.md' },
+      ]
     },
     {
       text: 'Developers',
       collapsed: true,
       items: [
+        {
+          text: 'astria-go CLI',
+          collapsed: true,
+          items: [
+            {text: 'Installation', link: '/developer/astria-go/astria-go-installation.md'},
+            {text: 'Commands', link: '/developer/astria-go/astria-go-commands.md'},
+            {text: 'CLI Configuration', link: '/developer/astria-go/astria-go-config.md'},
+          ]
+        },
+        {
+          text: 'astria-cli CLI',
+          collapsed: true,
+          items: [
+            {text: 'Installation', link: '/developer/astria-cli/astria-cli-installation.md'},
+            {text: 'Commands', link: '/developer/astria-cli/astria-cli-commands.md'},
+          ]
+        },
+        {
+          text: 'dev-cluster',
+          link: '',
+        },
+        {
+          text: 'spamooor',
+          link: '',
+        },
+        {
+          text: 'APIs',
+          link: '',
+        },
+        {
+          text: 'Service Versions',
+          link: '',
+        },
         {
           text: 'Tutorials',
           collapsed: true,

@@ -2,10 +2,10 @@
 
 ## Fee payments
 
-With the Astria Sequencing Layer, transaction data touches three different chains: the
-sequencer chain, the data availability chain, and the rollup chain. Each of
-these requires a fee payment for DoS prevention. If each chain requires a
-different token for fee payment, this causes a poor UX. Many rollups built on
+With the Astria Sequencing Layer, transaction data touches three different
+chains: the sequencer chain, the data availability chain, and the rollup chain.
+Each of these requires a fee payment for DoS prevention. If each chain requires
+a different token for fee payment, this causes a poor UX. Many rollups built on
 Ethereum allows for bridged ETH to be used to pay fees, alleviating UX concerns,
 as users only need to obtain one, widely-available token (ETH).
 

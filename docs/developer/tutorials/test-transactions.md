@@ -50,21 +50,25 @@ With your sequencer, rollup, and `spamooor` setup, you can now send test
 transactions:
 
 Send transfers:
+
 ```bash
 ./spamooor eoatx --privkey $PRIV_KEY --rpchost $ROLLUP_RPC --max-wallets $SPAMOOOR_MAX_WALLETS --throughput $SPAMOOOR_THROUGHPUT --count $SPAMOOOR_COUNT
 ```
 
 Send ERC20 transfers:
+
 ```bash
 ./spamooor erctx --privkey $PRIV_KEY --rpchost $ROLLUP_RPC --max-wallets $SPAMOOOR_MAX_WALLETS --throughput $SPAMOOOR_THROUGHPUT --count $SPAMOOOR_COUNT --timeout $SPAMOOOR_TIMEOUT
 ```
 
 Send gas burner transactions:
+
 ```bash
 ./spamooor gasburnertx --privkey $PRIV_KEY --rpchost $ROLLUP_RPC --max-wallets $SPAMOOOR_MAX_WALLETS --throughput $SPAMOOOR_THROUGHPUT --count $SPAMOOOR_COUNT --timeout $SPAMOOOR_TIMEOUT --gas-units-to-burn $SPAMOOOR_GAS_UNITS_TO_BURN
 ```
 
 Send transactions that will revert:
+
 ```bash
 ./spamooor revertingtx --privkey $PRIV_KEY --rpchost $ROLLUP_RPC --max-wallets $SPAMOOOR_MAX_WALLETS --throughput $SPAMOOOR_THROUGHPUT --count $SPAMOOOR_COUNT
 ```

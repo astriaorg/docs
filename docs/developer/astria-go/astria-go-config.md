@@ -2,8 +2,10 @@
 
 Config for the `astria-go` CLI can be broken out into the following catagories:
 - [CLI TUI/devrunner](#tui-config)
-- [Services](#service-config) and [networks](#devrunner-networks-config) run by the TUI
-- Presets for running [`sequencer` commands](#sequencer-networks-config) used when interacting with the Astria sequencer.
+- [Services](#service-config) and [networks](#devrunner-networks-config) run by
+  the TUI
+- Presets for running [`sequencer` commands](#sequencer-networks-config) used
+  when interacting with the Astria sequencer.
 
 ## TUI Config
 
@@ -48,8 +50,6 @@ notation:
 highlight_color = "deepskyblue" # names should be all lowercase with no spaces
 border_color = "#808080"
 ```
-
-
 
 ## Sequencer Networks Config
 
