@@ -41,10 +41,10 @@ export default defineConfig({
 function sidebar() {
   return [
     {
-      text: 'What is Astria?',
+      text: 'Learn',
       collapsed: true,
       items: [
-        { text: 'Overview', link: '/overview/introduction' },
+        { text: 'Astria Overview', link: '/overview/introduction' },
         { text: 'How Rollups Work', link: '/overview/how-rollups-work'},
         { text: 'The Astria Sequencer Network', link: '/overview/the-astria-sequencer-network' },
         { text: 'Bridging', link: '/overview/bridging' },
@@ -101,52 +101,16 @@ function sidebar() {
           ]
         },
         {
-          text: 'dev-cluster',
-          link: '',
+          text: 'Deployment Charts',
+          link: '/developer/deployment-charts.md',
         },
         {
           text: 'spamooor',
-          link: '',
+          link: '/developer/spamooor.md',
         },
         {
           text: 'APIs',
-          link: '',
-        },
-        {
-          text: 'Service Versions',
-          link: '',
-        },
-        {
-          text: 'Tutorials',
-          collapsed: true,
-          items: [
-            { 
-              text: 'Using the Astria CLI', 
-              collapsed: true,
-              items: [
-                {text: 'Install the CLI', link: '/developer/tutorials/install-the-cli.md'},
-                {text: 'Run a Local Rollup and Sequencer', link: '/developer/tutorials/run-local-rollup-and-sequencer.md' },
-                {text: 'Run a Local Rollup against a Remote Sequencer', link: '/developer/tutorials/run-local-rollup-against-remote-sequencer.md' },
-                {text: 'Test Transactions', link: '/developer/tutorials/test-transactions.md' },
-              ]
-            }
-          ]
-        },
-        {
-          text: 'References',
-          collapsed: true,
-          items: [
-            {text: 'Astria Endpoints', link: '/developer/references/endpoints.md'},
-            {
-              text: 'astria-go cli', 
-              collapsed: true,
-              items: [
-                {text: 'Installation', link: '/developer/references/astria-go/cli-installation.md'},
-                {text: 'Commands', link: '/developer/references/astria-go/cli-commands.md'},
-                {text: 'CLI Configuration', link: '/developer/references/astria-go/cli-config.md'},
-              ]
-            }
-          ]
+          link: '/developer/apis.md',
         },
         {
           text: 'The Astria EVM', link: '/astria-evm/overview'
@@ -154,16 +118,19 @@ function sidebar() {
       ]
     },
     {
+      text: 'Tutorials',
+      collapsed: true,
+      items: [
+        {text: 'Run a Local Rollup and Sequencer', link: '/tutorials/run-local-rollup-and-sequencer.md' },
+        {text: 'Run a Local Rollup against a Remote Sequencer', link: '/tutorials/run-local-rollup-against-remote-sequencer.md' },
+        {text: 'Test Transactions', link: '/tutorials/test-transactions.md' }
+      ]
+    },
+    {
       text: 'Resources',
       collapsed: true,
       items: [
-        {
-          text: 'Community',
-          collapsed: true,
-          items: [
-            { text: 'Overview', link: '/community/1-overview' }
-          ]
-        },
+        { text: 'Community', link: '/community/1-overview'},
         { text: 'Astria Devnet FAQ', link: '/dusk-faq/faq' }
       ]
     }

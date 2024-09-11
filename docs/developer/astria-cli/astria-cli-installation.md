@@ -9,3 +9,6 @@ Astria stack and interact with the Sequencer.
 <!--@include: ../../components/_astria-rust-cli-install.md-->
 
 View all releases [here](https://github.com/astriaorg/astria/releases).
+
+View the source code
+[here](https://github.com/astriaorg/astria/tree/main/crates/astria-cli).

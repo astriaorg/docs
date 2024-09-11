@@ -18,3 +18,6 @@ This requires `Go` and `just` to be installed on your system.
 - [just](https://github.com/casey/just)
 
 <!--@include: ../../components/_astria-go-cli-build-from-source.md-->
+
+View the source code
+[here](https://github.com/astriaorg/astria-cli-go/tree/main/modules/cli).

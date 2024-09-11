@@ -131,7 +131,7 @@ astria-cli sequencer address bech32m [OPTIONS] --bytes <BYTES>
 
 ## `sequencer balance get`
 
-TODO
+Get the balance of an account on the Astria sequencer.
 
 ### Usage
 
@@ -143,9 +143,9 @@ astria-cli sequencer balance get
 |---|---|
 | `--sequencer-url <SEQUENCER_URL>` | The url of the Sequencer node [env: SEQUENCER_URL=] [default: https://rpc.sequencer.dusk-10.devnet.astria.org] |
 
-## `sequencer blockheight get [OPTIONS]`
+## `sequencer blockheight get`
 
-TODO
+Get the current blockheight of the Astria sequencer.
 
 ### Usage
 
@@ -160,7 +160,7 @@ astria-cli sequencer blockheight get [OPTIONS]
 
 ## `sequencer sudo ibc-relayer add`
 
-TODO
+Add an IBC-relayer address to the list of relayers on the Astria sequencer.
 
 ### Usage
 
@@ -178,7 +178,7 @@ astria-cli sequencer sudo ibc-relayer add [OPTIONS] --private-key <PRIVATE_KEY> 
 
 ## `sequencer sudo ibc-relayer remove`
 
-TODO
+Remove an IBC-relayer address from the list of relayers on the Astria sequencer.
 
 ### Usage
 
@@ -196,7 +196,8 @@ astria-cli sequencer sudo ibc-relayer remove [OPTIONS] --private-key <PRIVATE_KE
 
 ## `sequencer sudo fee-asset add`
 
-TODO
+Add a fee-asset to the list of available fee-assets that can be used on the
+Astria sequencer.
 
 ### Usage
 
@@ -214,7 +215,8 @@ astria-cli sequencer sudo fee-asset add [OPTIONS] --private-key <PRIVATE_KEY> --
 
 ## `sequencer sudo fee-asset remove`
 
-TODO
+Remove a fee-asset from the list of available fee-assets that can be used on the
+Astria sequencer.
 
 ### Usage
 
@@ -232,7 +234,7 @@ astria-cli sequencer sudo fee-asset remove [OPTIONS] --private-key <PRIVATE_KEY>
 
 ## `sequencer sudo sudo-address-change`
 
-TODO
+Update the sudo address for the Astria sequencer.
 
 ### Usage
 
@@ -250,7 +252,7 @@ astria-cli sequencer sudo sudo-address-change [OPTIONS] --private-key <PRIVATE_K
 
 ## `sequencer sudo validator-update`
 
-TODO
+Update a validators power on the Astria sequencer.
 
 ### Usage
 
@@ -269,7 +271,7 @@ astria-cli sequencer sudo validator-update [OPTIONS] --private-key <PRIVATE_KEY>
 
 ## `sequencer transfer`
 
-TODO
+Send a transfer between accounts on the Astria sequencer.
 
 ### Usage
 
@@ -289,7 +291,7 @@ astria-cli sequencer transfer [OPTIONS] --amount <AMOUNT> --private-key <PRIVATE
 
 ## `sequencer init-bridge-account`
 
-TODO
+Initialize a bridge account pointing to a specific rollup on the Astria sequencer.
 
 ### Usage
 
