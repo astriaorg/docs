@@ -48,7 +48,7 @@ function sidebar() {
           collapsed: true,
           items: [
             { text: 'Overview', link: '/overview/introduction' },
-            { text: 'How Rollups Work', link: '/overview/how-rollups-work'},
+            { text: 'How Rollups Work', link: '/overview/how-rollups-work' },
             { text: 'The Astria Sequencer Network', link: '/overview/the-astria-sequencer-network' },
             { text: 'Bridging', link: '/overview/bridging' },
             { text: 'Transaction Flow', link: '/overview/transaction-flow' },
@@ -76,14 +76,14 @@ function sidebar() {
           text: 'Tutorials',
           collapsed: true,
           items: [
-            { 
-              text: 'Using the Astria CLI', 
+            {
+              text: 'Using the Astria CLI',
               collapsed: true,
               items: [
-                {text: 'Install the CLI', link: '/developer/tutorials/install-the-cli.md'},
-                {text: 'Run a Local Rollup and Sequencer', link: '/developer/tutorials/run-local-rollup-and-sequencer.md' },
-                {text: 'Run a Local Rollup against a Remote Sequencer', link: '/developer/tutorials/run-local-rollup-against-remote-sequencer.md' },
-                {text: 'Test Transactions', link: '/developer/tutorials/test-transactions.md' },
+                { text: 'Install the CLI', link: '/developer/tutorials/install-the-cli.md' },
+                { text: 'Run a Local Rollup and Sequencer', link: '/developer/tutorials/run-local-rollup-and-sequencer.md' },
+                { text: 'Run a Local Rollup against a Remote Sequencer', link: '/developer/tutorials/run-local-rollup-against-remote-sequencer.md' },
+                { text: 'Test Transactions', link: '/developer/tutorials/test-transactions.md' },
               ]
             }
           ]
@@ -92,14 +92,14 @@ function sidebar() {
           text: 'References',
           collapsed: true,
           items: [
-            {text: 'Astria Endpoints', link: '/developer/references/endpoints.md'},
+            { text: 'Astria Endpoints', link: '/developer/references/endpoints.md' },
             {
-              text: 'astria-go cli', 
+              text: 'astria-go cli',
               collapsed: true,
               items: [
-                {text: 'Installation', link: '/developer/references/astria-go/cli-installation.md'},
-                {text: 'Commands', link: '/developer/references/astria-go/cli-commands.md'},
-                {text: 'CLI Configuration', link: '/developer/references/astria-go/cli-config.md'},
+                { text: 'Installation', link: '/developer/references/astria-go/cli-installation.md' },
+                { text: 'Commands', link: '/developer/references/astria-go/cli-commands.md' },
+                { text: 'CLI Configuration', link: '/developer/references/astria-go/cli-config.md' },
               ]
             }
           ]
