@@ -76,7 +76,7 @@ function sidebar() {
       text: 'Flame EVM',
       collapsed: true,
       items: [
-        { text: 'The Flame EVM', link: '/flame-evm/flame.md' },
+        { text: 'EVM', link: '/flame-evm/flame.md' },
       ]
     },
     {
