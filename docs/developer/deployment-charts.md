@@ -6,6 +6,7 @@ the [Astria Deployment Charts](https://github.com/astriaorg/charts).
 ## Dependencies
 
 Running the Deployment Charts requires the following dependencies:
+
 - [docker](https://docs.docker.com/get-docker/)
 - [kubectl](https://kubernetes.io/docs/tasks/tools/)
 - [helm](https://helm.sh/docs/intro/install/)
@@ -13,9 +14,11 @@ Running the Deployment Charts requires the following dependencies:
 - [just](https://just.systems/man/en/chapter_4.html)
 
 For contract deployment:
+
 - [Forge (part of Foundry)](https://book.getfoundry.sh/getting-started/installation)
 
 For funding via bridge:
+
 - [`astria-go` CLI](./astria-go/astria-go-installation.md)
 
 ## Clone the Repo
@@ -73,14 +76,14 @@ just clean-persisted-data
 By default, running this local rollup will not have any funds, but will be
 configured to use the sequencer account bridge.
 
-The default rollup faucet is available at http://faucet.astria.localdev.me.
+The default rollup faucet is available at [http://faucet.astria.localdev.me](http://faucet.astria.localdev.me).
 
 If you deploy a custom faucet, it will be reachable at
-http://faucet.<rollup_name>.localdev.me.
+[http://faucet.<rollup_name>.localdev.me](http://faucet.<rollup_name>.localdev.me).
 
 By default, the faucet is funded by the account that is funded during geth
-genesis. This key is defined in ./evm-rollup/values.yaml and is identical to the
-key in ./evm-rollup/files/keys/private_key.txt.
+genesis. This key is defined in `./evm-rollup/values.yaml` and is identical to the
+key in `./evm-rollup/files/keys/private_key.txt`.
 
 ## Next Steps
 

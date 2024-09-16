@@ -1,6 +1,7 @@
 # `astria-go` Configuration
 
 Config for the `astria-go` CLI can be broken out into the following catagories:
+
 - [CLI TUI/devrunner](#tui-config)
 - [Services](#service-config) and [networks](#devrunner-networks-config) run by
   the TUI
