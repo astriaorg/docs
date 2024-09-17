@@ -1,4 +1,4 @@
-# Astria Flame EVM
+# Flame EVM
 
 ## EVM Information
 
