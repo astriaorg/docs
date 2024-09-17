@@ -1,16 +1,24 @@
 # Astria EVM
 
-## Network Information
+## EVM Information
 
 | Property | Value |
 |-----|-----|
-| Network Name | dusk-10 |
+| Network Name | `dawn-0` |
+| Chain ID | `16604737732183` |
 | RPC URL | [https://rpc.flame.dawn-0.astria.org](https://rpc.flame.dawn-0.astria.org) |
-| Chain ID | `912559` |
+| Flame EVM Block Explorer | [https://explorer.flame.dawn-0.astria.org/](https://explorer.flame.dawn-0.astria.org) |
+| Native sequencer Asset | `transfer/channel-3/utia` |
 | Currency Symbol | `TIA` |
-| Dora | TODO |
-| EVM Faucet | TODO |
-| Block Explorer | [https://explorer.flame.dawn-0.astria.org/](https://explorer.flame.dawn-0.astria.org/) |
+
+# Bridging
+
+| Property | Value |
+|-----|-----|
+| Sequencer <-> Flame Bridge Account | `astria1yxzlr2um0c9mt6ym8q4f0jdk8ea4r7es4cgkw5` |
+| IBC Channel: mocha-4 -> dawn-0 | `channel-129` |
+| IBC Channel: dawn-0 -> mocha-4 | `channel-3` |
+
 
 ## Adding to Metamask
 
@@ -22,7 +30,7 @@ Your settings should be the following:
 | --- | --- |
 | Network Name | `dawn-0` |
 | New RPC URL | [https://rpc.flame.dawn-0.astria.org](https://rpc.flame.dawn-0.astria.org) |
-| Chain ID | `912559` |
+| Chain ID | `16604737732183` |
 | Currency symbol | `TIA` |
 | Block Explorer | [https://explorer.flame.dawn-0.astria.org/](https://explorer.flame.dawn-0.astria.org/) |
 

@@ -64,19 +64,19 @@ function sidebar() {
       ]
     },
     {
+      text: 'Flame EVM',
+      collapsed: true,
+      items: [
+        { text: 'EVM', link: '/flame-evm/flame.md' },
+      ]
+    },
+    {
       text: 'Networks',
       collapsed: true,
       items: [
         { text: 'Astria Dawn Testnet', link: '/networks/testnet.md' },
         { text: 'Astria Dusk Devnet', link: '/networks/devnet.md' },
         { text: 'Local Network', link: '/networks/local.md' },
-      ]
-    },
-    {
-      text: 'Flame EVM',
-      collapsed: true,
-      items: [
-        { text: 'EVM', link: '/flame-evm/flame.md' },
       ]
     },
     {
