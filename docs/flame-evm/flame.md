@@ -11,14 +11,13 @@
 | Native sequencer Asset | `transfer/channel-3/utia` |
 | Currency Symbol | `TIA` |
 
-# Bridging
+## Bridging
 
 | Property | Value |
 |-----|-----|
 | Sequencer <-> Flame Bridge Account | `astria1yxzlr2um0c9mt6ym8q4f0jdk8ea4r7es4cgkw5` |
 | IBC Channel: mocha-4 -> dawn-0 | `channel-129` |
 | IBC Channel: dawn-0 -> mocha-4 | `channel-3` |
-
 
 ## Adding to Metamask
 
