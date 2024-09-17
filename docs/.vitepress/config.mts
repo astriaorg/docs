@@ -44,20 +44,20 @@ function sidebar() {
       text: 'Learn',
       collapsed: true,
       items: [
-        { text: 'Astria Overview', link: '/overview/introduction' },
-        { text: 'How Rollups Work', link: '/overview/how-rollups-work'},
-        { text: 'The Astria Sequencer Network', link: '/overview/the-astria-sequencer-network' },
-        { text: 'Bridging', link: '/overview/bridging' },
-        { text: 'Transaction Flow', link: '/overview/transaction-flow' },
+        { text: 'Astria Overview', link: '/overview/introduction.md' },
+        { text: 'How Rollups Work', link: '/overview/how-rollups-work.md'},
+        { text: 'The Astria Sequencer Network', link: '/overview/the-astria-sequencer-network.md' },
+        { text: 'Bridging', link: '/overview/bridging.md' },
+        { text: 'Transaction Flow', link: '/overview/transaction-flow.md' },
         {
           text: 'Components',
           collapsed: true,
           items: [
-            { text: 'Composer', link: '/overview/components/composer' },
-            { text: 'The Astria Sequencer', link: '/overview/components/the-astria-sequencer' },
-            { text: 'Relayer', link: '/overview/components/relayer' },
-            { text: 'Data Availability Layer', link: '/overview/components/data-availability-layer' },
-            { text: 'Conductor', link: '/overview/components/conductor' },
+            { text: 'Composer', link: '/overview/components/composer.md' },
+            { text: 'The Astria Sequencer', link: '/overview/components/the-astria-sequencer.md' },
+            { text: 'Relayer', link: '/overview/components/relayer.md' },
+            { text: 'Data Availability Layer', link: '/overview/components/data-availability-layer.md' },
+            { text: 'Conductor', link: '/overview/components/conductor.md' },
 
           ]
         },
@@ -112,9 +112,6 @@ function sidebar() {
           text: 'APIs',
           link: '/developer/apis.md',
         },
-        {
-          text: 'The Astria EVM', link: '/astria-evm/overview'
-        },
       ]
     },
     {
@@ -130,8 +127,7 @@ function sidebar() {
       text: 'Resources',
       collapsed: true,
       items: [
-        { text: 'Community', link: '/community/1-overview'},
-        { text: 'Astria Devnet FAQ', link: '/dusk-faq/faq' }
+        { text: 'Community', link: '/community/overview'}
       ]
     }
   ]
