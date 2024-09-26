@@ -44,13 +44,8 @@ Rollups Work](/overview/how-rollups-work) or [The Astria Sequencer
 Network](/overview/the-astria-sequencer-network).
 
 If you're a rollup developer eager to get started, you should go straight to our
-[`astria-go` cli tutorials](../developer/tutorials/install-the-cli.md).
+[`astria-go` cli tutorials](../developer/astria-go/astria-go-installation.md).
 
-You can find our endpoints and FAQ [here](/astria-evm/overview.md)
+## Source Code
 
-## Still Need More Help
-
-While this documentation hopefully includes everything you need, if you can't
-find what you're looking for, please reach out on Discord
-[Discord](https://discord.gg/3qZCbmZxvF) or check the [Astria
-repository](https://github.com/astriaorg/astria).
+Check out the [Astria repository](https://github.com/astriaorg/astria).
