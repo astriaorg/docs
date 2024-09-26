@@ -122,13 +122,6 @@ function sidebar() {
         {text: 'Run a Local Rollup against a Remote Sequencer', link: '/tutorials/run-local-rollup-against-remote-sequencer.md' },
         {text: 'Test Transactions', link: '/tutorials/test-transactions.md' }
       ]
-    },
-    {
-      text: 'Resources',
-      collapsed: true,
-      items: [
-        { text: 'Community', link: '/community/overview'}
-      ]
     }
   ]
 }
