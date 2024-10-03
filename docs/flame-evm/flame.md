@@ -1,5 +1,7 @@
 # Flame EVM
 
+Flame is the EVM for Celestia Native DeFi.
+
 ## EVM Information
 
 | Property | Value |

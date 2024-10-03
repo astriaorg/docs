@@ -1,5 +1,7 @@
 # Bridging on Astria
 
+Bridging between Astria and other networks.
+
 ## Fee payments
 
 With the Astria Sequencing Layer, transaction data touches three different
@@ -23,7 +25,7 @@ To bridge tokens to a rollup built on Astria, the rollup needs to add the
 ability to derive deposit transactions from the sequencer or DA network. In
 general, rollup deposits work as follows:
 
-on the L1, tokens are transferred to some escrow account/contract.
+On the L1, tokens are transferred to some escrow account/contract.
 the rollup consensus node, which derives the L2 transactions from L1 data, sees
 these deposits, and includes a corresponding “deposit” transaction in the next
 L2 block, which is a distinct transaction type.
