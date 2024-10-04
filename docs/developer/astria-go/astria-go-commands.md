@@ -1,3 +1,6 @@
+<!-- markdownlint-disable MD024 -->
+<!-- Disabling MD024 to allow for repeat "Usage" heading -->
+
 # `astria-go` cli Commands
 
 ## Global Flags
@@ -96,8 +99,8 @@ astria-go dev purge all [flags]
 
 ## `dev purge binaries`
 
-Delete all downloaded binaries for a given instance. `astria-go dev init` must be run before `astria-go dev run`
-can be used.
+Delete all downloaded binaries for a given instance. `astria-go dev init` must
+be run before `astria-go dev run` can be used.
 
 ### Usage
 
@@ -134,8 +137,8 @@ astria-go dev reset [command] [flags]
 
 ## `dev reset config`
 
-Reset config files. This will return all files in the instance config directory to their
-default state as though initially created.
+Reset config files. This will return all files in the instance config directory
+to their default state as though initially created.
 
 ### Usage
 
@@ -239,7 +242,7 @@ astria-go sequencer balance [address] [flags]
 
 | Flag | Arg Type | Override Env Var | Description |
 |---|---|---|---|
-| `--json` | N/A | bool | `ASTRIA_GO_JSON` | Output an account's balances in JSON format. |
+| `--json` | bool | `ASTRIA_GO_JSON` | Output an account's balances in JSON format. |
 | `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to retrieve the balance from. (default "<http://127.0.0.1:26657>") |
 
 ## `sequencer blockheight`
@@ -256,7 +259,7 @@ astria-go sequencer blockheight [flags]
 
 | Flag | Arg Type | Override Env Var | Description |
 |---|---|---|---|
-| `--json` | N/A | bool | `ASTRIA_GO_JSON` | Output an account's balances in JSON format. |
+| `--json` | bool | `ASTRIA_GO_JSON` | Output an account's balances in JSON format. |
 | `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to retrieve the balance from. (default "<http://127.0.0.1:26657>") |
 
 ## `sequencer bridge`
@@ -358,7 +361,7 @@ astria-go sequencer nonce [address] [flags]
 
 | Flag | Arg Type | Override Env Var | Description |
 |---|---|---|---|
-| `--json` | N/A | bool | `ASTRIA_GO_JSON` | Output in JSON format. |
+| `--json` | bool | `ASTRIA_GO_JSON` | Output in JSON format. |
 | `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer. (default "<http://127.0.0.1:26657>") |
 
 ## `sequencer setkey`

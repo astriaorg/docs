@@ -3,17 +3,13 @@
 ::: code-group
 
   ```bash [SSH]
-  git clone git@github.com:astriaorg/spamooor.git
-  cd spamooor/
-  go build ./cmd/spamooor
-  ./spamooor -h
+  git git@github.com:astriaorg/charts.git
+  cd charts/
   ```
 
   ```bash [HTTPS]
-  git clone https://github.com/astriaorg/spamooor.git
-  cd spamooor/
-  go build ./cmd/spamooor
-  ./spamooor -h
+  git clone https://github.com/astriaorg/charts.git
+  cd charts/
   ```
 
 :::

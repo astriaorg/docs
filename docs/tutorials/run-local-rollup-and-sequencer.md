@@ -41,7 +41,7 @@ Open the `geth-genesis-local.json` file in your Geth repo and update the
 ```
 
 You will use the private key for your new account to send [test
-transactions](./test-transactions.md) later on. 
+transactions](./test-transactions.md) later on.
 
 ## Start Geth
 
@@ -60,7 +60,8 @@ restart with:
 just run
 ```
 
-If you need to restart the rollup and want to also clear the state data, you can use:
+If you need to restart the rollup and want to also clear the state data, you can
+use:
 
 ```bash
 just clean-restart
@@ -98,8 +99,8 @@ astria-go dev run --network local
 ```
 
 :::tip
-When running an Astria sequencer using the cli, the `--network local` setting is the
-default. `astria-go dev run` is effectively an alias for `astria-go dev run
+When running an Astria sequencer using the cli, the `--network local` setting is
+the default. `astria-go dev run` is effectively an alias for `astria-go dev run
 --network local`.
 :::
 

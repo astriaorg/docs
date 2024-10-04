@@ -1,3 +1,6 @@
+<!-- markdownlint-disable MD041 -->
+<!-- markdownlint-disable MD013 -->
+
 ::: code-group
 
   ```bash [ARM Mac]
