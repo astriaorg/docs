@@ -46,7 +46,6 @@ function sidebar() {
       items: [
         { text: 'Astria Overview', link: '/overview/introduction.md' },
         { text: 'How Rollups Work', link: '/overview/how-rollups-work.md'},
-        { text: 'The Astria Sequencer Network', link: '/overview/the-astria-sequencer-network.md' },
         { text: 'Bridging', link: '/overview/bridging.md' },
         { text: 'Transaction Flow', link: '/overview/transaction-flow.md' },
         {
@@ -54,7 +53,7 @@ function sidebar() {
           collapsed: true,
           items: [
             { text: 'Composer', link: '/overview/components/composer.md' },
-            { text: 'The Astria Sequencer', link: '/overview/components/the-astria-sequencer.md' },
+            { text: 'The Astria Sequencing Layer', link: '/overview/components/the-astria-sequencing-layer.md' },
             { text: 'Relayer', link: '/overview/components/relayer.md' },
             { text: 'Data Availability Layer', link: '/overview/components/data-availability-layer.md' },
             { text: 'Conductor', link: '/overview/components/conductor.md' },

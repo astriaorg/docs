@@ -40,8 +40,8 @@ The rollup’s consensus and execution logic is not enshrined in the sequencer.
 ## What Should I Read?
 
 Want to learn more about about rollups or the sequencer? Check out the [How
-Rollups Work](/overview/how-rollups-work) or [The Astria Sequencer
-Network](/overview/the-astria-sequencer-network).
+Rollups Work](/overview/how-rollups-work) or [The Astria Sequencing
+Layer](/overview/components/the-astria-sequencing-layer.md).
 
 If you're a rollup developer eager to get started, you should go straight to our
 [`astria-go` cli tutorials](../developer/astria-go/astria-go-installation.md).
