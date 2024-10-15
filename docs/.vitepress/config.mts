@@ -63,10 +63,10 @@ function sidebar() {
       ]
     },
     {
-      text: 'Flame EVM',
+      text: 'Flame',
       collapsed: true,
       items: [
-        { text: 'Flame EVM', link: '/flame-evm/flame.md' },
+        { text: 'Flame EVM', link: '/flame/flame.md' },
       ]
     },
     {
