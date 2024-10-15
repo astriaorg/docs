@@ -1,8 +1,9 @@
 # Install the Astria CLI
 
-The astria-go cli is a tool designed to make local rollup development as simple
-and dependency free as possible. It provides functionality to easily run the
-Astria stack and interact with the Sequencer.
+The `astria-cli` is a tool for interacting with the Astria Sequencer. It
+provides functionality for querying the sequencer network, submitting various
+transactions and Sequencer Actions native to the sequencer itself, and is the
+primary tool for general management of the Sequencer Network.
 
 ## Download using Curl or Build from Source
 
