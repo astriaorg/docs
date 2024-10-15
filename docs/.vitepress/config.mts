@@ -83,7 +83,7 @@ function sidebar() {
       collapsed: true,
       items: [
         {
-          text: 'Astria Rollup Developement CLI',
+          text: 'Rollup Developement CLI',
           collapsed: true,
           items: [
             {text: 'Installation', link: '/developer/astria-go/astria-go-installation.md'},
