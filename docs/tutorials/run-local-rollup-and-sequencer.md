@@ -26,7 +26,7 @@ Open the `geth-genesis-local.json` file in your Geth repo and update the
 `"alloc"` account with the new address you just created, as well as updating the
 `"chainId"` and `"astriaRollupName"` to something of your choosing:
 
-```json
+```json{4-5,8}
 {
     "config": {
         ...
@@ -83,7 +83,7 @@ Open the `~/.astria/default/networks-config.toml` file and update the
 `"astriaRollupName"` you used when [setting up your Geth
 rollup](#setup-a-geth-rollup).
 
-```toml
+```toml{5}
 [networks.local]
 sequencer_chain_id = 'sequencer-test-chain-0'
 sequencer_grpc = 'http://127.0.0.1:8080'

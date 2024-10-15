@@ -43,7 +43,7 @@ cast w new
 Also in the `geth-genesis-local.json` file, update the `"alloc"` account with
 your new one:
 
-```json
+```json{4-6,9}
 {
     "config": {
         ...
@@ -122,7 +122,7 @@ Open the `~/.astria/default/networks-config.toml` file and update the
 `"astriaRollupName"` you used when [setting up your Geth
 rollup](#setup-a-geth-rollup).
 
-```toml
+```toml{5}
 [networks.dusk]
 sequencer_chain_id = 'astria-dusk-10'
 sequencer_grpc = 'https://grpc.sequencer.dusk-10.devnet.astria.org/'
