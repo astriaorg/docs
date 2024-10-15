@@ -83,7 +83,7 @@ function sidebar() {
       collapsed: true,
       items: [
         {
-          text: 'astria-go CLI',
+          text: 'Astria Rollup Developement CLI',
           collapsed: true,
           items: [
             {text: 'Installation', link: '/developer/astria-go/astria-go-installation.md'},
@@ -92,7 +92,7 @@ function sidebar() {
           ]
         },
         {
-          text: 'astria-cli CLI',
+          text: 'Astria Sequencer CLI',
           collapsed: true,
           items: [
             {text: 'Installation', link: '/developer/astria-cli/astria-cli-installation.md'},
