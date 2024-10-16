@@ -128,8 +128,10 @@ function sidebar() {
 function nav() {
   return [
     { text: 'Home', link: '/' },
-    { text: "Flame", link: "/flame/flame-testnet.md" },
     { text: "Learn", link: "/overview/introduction" },
+    { text: "Flame", link: "/flame/flame-testnet" },
+    { text: "Networks", link: "/networks/testnet" },
     { text: "Developers", link: "/developer/astria-go/astria-go-installation" },
+    { text: "Tutorials", link: "/tutorials/run-local-rollup-against-remote-sequencer" },
   ];
 }
