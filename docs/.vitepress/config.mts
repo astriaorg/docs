@@ -128,13 +128,8 @@ function sidebar() {
 function nav() {
   return [
     { text: 'Home', link: '/' },
-    {
-      text: "Navigate",
-      items: [
-        { text: "Flame", link: "/flame/flame.md" },
-        { text: "Learn", link: "/overview/introduction" },
-        { text: "Developers", link: "/developer/astria-go/astria-go-installation" },
-      ],
-    },
+    { text: "Flame", link: "/flame/flame-testnet.md" },
+    { text: "Learn", link: "/overview/introduction" },
+    { text: "Developers", link: "/developer/astria-go/astria-go-installation" },
   ];
 }
