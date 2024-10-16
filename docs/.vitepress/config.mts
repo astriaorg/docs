@@ -66,7 +66,7 @@ function sidebar() {
       text: 'Flame',
       collapsed: true,
       items: [
-        { text: 'Flame EVM', link: '/flame/flame.md' },
+        { text: 'Flame - Testnet', link: '/flame/flame-testnet.md' },
       ]
     },
     {
