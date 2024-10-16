@@ -1,3 +1,11 @@
+<!-- markdownlint-disable MD041 MD033 -->
+
+<script setup>
+import { siteConfig } from '../config.js'
+
+const local = siteConfig.local
+</script>
+
 # Local Network
 
 You can deploy a local Astria Network and EVM rollup in multiple ways. Deploying
@@ -12,8 +20,8 @@ will deploy the entire Astria Stack but requires more resources.
 
 | Name | Endpoint |
 | --- | --- |
-| Rollup RPC | [http://localhost:8545](http://localhost:8545) |
-| Sequencer RPC | [http://localhost:26657](http://localhost:26657) |
+| Rollup RPC | <a :href="local.cli.rollup_rpc" target="_blank" rel="noopener noreferrer">{{local.cli.rollup_rpc}}</a>  |
+| Sequencer RPC | <a :href="local.cli.sequencer_rpc" target="_blank" rel="noopener noreferrer">{{local.cli.sequencer_rpc}}</a> |
 
 Deploy with the `astria-go` CLI [here](../tutorials/run-local-rollup-and-sequencer.md).
 
@@ -21,9 +29,9 @@ Deploy with the `astria-go` CLI [here](../tutorials/run-local-rollup-and-sequenc
 
 | Name | Endpoint |
 | --- | --- |
-| Rollup RPC | [http://executor.astria.localdev.me](http://executor.astria.localdev.me) |
-| EVM Rollup Faucet | [http://faucet.astria.localdev.me](http://faucet.astria.localdev.me) |
-| EVM Rollup Blockscout | [http://blockscout.astria.localdev.me](http://blockscout.astria.localdev.me) |
-| Sequencer RPC | [http://rpc.sequencer.localdev.me/health](http://rpc.sequencer.localdev.me/health) |
+| Rollup RPC | <a :href="local.charts.rollup_rpc" target="_blank" rel="noopener noreferrer">{{local.charts.rollup_rpc}}</a> |
+| EVM Rollup Faucet | <a :href="local.charts.rollup_faucet" target="_blank" rel="noopener noreferrer">{{local.charts.rollup_faucet}}</a> |
+| EVM Rollup Blockscout | <a :href="local.charts.rollup_explorer" target="_blank" rel="noopener noreferrer">{{local.charts.rollup_explorer}}</a> |
+| Sequencer RPC | <a :href="local.charts.sequencer_rpc" target="_blank" rel="noopener noreferrer">{{local.charts.sequencer_rpc}}</a> |
 
 Deploy with the `Astria Development Charts` [here](../developer/deployment-charts.md).
