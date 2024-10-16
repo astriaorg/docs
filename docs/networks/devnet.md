@@ -12,10 +12,6 @@ const dusk = siteConfig.dusk
 
 | Name | Endpoint |
 |---|---|
-| Sequencer Faucet | [https://faucet.sequencer.dusk-10.devnet.astria.org](https://faucet.sequencer.dusk-10.devnet.astria.org) |
-| Sequencer Block Explorer | [https://dusk.astrotrek.io/](https://dusk.astrotrek.io/) |
-| Celestia Signer Account | [celestia1qnyk26e49syzzng8sxzxwqd4mg7y4c9erlcnfm](https://mocha.celenium.io/address/celestia1qnyk26e49syzzng8sxzxwqd4mg7y4c9erlcnfm?tab=transactions) |
-| Celestia Sequencer Namespace | [00000000000000000000000000000000000031a3172717024ab8f1db](https://mocha.celenium.io/namespace/00000000000000000000000000000000000031a3172717024ab8f1db?tab=Blobs) |
 | Flame RPC                            | <a :href="dusk.flame_rpc"               target="_blank" rel="noopener noreferrer">{{dusk.flame_rpc}}</a>               |
 | Flame Block Explorer                 | <a :href="dusk.flame_explorer"          target="_blank" rel="noopener noreferrer">{{dusk.flame_explorer}}</a>          |
 | Flame Faucet                         | <a :href="dusk.flame_faucet"            target="_blank" rel="noopener noreferrer">{{dusk.flame_faucet}}</a>            |
@@ -25,6 +21,23 @@ const dusk = siteConfig.dusk
 | Sequencer Block Explorer             | <a :href="dusk.sequencer_explorer"      target="_blank" rel="noopener noreferrer">{{dusk.sequencer_explorer}}</a>      |
 | Celestia Signer Address              | <a :href="dusk.celenium_signer_link"    target="_blank" rel="noopener noreferrer">{{dusk.celestia_signer_address}}</a> |
 | Celestia Dusk-{{dusk.num}} Namespace | <a :href="dusk.celenium_namespace_link" target="_blank" rel="noopener noreferrer">{{dusk.celestia_namespace}}</a>      |
+
+## Uniswap V3
+
+| Name | Address |
+|---|---|
+| Descriptor Proxy Address | `{{dusk.descriptorProxyAddress}}` |
+| Multicall 2 Address | `{{dusk.multicall2Address}}` |
+| nft Position Descriptor Address | `{{dusk.nftPositionDescriptorAddress}}` |
+| nft Position Manager Address | `{{dusk.nftPositionManagerAddress}}` |
+| Proxy Admin Address | `{{dusk.proxyAdminAddress}}` |
+| Quoter V2 Address | `{{dusk.quoterV2Address}}` |
+| Swap Router 02 Address | `{{dusk.swapRouter02Address}}` |
+| Tick Lens Address | `{{dusk.tickLensAddress}}` |
+| v3 Core Factory Address | `{{dusk.v3CoreFactoryAddress}}` |
+| v3 Migrator Address | `{{dusk.v3MigratorAddress}}` |
+| v3 Staker Address | `{{dusk.v3StakerAddress}}` |
+| weth9 Address | `{{dusk.weth9Address}}` |
 
 ## Dusk-{{dusk.num}} Service Versions
 

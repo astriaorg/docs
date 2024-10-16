@@ -77,6 +77,19 @@ export const siteConfig = {
         cometbft_version: "v0.38.8",
         cometbft_release: "https://github.com/cometbft/cometbft/releases/tag/v0.38.8",
         cometbft_repo: "https://github.com/cometbft/cometbft",
+        // deployments
+        descriptorProxyAddress: "0x5a7eb0a7A8d8D9C81604f5D22619389F20340433",
+        multicall2Address: "0x247718235bec841187bb46C70cdEA0fd6EEa316E",
+        nftPositionDescriptorAddress: "0x1584eb4Cfc6ff5ad06d422BE084f4B1eE7cd4930",
+        nftPositionManagerAddress: "0x371cC275651E799890E8409102D7Cc1910647ceD",
+        proxyAdminAddress: "0x9037ea90635640dDaAE6aBe8031D13cDBA35A5b4",
+        quoterV2Address: "0x5293068Cf96795c0cda7144Fa57B58cbAEfFf711",
+        swapRouter02Address: "0x9ed37af540E50ddcCD2dd4D71d61BD458e9229c6",
+        tickLensAddress: "0xD66B3E98dbB58594eBCBdBbf1F0476aA02d8991f",
+        v3CoreFactoryAddress: "0xc40CAc88C65B5fa4B3EE4FEAe2Cea443287f3879",
+        v3MigratorAddress: "0x76dA40BD63e9F5c42edBB1d5e82deA66A8F35F27",
+        v3StakerAddress: "0x18e99d37d8A7D08c61D9FE5D74864C9828988815",
+        weth9Address: "0x6D71eb44a65560D1E917861059288200209054b4"
     },
     local: {
         cli: {
