@@ -1,7 +1,6 @@
 <!-- markdownlint-disable MD041 -->
 
 ::: code-group
-
 ```bash [SSH]
 git clone git@github.com:astriaorg/astria-geth.git
 cd astria-geth
@@ -17,7 +16,6 @@ git checkout local-dev
 just build
 just clean
 ```
-
 :::
 
 <!-- <Tabs>

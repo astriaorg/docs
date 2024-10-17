@@ -1,7 +1,6 @@
 <!-- markdownlint-disable MD041 -->
 
 ::: code-group
-
   ```bash [SSH]
   git git@github.com:astriaorg/charts.git
   cd charts/
@@ -11,7 +10,6 @@
   git clone https://github.com/astriaorg/charts.git
   cd charts/
   ```
-
 :::
 
 <!-- <Tabs>

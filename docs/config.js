@@ -16,10 +16,10 @@ export const siteConfig = {
     },
     dawn: {
         num: 1,
-        flame_rpc: "https://rpc.flame.dawn-1.astria.org",
-        flame_explorer: "https://explorer.flame.dawn-1.astria.org",
-        sequencer_rpc: "https://rpc.sequencer.dawn-1.astria.org",
-        sequencer_grpc: "https://grpc.sequencer.dawn-1.astria.org",
+        flame_rpc: "https://rpc.flame.dawn-0.astria.org",
+        flame_explorer: "https://explorer.flame.dawn-0.astria.org",
+        sequencer_rpc: "https://rpc.sequencer.dawn-0.astria.org",
+        sequencer_grpc: "https://grpc.sequencer.dawn-0.astria.org",
         sequencer_explorer: "https://dawn.astrotrek.io/",
         celestia_signer_address: "celestia182t89y2esh02a6eyqvthn7l478c6aa80st70vn",
         celenium_signer_link: "https://mocha-4.celenium.io/address/celestia182t89y2esh02a6eyqvthn7l478c6aa80st70vn?tab=transactions",
@@ -103,4 +103,8 @@ export const siteConfig = {
             sequencer_rpc: "http://rpc.sequencer.localdev.me/health",
         },
     },
+    cli: {
+        rust: "v0.5.0",
+        go: "v0.15.0",
+    }
   };
