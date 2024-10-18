@@ -2,6 +2,7 @@
 
 ::: code-group
 ```bash [ARM Mac]
+
 curl -L https://github.com/astriaorg/astria/releases/download/cli-v0.5.0/astria-cli-aarch64-apple-darwin.tar.gz > astria-cli.tar.gz
 tar -xvzf astria-cli.tar.gz
 mv astria-cli /usr/local/bin/
@@ -22,6 +23,7 @@ mv astria-cli /usr/local/bin/
 ```bash [From Source]
 cargo install astria-cli --git=https://github.com/astriaorg/astria --tag=cli-v0.5.0 --locked
 ```
+
 :::
 
 <!-- <Tabs>

@@ -2,6 +2,7 @@
 
 ::: code-group
 ```bash [ARM Mac]
+
 curl -L https://github.com/astriaorg/astria-cli-go/releases/download/v0.15.0/astria-go-v0.15.0-darwin-arm64.tar.gz > astria-cli.tar.gz
 tar -xvzf astria-cli.tar.gz
 mv astria-go /usr/local/bin/
@@ -21,6 +22,7 @@ tar -xvzf astria-cli.tar.gz
 mv astria-go /usr/local/bin/
 astria-go version
 ```
+
 :::
 
 <!-- <Tabs>
