@@ -1,49 +1,19 @@
-# Astria EVM
+# EVM
 
-## Network Information
+The Astria EVM is a rollup running on top of the Astria
+Sequencer Network. It is a fork of
+[Geth](https://github.com/ethereum/go-ethereum).
 
-| Property | Value |
-|-----|-----|
-| Network Name | dusk-10 |
-| RPC URL | [https://rpc.evm.dusk-10.devnet.astria.org](https://rpc.evm.dusk-10.devnet.astria.org) |
-| Chain ID | 912559 |
-| Currency Symbol | TIA |
-| Dora | [https://www.ondora.xyz/network/astria-devnet](https://www.ondora.xyz/network/astria-devnet) |
-| EVM Faucet | [https://faucet.evm.dusk-10.devnet.astria.org](https://faucet.evm.dusk-10.devnet.astria.org) |
-| Block Scout | [https://explorer.evm.dusk-10.devnet.astria.org/](https://explorer.evm.dusk-10.devnet.astria.org/) |
+## RPC Endpoints
 
-## Adding to Metamask
+Below are the RPC endpoint for the different Flame EVMs running on different networks.
 
-Follow Metamask's official documentation to [manually add a custom network.](https://support.metamask.io/hc/en-us/articles/360043227612-How-to-add-a-custom-network-RPC#h_01G63GGJ83DGDRCS2ZWXM37CV5)
+| Network | EVM RPC |
+|---|---|
+| Dawn | [https://rpc.evm.dawn-0.astria.org](https://rpc.flame.dawn-0.astria.org) |
+| Dusk | [https://rpc.evm.dusk-10.devnet.astria.org](https://rpc.evm.dusk-10.devnet.astria.org) |
+| Local | [http://127.0.0.1:26657](http://127.0.0.1:26657) |
 
-Your settings should be the following:
+## Bridging
 
-* Network Name: `dusk-10`
-* New RPC URL: `https://rpc.evm.dusk-10.devnet.astria.org`
-* Chain ID: `912559`
-* Currency symbol: `TIA`
-* Block Explorer URL: `<empty>`
-
-## Using Cast
-
-Set your `ETH_RPC_URL`:
-
-```bash
-export ETH_RPC_URL=https://rpc.evm.dusk-10.devnet.astria.org
-```
-
-```bash
-export REC_ADDR=<SOME_ADDRESS>
-```
-
-```bash
-cast balance $REC_ADDR
-```
-
-```bash
-cast send $REC_ADDR --value 10000000000000000000 --private-key <PRIVATE-KEY>
-```
-
-```bash
-cast balance $REC_ADDR
-```
+TODO add info on bridging flow.
