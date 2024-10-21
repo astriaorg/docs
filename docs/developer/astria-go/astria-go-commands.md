@@ -60,7 +60,7 @@ astria-go dev init [flags]
 | Flag | Arg Type | Override Env Var | Description |
 |---|---|---|---|
 | `--instance` | string | `ASTRIA_GO_INSTANCE` | Choose the target instance. (default "default") |
-| `--local-native-denom` | string | `ASTRIA_GO_LOCAL_NATIVE_DENOM` | Set the native denom for the local instance. This is used to set the 'native_asset_base_denomination' and 'allowed_fee_assets' in the CometBFT genesis.json file. (default "nria") |
+| `--local-native-denom` | string | `ASTRIA_GO_LOCAL_NATIVE_DENOM` | Set the native denom for the local instance. This is used to set the 'native_asset_base_denomination' and 'allowed_fee_assets' in the CometBFT genesis.json file. (default "ntia") |
 | `--local-network-name` | string | `ASTRIA_GO_LOCAL_NETWORK_NAME` | Set the local network name for the instance. This is used to set the chain ID in the CometBFT genesis.json file. (default "sequencer-test-chain-0") |
 
 ## `dev purge`
@@ -151,7 +151,7 @@ astria-go dev reset config [flags]
 | Flag | Arg Type | Override Env Var | Description |
 |---|---|---|---|
 | `--instance` | string | `ASTRIA_GO_INSTANCE` | Choose the target instance. (default "default") |
-| `--local-native-denom` | string | `ASTRIA_GO_LOCAL_NATIVE_DENOM` | Set the native denom for the local instance. This is used to set the 'native_asset_base_denomination' and 'allowed_fee_assets' in the CometBFT genesis.json file. (default "nria") |
+| `--local-native-denom` | string | `ASTRIA_GO_LOCAL_NATIVE_DENOM` | Set the native denom for the local instance. This is used to set the 'native_asset_base_denomination' and 'allowed_fee_assets' in the CometBFT genesis.json file. (default "ntia") |
 | `--local-network-name` | string | `ASTRIA_GO_LOCAL_NETWORK_NAME` | Set the local network name for the instance. This is used to set the chain ID in the CometBFT genesis.json file. (default "sequencer-test-chain-0") |
 
 ## `dev reset networks`
@@ -170,7 +170,7 @@ astria-go dev reset networks [flags]
 | Flag | Arg Type | Override Env Var | Description |
 |---|---|---|---|
 | `--instance` | string | `ASTRIA_GO_INSTANCE` | Choose the target instance. (default "default") |
-| `--local-native-denom` | string | `ASTRIA_GO_LOCAL_NATIVE_DENOM` | Set the native denom for the local instance. This is used to set the 'native_asset_base_denomination' and 'allowed_fee_assets' in the CometBFT genesis.json file. (default "nria") |
+| `--local-native-denom` | string | `ASTRIA_GO_LOCAL_NATIVE_DENOM` | Set the native denom for the local instance. This is used to set the 'native_asset_base_denomination' and 'allowed_fee_assets' in the CometBFT genesis.json file. (default "ntia") |
 | `--local-network-name` | string | `ASTRIA_GO_LOCAL_NETWORK_NAME` | Set the local network name for the instance. This is used to set the chain ID in the CometBFT genesis.json file. (default "sequencer-test-chain-0") |
 
 ## `dev reset state`

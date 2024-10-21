@@ -128,7 +128,7 @@ sequencer_chain_id = 'astria-dusk-10'
 sequencer_grpc = 'https://grpc.sequencer.dusk-10.devnet.astria.org/'
 sequencer_rpc = 'https://rpc.sequencer.dusk-10.devnet.astria.org/'
 rollup_name = '<your rollup name>' # update this value
-default_denom = 'nria'
+default_denom = 'ntia'
 ```
 
 Then open the `~/.astria/default/config/composer_dev_priv_key` and replace dev private

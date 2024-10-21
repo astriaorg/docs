@@ -89,7 +89,7 @@ sequencer_chain_id = 'sequencer-test-chain-0'
 sequencer_grpc = 'http://127.0.0.1:8080'
 sequencer_rpc = 'http://127.0.0.1:26657'
 rollup_name = '<your rollup name>' # update this value
-default_denom = 'nria'
+default_denom = 'ntia'
 ```
 
 Use the cli to run a local Astria Sequencer.

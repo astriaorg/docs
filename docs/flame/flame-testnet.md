@@ -28,6 +28,7 @@ Flame is the EVM for Celestia Native DeFi.
 | Sequencer <-> Flame Bridge Account | `{{config.flame.bridging.sequencer_flame_bridge_address}}` |
 | IBC Channel: mocha-4 -> dawn-0 | `{{config.flame.bridging.ibc_mocha_to_dawn}}` |
 | IBC Channel: dawn-0 -> mocha-4 | `{{config.flame.bridging.ibc_dawn_to_mocha}}` |
+| Flame Contract Address | `{{config.flame.bridging.flame_contract_address}}` |
 
 ## Adding to Metamask
 
@@ -65,7 +66,7 @@ Your settings should be the following:
 Set your `ETH_RPC_URL`:
 
 ```bash
-export ETH_RPC_URL=https://rpc.flame.dawn-0.astria.org
+export ETH_RPC_URL=https://rpc.flame.dawn-1.astria.org
 ```
 
 ```bash

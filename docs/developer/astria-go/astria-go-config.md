@@ -114,7 +114,7 @@ sequencer_chain_id = 'sequencer-test-chain-0'
 sequencer_grpc = 'http://127.0.0.1:8080'
 sequencer_rpc = 'http://127.0.0.1:26657'
 rollup_name = 'astria-test-chain-1'
-default_denom = 'nria'
+default_denom = 'ntia'
 
 [networks.local.services]
 [networks.local.services.cometbft]
@@ -154,7 +154,7 @@ sequencer_chain_id = 'astria-dusk-10'
 sequencer_grpc = 'https://grpc.sequencer.dusk-10.devnet.astria.org/'
 sequencer_rpc = 'https://rpc.sequencer.dusk-10.devnet.astria.org/'
 rollup_name = ''
-default_denom = 'nria'
+default_denom = 'ntia'
 
 [networks.dusk.services]
 [networks.dusk.services.composer]
