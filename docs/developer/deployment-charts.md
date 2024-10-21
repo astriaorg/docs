@@ -55,11 +55,11 @@ just deploy dev-rollup
 # `dev/values/rollup/dev.yml`
 just deploy dev-rollup <rollup_name> <network_id>
 
-# Send funds into the rollup chain, by default transfers 10 RIA to the rollup
+# Send funds into the rollup chain, by default transfers 10 TIA to the rollup
 # using prefunded default test sequencer accounts. 
 just init rollup-bridge
 # Update the amounts to init
-just init rollup-bridge <rollup_name> <evm_address> <ria_amount>
+just init rollup-bridge <rollup_name> <evm_address> <tia_amount>
 
 # Delete default rollup
 just delete rollup
