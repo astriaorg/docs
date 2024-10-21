@@ -104,7 +104,7 @@ function sidebar() {
           link: '/developer/deployment-charts.md',
         },
         {
-          text: 'spamooor',
+          text: 'Load testing with spamooor',
           link: '/developer/spamooor.md',
         },
         {

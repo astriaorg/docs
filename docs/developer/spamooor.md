@@ -1,4 +1,4 @@
-# spamooor
+# Load testing with `spamooor`
 
 `spamooor` is a load testing tool for EVMs that is a fork
 [ethpandaops/goomy-blob](https://github.com/ethpandaops/goomy-blob).
