@@ -50,18 +50,18 @@ Your settings should be the following:
 
 | Name | Address |
 |---|---|
-| Descriptor Proxy Address | `{{config.dusk.descriptorProxyAddress}}` |
-| Multicall 2 Address | `{{config.dusk.multicall2Address}}` |
-| nft Position Descriptor Address | `{{config.dusk.nftPositionDescriptorAddress}}` |
-| nft Position Manager Address | `{{config.dusk.nftPositionManagerAddress}}` |
-| Proxy Admin Address | `{{config.dusk.proxyAdminAddress}}` |
-| Quoter V2 Address | `{{config.dusk.quoterV2Address}}` |
-| Swap Router 02 Address | `{{config.dusk.swapRouter02Address}}` |
-| Tick Lens Address | `{{config.dusk.tickLensAddress}}` |
-| v3 Core Factory Address | `{{config.dusk.v3CoreFactoryAddress}}` |
-| v3 Migrator Address | `{{config.dusk.v3MigratorAddress}}` |
-| v3 Staker Address | `{{config.dusk.v3StakerAddress}}` |
-| weth9 Address | `{{config.dusk.weth9Address}}` |
+| Descriptor Proxy Address | `{{config.dawn.descriptorProxyAddress}}` |
+| Multicall 2 Address | `{{config.dawn.multicall2Address}}` |
+| nft Position Descriptor Address | `{{config.dawn.nftPositionDescriptorAddress}}` |
+| nft Position Manager Address | `{{config.dawn.nftPositionManagerAddress}}` |
+| Proxy Admin Address | `{{config.dawn.proxyAdminAddress}}` |
+| Quoter V2 Address | `{{config.dawn.quoterV2Address}}` |
+| Swap Router 02 Address | `{{config.dawn.swapRouter02Address}}` |
+| Tick Lens Address | `{{config.dawn.tickLensAddress}}` |
+| v3 Core Factory Address | `{{config.dawn.v3CoreFactoryAddress}}` |
+| v3 Migrator Address | `{{config.dawn.v3MigratorAddress}}` |
+| v3 Staker Address | `{{config.dawn.v3StakerAddress}}` |
+| weth9 Address | `{{config.dawn.weth9Address}}` |
 
 ## Using Cast
 
