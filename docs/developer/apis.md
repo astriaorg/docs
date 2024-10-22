@@ -1,13 +1,13 @@
 # Astria APIs
 
-Astria uses Proto-Buf for its API definitions. These APIs are used throughout
+Astria uses Protobuf for its API definitions. These APIs are used throughout
 the Astria stack for communication between different services.
 
-See the Astria Proto-Buf API definitions [here](https://buf.build/astria).
+See the Astria Protobuf API definitions [here](https://buf.build/astria).
 
 ## Primitives
 
-The Primitives Proto-Bufs defined the different types that are used within all
+The Primitives Protobufs defined the different types that are used within all
 other Astria APIs. This includes types such as:
 
 - [Address](https://buf.build/astria/primitives/docs/main:astria.primitive.v1#astria.primitive.v1.Address):
@@ -23,7 +23,7 @@ other Astria APIs. This includes types such as:
 - [Uint128](https://buf.build/astria/primitives/docs/main:astria.primitive.v1#astria.primitive.v1.Uint128):
   An unsigned 128bit integer type for numerical values.
 
-See the Astria `primitives` Proto-Buf definitions
+See the Astria `primitives` Protobuf definitions
 [here](https://buf.build/astria/primitives/docs/main:astria.primitive.v1).
 
 ## Protocol-APIs
@@ -44,7 +44,7 @@ Sequencer. This includes message definitions for things like:
 - [Sequencer Block
   Actions](https://buf.build/astria/protocol-apis/docs/main:astria.protocol.transaction.v1)
 
-See the Astria `protocol-apis` Proto-Buf definitions
+See the Astria `protocol-apis` Protobuf definitions
 [here](https://buf.build/astria/protocol-apis).
 
 ## Sequencerblock-APIs
@@ -64,7 +64,7 @@ methods defined are:
 - [GetPendingNonce](https://buf.build/astria/sequencerblock-apis/docs/main:astria.sequencerblock.v1#astria.sequencerblock.v1.SequencerService.GetPendingNonce):
   Return the pending nonce for a specific sequencer account.
 
-See the Astria `sequencerblock-apis` Proto-Buf definitions
+See the Astria `sequencerblock-apis` Protobuf definitions
 [here](https://buf.build/astria/sequencerblock-apis/docs/main:astria.sequencerblock.v1).
 
 ## Composer-APIs
@@ -75,7 +75,7 @@ is:
 
 - [SubmitRollupTransaction](https://buf.build/astria/composer-apis/docs/main:astria.composer.v1#astria.composer.v1.GrpcCollectorService.SubmitRollupTransaction)
 
-See the Astria `composer-apis` Proto-Buf definitions
+See the Astria `composer-apis` Protobuf definitions
 [here](https://buf.build/astria/composer-apis/docs/main:astria.composer.v1).
 
 ## Execution-APIs
@@ -97,5 +97,5 @@ Conductor](../overview/components/conductor.md). This includes methods such as:
 - [UpdateCommitmentState](https://buf.build/astria/execution-apis/docs/main:astria.execution.v1#astria.execution.v1.ExecutionService.UpdateCommitmentState):
   Pass the updated commitment state to the rollup.
 
-See the Astria `execution-apis` Proto-Buf definitions
+See the Astria `execution-apis` Protobuf definitions
 [here](https://buf.build/astria/execution-apis/docs/main:astria.execution.v1).
