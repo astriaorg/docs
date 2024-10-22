@@ -1,7 +1,7 @@
 <!-- markdownlint-disable MD024 -->
 <!-- Disabling MD024 to allow for repeat "Usage" heading -->
 
-# `astria-go` cli Commands
+# `astria-cli` cli Commands
 
 ## Version
 
@@ -50,7 +50,7 @@ astria-cli bridge collect-withdrawals [OPTIONS] --rollup-endpoint <ROLLUP_ENDPOI
 | `--contract-address <CONTRACT_ADDRESS>` | The eth address of the astria bridge contracts |
 | `--from-rollup-height <FROM_ROLLUP_HEIGHT>` | The start rollup height from which blocks will be checked for withdrawal events |
 | `--to-rollup-height <TO_ROLLUP_HEIGHT>` | The end rollup height from which blocks will be checked for withdrawal events. If not set, then this tool will stream blocks until SIGINT is received |
-| `--fee-asset <FEE_ASSET>` | The asset that will be used to pay the Sequencer fees (should the generated actions be submitted to the Sequencer) default: nria |
+| `--fee-asset <FEE_ASSET>` | The asset that will be used to pay the Sequencer fees (should the generated actions be submitted to the Sequencer) default: ntia |
 | `--sequencer-asset-to-withdraw <SEQUENCER_ASSET_TO_WITHDRAW>` | The sequencer asset withdrawn through the bridge |
 | `--ics20-asset-to-withdraw <ICS20_ASSET_TO_WITHDRAW>` | The is20 asset withdrawn through the bridge |
 | `--bridge-address <BRIDGE_ADDRESS>` | The bech32-encoded bridge address corresponding to the bridged rollup asset on the sequencer. Should match the bridge address in the geth rollup's bridge configuration for that asset |
@@ -286,8 +286,8 @@ astria-cli sequencer transfer [OPTIONS] --amount <AMOUNT> --private-key <PRIVATE
 | `--private-key <PRIVATE_KEY>` | The private key of account being sent from [env: SEQUENCER_PRIVATE_KEY=] |
 | `--sequencer-url <SEQUENCER_URL>` | The url of the Sequencer node [env: SEQUENCER_URL=] [default: https://rpc.sequencer.dusk-10.devnet.astria.org] |
 | `--sequencer.chain-id <SEQUENCER_CHAIN_ID>` | The chain id of the sequencing chain being used [env: ROLLUP_SEQUENCER_CHAIN_ID=] [default: astria-dusk-10] |
-| `--asset <ASSET>` | The asset to transer [default: nria] |
-| `--fee-asset <FEE_ASSET>` | The asset to pay the transfer fees with [default: nria] |
+| `--asset <ASSET>` | The asset to transer [default: ntia] |
+| `--fee-asset <FEE_ASSET>` | The asset to pay the transfer fees with [default: ntia] |
 
 ## `sequencer init-bridge-account`
 
@@ -305,8 +305,8 @@ astria-cli sequencer init-bridge-account [OPTIONS] --private-key <PRIVATE_KEY> -
 | `--private-key <PRIVATE_KEY>` | The private key of account being sent from [env: SEQUENCER_PRIVATE_KEY=] |
 | `--sequencer-url <SEQUENCER_URL>` | The url of the Sequencer node [env: SEQUENCER_URL=] [default: https://rpc.sequencer.dusk-10.devnet.astria.org] |
 | `--sequencer.chain-id <SEQUENCER_CHAIN_ID>` | The chain id of the sequencing chain being used [env: ROLLUP_SEQUENCER_CHAIN_ID=] [default: astria-dusk-10] |
-| `--asset <ASSET>` | The asset to transer [default: nria] |
-| `--fee-asset <FEE_ASSET>` | The asset to pay the transfer fees with [default: nria] |
+| `--asset <ASSET>` | The asset to transer [default: ntia] |
+| `--fee-asset <FEE_ASSET>` | The asset to pay the transfer fees with [default: ntia] |
 
 ## `sequencer bridge-lock`
 
@@ -326,5 +326,5 @@ astria-cli sequencer bridge-lock [OPTIONS] --amount <AMOUNT> --destination-chain
 | `--private-key <PRIVATE_KEY>` | [env: SEQUENCER_PRIVATE_KEY=] |
 | `--sequencer-url <SEQUENCER_URL>` | The url of the Sequencer node [env: SEQUENCER_URL=] [default: https://rpc.sequencer.dusk-10.devnet.astria.org] |
 | `--sequencer.chain-id <SEQUENCER_CHAIN_ID>` | The chain id of the sequencing chain being used [env: ROLLUP_SEQUENCER_CHAIN_ID=] [default: astria-dusk-10] |
-| `--asset <ASSET>` | The asset to lock [default: nria] |
-| `--fee-asset <FEE_ASSET>` | The asset to pay the transfer fees with [default: nria] |
+| `--asset <ASSET>` | The asset to lock [default: ntia] |
+| `--fee-asset <FEE_ASSET>` | The asset to pay the transfer fees with [default: ntia] |

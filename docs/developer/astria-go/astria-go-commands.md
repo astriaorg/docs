@@ -287,7 +287,7 @@ astria-go sequencer bridge init [rollup-id] [flags]
 | Flag | Arg Type | Override Env Var | Description |
 |---|---|---|---|
 | `--asset-id` | string | `ASTRIA_GO_ASSET_ID`  | The asset id of the asset we want to bridge (default "transfer/channel-0/utia") |
-| `--fee-asset-id` | string | `ASTRIA_GO_FEE_ASSET_ID` | The fee asset id of the asset used for fees (default "nria") |
+| `--fee-asset-id` | string | `ASTRIA_GO_FEE_ASSET_ID` | The fee asset id of the asset used for fees (default "ntia") |
 | `--json` | bool | `ASTRIA_GO_JSON` | Output bridge account as JSON |
 | `--keyfile` | string | `ASTRIA_GO_KEYFILE` | Path to secure keyfile for the bridge account. |
 | `--keyring-address` | string | `ASTRIA_GO_KEYRING_ADDRESS` | The address of the bridge account. Requires private key be stored in keyring. |
