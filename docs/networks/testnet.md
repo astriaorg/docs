@@ -20,29 +20,6 @@ const dawn = siteConfig.dawn
 | Celestia Signer                      | <a :href="dawn.celenium_signer_link"    target="_blank" rel="noopener noreferrer">{{dawn.celestia_signer_address}}</a> |
 | Celestia Dawn-{{dawn.num}} Namespace | <a :href="dawn.celenium_namespace_link" target="_blank" rel="noopener noreferrer">{{dawn.celestia_namespace}}</a>      |
 
-## Bridge From Celestia `mocha-4` Testnet to the Astria Dawn Testnet on the Command Line
-
-1. Install
-   [`celestia-appd`](https://github.com/celestiaorg/celestia-app?tab=readme-ov-file#install).
-2. Create a new Celestia account:
-```bash
-celestia-appd keys add <name-of-your-key>
-```
-3. Fund the account using [Celestia's Testnet
-   Faucet](https://docs.celestia.org/how-to-guides/mocha-testnet#mocha-testnet-faucet).
-4. Create a new Astria account:
-```bash
-astria-go sequencer createaccount
-```
-5. Export the Astria Address:
-```bash
-export ASTRIA_ADDR="astria1..."
-```
-6. Perform an IBC transfer from Celetia's Testnet to Astria's Testnet:
-```bash
-celestia-appd tx ibc-transfer transfer transfer channel-160 $ASTRIA_ADDR 1000000utia --fees=420utia --from <name-of-your-celestia-key> --node=https://rpc-mocha.pops.one:443 --chain-id mocha-4
-```
-
 ## Dawn-{{ dawn.num }} Service Versions
 
 | Service Name | Version | Source |
