@@ -12,6 +12,8 @@ export const siteConfig = {
             sequencer_flame_bridge_address: "astria1lepnry7tlpzvrukp5xej4v5wp532k2f94vxqnr",
             ibc_mocha_to_dawn: "channel-160",
             ibc_dawn_to_mocha: "channel-0",
+            ibc_grand_to_dawn: "channel-232",
+            ibc_dawn_to_grand: "channel-1",
             flame_contract_address: "0x77Af806d724699B3644F9CCBFD45CC999CCC3d49",
         },
     },
