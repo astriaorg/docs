@@ -5,7 +5,7 @@
 Astria is building a decentralized sequencing layer that can be shared amongst
 multiple rollups.
 
-At a high level, the Astria stack's performs the following functions:
+At a high level, the Astria Stack performs the following functions:
 
 * sequences arbitrary data for usage by multiple rollups
 * makes this data available to rollup nodes
