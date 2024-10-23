@@ -29,6 +29,7 @@ for Flame running on the Astria `dusk-{{config.dusk.num}}` Devnet.
 | IBC Channel: grand-1 -> dawn-1 | `{{config.flame.dusk.bridging.ibc_grand_to_dusk}}` |
 | IBC Channel: dawn-1 -> grand-1 | `{{config.flame.dusk.bridging.ibc_dusk_to_grand}}` |
 | Flame USDC Withdrawal Contract Address| `{{config.flame.dusk.bridging.flame_usdc_contract_address}}` |
+| Flame nRIA Withdrawal Contract Address| `{{config.flame.dusk.bridging.flame_ria_contract_address}}` |
 
 ## Adding to Metamask
 

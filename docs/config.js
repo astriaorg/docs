@@ -25,7 +25,7 @@ export const siteConfig = {
                 // for rpc url set in the dawn/dusk sections below
                 // for explorer url set in the dawn/dusk sections below
                 native_asset: "transfer/channel-0/uria",
-                currency_symbol: "uRIA",
+                currency_symbol: "nRIA",
             },
             bridging: {
                 ibc_mocha_to_dusk: "channel-159",
@@ -33,6 +33,7 @@ export const siteConfig = {
                 ibc_grand_to_dusk: "channel-231",
                 ibc_dusk_to_grand: "channel-2",
                 flame_usdc_contract_address: "0xa4f59B3E97EC22a2b949cB5b6E8Cd6135437E857",
+                flame_ria_contract_address: "0xA58639fB5458e65E4fA917FF951C390292C24A15",
             },
         },
     },
