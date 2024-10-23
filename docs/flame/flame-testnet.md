@@ -6,31 +6,31 @@ import { siteConfig } from '../config.js'
 const config = siteConfig
 </script>
 
-# Flame EVM
+# Flame
 
-Flame is the EVM for Celestia Native DeFi.
+Flame is the EVM for Celestia Native DeFi. The information below is specifically
+for Flame running on the Astria `dawn-{{config.dawn.num}}` Testnet.
 
 ## EVM Information
 
 | Property | Value |
 |-----|-----|
-| Network Name | `{{config.flame.info.network_name}}` |
-| Chain ID | `{{config.flame.info.chain_id}}` |
+| Network Name | `{{config.flame.dawn.info.network_name}}` |
+| Chain ID | `{{config.flame.dawn.info.chain_id}}` |
 | RPC URL | <a :href="config.dawn.flame_rpc" target="_blank" rel="noopener noreferrer">{{config.dawn.flame_rpc}}</a> |
 | Flame EVM Block Explorer | <a :href="config.dawn.flame_explorer" target="_blank" rel="noopener noreferrer">{{config.dawn.flame_explorer}}</a>  |
-| Native sequencer Asset | `{{config.flame.info.native_asset}}` |
-| Currency Symbol | `{{config.flame.info.currency_symbol}}` |
+| Native sequencer Asset | `{{config.flame.dawn.info.native_asset}}` |
+| Currency Symbol | `{{config.flame.dawn.info.currency_symbol}}` |
 
 ## Bridging
 
 | Property | Value |
 |-----|-----|
-| Sequencer <-> Flame Bridge Account | `{{config.flame.bridging.sequencer_flame_bridge_address}}` |
-| IBC Channel: mocha-4 -> dawn-1 | `{{config.flame.bridging.ibc_mocha_to_dawn}}` |
-| IBC Channel: dawn-1 -> mocha-4 | `{{config.flame.bridging.ibc_dawn_to_mocha}}` |
-| IBC Channel: grand-1 -> dawn-1 | `{{config.flame.bridging.ibc_grand_to_dawn}}` |
-| IBC Channel: dawn-1 -> grand-1 | `{{config.flame.bridging.ibc_dawn_to_grand}}` |
-| Flame TIA Withdrawal Contract Address| `{{config.flame.bridging.flame_contract_address}}` |
+| IBC Channel: mocha-4 -> dawn-1 | `{{config.flame.dawn.bridging.ibc_mocha_to_dawn}}` |
+| IBC Channel: dawn-1 -> mocha-4 | `{{config.flame.dawn.bridging.ibc_dawn_to_mocha}}` |
+| IBC Channel: grand-1 -> dawn-1 | `{{config.flame.dawn.bridging.ibc_grand_to_dawn}}` |
+| IBC Channel: dawn-1 -> grand-1 | `{{config.flame.dawn.bridging.ibc_dawn_to_grand}}` |
+| Flame TIA Withdrawal Contract Address| `{{config.flame.dawn.bridging.flame_contract_address}}` |
 
 ## Adding to Metamask
 
@@ -40,10 +40,10 @@ Your settings should be the following:
 
 | Property | Value |
 | --- | --- |
-| Network Name | `{{config.flame.info.network_name}}` |
+| Network Name | `{{config.flame.dawn.info.network_name}}` |
 | New RPC URL | <a :href="config.dawn.flame_rpc" target="_blank" rel="noopener noreferrer">{{config.dawn.flame_rpc}}</a> |
-| Chain ID | `{{config.flame.info.chain_id}}` |
-| Currency symbol | `{{config.flame.info.currency_symbol}}` |
+| Chain ID | `{{config.flame.dawn.info.chain_id}}` |
+| Currency symbol | `{{config.flame.dawn.info.currency_symbol}}` |
 | Block Explorer | <a :href="config.dawn.flame_explorer" target="_blank" rel="noopener noreferrer">{{config.dawn.flame_explorer}}</a> |
 
 ## Uniswap V3
@@ -67,7 +67,7 @@ Your settings should be the following:
 
 Set your `ETH_RPC_URL`:
 
-```bash
+```bash 
 export ETH_RPC_URL=https://rpc.flame.dawn-1.astria.org
 ```
 

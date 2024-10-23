@@ -1,24 +1,42 @@
 export const siteConfig = {
     flame: {
-        info: {
-            network_name: "dawn-1",
-            chain_id: "16604737732183",
-            // for rpc url set in the dawn/dusk sections below
-            // for explorer url set in the dawn/dusk sections below
-            native_asset: "transfer/channel-0/utia",
-            currency_symbol: "TIA",
+        dawn: {
+            info: {
+                network_name: "dawn-1",
+                chain_id: "16604737732183",
+                // for rpc url set in the dawn/dusk sections below
+                // for explorer url set in the dawn/dusk sections below
+                native_asset: "transfer/channel-0/utia",
+                currency_symbol: "TIA",
+            },
+            bridging: {
+                ibc_mocha_to_dawn: "channel-160",
+                ibc_dawn_to_mocha: "channel-0",
+                ibc_grand_to_dawn: "channel-232",
+                ibc_dawn_to_grand: "channel-1",
+                flame_contract_address: "0x77Af806d724699B3644F9CCBFD45CC999CCC3d49",
+            },
         },
-        bridging: {
-            sequencer_flame_bridge_address: "astria1lepnry7tlpzvrukp5xej4v5wp532k2f94vxqnr",
-            ibc_mocha_to_dawn: "channel-160",
-            ibc_dawn_to_mocha: "channel-0",
-            ibc_grand_to_dawn: "channel-232",
-            ibc_dawn_to_grand: "channel-1",
-            flame_contract_address: "0x77Af806d724699B3644F9CCBFD45CC999CCC3d49",
+        dusk: {
+            info: {
+                network_name: "dusk-11",
+                chain_id: "N/A",
+                // for rpc url set in the dawn/dusk sections below
+                // for explorer url set in the dawn/dusk sections below
+                native_asset: "transfer/channel-0/utia",
+                currency_symbol: "TIA",
+            },
+            bridging: {
+                ibc_mocha_to_dusk: "channel-159",
+                ibc_dusk_to_mocha: "channel-0",
+                ibc_grand_to_dusk: "channel-231",
+                ibc_dusk_to_grand: "channel-2",
+                flame_contract_address: "0x77Af806d724699B3644F9CCBFD45CC999CCC3d49",
+            },
         },
     },
     dawn: {
-        num: 1,
+        num: 1555,
         flame_rpc: "https://rpc.flame.dawn-1.astria.org",
         flame_explorer: "https://explorer.flame.dawn-1.astria.org",
         sequencer_rpc: "https://rpc.sequencer.dawn-1.astria.org",
