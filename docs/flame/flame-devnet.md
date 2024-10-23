@@ -26,11 +26,9 @@ for Flame running on the Astria `dusk-{{config.dusk.num}}` Devnet.
 
 | Property | Value |
 |-----|-----|
-| IBC Channel: mocha-4 -> dawn-1 | `{{config.flame.dusk.bridging.ibc_mocha_to_dusk}}` |
-| IBC Channel: dawn-1 -> mocha-4 | `{{config.flame.dusk.bridging.ibc_dusk_to_mocha}}` |
 | IBC Channel: grand-1 -> dawn-1 | `{{config.flame.dusk.bridging.ibc_grand_to_dusk}}` |
 | IBC Channel: dawn-1 -> grand-1 | `{{config.flame.dusk.bridging.ibc_dusk_to_grand}}` |
-| Flame TIA Withdrawal Contract Address| `{{config.flame.dusk.bridging.flame_contract_address}}` |
+| Flame USDC Withdrawal Contract Address| `{{config.flame.dusk.bridging.flame_usdc_contract_address}}` |
 
 ## Adding to Metamask
 
@@ -68,7 +66,7 @@ Your settings should be the following:
 Set your `ETH_RPC_URL`:
 
 ```bash
-export ETH_RPC_URL=https://rpc.flame.dusk-11.astria.org
+export ETH_RPC_URL=https://rpc.flame.dusk-11.devnet.astria.org
 ```
 
 ```bash

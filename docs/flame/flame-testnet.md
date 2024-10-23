@@ -30,7 +30,8 @@ for Flame running on the Astria `dawn-{{config.dawn.num}}` Testnet.
 | IBC Channel: dawn-1 -> mocha-4 | `{{config.flame.dawn.bridging.ibc_dawn_to_mocha}}` |
 | IBC Channel: grand-1 -> dawn-1 | `{{config.flame.dawn.bridging.ibc_grand_to_dawn}}` |
 | IBC Channel: dawn-1 -> grand-1 | `{{config.flame.dawn.bridging.ibc_dawn_to_grand}}` |
-| Flame TIA Withdrawal Contract Address| `{{config.flame.dawn.bridging.flame_contract_address}}` |
+| Flame TIA Withdrawal Contract Address| `{{config.flame.dawn.bridging.flame_tia_contract_address}}` |
+| Flame USDC Withdrawal Contract Address| `{{config.flame.dawn.bridging.flame_usdc_contract_address}}` |
 
 ## Adding to Metamask
 

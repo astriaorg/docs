@@ -14,24 +14,25 @@ export const siteConfig = {
                 ibc_dawn_to_mocha: "channel-0",
                 ibc_grand_to_dawn: "channel-232",
                 ibc_dawn_to_grand: "channel-1",
-                flame_contract_address: "0x77Af806d724699B3644F9CCBFD45CC999CCC3d49",
+                flame_tia_contract_address: "0x77Af806d724699B3644F9CCBFD45CC999CCC3d49",
+                flame_usdc_contract_address: "0x6e18cE6Ec3Fc7b8E3EcFca4fA35e25F3f6FA879a",
             },
         },
         dusk: {
             info: {
                 network_name: "dusk-11",
-                chain_id: "N/A",
+                chain_id: "912559",
                 // for rpc url set in the dawn/dusk sections below
                 // for explorer url set in the dawn/dusk sections below
-                native_asset: "transfer/channel-0/utia",
-                currency_symbol: "TIA",
+                native_asset: "transfer/channel-0/uria",
+                currency_symbol: "uRIA",
             },
             bridging: {
                 ibc_mocha_to_dusk: "channel-159",
                 ibc_dusk_to_mocha: "channel-0",
                 ibc_grand_to_dusk: "channel-231",
                 ibc_dusk_to_grand: "channel-2",
-                flame_contract_address: "0x77Af806d724699B3644F9CCBFD45CC999CCC3d49",
+                flame_usdc_contract_address: "0xa4f59B3E97EC22a2b949cB5b6E8Cd6135437E857",
             },
         },
     },
