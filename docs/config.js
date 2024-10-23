@@ -36,7 +36,7 @@ export const siteConfig = {
         },
     },
     dawn: {
-        num: 1555,
+        num: 1,
         flame_rpc: "https://rpc.flame.dawn-1.astria.org",
         flame_explorer: "https://explorer.flame.dawn-1.astria.org",
         sequencer_rpc: "https://rpc.sequencer.dawn-1.astria.org",
