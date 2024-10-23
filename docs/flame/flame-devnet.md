@@ -66,7 +66,7 @@ Your settings should be the following:
 Set your `ETH_RPC_URL`:
 
 ```bash
-export ETH_RPC_URL=https://rpc.flame.dusk-11.devnet.astria.org
+export ETH_RPC_URL=https://rpc.evm.dusk-11.devnet.astria.org
 ```
 
 ```bash
