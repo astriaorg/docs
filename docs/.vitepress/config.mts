@@ -75,8 +75,8 @@ function sidebar() {
       collapsed: true,
       items: [
         { text: 'Overview', link: '/bridging/overview.md' },
-        { text: 'Bridge to Astria', link: '/bridging/bridge-to-astria.md' },
-        { text: 'Bridge to Flame ', link: '/bridging/bridge-to-Flame.md' },
+        { text: 'Bridge to Astria Testnet', link: '/bridging/bridge-to-astria-testnet.md' },
+        { text: 'Bridge to Flame Testnet', link: '/bridging/bridge-to-flame-testnet.md' },
       ]
     },
     {
