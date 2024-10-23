@@ -67,7 +67,7 @@ Your settings should be the following:
 
 Set your `ETH_RPC_URL`:
 
-```bash 
+```bash
 export ETH_RPC_URL=https://rpc.flame.dawn-1.astria.org
 ```
 
