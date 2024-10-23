@@ -9,7 +9,8 @@ Visit the Astria Bridging UI [here](https://www.astria.org/).
 
 To bridge funds directly on the command line, install the following.
 
-Make sure Go is installed and the `/go/bin` is added to your path:
+Make sure Go is installed and the `/go/bin` is added to your path. This is
+required for building and successfully using `nobeld` and `celestia-appd`:
 
 - [Go](https://go.dev/doc/install)
 

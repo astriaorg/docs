@@ -1,6 +1,9 @@
 # Bridging to the Astria `dawn` Testnet Sequencer
 
-Bridging from Celestia and Nobel testnets to the Astria `dawn` testnet.
+Bridging commands from Celestia and Nobel testnets to the Astria `dawn` testnet.
+
+You will need the `astria-cli`, `celestia-appd`, and `nobeld` installed. Follow
+the install steps [here](./overview.md#bridging-dependencies).
 
 You can export the following to make the commands below easily copy and
 pastable.
