@@ -74,6 +74,7 @@ function sidebar() {
       text: 'Networks',
       collapsed: true,
       items: [
+        { text: 'Astria Mainnet', link: '/networks/mainnet.md' },
         { text: 'Astria Dawn Testnet', link: '/networks/testnet.md' },
         { text: 'Astria Dusk Devnet', link: '/networks/devnet.md' },
         { text: 'Local Network', link: '/networks/local.md' },
