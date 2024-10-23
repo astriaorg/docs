@@ -2,14 +2,14 @@
 
 The Conductor can be thought of as the consensus implementation of a rollup full
 node, similar to op-node within the OP Stack. Conductor is the counterpart to
-the execution engine, which together make up a full rollup node. Its role is 
+the execution engine, which together make up a full rollup node. Its role is
 to connect the sequencer and Data Availability layers to the rollup execution
 layer by extracting the transactions belonging to the rollup node from each
-sequencer block, and forwarding them to the execution layer. 
+sequencer block, and forwarding them to the execution layer.
 
 The conductor’s flow is as follows:
 
-* For each sequencer block, extract the relevant rollup data it needs 
+* For each sequencer block, extract the relevant rollup data it needs
 * validate the batch of rollup data; this includes verifying that the
   corresponding sequencer block was finalized, as well as verifying that the
   rollup data it extracted is complete (there are no rollup transactions
@@ -17,7 +17,7 @@ The conductor’s flow is as follows:
   shouldn’t be), and properly-ordered (the ordering of the rollup transactions
   matches what was finalized by the sequencer chain). It is able to do this by
   verifying the data against the rollup data commitment included in the
-  sequencer block. 
+  sequencer block.
 * Once it has validated the rollup data, it turns it into a list of
   transactions, which are passed to the execution engine.
 
@@ -67,7 +67,7 @@ block had data for it or not.
 ## Soft and Firm Commitments
 
 The Conductor also retrieves the soft commitments from the sequencer, and firm
-commitments from the data availability layer. 
+commitments from the data availability layer.
 
 The soft commitments act as fast pre-confirmations and are implicitly verified
 by the Conductor via a fully trusted connection to the sequencer. All data

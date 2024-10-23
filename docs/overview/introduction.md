@@ -2,9 +2,10 @@
 
 ![Astria Architecture](./assets/astria-architecture.png)
 
-Astria is building a decentralized sequencing layer that can be shared amongst multiple rollups.
+Astria is building a decentralized sequencing layer that can be shared amongst
+multiple rollups.
 
-At a high level, the Astria stack performs the following functions:
+At a high level, the Astria Stack performs the following functions:
 
 * sequences arbitrary data for usage by multiple rollups
 * makes this data available to rollup nodes
@@ -39,16 +40,12 @@ The rollup’s consensus and execution logic is not enshrined in the sequencer.
 ## What Should I Read?
 
 Want to learn more about about rollups or the sequencer? Check out the [How
-Rollups Work](/overview/how-rollups-work) or [The Astria Sequencer
-Network](/overview/the-astria-sequencer-network).
+Rollups Work](/overview/how-rollups-work) or [The Astria Sequencing
+Layer](/overview/components/the-astria-sequencing-layer.md).
 
 If you're a rollup developer eager to get started, you should go straight to our
-[`astria-go` cli tutorials](../developer/tutorials/install-the-cli.md).
+[`astria-go` cli tutorials](../developer/astria-go/astria-go-installation.md).
 
-You can find our endpoints and FAQ [here](/astria-evm/overview.md)
+## Source Code
 
-## Still Need More Help
-
-While this documentation hopefully includes everything you need, if you can't
-find what you're looking for, please reach out on Discord [Discord](https://discord.gg/3qZCbmZxvF) or check the [Astria
-repository](https://github.com/astriaorg/astria).
+Check out the [Astria repository](https://github.com/astriaorg/astria).

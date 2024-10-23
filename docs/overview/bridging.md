@@ -1,11 +1,13 @@
 # Bridging on Astria
 
+Bridging between Astria and other networks.
+
 ## Fee payments
 
-With the Astria Sequencing Layer, transaction data touches three different chains: the
-sequencer chain, the data availability chain, and the rollup chain. Each of
-these requires a fee payment for DoS prevention. If each chain requires a
-different token for fee payment, this causes a poor UX. Many rollups built on
+With the Astria Sequencing Layer, transaction data touches three different
+chains: the sequencer chain, the data availability chain, and the rollup chain.
+Each of these requires a fee payment for DoS prevention. If each chain requires
+a different token for fee payment, this causes a poor UX. Many rollups built on
 Ethereum allows for bridged ETH to be used to pay fees, alleviating UX concerns,
 as users only need to obtain one, widely-available token (ETH).
 
@@ -23,7 +25,7 @@ To bridge tokens to a rollup built on Astria, the rollup needs to add the
 ability to derive deposit transactions from the sequencer or DA network. In
 general, rollup deposits work as follows:
 
-on the L1, tokens are transferred to some escrow account/contract.
+On the L1, tokens are transferred to some escrow account/contract.
 the rollup consensus node, which derives the L2 transactions from L1 data, sees
 these deposits, and includes a corresponding “deposit” transaction in the next
 L2 block, which is a distinct transaction type.

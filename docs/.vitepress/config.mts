@@ -41,86 +41,86 @@ export default defineConfig({
 function sidebar() {
   return [
     {
-
+      text: 'Learn',
+      collapsed: true,
       items: [
+        { text: 'Astria Overview', link: '/overview/introduction.md' },
+        { text: 'How Rollups Work', link: '/overview/how-rollups-work.md'},
+        { text: 'Bridging', link: '/overview/bridging.md' },
+        { text: 'Transaction Flow', link: '/overview/transaction-flow.md' },
         {
-          text: 'What is Astria?',
+          text: 'Components',
           collapsed: true,
           items: [
-            { text: 'Overview', link: '/overview/introduction' },
-            { text: 'How Rollups Work', link: '/overview/how-rollups-work'},
-            { text: 'The Astria Sequencer Network', link: '/overview/the-astria-sequencer-network' },
-            { text: 'Bridging', link: '/overview/bridging' },
-            { text: 'Transaction Flow', link: '/overview/transaction-flow' },
-            {
-              text: 'Components',
-              collapsed: true,
-              items: [
-                { text: 'Composer', link: '/overview/components/composer' },
-                { text: 'The Astria Sequencer', link: '/overview/components/the-astria-sequencer' },
-                { text: 'Relayer', link: '/overview/components/relayer' },
-                { text: 'Data Availability Layer', link: '/overview/components/data-availability-layer' },
-                { text: 'Conductor', link: '/overview/components/conductor' },
+            { text: 'Composer', link: '/overview/components/composer.md' },
+            { text: 'The Astria Sequencing Layer', link: '/overview/components/the-astria-sequencing-layer.md' },
+            { text: 'Relayer', link: '/overview/components/relayer.md' },
+            { text: 'Data Availability Layer', link: '/overview/components/data-availability-layer.md' },
+            { text: 'Conductor', link: '/overview/components/conductor.md' },
 
-              ]
-            },
           ]
-        }
-      ],
+        },
+      ]
+    },
+    {
+      text: 'Flame',
+      collapsed: true,
+      items: [
+        { text: 'Flame - Testnet', link: '/flame/flame-testnet.md' },
+        { text: 'Flame - Devnet', link: '/flame/flame-devnet.md' },
+      ]
+    },
+    {
+      text: 'Networks',
+      collapsed: true,
+      items: [
+        { text: 'Astria Dawn Testnet', link: '/networks/testnet.md' },
+        { text: 'Astria Dusk Devnet', link: '/networks/devnet.md' },
+        { text: 'Local Network', link: '/networks/local.md' },
+      ]
     },
     {
       text: 'Developers',
       collapsed: true,
       items: [
         {
-          text: 'Tutorials',
+          text: 'Rollup Development CLI',
           collapsed: true,
           items: [
-            { 
-              text: 'Using the Astria CLI', 
-              collapsed: true,
-              items: [
-                {text: 'Install the CLI', link: '/developer/tutorials/install-the-cli.md'},
-                {text: 'Run a Local Rollup and Sequencer', link: '/developer/tutorials/run-local-rollup-and-sequencer.md' },
-                {text: 'Run a Local Rollup against a Remote Sequencer', link: '/developer/tutorials/run-local-rollup-against-remote-sequencer.md' },
-                {text: 'Test Transactions', link: '/developer/tutorials/test-transactions.md' },
-              ]
-            }
+            {text: 'Installation', link: '/developer/astria-go/astria-go-installation.md'},
+            {text: 'Commands', link: '/developer/astria-go/astria-go-commands.md'},
+            {text: 'CLI Configuration', link: '/developer/astria-go/astria-go-config.md'},
           ]
         },
         {
-          text: 'References',
+          text: 'Astria Sequencer CLI',
           collapsed: true,
           items: [
-            {text: 'Astria Endpoints', link: '/developer/references/endpoints.md'},
-            {
-              text: 'astria-go cli', 
-              collapsed: true,
-              items: [
-                {text: 'Installation', link: '/developer/references/astria-go/cli-installation.md'},
-                {text: 'Commands', link: '/developer/references/astria-go/cli-commands.md'},
-                {text: 'CLI Configuration', link: '/developer/references/astria-go/cli-config.md'},
-              ]
-            }
+            {text: 'Installation', link: '/developer/astria-cli/astria-cli-installation.md'},
+            {text: 'Commands', link: '/developer/astria-cli/astria-cli-commands.md'},
           ]
         },
         {
-          text: 'The Astria EVM', link: '/astria-evm/overview'
+          text: 'Deployment Charts',
+          link: '/developer/deployment-charts.md',
+        },
+        {
+          text: 'Load testing with spamooor',
+          link: '/developer/spamooor.md',
+        },
+        {
+          text: 'APIs',
+          link: '/developer/apis.md',
         },
       ]
     },
     {
-      text: 'Resources',
+      text: 'Tutorials',
       collapsed: true,
       items: [
-        {
-          text: 'Community',
-          collapsed: true,
-          items: [
-            { text: 'Overview', link: '/community/1-overview' }
-          ]
-        },
-        { text: 'Astria Devnet FAQ', link: '/dusk-faq/faq' }
+        {text: 'Run a Local Rollup and Sequencer', link: '/tutorials/run-local-rollup-and-sequencer.md' },
+        {text: 'Run a Local Rollup against a Remote Sequencer', link: '/tutorials/run-local-rollup-against-remote-sequencer.md' },
+        {text: 'Test Transactions', link: '/tutorials/test-transactions.md' }
       ]
     }
   ]
@@ -129,13 +129,10 @@ function sidebar() {
 function nav() {
   return [
     { text: 'Home', link: '/' },
-    {
-      text: "Join the Network",
-      items: [
-        { text: "Learn", link: "/overview/introduction" },
-        { text: "Developers", link: "/developer/tutorials/1-using-astria-cli-go" },
-        { text: "Community", link: '/community/1-overview' },
-      ],
-    },
+    { text: "Learn", link: "/overview/introduction" },
+    { text: "Flame", link: "/flame/flame-testnet" },
+    { text: "Networks", link: "/networks/testnet" },
+    { text: "Developers", link: "/developer/astria-go/astria-go-installation" },
+    { text: "Tutorials", link: "/tutorials/run-local-rollup-against-remote-sequencer" },
   ];
 }

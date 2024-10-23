@@ -1,3 +1,6 @@
+<!-- markdownlint-disable MD024 -->
+<!-- Disabling MD024 to allow for repeat "Usage" heading -->
+
 # `astria-go` cli Commands
 
 ## Global Flags
@@ -57,7 +60,7 @@ astria-go dev init [flags]
 | Flag | Arg Type | Override Env Var | Description |
 |---|---|---|---|
 | `--instance` | string | `ASTRIA_GO_INSTANCE` | Choose the target instance. (default "default") |
-| `--local-native-denom` | string | `ASTRIA_GO_LOCAL_NATIVE_DENOM` | Set the native denom for the local instance. This is used to set the 'native_asset_base_denomination' and 'allowed_fee_assets' in the CometBFT genesis.json file. (default "nria") |
+| `--local-native-denom` | string | `ASTRIA_GO_LOCAL_NATIVE_DENOM` | Set the native denom for the local instance. This is used to set the 'native_asset_base_denomination' and 'allowed_fee_assets' in the CometBFT genesis.json file. (default "ntia") |
 | `--local-network-name` | string | `ASTRIA_GO_LOCAL_NETWORK_NAME` | Set the local network name for the instance. This is used to set the chain ID in the CometBFT genesis.json file. (default "sequencer-test-chain-0") |
 
 ## `dev purge`
@@ -96,8 +99,8 @@ astria-go dev purge all [flags]
 
 ## `dev purge binaries`
 
-Delete all downloaded binaries for a given instance. `astria-go dev init` must be run before `astria-go dev run`
-can be used.
+Delete all downloaded binaries for a given instance. `astria-go dev init` must
+be run before `astria-go dev run` can be used.
 
 ### Usage
 
@@ -134,8 +137,8 @@ astria-go dev reset [command] [flags]
 
 ## `dev reset config`
 
-Reset config files. This will return all files in the instance config directory to their
-default state as though initially created.
+Reset config files. This will return all files in the instance config directory
+to their default state as though initially created.
 
 ### Usage
 
@@ -148,7 +151,7 @@ astria-go dev reset config [flags]
 | Flag | Arg Type | Override Env Var | Description |
 |---|---|---|---|
 | `--instance` | string | `ASTRIA_GO_INSTANCE` | Choose the target instance. (default "default") |
-| `--local-native-denom` | string | `ASTRIA_GO_LOCAL_NATIVE_DENOM` | Set the native denom for the local instance. This is used to set the 'native_asset_base_denomination' and 'allowed_fee_assets' in the CometBFT genesis.json file. (default "nria") |
+| `--local-native-denom` | string | `ASTRIA_GO_LOCAL_NATIVE_DENOM` | Set the native denom for the local instance. This is used to set the 'native_asset_base_denomination' and 'allowed_fee_assets' in the CometBFT genesis.json file. (default "ntia") |
 | `--local-network-name` | string | `ASTRIA_GO_LOCAL_NETWORK_NAME` | Set the local network name for the instance. This is used to set the chain ID in the CometBFT genesis.json file. (default "sequencer-test-chain-0") |
 
 ## `dev reset networks`
@@ -167,7 +170,7 @@ astria-go dev reset networks [flags]
 | Flag | Arg Type | Override Env Var | Description |
 |---|---|---|---|
 | `--instance` | string | `ASTRIA_GO_INSTANCE` | Choose the target instance. (default "default") |
-| `--local-native-denom` | string | `ASTRIA_GO_LOCAL_NATIVE_DENOM` | Set the native denom for the local instance. This is used to set the 'native_asset_base_denomination' and 'allowed_fee_assets' in the CometBFT genesis.json file. (default "nria") |
+| `--local-native-denom` | string | `ASTRIA_GO_LOCAL_NATIVE_DENOM` | Set the native denom for the local instance. This is used to set the 'native_asset_base_denomination' and 'allowed_fee_assets' in the CometBFT genesis.json file. (default "ntia") |
 | `--local-network-name` | string | `ASTRIA_GO_LOCAL_NETWORK_NAME` | Set the local network name for the instance. This is used to set the chain ID in the CometBFT genesis.json file. (default "sequencer-test-chain-0") |
 
 ## `dev reset state`
@@ -239,7 +242,7 @@ astria-go sequencer balance [address] [flags]
 
 | Flag | Arg Type | Override Env Var | Description |
 |---|---|---|---|
-| `--json` | N/A | bool | `ASTRIA_GO_JSON` | Output an account's balances in JSON format. |
+| `--json` | bool | `ASTRIA_GO_JSON` | Output an account's balances in JSON format. |
 | `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to retrieve the balance from. (default "<http://127.0.0.1:26657>") |
 
 ## `sequencer blockheight`
@@ -256,7 +259,7 @@ astria-go sequencer blockheight [flags]
 
 | Flag | Arg Type | Override Env Var | Description |
 |---|---|---|---|
-| `--json` | N/A | bool | `ASTRIA_GO_JSON` | Output an account's balances in JSON format. |
+| `--json` | bool | `ASTRIA_GO_JSON` | Output an account's balances in JSON format. |
 | `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to retrieve the balance from. (default "<http://127.0.0.1:26657>") |
 
 ## `sequencer bridge`
@@ -284,7 +287,7 @@ astria-go sequencer bridge init [rollup-id] [flags]
 | Flag | Arg Type | Override Env Var | Description |
 |---|---|---|---|
 | `--asset-id` | string | `ASTRIA_GO_ASSET_ID`  | The asset id of the asset we want to bridge (default "transfer/channel-0/utia") |
-| `--fee-asset-id` | string | `ASTRIA_GO_FEE_ASSET_ID` | The fee asset id of the asset used for fees (default "nria") |
+| `--fee-asset-id` | string | `ASTRIA_GO_FEE_ASSET_ID` | The fee asset id of the asset used for fees (default "ntia") |
 | `--json` | bool | `ASTRIA_GO_JSON` | Output bridge account as JSON |
 | `--keyfile` | string | `ASTRIA_GO_KEYFILE` | Path to secure keyfile for the bridge account. |
 | `--keyring-address` | string | `ASTRIA_GO_KEYRING_ADDRESS` | The address of the bridge account. Requires private key be stored in keyring. |
@@ -358,7 +361,7 @@ astria-go sequencer nonce [address] [flags]
 
 | Flag | Arg Type | Override Env Var | Description |
 |---|---|---|---|
-| `--json` | N/A | bool | `ASTRIA_GO_JSON` | Output in JSON format. |
+| `--json` | bool | `ASTRIA_GO_JSON` | Output in JSON format. |
 | `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer. (default "<http://127.0.0.1:26657>") |
 
 ## `sequencer setkey`

@@ -26,7 +26,7 @@ Open the `geth-genesis-local.json` file in your Geth repo and update the
 `"alloc"` account with the new address you just created, as well as updating the
 `"chainId"` and `"astriaRollupName"` to something of your choosing:
 
-```json
+```json{4-5,8}
 {
     "config": {
         ...
@@ -41,7 +41,7 @@ Open the `geth-genesis-local.json` file in your Geth repo and update the
 ```
 
 You will use the private key for your new account to send [test
-transactions](./test-transactions.md) later on. 
+transactions](./test-transactions.md) later on.
 
 ## Start Geth
 
@@ -60,7 +60,8 @@ restart with:
 just run
 ```
 
-If you need to restart the rollup and want to also clear the state data, you can use:
+If you need to restart the rollup and want to also clear the state data, you can
+use:
 
 ```bash
 just clean-restart
@@ -82,13 +83,13 @@ Open the `~/.astria/default/networks-config.toml` file and update the
 `"astriaRollupName"` you used when [setting up your Geth
 rollup](#setup-a-geth-rollup).
 
-```toml
+```toml{5}
 [networks.local]
 sequencer_chain_id = 'sequencer-test-chain-0'
 sequencer_grpc = 'http://127.0.0.1:8080'
 sequencer_rpc = 'http://127.0.0.1:26657'
 rollup_name = '<your rollup name>' # update this value
-default_denom = 'nria'
+default_denom = 'ntia'
 ```
 
 Use the cli to run a local Astria Sequencer.
@@ -98,8 +99,8 @@ astria-go dev run --network local
 ```
 
 :::tip
-When running an Astria sequencer using the cli, the `--network local` setting is the
-default. `astria-go dev run` is effectively an alias for `astria-go dev run
+When running an Astria sequencer using the cli, the `--network local` setting is
+the default. `astria-go dev run` is effectively an alias for `astria-go dev run
 --network local`.
 :::
 

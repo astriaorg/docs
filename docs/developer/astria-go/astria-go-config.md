@@ -1,9 +1,12 @@
 # `astria-go` Configuration
 
 Config for the `astria-go` CLI can be broken out into the following catagories:
+
 - [CLI TUI/devrunner](#tui-config)
-- [Services](#service-config) and [networks](#devrunner-networks-config) run by the TUI
-- Presets for running [`sequencer` commands](#sequencer-networks-config) used when interacting with the Astria sequencer.
+- [Services](#service-config) and [networks](#devrunner-networks-config) run by
+  the TUI
+- Presets for running [`sequencer` commands](#sequencer-networks-config) used
+  when interacting with the Astria sequencer.
 
 ## TUI Config
 
@@ -48,8 +51,6 @@ notation:
 highlight_color = "deepskyblue" # names should be all lowercase with no spaces
 border_color = "#808080"
 ```
-
-
 
 ## Sequencer Networks Config
 
@@ -113,7 +114,7 @@ sequencer_chain_id = 'sequencer-test-chain-0'
 sequencer_grpc = 'http://127.0.0.1:8080'
 sequencer_rpc = 'http://127.0.0.1:26657'
 rollup_name = 'astria-test-chain-1'
-default_denom = 'nria'
+default_denom = 'ntia'
 
 [networks.local.services]
 [networks.local.services.cometbft]
@@ -153,7 +154,7 @@ sequencer_chain_id = 'astria-dusk-10'
 sequencer_grpc = 'https://grpc.sequencer.dusk-10.devnet.astria.org/'
 sequencer_rpc = 'https://rpc.sequencer.dusk-10.devnet.astria.org/'
 rollup_name = ''
-default_denom = 'nria'
+default_denom = 'ntia'
 
 [networks.dusk.services]
 [networks.dusk.services.composer]
@@ -210,7 +211,7 @@ sequencer_chain_id = 'rollback-test-chain'
 sequencer_grpc = 'http://127.0.0.1:8080'
 sequencer_rpc = 'http://127.0.0.1:26657'
 rollup_name = 'astria-test-chain-1'
-default_denom = 'nria'
+default_denom = 'ntia'
 
 [networks.local-rollback.services]
 [networks.local-rollback.services.cometbft]
