@@ -72,3 +72,19 @@ astria-cli sequencer bridge-lock astria1u6ewl0tejz0df2l6tzc7k2degx6mqsjahldqxd \
     --sequencer-url https://rpc.sequencer.dawn-1.astria.org/ \
     --fee-asset=transfer/channel-0/utia --asset=transfer/channel-1/uusdc
 ```
+
+## Check Your Balance(s)
+
+### TIA
+
+```bash
+cast balance $FLAME_ADDRESS --rpc-url https://rpc.flame.dawn-1.astria.org
+
+```
+
+### USDC
+
+```bash
+cast balance $FLAME_ADDRESS --erc20 0x6e18cE6Ec3Fc7b8E3EcFca4fA35e25F3f6FA879a --rpc-url https://rpc.flame.dawn-1.astria.org
+
+```

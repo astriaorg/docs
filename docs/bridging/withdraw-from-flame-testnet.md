@@ -49,8 +49,8 @@ MINT_TO=0x0b22C4b638A483a9A874713b7d10b9C900108168
 ```
 
 ::: tip
-something something need native asset
-
+In order to bridge out of Flame you must have a balance of native funds to pay
+for gas. For Flame, this is the `transfer/channel-0/utia` bridged from Celestia.
 :::
 
 ## To Astria
