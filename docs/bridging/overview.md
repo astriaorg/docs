@@ -14,40 +14,28 @@ required for building and successfully using `nobeld` and `celestia-appd`:
 
 - [Go](https://go.dev/doc/install)
 
-Install the `nobeld` cli:
+Install the `astria-cli`:
 
-<!--@include: ../components/_install-nobeld.md-->
+- See [`astria-cli` installation
+  docs](../developer/astria-cli/astria-cli-installation.md)
 
 Install the `celestia-appd` cli:
 
 - See [`celestia-appd` installation
   docs](https://docs.celestia.org/how-to-guides/celestia-app)
 
-Install the `astria-cli`:
-
-- See [`astria-cli` installation
-  docs](../developer/astria-cli/astria-cli-installation.md)
-
 Install Foundry:
 
 - See the [Foundry installation
   docs](https://book.getfoundry.sh/getting-started/installation).
 
+Install the `nobeld` cli:
+
+<!--@include: ../components/_install-nobeld.md-->
+
 ## Creating Accounts
 
 You will need an account for all networks you are interacting with.
-
-### Create a Celestia account
-
-```bash
-celestia-appd keys add <name-of-your-celestia-key>
-```
-
-### Create a Nobel account
-
-```bash
-nobled keys add <name-of-your-nobel-key>
-```
 
 ### Create an Astria account
 
@@ -55,10 +43,22 @@ nobled keys add <name-of-your-nobel-key>
 astria-cli sequencer account create
 ```
 
+### Create a Celestia account
+
+```bash
+celestia-appd keys add <name-of-your-celestia-key>
+```
+
 ### Create a Flame account
 
 ```bash
 cast w new
+```
+
+### Create a Nobel account
+
+```bash
+nobled keys add <name-of-your-nobel-key>
 ```
 
 ## Funding Testnet Accounts
@@ -84,17 +84,16 @@ To make the following commands easily copy and pasted, export your account
 addresses to the environment:
 
 ```bash
-export NOBLE_ADDRESS="<your-nobel-address>"
-export CELESTIA_ADDRESS="<your-celestia-address>"
 export ASTRIA_ADDRESS="<your-astria-address>"
+export CELESTIA_ADDRESS="<your-celestia-address>"
 export FLAME_ADDRESS="<your-flame-address>"
+export NOBLE_ADDRESS="<your-nobel-address>"
 ```
 
-### Nobel Balance
+### Astria Balance
 
 ```bash
-nobled query bank balances $NOBLE_ADDRESS --node https://noble-testnet-rpc.polkachu.com:443
-
+astria-cli sequencer balance get $ASTRIA_ADDRESS --sequencer-url https://rpc.sequencer.dawn-1.astria.org/
 ```
 
 ### Celestia Balance
@@ -104,14 +103,15 @@ celestia-appd query bank balances $CELESTIA_ADDRESS --node=https://rpc-mocha.pop
 
 ```
 
-### Astria Balance
-
-```bash
-astria-cli sequencer balance get $ASTRIA_ADDRESS --sequencer-url https://rpc.sequencer.dawn-1.astria.org/
-```
-
 ### Flame Balance
 
 ```bash
 cast balance $FLAME_ADDRESS --rpc-url https://rpc.flame.dawn-1.astria.org
+```
+
+### Nobel Balance
+
+```bash
+nobled query bank balances $NOBLE_ADDRESS --node https://noble-testnet-rpc.polkachu.com:443
+
 ```
