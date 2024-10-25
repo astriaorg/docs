@@ -53,6 +53,12 @@ In order to bridge out of Flame you must have a balance of native funds to pay
 for gas. For Flame, this is the `transfer/channel-0/utia` bridged from Celestia.
 :::
 
+To make the following commands easy to copy and paste, export the `RPC_URL`:
+
+```bash
+export RPC_URL="https://rpc.flame.dawn-1.astria.org"
+```
+
 ## To Astria
 
 ### Withdraw TIA
@@ -102,3 +108,5 @@ to be your Nobel address.
 forge script script/AstriaBridgeableERC20.s.sol:AstriaBridgeableERC20Script \
    --rpc-url $RPC_URL --broadcast --sig "withdrawToIbcChain()" -vvvv
 ```
+
+## Check Your Balance

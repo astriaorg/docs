@@ -32,7 +32,8 @@ celestia-appd tx ibc-transfer transfer \
     --memo="{\"rollupDepositAddress\":\"$FLAME_ADDRESS\"}" \
     --chain-id="mocha-4" \
     --from="$CELESTIA_KEY_NAME" \
-    --node=https://rpc-mocha.pops.one:443
+    --node=https://rpc-mocha.pops.one:443 \
+    --packet-timeout-height 0-0
 ```
 
 ### From Nobel
@@ -46,7 +47,8 @@ nobled tx ibc-transfer transfer \
     --memo="{\"rollupDepositAddress\":\"$FLAME_ADDRESS\"}" \
     --chain-id="grand-1" \
     --from="$NOBEL_KEY_NAME" \
-    --node=https://noble-testnet-rpc.polkachu.com:443
+    --node=https://noble-testnet-rpc.polkachu.com:443 \
+    --packet-timeout-height 0-0
 ```
 
 ### TIA from Astria
@@ -73,7 +75,7 @@ astria-cli sequencer bridge-lock astria1u6ewl0tejz0df2l6tzc7k2degx6mqsjahldqxd \
     --fee-asset=transfer/channel-0/utia --asset=transfer/channel-1/uusdc
 ```
 
-## Check Your Balance(s)
+## Check Your Balances on Flame
 
 ### TIA
 
@@ -88,3 +90,11 @@ cast balance $FLAME_ADDRESS --rpc-url https://rpc.flame.dawn-1.astria.org
 cast balance $FLAME_ADDRESS --erc20 0x6e18cE6Ec3Fc7b8E3EcFca4fA35e25F3f6FA879a --rpc-url https://rpc.flame.dawn-1.astria.org
 
 ```
+
+## View Your Transactions
+
+Open the [Flame Block Explorer](https://explorer.flame.dawn-1.astria.org) and
+search for your Flame address to see your transactions.
+
+On the account page you can view your TIA balance directly. To view your USDC
+balance, select the `Tokens` tab.

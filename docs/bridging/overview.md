@@ -106,7 +106,7 @@ celestia-appd query bank balances $CELESTIA_ADDRESS --node=https://rpc-mocha.pop
 ### Flame Balance
 
 ```bash
-cast balance $FLAME_ADDRESS --rpc-url https://rpc.flame.dawn-1.astria.org
+cast balance --rpc-url https://rpc.flame.dawn-1.astria.org $FLAME_ADDRESS
 ```
 
 ### Nobel Balance
