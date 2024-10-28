@@ -1,4 +1,4 @@
-# Withdraw from Flame
+# Withdraw from Flame on `dawn` Testnet
 
 Make sure Foundry is installed:
 
@@ -49,8 +49,9 @@ MINT_TO=0x0b22C4b638A483a9A874713b7d10b9C900108168
 ```
 
 ::: tip
-In order to bridge out of Flame you must have a balance of native funds to pay
-for gas. For Flame, this is the `transfer/channel-0/utia` bridged from Celestia.
+In order to bridge out of Flame on `dawn` you must have a balance of native
+funds to pay for gas. This is the `transfer/channel-0/utia` bridged from
+Celestia.
 :::
 
 To make the following commands easy to copy and paste, export the `RPC_URL`:
@@ -109,4 +110,18 @@ forge script script/AstriaBridgeableERC20.s.sol:AstriaBridgeableERC20Script \
    --rpc-url $RPC_URL --broadcast --sig "withdrawToIbcChain()" -vvvv
 ```
 
-## Check Your Balance
+## Check your Balances on Celestia and Nobel
+
+### Celestia Balance
+
+```bash
+celestia-appd query bank balances $CELESTIA_ADDRESS --node=https://rpc-mocha.pops.one:443 --chain-id mocha-4
+
+```
+
+### Nobel Balance
+
+```bash
+nobled query bank balances $NOBLE_ADDRESS --node https://noble-testnet-rpc.polkachu.com:443
+
+```

@@ -1,4 +1,4 @@
-# Bridging to Flame
+# Bridging to Flame on `dawn` Testnet
 
 Bridging commands from Celestia and Nobel testnets to the Astria `dawn` testnet.
 

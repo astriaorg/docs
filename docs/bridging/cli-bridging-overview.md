@@ -1,11 +1,12 @@
 # Bridge to Astria
 
-## Using the Astria Bridging UI
-
 <!-- TODO: add the actual url here -->
+The Astria Bridge UI is the recommend method for bridging to Astria.
 Visit the Astria Bridging UI [here](https://www.astria.org/).
 
-## Bridging Dependencies
+If you prefer the command line, manual bridging is also possible.
+
+## CLI Bridging Dependencies
 
 To bridge funds directly on the command line, install the following.
 
@@ -73,6 +74,11 @@ Fund your Celestia address using the Celestia testnet faucet
 Fund your Nobel address using the Nobel testnet faucet
 [here](https://faucet.circle.com/). Select `Nobel Testnet` in the dropdown.
 
+### Astria `dusk` Devnet
+
+Fund your Astria address using the Astria `dusk` network faucet
+[here](https://faucet.sequencer.dusk-11.devnet.astria.org/).
+
 ### Astria `dawn` Testnet
 
 Fund your Astria address using the Astria `dawn` network faucet
@@ -90,10 +96,16 @@ export FLAME_ADDRESS="<your-flame-address>"
 export NOBLE_ADDRESS="<your-nobel-address>"
 ```
 
-### Astria Balance
+### Astria Dawn Balance
 
 ```bash
 astria-cli sequencer balance get $ASTRIA_ADDRESS --sequencer-url https://rpc.sequencer.dawn-1.astria.org/
+```
+
+### Astria Dusk Balance
+
+```bash
+astria-cli sequencer balance get $ASTRIA_ADDRESS --sequencer-url https://rpc.sequencer.dusk-11.devnet.astria.org/
 ```
 
 ### Celestia Balance
@@ -103,10 +115,16 @@ celestia-appd query bank balances $CELESTIA_ADDRESS --node=https://rpc-mocha.pop
 
 ```
 
-### Flame Balance
+### Flame Dawn Balance
 
 ```bash
 cast balance --rpc-url https://rpc.flame.dawn-1.astria.org $FLAME_ADDRESS
+```
+
+### Flame Dusk Balance
+
+```bash
+cast balance --rpc-url https://rpc.flame.dusk-11.devnet.astria.org $FLAME_ADDRESS
 ```
 
 ### Nobel Balance
