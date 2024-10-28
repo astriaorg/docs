@@ -3,22 +3,22 @@
 <script setup>
 import { siteConfig } from '../config.js'
 
-const bridge = siteConfig
+const bridge = siteConfig.flame
 </script>
 
 # Use the Astria Bridge UI
 
 The Astria Bridging UI is the recommend method for bridging to Astria.
-Visit the Astria Bridging UI <a :href="bridge.flame.mainnet.bridging.ui_link"
+Visit the Astria Bridging UI <a :href="bridge.mainnet.bridging.ui_link"
 target="_blank" rel="noopener noreferrer">here</a>.
 
 ## Navigate to the Bridge UI for your Desired Network
 
 | Network | Bridge UI Link |
 |---|---|
-| Astria Mainnet Alpha | <a :href="bridge.flame.mainnet.bridging.ui_link" target="_blank" rel="noopener noreferrer">Mainnet Bridge UI</a> |
-| Astria `dawn` Testnet | <a :href="bridge.flame.dawn.bridging.ui_link" target="_blank" rel="noopener noreferrer">Testnet Bridge UI</a> |
-| Astria `dusk` Devnet | <a :href="bridge.flame.dusk.bridging.ui_link" target="_blank" rel="noopener noreferrer">Devnet Bridge UI</a> |
+| Astria Mainnet Alpha | <a :href="bridge.mainnet.bridging.ui_link" target="_blank" rel="noopener noreferrer">Mainnet Bridge UI</a> |
+| Astria `dawn` Testnet | <a :href="bridge.dawn.bridging.ui_link" target="_blank" rel="noopener noreferrer">Testnet Bridge UI</a> |
+| Astria `dusk` Devnet | <a :href="bridge.dusk.bridging.ui_link" target="_blank" rel="noopener noreferrer">Devnet Bridge UI</a> |
 
 ## Supported Wallets
 
