@@ -17,9 +17,6 @@ const mainnet = siteConfig.mainnet
 | Sequencer Block Explorer             | <a :href="mainnet.sequencer_explorer"      target="_blank" rel="noopener noreferrer">{{mainnet.sequencer_explorer}}</a>      |
 | Celestia Signer                      | <a :href="mainnet.celenium_signer_link"    target="_blank" rel="noopener noreferrer">{{mainnet.celestia_signer_address}}</a> |
 | Celestia Mainnet Namespace | <a :href="mainnet.celenium_namespace_link" target="_blank" rel="noopener noreferrer">{{mainnet.celestia_namespace}}</a>      |
-<!-- | Flame RPC                            | <a :href="mainnet.flame_rpc"               target="_blank" rel="noopener noreferrer">{{mainnet.flame_rpc}}</a>               | -->
-<!-- | Flame Block Explorer                 | <a :href="mainnet.flame_explorer"          target="_blank" rel="noopener noreferrer">{{mainnet.flame_explorer}}</a>          | -->
-
 
 ## Mainnet Service Versions
 
