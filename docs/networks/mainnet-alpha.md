@@ -6,7 +6,7 @@ import { siteConfig } from '../config.js'
 const mainnet = siteConfig.mainnet
 </script>
 
-# Astria Mainnet
+# Astria Mainnet Alpha
 
 ## Mainnet Endpoints
 
@@ -26,5 +26,4 @@ const mainnet = siteConfig.mainnet
 | Astria Composer          | <a :href="mainnet.composer_release" target="_blank" rel="noopener noreferrer">{{mainnet.composer_version}}</a>                   | <a :href="mainnet.composer_repo" target="_blank" rel="noopener noreferrer">repo</a>          |
 | Astria Sequencer-relayer | <a :href="mainnet.sequencer_relayer_release" target="_blank" rel="noopener noreferrer">{{mainnet.sequencer_relayer_version}}</a> | <a :href="mainnet.sequencer_relayer_repo" target="_blank" rel="noopener noreferrer">repo</a> |
 | Astria Sequencer         | <a :href="mainnet.sequencer_release" target="_blank" rel="noopener noreferrer">{{mainnet.sequencer_version}}</a>                 | <a :href="mainnet.sequencer_repo" target="_blank" rel="noopener noreferrer">repo</a>         |
-| Flame                    | <a :href="mainnet.flame_release" target="_blank" rel="noopener noreferrer">{{mainnet.flame_version}}</a>                         | <a :href="mainnet.flame_repo" target="_blank" rel="noopener noreferrer">repo</a>             |
 | CometBFT                 | <a :href="mainnet.cometbft_release" target="_blank" rel="noopener noreferrer">{{mainnet.cometbft_version}}</a>                   | <a :href="mainnet.cometbft_repo" target="_blank" rel="noopener noreferrer">repo</a>          |
