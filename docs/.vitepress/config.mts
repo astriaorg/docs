@@ -66,8 +66,9 @@ function sidebar() {
       text: 'Flame',
       collapsed: true,
       items: [
-        { text: 'Flame - Testnet', link: '/flame/flame-testnet.md' },
-        { text: 'Flame - Devnet', link: '/flame/flame-devnet.md' },
+        { text: 'On Mainnet', link: '/flame/flame-mainnet.md' },
+        { text: 'On Testnet', link: '/flame/flame-testnet.md' },
+        { text: 'On Devnet', link: '/flame/flame-devnet.md' },
       ]
     },
     {

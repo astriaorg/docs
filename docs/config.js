@@ -1,5 +1,25 @@
 export const siteConfig = {
     flame: {
+        mainnet: {
+            info: {
+                network_name: "astria",
+                chain_id: "253368190",
+                // for rpc url set in the dawn/dusk sections below
+                // for explorer url set in the dawn/dusk sections below
+                native_asset: "transfer/channel-0/utia",
+                currency_symbol: "TIA",
+            },
+            bridging: {
+                ibc_celestia_to_astria: "channel-48",
+                ibc_astria_to_celestia: "channel-0",
+                ibc_nobel_to_astria: "channel-104",
+                ibc_astria_to_nobel: "channel-1",
+                sequencer_celestia_address: "astria13vptdafyttpmlwppt0s844efey2cpc0mevy92p",
+                sequencer_nobel_address: "astria1eg8hhey0n4untdvqqdvlyl0e7zx8wfca48kglh",
+                flame_tia_address: "0xB086557f9B5F6fAe5081CC5850BE94e62B1dDE57",
+                flame_usdc_address: "N/A",
+            },
+        },
         dawn: {
             info: {
                 network_name: "dawn-1",
@@ -38,15 +58,15 @@ export const siteConfig = {
         },
     },
     mainnet: {
-        flame_rpc: "N/A",
-        flame_explorer: "N/A",
+        flame_rpc: "https://rpc.flame.astria.org",
+        flame_explorer: "https://explorer.flame.astria.org",
         sequencer_rpc: "https://rpc.astria.org/",
         sequencer_grpc: "https://grpc.astria.org/",
         sequencer_explorer: "https://astrotrek.io/",
-        celestia_signer_address: "N/A",
-        celenium_signer_link: "N/A",
-        celestia_namespace: "N/A",
-        celenium_namespace_link: "N/A",
+        celestia_signer_address: "celestia1ldf3mhs0z5h5effkkyvc5scpy0xah00t98xfml",
+        celenium_signer_link: "https://celenium.io/address/celestia1ldf3mhs0z5h5effkkyvc5scpy0xah00t98xfml?tab=transactions",
+        celestia_namespace: "0000000000000000000000000000000000005bb944ec2fd3ae9c22f6",
+        celenium_namespace_link: "https://celenium.io/namespace/0000000000000000000000000000000000005bb944ec2fd3ae9c22f6?tab=Blobs",
         // services
         conductor_version: "v1.0.0",
         conductor_release: "https://github.com/astriaorg/astria/releases/tag/conductor-v1.0.0",
