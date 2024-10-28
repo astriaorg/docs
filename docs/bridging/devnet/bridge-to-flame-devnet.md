@@ -83,8 +83,9 @@ cast balance $FLAME_ADDRESS --erc20 0x6e18cE6Ec3Fc7b8E3EcFca4fA35e25F3f6FA879a -
 
 ## View Your Transactions
 
-Open the [Flame Block Explorer](https://explorer.flame.dusk-11.devnet.astria.org) and
-search for your Flame address to see your transactions.
+Open the [Flame Block
+Explorer](https://explorer.flame.dusk-11.devnet.astria.org) and search for your
+Flame address to see your transactions.
 
 On the account page you can view your TIA balance directly. To view your USDC
 balance, select the `Tokens` tab.

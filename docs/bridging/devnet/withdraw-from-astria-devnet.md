@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD051 -->
+
 # Withdraw from the Astria `dusk` Devnet
 
 Withdrawal commands from Astria `dusk` devnet to Celestia and Nobel testnets.
