@@ -10,6 +10,7 @@ export const siteConfig = {
                 currency_symbol: "TIA",
             },
             bridging: {
+                ui_link: "https://bridge.astria.org",
                 ibc_celestia_to_astria: "channel-48",
                 ibc_astria_to_celestia: "channel-0",
                 ibc_nobel_to_astria: "channel-104",
@@ -30,6 +31,7 @@ export const siteConfig = {
                 currency_symbol: "TIA",
             },
             bridging: {
+                ui_link: "https://astria-bridge-web-app.vercel.app/",
                 ibc_mocha_to_dawn: "channel-160",
                 ibc_dawn_to_mocha: "channel-0",
                 ibc_grand_to_dawn: "channel-232",
@@ -48,6 +50,7 @@ export const siteConfig = {
                 currency_symbol: "nRIA",
             },
             bridging: {
+                ui_link: "https://astria-bridge-web-app-develop.vercel.app/)",
                 ibc_mocha_to_dusk: "channel-159",
                 ibc_dusk_to_mocha: "channel-0",
                 ibc_grand_to_dusk: "channel-231",

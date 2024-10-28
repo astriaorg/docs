@@ -86,6 +86,7 @@ cast balance $FLAME_ADDRESS --rpc-url https://rpc.flame.dawn-1.astria.org
 
 ### USDC
 
+<!-- TODO: verify correct address -->
 ```bash
 cast balance $FLAME_ADDRESS --erc20 0x6e18cE6Ec3Fc7b8E3EcFca4fA35e25F3f6FA879a --rpc-url https://rpc.flame.dawn-1.astria.org
 

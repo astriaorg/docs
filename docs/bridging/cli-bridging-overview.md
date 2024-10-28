@@ -1,10 +1,17 @@
+<!-- markdownlint-disable MD041 MD033 -->
+
+<script setup>
+import { siteConfig } from '../config.js'
+
+const link = siteConfig.flame.mainnet.bridging.ui_link
+</script>
+
 # Bridge to Astria
 
-<!-- TODO: add the actual url here -->
 The Astria Bridge UI is the recommend method for bridging to Astria.
-Visit the Astria Bridging UI [here](https://www.astria.org/).
-
-If you prefer the command line, manual bridging is also possible.
+Visit the Astria Bridging UI <a :href="link" target="_blank" rel="noopener
+noreferrer">here</a>. If you prefer the command line, manual bridging is also
+possible.
 
 ## CLI Bridging Dependencies
 
