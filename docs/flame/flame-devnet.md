@@ -6,7 +6,7 @@ import { siteConfig } from '../config.js'
 const config = siteConfig
 </script>
 
-# Flame
+# Flame on Devnet
 
 Flame is the EVM for Celestia Native DeFi. The information below is specifically
 for Flame running on the Astria `dusk-{{config.dusk.num}}` Devnet.
@@ -85,3 +85,8 @@ cast send $REC_ADDR --value 10000000000000000000 --private-key <PRIVATE-KEY>
 ```bash
 cast balance $REC_ADDR
 ```
+
+## Fork Diff
+
+Flame is a fork of [go-ethereum](https://github.com/ethereum/go-ethereum). See
+the fork diff [here](https://astriaorg.github.io/astria-geth/).
