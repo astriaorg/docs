@@ -6,7 +6,7 @@ import { siteConfig } from '../config.js'
 const config = siteConfig
 </script>
 
-# Flame
+# Flame on Testnet
 
 Flame is the EVM for Celestia Native DeFi. The information below is specifically
 for Flame running on the Astria `dawn-{{config.dawn.num}}` Testnet.

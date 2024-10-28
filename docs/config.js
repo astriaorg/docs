@@ -1,5 +1,25 @@
 export const siteConfig = {
     flame: {
+        mainnet: {
+            info: {
+                network_name: "astria",
+                chain_id: "253368190",
+                // for rpc url set in the dawn/dusk sections below
+                // for explorer url set in the dawn/dusk sections below
+                native_asset: "transfer/channel-0/utia",
+                currency_symbol: "TIA",
+            },
+            bridging: {
+                ibc_celestia_to_astria: "channel-48",
+                ibc_astria_to_celestia: "channel-0",
+                ibc_nobel_to_astria: "channel-104",
+                ibc_astria_to_nobel: "channel-1",
+                sequencer_celestia_address: "astria13vptdafyttpmlwppt0s844efey2cpc0mevy92p",
+                sequencer_nobel_address: "astria1eg8hhey0n4untdvqqdvlyl0e7zx8wfca48kglh",
+                flame_tia_address: "0xB086557f9B5F6fAe5081CC5850BE94e62B1dDE57",
+                flame_usdc_address: "N/A",
+            },
+        },
         dawn: {
             info: {
                 network_name: "dawn-1",
@@ -36,6 +56,49 @@ export const siteConfig = {
                 flame_ria_address: "0xA58639fB5458e65E4fA917FF951C390292C24A15",
             },
         },
+    },
+    mainnet: {
+        flame_rpc: "https://rpc.flame.astria.org",
+        flame_explorer: "https://explorer.flame.astria.org",
+        sequencer_rpc: "https://rpc.astria.org/",
+        sequencer_grpc: "https://grpc.astria.org/",
+        sequencer_explorer: "https://astrotrek.io/",
+        celestia_signer_address: "celestia1ldf3mhs0z5h5effkkyvc5scpy0xah00t98xfml",
+        celenium_signer_link: "https://celenium.io/address/celestia1ldf3mhs0z5h5effkkyvc5scpy0xah00t98xfml?tab=transactions",
+        celestia_namespace: "0000000000000000000000000000000000005bb944ec2fd3ae9c22f6",
+        celenium_namespace_link: "https://celenium.io/namespace/0000000000000000000000000000000000005bb944ec2fd3ae9c22f6?tab=Blobs",
+        // services
+        conductor_version: "v1.0.0",
+        conductor_release: "https://github.com/astriaorg/astria/releases/tag/conductor-v1.0.0",
+        conductor_repo: "https://github.com/astriaorg/astria/tree/main/crates/astria-conductor",
+        composer_version: "v1.0.0",
+        composer_release: "https://github.com/astriaorg/astria/releases/tag/composer-v1.0.0",
+        composer_repo: "https://github.com/astriaorg/astria/tree/main/crates/astria-composer",
+        sequencer_relayer_version: "v1.0.0",
+        sequencer_relayer_release: "https://github.com/astriaorg/astria/releases/tag/sequencer-relayer-v1.0.0",
+        sequencer_relayer_repo: "https://github.com/astriaorg/astria/tree/main/crates/astria-sequencer-relayer",
+        sequencer_version: "v1.0.0",
+        sequencer_release: "https://github.com/astriaorg/astria/releases/tag/sequencer-v1.0.0",
+        sequencer_repo: "https://github.com/astriaorg/astria/tree/main/crates/astria-sequencer",
+        flame_version: "v0.16.0",
+        flame_release: "https://github.com/astriaorg/astria-geth/releases/tag/v0.16.0",
+        flame_repo: "https://github.com/astriaorg/astria-geth",
+        cometbft_version: "v0.38.11",
+        cometbft_release: "https://github.com/cometbft/cometbft/releases/tag/v0.38.11",
+        cometbft_repo: "https://github.com/cometbft/cometbft",
+        // deployments
+        descriptorProxyAddress: "N/A",
+        multicall2Address: "N/A",
+        nftPositionDescriptorAddress: "N/A",
+        nftPositionManagerAddress: "N/A",
+        proxyAdminAddress: "N/A",
+        quoterV2Address: "N/A",
+        swapRouter02Address: "N/A",
+        tickLensAddress: "N/A",
+        v3CoreFactoryAddress: "N/A",
+        v3MigratorAddress: "N/A",
+        v3StakerAddress: "N/A",
+        weth9Address: "N/A",
     },
     dawn: {
         num: 1,

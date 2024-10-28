@@ -66,14 +66,15 @@ function sidebar() {
       text: 'Flame',
       collapsed: true,
       items: [
-        { text: 'Flame - Testnet', link: '/flame/flame-testnet.md' },
-        { text: 'Flame - Devnet', link: '/flame/flame-devnet.md' },
+        { text: 'On Testnet', link: '/flame/flame-testnet.md' },
+        { text: 'On Devnet', link: '/flame/flame-devnet.md' },
       ]
     },
     {
       text: 'Networks',
       collapsed: true,
       items: [
+        { text: 'Astria Mainnet Alpha', link: '/networks/mainnet-alpha.md' },
         { text: 'Astria Dawn Testnet', link: '/networks/testnet.md' },
         { text: 'Astria Dusk Devnet', link: '/networks/devnet.md' },
         { text: 'Local Network', link: '/networks/local.md' },
