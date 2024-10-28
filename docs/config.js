@@ -17,7 +17,7 @@ export const siteConfig = {
                 sequencer_celestia_address: "astria13vptdafyttpmlwppt0s844efey2cpc0mevy92p",
                 sequencer_nobel_address: "astria1eg8hhey0n4untdvqqdvlyl0e7zx8wfca48kglh",
                 flame_tia_address: "0xB086557f9B5F6fAe5081CC5850BE94e62B1dDE57",
-                flame_usdc_address: "N/A",
+                flame_usdc_address: "0x3f65144F387f6545bF4B19a1B39C94231E1c849F",
             },
         },
         dawn: {

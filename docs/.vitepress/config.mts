@@ -76,6 +76,13 @@ function sidebar() {
       items: [
         { text: 'Use the Bridge UI', link: '/bridging/bridge-ui.md' },
         { text: 'CLI Bridging Overview', link: '/bridging/cli-bridging-overview.md' },
+        { text: 'Bridge on Mainnet Alpha', collapsed: true, items: [
+          { text: 'Bridge To Astria', link: '/bridging/mainnet-alpha/bridge-to-astria-mainnet-alpha.md' },
+          { text: 'Withdraw From Astria', link: '/bridging/mainnet-alpha/withdraw-from-astria-mainnet-alpha.md' },
+          { text: 'Bridge to Flame', link: '/bridging/mainnet-alpha/bridge-to-flame-mainnet-alpha.md' },
+          { text: 'Withdraw from Flame', link: '/bridging/mainnet-alpha/withdraw-from-flame-mainnet-alpha.md' },
+        ]
+      },
         { text: 'Bridge on Dawn Testnet', collapsed: true, items: [
             { text: 'Bridge To Astria', link: '/bridging/testnet/bridge-to-astria-testnet.md' },
             { text: 'Withdraw From Astria', link: '/bridging/testnet/withdraw-from-astria-testnet.md' },
