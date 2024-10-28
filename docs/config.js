@@ -83,8 +83,8 @@ export const siteConfig = {
         flame_version: "v0.16.0",
         flame_release: "https://github.com/astriaorg/astria-geth/releases/tag/v0.16.0",
         flame_repo: "https://github.com/astriaorg/astria-geth",
-        cometbft_version: "v0.38.8",
-        cometbft_release: "https://github.com/cometbft/cometbft/releases/tag/v0.38.8",
+        cometbft_version: "v0.38.11",
+        cometbft_release: "https://github.com/cometbft/cometbft/releases/tag/v0.38.11",
         cometbft_repo: "https://github.com/cometbft/cometbft",
         // deployments
         descriptorProxyAddress: "N/A",
