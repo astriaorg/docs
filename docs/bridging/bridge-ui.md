@@ -8,7 +8,7 @@ const bridge = siteConfig.flame
 
 # Use the Astria Bridge UI
 
-The Astria Bridging UI is the recommend method for bridging to Astria.
+The Astria Bridging UI is the recommended method for bridging to Astria.
 Visit the Astria Bridging UI <a :href="bridge.mainnet.bridging.ui_link"
 target="_blank" rel="noopener noreferrer">here</a>.
 
