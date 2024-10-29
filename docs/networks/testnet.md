@@ -20,6 +20,15 @@ const dawn = siteConfig.dawn
 | Celestia Signer                      | <a :href="dawn.celenium_signer_link"    target="_blank" rel="noopener noreferrer">{{dawn.celestia_signer_address}}</a> |
 | Celestia Dawn-{{dawn.num}} Namespace | <a :href="dawn.celenium_namespace_link" target="_blank" rel="noopener noreferrer">{{dawn.celestia_namespace}}</a>      |
 
+## Bridge Channels
+
+| Connected Network | Channel | Astria Dawn Channel |
+|---|---|---|
+| Celestia Mocha-4 | `channel-160` | `channel-0` |
+| Noble | `channel-232` | `channel-1` |
+| Stride | `channel-53` | `channel-2` |
+| Osmosis | `channel-9186` | `channel-3` |
+
 ## Dawn-{{ dawn.num }} Service Versions
 
 | Service Name | Version | Source |

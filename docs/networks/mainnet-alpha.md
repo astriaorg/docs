@@ -18,6 +18,15 @@ const mainnet = siteConfig.mainnet
 | Celestia Signer                      | <a :href="mainnet.celenium_signer_link"    target="_blank" rel="noopener noreferrer">{{mainnet.celestia_signer_address}}</a> |
 | Celestia Mainnet Namespace | <a :href="mainnet.celenium_namespace_link" target="_blank" rel="noopener noreferrer">{{mainnet.celestia_namespace}}</a>      |
 
+## Bridge Channels
+
+| Connected Network | Channel | Astria Channel |
+|---|---|---|
+| Celestia | `channel-48` | `channel-0` |
+| Noble | `channel-104` | `channel-1` |
+| Osmosis | `channel-85486` | `channel-2` |
+| Stride | `channel-285` | `channel-3` |
+
 ## Mainnet Service Versions
 
 | Service Name | Version | Source |

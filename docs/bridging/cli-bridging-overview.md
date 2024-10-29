@@ -8,17 +8,48 @@ const link = siteConfig.flame.mainnet.bridging.ui_link
 
 # Bridge to Astria
 
-The Astria Bridge UI is the recommend method for bridging to Astria.
+Astria is an IBC chain and is connected to Celestia, Noble, Osmosis, and Stride.
+
+The Astria Bridge UI is the recommended method for bridging to Astria.
 Visit the Astria Bridging UI <a :href="link" target="_blank" rel="noopener
-noreferrer">here</a>. If you prefer the command line, manual bridging is also
-possible.
+noreferrer">here</a>.
+
+If you prefer the command line, manual bridging is also possible.
+
+## IBC Connections
+
+### Mainnet
+
+| Connected Network | Channel | Astria Channel |
+|---|---|---|
+| Celestia | `channel-48` | `channel-0` |
+| Noble | `channel-104` | `channel-1` |
+| Osmosis | `channel-85486` | `channel-2` |
+| Stride | `channel-285` | `channel-3` |
+
+### Testnet
+
+| Connected Network | Channel | Astria Dawn Channel |
+|---|---|---|
+| Celestia Mocha-4 | `channel-160` | `channel-0` |
+| Noble | `channel-232` | `channel-1` |
+| Stride | `channel-53` | `channel-2` |
+| Osmosis | `channel-9186` | `channel-3` |
+
+### Devnet
+
+| Connected Network | Channel | Astria Dusk Channel |
+|---|---|---|
+| Celestia | `channel-159` | `channel-0` |
+| Noble | `channel-231` | `channel-1` |
 
 ## CLI Bridging Dependencies
 
 To bridge funds directly on the command line, install the following.
 
 Make sure Go is installed and the `/go/bin` is added to your path. This is
-required for building and successfully using `nobled` and `celestia-appd`:
+required for building and successfully using `celestia-appd`, `nobled`,
+`osmosisd`, and `strided`:
 
 - [Go](https://go.dev/doc/install)
 
