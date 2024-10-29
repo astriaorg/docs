@@ -115,16 +115,12 @@ forge script script/AstriaBridgeableERC20.s.sol:AstriaBridgeableERC20Script \
 
 ### Celestia Balance
 
-<!-- TODO: update -->
 ```bash
-celestia-appd query bank balances $CELESTIA_ADDRESS --node=!!!--chain-id !!!
-
+celestia-appd query bank balances $CELESTIA_ADDRESS --node=https://celestia-rpc.polkachu.com:443 --chain-id celestia
 ```
 
 ### Noble Balance
 
-<!-- TODO: update -->
 ```bash
-nobled query bank balances $NOBLE_ADDRESS --node !!!
-
+nobled query bank balances $NOBLE_ADDRESS --node https://noble-rpc.polkachu.com:443
 ```

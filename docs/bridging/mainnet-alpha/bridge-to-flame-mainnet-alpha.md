@@ -22,61 +22,59 @@ export FLAME_ADDRESS="<your-flame-address>"
 
 ### From Celestia
 
-<!-- TODO: update -->
 ```bash
 celestia-appd tx ibc-transfer transfer \
     transfer \
     channel-48 \
-    astria1lepnry7tlpzvrukp5xej4v5wp532k2f94vxqnr \
+    astria13vptdafyttpmlwppt0s844efey2cpc0mevy92p \
     "10000utia" \
     --fees=420utia \
     --memo="{\"rollupDepositAddress\":\"$FLAME_ADDRESS\"}" \
-    --chain-id="!!!" \
+    --chain-id="celestia" \
     --from="$CELESTIA_KEY_NAME" \
-    --node=!!! \
+    --node=https://celestia-rpc.polkachu.com:443 \
     --packet-timeout-height 0-0
 ```
 
 ### From Noble
 
-<!-- TODO: update -->
 ```bash
 nobled tx ibc-transfer transfer \
     transfer \
     channel-104 \
-    astria1u6ewl0tejz0df2l6tzc7k2degx6mqsjahldqxd \
+    astriacompat1eg8hhey0n4untdvqqdvlyl0e7zx8wfcaz3l6wu \
     "100000uusdc" \
     --memo="{\"rollupDepositAddress\":\"$FLAME_ADDRESS\"}" \
-    --chain-id="!!!" \
+    --chain-id="noble-1" \
     --from="$NOBLE_KEY_NAME" \
-    --node=!!! \
+    --node=https://noble-rpc.polkachu.com:443 \
     --packet-timeout-height 0-0
 ```
 
 ### TIA from Astria
 
-<!-- TODO: update -->
 ```bash
-astria-cli sequencer bridge-lock astria1lepnry7tlpzvrukp5xej4v5wp532k2f94vxqnr \
+astria-cli sequencer bridge-lock astria13vptdafyttpmlwppt0s844efey2cpc0mevy92p \
     --amount 10000 \
     --destination-chain-address $FLAME_ADDRESS \
     --private-key $PRIV_KEY \
     --sequencer.chain-id astria \
-    --sequencer-url https://rpc.sequencer.astria.org/ \
-    --fee-asset=transfer/channel-0/utia --asset=transfer/channel-0/utia
+    --sequencer-url https://rpc.astria.org/ \
+    --fee-asset=transfer/channel-0/utia \
+    --asset=transfer/channel-0/utia
 ```
 
 ### USDC from Astria
 
-<!-- TODO: update -->
 ```bash
-astria-cli sequencer bridge-lock astria1u6ewl0tejz0df2l6tzc7k2degx6mqsjahldqxd \
+astria-cli sequencer bridge-lock astria1eg8hhey0n4untdvqqdvlyl0e7zx8wfca48kglh \
     --amount 10000 \
     --destination-chain-address $FLAME_ADDRESS \
     --private-key $PRIV_KEY \
     --sequencer.chain-id astria \
-    --sequencer-url https://rpc.sequencer.astria.org/ \
-    --fee-asset=transfer/channel-0/utia --asset=transfer/channel-1/uusdc
+    --sequencer-url https://rpc.astria.org/ \
+    --fee-asset=transfer/channel-0/utia \
+    --asset=transfer/channel-1/uusdc
 ```
 
 ## Check Your Balances on Flame
@@ -85,15 +83,13 @@ astria-cli sequencer bridge-lock astria1u6ewl0tejz0df2l6tzc7k2degx6mqsjahldqxd \
 
 ```bash
 cast balance $FLAME_ADDRESS --rpc-url https://rpc.flame.astria.org
-
 ```
 
 ### USDC
 
 <!-- TODO: verify correct address -->
 ```bash
-cast balance $FLAME_ADDRESS --erc20 0x6e18cE6Ec3Fc7b8E3EcFca4fA35e25F3f6FA879a --rpc-url https://rpc.flame.astria.org
-
+cast balance $FLAME_ADDRESS --erc20 0x7Ac50eD64eB691366c979be04bD66EfD54067433 --rpc-url https://rpc.flame.astria.org
 ```
 
 ## View Your Transactions

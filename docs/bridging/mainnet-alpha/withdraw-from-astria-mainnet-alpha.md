@@ -23,16 +23,30 @@ export NOBLE_ADDRESS="<your-noble-address>"
 
 ### Astria to Celestia
 
-<!-- TODO: update -->
 ```bash
-astria-cli sequencer ics20-withdrawal --amount 1000 --destination-chain-address=$CELESTIA_ADDRESS --source-channel channel-0 --private-key=$PRIV_KEY --sequencer-url=https://rpc.sequencer.astria.org/ --sequencer.chain-id astria --asset transfer/channel-0/utia --fee-asset transfer/channel-0/utia
+astria-cli sequencer ics20-withdrawal \
+    --amount 1000 \
+    --destination-chain-address=$CELESTIA_ADDRESS \
+    --source-channel channel-0 \
+    --private-key=$PRIV_KEY \
+    --sequencer-url=https://rpc.astria.org/ \
+    --sequencer.chain-id astria \
+    --asset transfer/channel-0/utia \
+    --fee-asset transfer/channel-0/utia
 ```
 
 ### Astria to Noble
 
-<!-- TODO: update -->
 ```bash
-astria-cli sequencer ics20-withdrawal --amount 1000 --destination-chain-address=$NOBLE_ADDRESS --source-channel channel-1 --private-key=$PRIV_KEY --sequencer-url=https://rpc.sequencer.astria.org/ --sequencer.chain-id astria --asset transfer/channel-1/uusdc --fee-asset transfer/channel-0/utia
+astria-cli sequencer ics20-withdrawal \
+    --amount 1000 \
+    --destination-chain-address=$NOBLE_ADDRESS \
+    --source-channel channel-1 \
+    --private-key=$PRIV_KEY \
+    --sequencer-url=https://rpc.astria.org/ \
+    --sequencer.chain-id astria \
+    --asset transfer/channel-1/uusdc \
+    --fee-asset transfer/channel-0/utia
 ```
 
 ### View Transactions on [Astrotrek](https://astrotrek.io/)
@@ -48,16 +62,12 @@ You will also see the received transactions on
 
 ### Celestia Balance
 
-<!-- TODO: update -->
 ```bash
-celestia-appd query bank balances $CELESTIA_ADDRESS --node=!!! --chain-id !!!
-
+celestia-appd query bank balances $CELESTIA_ADDRESS --node=https://celestia-rpc.polkachu.com:443 --chain-id celestia
 ```
 
 ### Noble Balance
 
-<!-- TODO: update -->
 ```bash
-nobled query bank balances $NOBLE_ADDRESS --node !!!
-
+nobled query bank balances $NOBLE_ADDRESS --node https://noble-rpc.polkachu.com:443
 ```

@@ -37,37 +37,23 @@ Install Foundry:
 - See the [Foundry installation
   docs](https://book.getfoundry.sh/getting-started/installation).
 
-Install the `nobled` cli:
+Build the `nobled` cli from source:
 
 <!--@include: ../components/_install-nobled.md-->
+
+Build the `strided` cli from source:
+
+<!--@include: ../components/_install-strided.md-->
+
+Build the `osmosisd` cli from source:
+
+<!--@include: ../components/_install-osmosisd.md-->
 
 ## Creating Accounts
 
 You will need an account for all networks you are interacting with.
 
-### Create an Astria account
-
-```bash
-astria-cli sequencer account create
-```
-
-### Create a Celestia account
-
-```bash
-celestia-appd keys add <name-of-your-celestia-key>
-```
-
-### Create a Flame account
-
-```bash
-cast w new
-```
-
-### Create a Noble account
-
-```bash
-nobled keys add <name-of-your-noble-key>
-```
+<!--@include: ../components/_create-accounts.md-->
 
 ## Funding Testnet Accounts
 
@@ -101,42 +87,17 @@ export ASTRIA_ADDRESS="<your-astria-address>"
 export CELESTIA_ADDRESS="<your-celestia-address>"
 export FLAME_ADDRESS="<your-flame-address>"
 export NOBLE_ADDRESS="<your-noble-address>"
+export STRIDE_ADDRESS="<your-stride-address>"
 ```
 
-### Astria Dawn Balance
+### Check **Mainnet** Balances
 
-```bash
-astria-cli sequencer balance get $ASTRIA_ADDRESS --sequencer-url https://rpc.sequencer.dawn-1.astria.org/
-```
+<!--@include: ../components/_check-mainnet-balances.md-->
 
-### Astria Dusk Balance
+### Check **Testnet** Balances
 
-```bash
-astria-cli sequencer balance get $ASTRIA_ADDRESS --sequencer-url https://rpc.sequencer.dusk-11.devnet.astria.org/
-```
+<!--@include: ../components/_check-testnet-balances.md-->
 
-### Celestia Balance
+### Check **Devnet** Balances
 
-```bash
-celestia-appd query bank balances $CELESTIA_ADDRESS --node=https://rpc-mocha.pops.one:443 --chain-id mocha-4
-
-```
-
-### Flame Dawn Balance
-
-```bash
-cast balance --rpc-url https://rpc.flame.dawn-1.astria.org $FLAME_ADDRESS
-```
-
-### Flame Dusk Balance
-
-```bash
-cast balance --rpc-url https://rpc.flame.dusk-11.devnet.astria.org $FLAME_ADDRESS
-```
-
-### Noble Balance
-
-```bash
-nobled query bank balances $NOBLE_ADDRESS --node https://noble-testnet-rpc.polkachu.com:443
-
-```
+<!--@include: ../components/_check-devnet-balances.md-->
