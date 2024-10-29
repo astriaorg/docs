@@ -1,8 +1,8 @@
 # Bridging to Flame on `dusk` Devnet
 
-Bridging commands from Celestia and Nobel testnets to the Astria `dusk` devnet.
+Bridging commands from Celestia and Noble testnets to the Astria `dusk` devnet.
 
-You will need the `astria-cli`, `celestia-appd`, and `nobeld` installed. Follow
+You will need the `astria-cli`, `celestia-appd`, and `nobled` installed. Follow
 the install steps [here](./overview.md#bridging-dependencies).
 
 You can export the following to make the commands below easily copy and
@@ -13,8 +13,8 @@ export ASTRIA_ADDRESS="<your-astria-address>"
 export PRIV_KEY="<your-astria-address-private-key>"
 export CELESTIA_KEY_NAME="<name-of-your-celestia-key>"
 export CELESTIA_ADDRESS="<your-celestia-address>"
-export NOBEL_KEY_NAME="<name-of-your-nobel-key>"
-export NOBLE_ADDRESS="<your-nobel-address>"
+export NOBLE_KEY_NAME="<name-of-your-noble-key>"
+export NOBLE_ADDRESS="<your-noble-address>"
 export FLAME_ADDRESS="<your-flame-address>"
 ```
 
@@ -26,7 +26,7 @@ export FLAME_ADDRESS="<your-flame-address>"
 There is no $TIA `BridgeLockAccount` configured for `dusk-11`.
 :::
 
-### From Nobel
+### From Noble
 
 ```bash
 nobled tx ibc-transfer transfer \

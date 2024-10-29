@@ -1,8 +1,8 @@
 # Bridging to Flame on `dawn` Testnet
 
-Bridging commands from Celestia and Nobel testnets to the Astria `dawn` testnet.
+Bridging commands from Celestia and Noble testnets to the Astria `dawn` testnet.
 
-You will need the `astria-cli`, `celestia-appd`, and `nobeld` installed. Follow
+You will need the `astria-cli`, `celestia-appd`, and `nobled` installed. Follow
 the install steps [here](./overview.md#bridging-dependencies).
 
 You can export the following to make the commands below easily copy and
@@ -13,8 +13,8 @@ export ASTRIA_ADDRESS="<your-astria-address>"
 export PRIV_KEY="<your-astria-address-private-key>"
 export CELESTIA_KEY_NAME="<name-of-your-celestia-key>"
 export CELESTIA_ADDRESS="<your-celestia-address>"
-export NOBEL_KEY_NAME="<name-of-your-nobel-key>"
-export NOBLE_ADDRESS="<your-nobel-address>"
+export NOBLE_KEY_NAME="<name-of-your-noble-key>"
+export NOBLE_ADDRESS="<your-noble-address>"
 export FLAME_ADDRESS="<your-flame-address>"
 ```
 
@@ -36,7 +36,7 @@ celestia-appd tx ibc-transfer transfer \
     --packet-timeout-height 0-0
 ```
 
-### From Nobel
+### From Noble
 
 ```bash
 nobled tx ibc-transfer transfer \
@@ -46,7 +46,7 @@ nobled tx ibc-transfer transfer \
     "100000uusdc" \
     --memo="{\"rollupDepositAddress\":\"$FLAME_ADDRESS\"}" \
     --chain-id="grand-1" \
-    --from="$NOBEL_KEY_NAME" \
+    --from="$NOBLE_KEY_NAME" \
     --node=https://noble-testnet-rpc.polkachu.com:443 \
     --packet-timeout-height 0-0
 ```

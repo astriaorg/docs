@@ -79,7 +79,7 @@ forge script script/AstriaWithdrawer.s.sol:AstriaWithdrawerScript \
 
 ::: info
 Make sure the `ORIGIN_DESTINATION_CHAIN_ADDRESS` in your `.env` file is updated
-to be your Nobel address.
+to be your Noble address.
 :::
 
 ```bash
@@ -99,11 +99,11 @@ forge script script/AstriaWithdrawer.s.sol:AstriaWithdrawerScript \
    --rpc-url $RPC_URL --broadcast --sig "withdrawToIbcChain()" -vvvv
 ```
 
-## To Nobel
+## To Noble
 
 ::: info
 Make sure the `ORIGIN_DESTINATION_CHAIN_ADDRESS` in your `.env` file is updated
-to be your Nobel address.
+to be your Noble address.
 :::
 
 ```bash
@@ -111,7 +111,7 @@ forge script script/AstriaBridgeableERC20.s.sol:AstriaBridgeableERC20Script \
    --rpc-url $RPC_URL --broadcast --sig "withdrawToIbcChain()" -vvvv
 ```
 
-## Check your Balances on Celestia and Nobel
+## Check your Balances on Celestia and Noble
 
 ### Celestia Balance
 
@@ -121,7 +121,7 @@ celestia-appd query bank balances $CELESTIA_ADDRESS --node=!!!--chain-id !!!
 
 ```
 
-### Nobel Balance
+### Noble Balance
 
 <!-- TODO: update -->
 ```bash

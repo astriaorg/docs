@@ -23,7 +23,7 @@ target="_blank" rel="noopener noreferrer">here</a>.
 ## Supported Wallets
 
 [Keplr](https://www.keplr.app/) is supported for bridging from Celestia and
-Nobel.
+Noble.
 
 For Flame, any [EIP-6963](https://eips.ethereum.org/EIPS/eip-6963) compatible
 wallet should be supported. However, [Metamask](https://metamask.io/) and [Coinbase
@@ -32,10 +32,10 @@ Wallet](https://www.coinbase.com/wallet) have been tested specifically.
 ## Bridge to Flame
 
 1. Confirm that the Bridge UI is set to **Deposit**.
-2. Select your desired starting network (Celestia or Nobel)
+2. Select your desired starting network (Celestia or Noble)
    and connect your Keplr wallet
     - Selecting Celestia will bridge `TIA` to Flame
-    - Selecting Nobel will bridge `USDC` to Flame
+    - Selecting Noble will bridge `USDC` to Flame
 3. Select Flame as the destination and connect your EVM wallet.
 4. Set an amount.
 5. Click `Deposit`.
@@ -44,9 +44,9 @@ Wallet](https://www.coinbase.com/wallet) have been tested specifically.
 
 1. Confirm that the Bridge UI is set to **Withdraw**.
 2. Select Flame as the starting network and connect your EVM wallet.
-3. Select your desired destination network (Celestia or Nobel) and connect your
+3. Select your desired destination network (Celestia or Noble) and connect your
    Keplr wallet.
     - Selecting Celestia will withdraw `TIA` from Flame
-    - Selecting Nobel will withdraw `USDC` from Flame
+    - Selecting Noble will withdraw `USDC` from Flame
 4. Set an amount.
 5. Click `Withdraw`.

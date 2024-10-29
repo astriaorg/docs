@@ -28,10 +28,10 @@ for Flame running on the Astria Mainnet.
 |-----|-----|
 | IBC Channel: mocha-4 -> dawn-1 | `{{config.flame.mainnet.bridging.ibc_celestia_to_astria}}` |
 | IBC Channel: dawn-1 -> mocha-4 | `{{config.flame.mainnet.bridging.ibc_astria_to_celestia}}` |
-| IBC Channel: grand-1 -> dawn-1 | `{{config.flame.mainnet.bridging.ibc_nobel_to_astria}}` |
-| IBC Channel: dawn-1 -> grand-1 | `{{config.flame.mainnet.bridging.ibc_astria_to_nobel}}` |
+| IBC Channel: grand-1 -> dawn-1 | `{{config.flame.mainnet.bridging.ibc_noble_to_astria}}` |
+| IBC Channel: dawn-1 -> grand-1 | `{{config.flame.mainnet.bridging.ibc_astria_to_noble}}` |
 | Astria Sequencer TIA Bridge Address | `{{config.flame.mainnet.bridging.sequencer_celestia_address}}` |
-| Astria Sequencer USDC Bridge Address | `{{config.flame.mainnet.bridging.sequencer_nobel_address}}` |
+| Astria Sequencer USDC Bridge Address | `{{config.flame.mainnet.bridging.sequencer_noble_address}}` |
 | Flame TIA Withdrawal Address| `{{config.flame.mainnet.bridging.flame_tia_address}}` |
 | Flame USDC Withdrawal Address| `{{config.flame.mainnet.bridging.flame_usdc_address}}` |
 

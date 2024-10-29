@@ -18,7 +18,7 @@ possible.
 To bridge funds directly on the command line, install the following.
 
 Make sure Go is installed and the `/go/bin` is added to your path. This is
-required for building and successfully using `nobeld` and `celestia-appd`:
+required for building and successfully using `nobled` and `celestia-appd`:
 
 - [Go](https://go.dev/doc/install)
 
@@ -37,9 +37,9 @@ Install Foundry:
 - See the [Foundry installation
   docs](https://book.getfoundry.sh/getting-started/installation).
 
-Install the `nobeld` cli:
+Install the `nobled` cli:
 
-<!--@include: ../components/_install-nobeld.md-->
+<!--@include: ../components/_install-nobled.md-->
 
 ## Creating Accounts
 
@@ -63,10 +63,10 @@ celestia-appd keys add <name-of-your-celestia-key>
 cast w new
 ```
 
-### Create a Nobel account
+### Create a Noble account
 
 ```bash
-nobled keys add <name-of-your-nobel-key>
+nobled keys add <name-of-your-noble-key>
 ```
 
 ## Funding Testnet Accounts
@@ -76,10 +76,10 @@ nobled keys add <name-of-your-nobel-key>
 Fund your Celestia address using the Celestia testnet faucet
 [here](https://docs.celestia.org/how-to-guides/mocha-testnet#mocha-testnet-faucet).
 
-### Nobel Testnet
+### Noble Testnet
 
-Fund your Nobel address using the Nobel testnet faucet
-[here](https://faucet.circle.com/). Select `Nobel Testnet` in the dropdown.
+Fund your Noble address using the Noble testnet faucet
+[here](https://faucet.circle.com/). Select `Noble Testnet` in the dropdown.
 
 ### Astria `dusk` Devnet
 
@@ -100,7 +100,7 @@ addresses to the environment:
 export ASTRIA_ADDRESS="<your-astria-address>"
 export CELESTIA_ADDRESS="<your-celestia-address>"
 export FLAME_ADDRESS="<your-flame-address>"
-export NOBLE_ADDRESS="<your-nobel-address>"
+export NOBLE_ADDRESS="<your-noble-address>"
 ```
 
 ### Astria Dawn Balance
@@ -134,7 +134,7 @@ cast balance --rpc-url https://rpc.flame.dawn-1.astria.org $FLAME_ADDRESS
 cast balance --rpc-url https://rpc.flame.dusk-11.devnet.astria.org $FLAME_ADDRESS
 ```
 
-### Nobel Balance
+### Noble Balance
 
 ```bash
 nobled query bank balances $NOBLE_ADDRESS --node https://noble-testnet-rpc.polkachu.com:443
