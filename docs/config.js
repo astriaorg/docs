@@ -14,7 +14,7 @@ export const siteConfig = {
                 ibc_astria_to_celestia: "channel-0",
                 ibc_noble_to_astria: "channel-104",
                 ibc_astria_to_noble: "channel-1",
-                ibc_osmosis_to_astria: "channel-185486",
+                ibc_osmosis_to_astria: "channel-85486",
                 ibc_astria_to_osmosis: "channel-2",
                 ibc_stride_to_astria: "channel-285",
                 ibc_astria_to_stride: "channel-3",
