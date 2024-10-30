@@ -22,6 +22,13 @@ const dusk = siteConfig.dusk
 | Celestia Signer Address              | <a :href="dusk.celenium_signer_link"    target="_blank" rel="noopener noreferrer">{{dusk.celestia_signer_address}}</a> |
 | Celestia Dusk-{{dusk.num}} Namespace | <a :href="dusk.celenium_namespace_link" target="_blank" rel="noopener noreferrer">{{dusk.celestia_namespace}}</a>      |
 
+## Bridge Channels
+
+| Connected Network | Channel | Astria Dusk Channel |
+|---|---|---|
+| Celestia | `channel-159` | `channel-0` |
+| Noble | `channel-231` | `channel-1` |
+
 ## Dusk-{{dusk.num}} Service Versions
 
 | Service Name | Version | Source |
