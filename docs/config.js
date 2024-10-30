@@ -58,7 +58,7 @@ export const siteConfig = {
                 currency_symbol: "nRIA",
             },
             bridging: {
-                ui_link: "https://astria-bridge-web-app-develop.vercel.app/)",
+                ui_link: "https://astria-bridge-web-app-develop.vercel.app/",
                 ibc_mocha_to_dusk: "channel-159",
                 ibc_dusk_to_mocha: "channel-0",
                 ibc_grand_to_dusk: "channel-231",

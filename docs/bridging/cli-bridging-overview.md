@@ -10,11 +10,13 @@ const link = siteConfig.flame.mainnet.bridging.ui_link
 
 Astria is an IBC chain and is connected to Celestia, Noble, Osmosis, and Stride.
 
-The Astria Bridge UI is the recommended method for bridging to Astria.
-Visit the Astria Bridging UI <a :href="link" target="_blank" rel="noopener
-noreferrer">here</a>.
+> [!IMPORTANT]
+> The Astria Bridge UI is the recommended method for bridging to Astria.
+>
+> Visit the Astria Bridging UI <a :href="link" target="_blank"
+> rel="noopenernoreferrer">here</a>.
 
-If you prefer the command line, manual bridging is also possible.
+Manual bridging via the command line is available for power users.
 
 ## IBC Connections
 
@@ -27,7 +29,7 @@ If you prefer the command line, manual bridging is also possible.
 | Osmosis | `channel-85486` | `channel-2` |
 | Stride | `channel-285` | `channel-3` |
 
-### Testnet
+### Testnet (dawn-1)
 
 | Connected Network | Channel | Astria Dawn Channel |
 |---|---|---|
@@ -36,7 +38,7 @@ If you prefer the command line, manual bridging is also possible.
 | Stride | `channel-53` | `channel-2` |
 | Osmosis | `channel-9186` | `channel-3` |
 
-### Devnet
+### Devnet (dusk-11)
 
 | Connected Network | Channel | Astria Dusk Channel |
 |---|---|---|
