@@ -53,8 +53,8 @@ Your settings should be the following:
 |---|---|
 | Descriptor Proxy Address | `{{config.dawn.descriptorProxyAddress}}` |
 | Multicall 2 Address | `{{config.dawn.multicall2Address}}` |
-| nft Position Descriptor Address | `{{config.dawn.nftPositionDescriptorAddress}}` |
-| nft Position Manager Address | `{{config.dawn.nftPositionManagerAddress}}` |
+| NFT Position Descriptor Address | `{{config.dawn.nftPositionDescriptorAddress}}` |
+| NFT Position Manager Address | `{{config.dawn.nftPositionManagerAddress}}` |
 | Proxy Admin Address | `{{config.dawn.proxyAdminAddress}}` |
 | Quoter V2 Address | `{{config.dawn.quoterV2Address}}` |
 | Swap Router 02 Address | `{{config.dawn.swapRouter02Address}}` |

@@ -51,8 +51,8 @@ Your settings should be the following:
 |---|---|
 | Descriptor Proxy Address | `{{config.dusk.descriptorProxyAddress}}` |
 | Multicall 2 Address | `{{config.dusk.multicall2Address}}` |
-| nft Position Descriptor Address | `{{config.dusk.nftPositionDescriptorAddress}}` |
-| nft Position Manager Address | `{{config.dusk.nftPositionManagerAddress}}` |
+| NFT Position Descriptor Address | `{{config.dusk.nftPositionDescriptorAddress}}` |
+| NFT Position Manager Address | `{{config.dusk.nftPositionManagerAddress}}` |
 | Proxy Admin Address | `{{config.dusk.proxyAdminAddress}}` |
 | Quoter V2 Address | `{{config.dusk.quoterV2Address}}` |
 | Swap Router 02 Address | `{{config.dusk.swapRouter02Address}}` |

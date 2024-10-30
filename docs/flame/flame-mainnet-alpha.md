@@ -88,8 +88,8 @@ Your settings should be the following:
 |---|---|
 | Descriptor Proxy Address | `{{config.mainnet.descriptorProxyAddress}}` |
 | Multicall 2 Address | `{{config.mainnet.multicall2Address}}` |
-| nft Position Descriptor Address | `{{config.mainnet.nftPositionDescriptorAddress}}` |
-| nft Position Manager Address | `{{config.mainnet.nftPositionManagerAddress}}` |
+| NFT Position Descriptor Address | `{{config.mainnet.nftPositionDescriptorAddress}}` |
+| NFT Position Manager Address | `{{config.mainnet.nftPositionManagerAddress}}` |
 | Proxy Admin Address | `{{config.mainnet.proxyAdminAddress}}` |
 | Quoter V2 Address | `{{config.mainnet.quoterV2Address}}` |
 | Swap Router 02 Address | `{{config.mainnet.swapRouter02Address}}` |
