@@ -12,8 +12,6 @@ const mainnet = siteConfig.mainnet
 
 | Name | Endpoint |
 |---|---|
-| Flame RPC                            | <a :href="mainnet.flame_rpc"               target="_blank" rel="noopener noreferrer">{{mainnet.flame_rpc}}</a>               |
-| Flame Block Explorer                 | <a :href="mainnet.flame_explorer"          target="_blank" rel="noopener noreferrer">{{mainnet.flame_explorer}}</a>          |
 | Sequencer RPC                        | <a :href="mainnet.sequencer_rpc"           target="_blank" rel="noopener noreferrer">{{mainnet.sequencer_rpc}}</a>           |
 | Sequencer gRPC                       | <a :href="mainnet.sequencer_grpc"          target="_blank" rel="noopener noreferrer">{{mainnet.sequencer_grpc}}</a>          |
 | Sequencer Block Explorer             | <a :href="mainnet.sequencer_explorer"      target="_blank" rel="noopener noreferrer">{{mainnet.sequencer_explorer}}</a>      |

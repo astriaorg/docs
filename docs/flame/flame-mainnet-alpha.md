@@ -38,9 +38,9 @@ Your settings should be the following:
 
 ## Bridging
 
-### [Bridge UI](https://bridge.astria.org)
+### [bridge.astria.org](https://bridge.astria.org)
 
-![Bridge UI](../public/bridge-ui-screen.png)
+![Bridge UI](/bridge-ui-screen.png)
 
 ### Celestia (IBC)
 
