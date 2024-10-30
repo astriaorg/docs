@@ -27,14 +27,14 @@ Astria is an IBC chain and is connected to Celestia, Noble, Osmosis, and Stride.
 ## Supported Wallets
 
 > [!TIP]
-> If Flame doesn't show in your Keplr wallet you can add it here: https://chains.keplr.app/
+> If Flame doesn't show in your Keplr wallet you can add it [here](https://chains.keplr.app/).
 
 [Keplr](https://www.keplr.app/) is supported for bridging from Celestia, Noble,
 Osmosis, and Stride as well as the Flame EVM.
 
 Any [EIP-6963](https://eips.ethereum.org/EIPS/eip-6963) compatible
 wallet should work with Flame, we have tested [Keplr](https://www.keplr.app/), [Metamask](https://metamask.io/) and [Coinbase
-Wallet](https://www.coinbase.com/wallet). 
+Wallet](https://www.coinbase.com/wallet).
 
 ## Bridge to Flame
 

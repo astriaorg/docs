@@ -36,7 +36,6 @@ Your settings should be the following:
 | Currency symbol | `{{config.flame.mainnet.info.currency_symbol}}` |
 | Block Explorer | <a :href="config.mainnet.flame_explorer" target="_blank" rel="noopener noreferrer">{{config.mainnet.flame_explorer}}</a> |
 
-
 ## Bridging
 
 ### [bridge.astria.org](https://bridge.astria.org)
@@ -99,4 +98,3 @@ Your settings should be the following:
 | v3 Migrator Address | `{{config.mainnet.v3MigratorAddress}}` |
 | v3 Staker Address | `{{config.mainnet.v3StakerAddress}}` |
 | wTIA9 Address | `{{config.mainnet.weth9Address}}` |
-
