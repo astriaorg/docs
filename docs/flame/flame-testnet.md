@@ -62,7 +62,7 @@ Your settings should be the following:
 | v3 Core Factory Address | `{{config.dawn.v3CoreFactoryAddress}}` |
 | v3 Migrator Address | `{{config.dawn.v3MigratorAddress}}` |
 | v3 Staker Address | `{{config.dawn.v3StakerAddress}}` |
-| weth9 Address | `{{config.dawn.weth9Address}}` |
+| wTIA9 Address | `{{config.dawn.weth9Address}}` |
 
 ## Using Cast
 

@@ -60,7 +60,7 @@ Your settings should be the following:
 | v3 Core Factory Address | `{{config.dusk.v3CoreFactoryAddress}}` |
 | v3 Migrator Address | `{{config.dusk.v3MigratorAddress}}` |
 | v3 Staker Address | `{{config.dusk.v3StakerAddress}}` |
-| weth9 Address | `{{config.dusk.weth9Address}}` |
+| wTIA9 Address | `{{config.dusk.weth9Address}}` |
 
 ## Using Cast
 

@@ -2,7 +2,7 @@ export const siteConfig = {
     flame: {
         mainnet: {
             info: {
-                network_name: "astria",
+                network_name: "Flame",
                 chain_id: "253368190",
                 // for rpc url set in the dawn/dusk sections below
                 // for explorer url set in the dawn/dusk sections below
@@ -14,10 +14,18 @@ export const siteConfig = {
                 ibc_astria_to_celestia: "channel-0",
                 ibc_noble_to_astria: "channel-104",
                 ibc_astria_to_noble: "channel-1",
+                ibc_osmosis_to_astria: "channel-185486",
+                ibc_astria_to_osmosis: "channel-2",
+                ibc_stride_to_astria: "channel-285",
+                ibc_astria_to_stride: "channel-3",
                 sequencer_celestia_address: "astria13vptdafyttpmlwppt0s844efey2cpc0mevy92p",
                 sequencer_noble_address: "astria1eg8hhey0n4untdvqqdvlyl0e7zx8wfca48kglh",
+                sequencer_milktia_address: "astria1kgxhyhvynhcwwrylkzzx6q3a8rn3tuvasxvuy8",
+                sequencer_sttia_address: "astria1dllx9d9karss9ca8le25a4vqhf67a67d5d4l6r",
                 flame_tia_address: "0xB086557f9B5F6fAe5081CC5850BE94e62B1dDE57",
                 flame_usdc_address: "0x3f65144F387f6545bF4B19a1B39C94231E1c849F",
+                flame_milktia_address: "0xcbb93e854AA4EF5Db51c3b094F28952eF0dC67bE",
+                flame_sttia_address: "0xdf941D092b10FF07eAb44bD174dEe915c13FECcd",
             },
         },
         dawn: {
