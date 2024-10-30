@@ -4,6 +4,7 @@
 import { siteConfig } from '../config.js'
 
 const dusk = siteConfig.dusk
+const dusk_ibc = siteConfig.flame.dusk.bridging
 </script>
 
 # Astria Dusk Devnet
@@ -24,10 +25,22 @@ const dusk = siteConfig.dusk
 
 ## Bridge Channels
 
-| Connected Network | Channel | Astria Dusk Channel |
-|---|---|---|
-| Celestia | `channel-159` | `channel-0` |
-| Noble | `channel-231` | `channel-1` |
+### Celestia Mocha (IBC)
+
+| Property | Value |
+|-----|-----|
+| Supported Asset | `TIA` |
+| `mocha` -> `dusk` | `{{dusk_ibc.ibc_mocha_to_dusk}}` |
+| `dusk` -> `mocha` | `{{dusk_ibc.ibc_dusk_to_mocha}}` |
+
+### Noble Grand (IBC)
+
+| Property | Value |
+|-----|-----|
+| Supported Asset | `USDC` |
+| `grand` -> `dusk` | `{{dusk_ibc.ibc_grand_to_dusk}}` |
+| `dusk` -> `grand` | `{{dusk_ibc.ibc_dusk_to_grand}}` |
+| Astria Sequencer USDC Bridge Address | `{{dusk_ibc.sequencer_usdc_address}}` |
 
 ## Dusk-{{dusk.num}} Service Versions
 

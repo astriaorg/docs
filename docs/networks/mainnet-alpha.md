@@ -4,6 +4,7 @@
 import { siteConfig } from '../config.js'
 
 const mainnet = siteConfig.mainnet
+const mainnet_ibc = siteConfig.flame.mainnet.bridging
 </script>
 
 # Astria Mainnet Alpha
@@ -20,12 +21,41 @@ const mainnet = siteConfig.mainnet
 
 ## Bridge Channels
 
-| Connected Network | Channel | Astria Channel |
-|---|---|---|
-| Celestia | `channel-48` | `channel-0` |
-| Noble | `channel-104` | `channel-1` |
-| Osmosis | `channel-85486` | `channel-2` |
-| Stride | `channel-285` | `channel-3` |
+### Celestia (IBC)
+
+| Property | Value |
+|-----|-----|
+| Supported Asset | `TIA` |
+| `celestia` -> `astria` | `{{mainnet_ibc.ibc_celestia_to_astria}}` |
+| `astria` -> `celestia` | `{{mainnet_ibc.ibc_astria_to_celestia}}` |
+| Astria Sequencer TIA Bridge Address | `{{mainnet_ibc.sequencer_celestia_address}}` |
+
+### Noble (IBC)
+
+| Property | Value |
+|-----|-----|
+| Supported Asset | `USDC` |
+| `noble` -> `astria` | `{{mainnet_ibc.ibc_noble_to_astria}}` |
+| `astria` -> `noble` | `{{mainnet_ibc.ibc_astria_to_noble}}` |
+| Astria Sequencer USDC Bridge Address | `{{mainnet_ibc.sequencer_noble_address}}` |
+
+### Osmosis (IBC)
+
+| Property | Value |
+|-----|-----|
+| Supported Asset | `milkTIA` |
+| `osmosis` -> `astria` | `{{mainnet_ibc.ibc_osmosis_to_astria}}` |
+| `astria` -> `osmosis` | `{{mainnet_ibc.ibc_astria_to_osmosis}}` |
+| Astria Sequencer USDC Bridge Address | `{{mainnet_ibc.sequencer_milktia_address}}` |
+
+### Stride (IBC)
+
+| Property | Value |
+|-----|-----|
+| Supported Asset | `stTIA` |
+| `stride` -> `astria` | `{{mainnet_ibc.ibc_stride_to_astria}}` |
+| `astria` -> `stride` | `{{mainnet_ibc.ibc_astria_to_stride}}` |
+| Astria Sequencer USDC Bridge Address | `{{mainnet_ibc.sequencer_sttia_address}}` |
 
 ## Mainnet Service Versions
 

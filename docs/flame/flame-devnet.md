@@ -22,15 +22,6 @@ for Flame running on the Astria `dusk-{{config.dusk.num}}` Devnet.
 | Native sequencer Asset | `{{config.flame.dusk.info.native_asset}}` |
 | Currency Symbol | `{{config.flame.dusk.info.currency_symbol}}` |
 
-## Bridging
-
-| Property | Value |
-|-----|-----|
-| IBC Channel: grand-1 -> dawn-1 | `{{config.flame.dusk.bridging.ibc_grand_to_dusk}}` |
-| IBC Channel: dawn-1 -> grand-1 | `{{config.flame.dusk.bridging.ibc_dusk_to_grand}}` |
-| Flame USDC Withdrawal Address| `{{config.flame.dusk.bridging.flame_usdc_address}}` |
-| Flame nRIA Withdrawal Address| `{{config.flame.dusk.bridging.flame_ria_address}}` |
-
 ## Adding to Metamask
 
 Follow Metamask's official documentation to [manually add a custom network.](https://support.metamask.io/hc/en-us/articles/360043227612-How-to-add-a-custom-network-RPC#h_01G63GGJ83DGDRCS2ZWXM37CV5)
@@ -44,6 +35,37 @@ Your settings should be the following:
 | Chain ID | `{{config.flame.dusk.info.chain_id}}` |
 | Currency symbol | `{{config.flame.dusk.info.currency_symbol}}` |
 | Block Explorer | <a :href="config.dusk.flame_explorer" target="_blank" rel="noopener noreferrer">{{config.dusk.flame_explorer}}</a> |
+
+## Bridging
+
+### [https://astria-bridge-web-app-develop.vercel.app/](https://astria-bridge-web-app-develop.vercel.app/)
+
+![Bridge UI](/bridge-ui-screen.png)
+
+### Celestia Mocha (IBC)
+
+| Property | Value |
+|-----|-----|
+| Supported Asset | `TIA` |
+| `mocha` -> `dusk` | `{{config.flame.dusk.bridging.ibc_mocha_to_dusk}}` |
+| `dusk` -> `mocha` | `{{config.flame.dusk.bridging.ibc_dusk_to_mocha}}` |
+
+### Noble Grand (IBC)
+
+| Property | Value |
+|-----|-----|
+| Supported Asset | `USDC` |
+| `grand` -> `dusk` | `{{config.flame.dusk.bridging.ibc_grand_to_dusk}}` |
+| `dusk` -> `grand` | `{{config.flame.dusk.bridging.ibc_dusk_to_grand}}` |
+| Astria Sequencer USDC Bridge Address | `{{config.flame.dusk.bridging.sequencer_usdc_address}}` |
+| Flame USDC Withdrawal Address| `{{config.flame.dusk.bridging.flame_usdc_address}}` |
+
+### Ria (native)
+
+| Property | Value |
+|-----|-----|
+| Astria Sequencer nRia Bridge Address | `{{config.flame.dusk.bridging.sequencer_ria_address}}` |
+| Flame nRia Withdrawal Address | `{{config.flame.dusk.bridging.flame_ria_address}}` |
 
 ## Uniswap V3
 
