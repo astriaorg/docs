@@ -2,7 +2,7 @@ export const siteConfig = {
     flame: {
         mainnet: {
             info: {
-                network_name: "astria",
+                network_name: "Flame",
                 chain_id: "253368190",
                 // for rpc url set in the dawn/dusk sections below
                 // for explorer url set in the dawn/dusk sections below
@@ -15,10 +15,18 @@ export const siteConfig = {
                 ibc_astria_to_celestia: "channel-0",
                 ibc_noble_to_astria: "channel-104",
                 ibc_astria_to_noble: "channel-1",
+                ibc_osmosis_to_astria: "channel-85486",
+                ibc_astria_to_osmosis: "channel-2",
+                ibc_stride_to_astria: "channel-285",
+                ibc_astria_to_stride: "channel-3",
                 sequencer_celestia_address: "astria13vptdafyttpmlwppt0s844efey2cpc0mevy92p",
                 sequencer_noble_address: "astria1eg8hhey0n4untdvqqdvlyl0e7zx8wfca48kglh",
+                sequencer_milktia_address: "astria1kgxhyhvynhcwwrylkzzx6q3a8rn3tuvasxvuy8",
+                sequencer_sttia_address: "astria1dllx9d9karss9ca8le25a4vqhf67a67d5d4l6r",
                 flame_tia_address: "0xB086557f9B5F6fAe5081CC5850BE94e62B1dDE57",
                 flame_usdc_address: "0x3f65144F387f6545bF4B19a1B39C94231E1c849F",
+                flame_milktia_address: "0xcbb93e854AA4EF5Db51c3b094F28952eF0dC67bE",
+                flame_sttia_address: "0xdf941D092b10FF07eAb44bD174dEe915c13FECcd",
             },
         },
         dawn: {
@@ -90,18 +98,18 @@ export const siteConfig = {
         cometbft_release: "https://github.com/cometbft/cometbft/releases/tag/v0.38.11",
         cometbft_repo: "https://github.com/cometbft/cometbft",
         // deployments
-        descriptorProxyAddress: "N/A",
-        multicall2Address: "N/A",
-        nftPositionDescriptorAddress: "N/A",
-        nftPositionManagerAddress: "N/A",
-        proxyAdminAddress: "N/A",
-        quoterV2Address: "N/A",
-        swapRouter02Address: "N/A",
-        tickLensAddress: "N/A",
-        v3CoreFactoryAddress: "N/A",
-        v3MigratorAddress: "N/A",
-        v3StakerAddress: "N/A",
-        weth9Address: "N/A",
+        descriptorProxyAddress: "0x7c7B695e0043647FAaf8F2D1B4E521E2261E8802",
+        multicall2Address: "0x86AceBA84efCb6cd03939186A598141a33260436",
+        nftPositionDescriptorAddress: "0x3d197d029C28Ea982feDAB1B7f6Be26FA7B338Df",
+        nftPositionManagerAddress: "0x1dAfd262A228571125f36f1a1333389dB0444edA",
+        proxyAdminAddress: "0xE1dD432a94F72da79AD1B3410C16b999463300e9",
+        quoterV2Address: "0x066c175fb0B8B4D1c4c2F89796Ba17D916a86eAD",
+        swapRouter02Address: "0x29bBaFf21695fA41e446c4f37c07C699d9f08021",
+        tickLensAddress: "0x8d9a1428683a003F1686e47640D721293a27432d",
+        v3CoreFactoryAddress: "0xE1EE203f374EE6CA6B72420844796c7acDf16A8b",
+        v3MigratorAddress: "0x65F23e6C7eAdd8824f944773c4BED3016d5E24FC",
+        v3StakerAddress: "0xE9fA9ceb079Fc208003BE7C2112E7A9afF7C8015",
+        weth9Address: "0x61B7794B6A0Cc383B367c327B91E5Ba85915a071",
     },
     dawn: {
         num: 1,
