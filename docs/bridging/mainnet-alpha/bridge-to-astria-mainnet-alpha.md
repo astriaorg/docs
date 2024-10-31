@@ -31,12 +31,13 @@ export STRIDE_ADDRESS="<your-stride-address>"
 astria-cli sequencer balance get $ASTRIA_ADDRESS --sequencer-url https://rpc.astria.org/
 ```
 
-### View Transactions on [Mintscan](https://www.mintscan.io/)
+## View Transactions on [Mintscan](https://www.mintscan.io/)
 
 You can view your transactions by visiting the following:
 
 - `https://www.mintscan.io/celestia/address/<your-celestia-address>`
 - `https://www.mintscan.io/noble/address/<your-noble-address>`
+- `https://www.mintscan.io/osmosis/address/<your-osmosis-address>`
 - `https://www.mintscan.io/stride/address/<your-stride-address>`
 
 You can also go directly to [Mintscan](https://www.mintscan.io/) and search for

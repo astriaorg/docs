@@ -6,12 +6,13 @@
 celestia-appd tx ibc-transfer transfer \
     transfer \
     channel-48 \
-    $ASTRIA_ADDRESS \
-    1000000utia \
+    astria13vptdafyttpmlwppt0s844efey2cpc0mevy92p \
+    "10000utia" \
     --fees=420utia \
-    --from $CELESTIA_KEY_NAME \
+    --memo="{\"rollupDepositAddress\":\"$FLAME_ADDRESS\"}" \
+    --chain-id="celestia" \
+    --from="$CELESTIA_KEY_NAME" \
     --node=https://celestia-rpc.polkachu.com:443 \
-    --chain-id celestia \
     --packet-timeout-height 0-0
 ```
 
@@ -19,11 +20,12 @@ celestia-appd tx ibc-transfer transfer \
 nobled tx ibc-transfer transfer \
     transfer \
     channel-104 \
-    $ASTRIA_ADDRESS \
-    1000000uusdc \
-    --from $NOBLE_KEY_NAME \
-    --node https://noble-rpc.polkachu.com:443 \
-    --chain-id noble-1 \
+    astriacompat1eg8hhey0n4untdvqqdvlyl0e7zx8wfcaz3l6wu \
+    "100000uusdc" \
+    --memo="{\"rollupDepositAddress\":\"$FLAME_ADDRESS\"}" \
+    --chain-id="noble-1" \
+    --from="$NOBLE_KEY_NAME" \
+    --node=https://noble-rpc.polkachu.com:443 \
     --packet-timeout-height 0-0
 ```
 
@@ -33,6 +35,7 @@ osmosisd tx ibc-transfer transfer \
     channel-85486 \
     $ASTRIA_ADDRESS \
     1000000uusdc \
+    --memo="{\"rollupDepositAddress\":\"$FLAME_ADDRESS\"}" \
     --from $OSMOSIS_KEY_NAME \
     --node https://osmosis-rpc.polkachu.com:443 \
     --chain-id osmosis-1 \
@@ -45,6 +48,7 @@ strided tx ibc-transfer transfer \
     channel-285 \
     $ASTRIA_ADDRESS \
     "100000stutia" \
+    --memo="{\"rollupDepositAddress\":\"$FLAME_ADDRESS\"}" \
     --chain-id="stride-1" \
     --from=$STRIDE_KEY_NAME \
     --node=https://stride-rpc.polkachu.com:443 \
