@@ -22,17 +22,6 @@ for Flame running on the Astria `dawn-{{config.dawn.num}}` Testnet.
 | Native sequencer Asset | `{{config.flame.dawn.info.native_asset}}` |
 | Currency Symbol | `{{config.flame.dawn.info.currency_symbol}}` |
 
-## Bridging
-
-| Property | Value |
-|-----|-----|
-| IBC Channel: mocha-4 -> dawn-1 | `{{config.flame.dawn.bridging.ibc_mocha_to_dawn}}` |
-| IBC Channel: dawn-1 -> mocha-4 | `{{config.flame.dawn.bridging.ibc_dawn_to_mocha}}` |
-| IBC Channel: grand-1 -> dawn-1 | `{{config.flame.dawn.bridging.ibc_grand_to_dawn}}` |
-| IBC Channel: dawn-1 -> grand-1 | `{{config.flame.dawn.bridging.ibc_dawn_to_grand}}` |
-| Flame TIA Withdrawal Address| `{{config.flame.dawn.bridging.flame_tia_address}}` |
-| Flame USDC Withdrawal Address| `{{config.flame.dawn.bridging.flame_usdc_address}}` |
-
 ## Adding to Metamask
 
 Follow Metamask's official documentation to [manually add a custom network.](https://support.metamask.io/hc/en-us/articles/360043227612-How-to-add-a-custom-network-RPC#h_01G63GGJ83DGDRCS2ZWXM37CV5)
@@ -46,6 +35,48 @@ Your settings should be the following:
 | Chain ID | `{{config.flame.dawn.info.chain_id}}` |
 | Currency symbol | `{{config.flame.dawn.info.currency_symbol}}` |
 | Block Explorer | <a :href="config.dawn.flame_explorer" target="_blank" rel="noopener noreferrer">{{config.dawn.flame_explorer}}</a> |
+
+## Bridging
+
+### [https://astria-bridge-web-app.vercel.app](https://astria-bridge-web-app.vercel.app)
+
+![Bridge UI](/bridge-ui-screen.png)
+
+### Celestia Mocha (IBC)
+
+| Property | Value |
+|-----|-----|
+| Supported Asset | `TIA` |
+| `mocha` -> `dawn` | `{{config.flame.dawn.bridging.ibc_mocha_to_dawn}}` |
+| `dawn` -> `mocha` | `{{config.flame.dawn.bridging.ibc_dawn_to_mocha}}` |
+| Astria Sequencer TIA Bridge Address | `{{config.flame.dawn.bridging.sequencer_mocha_address}}` |
+| Flame TIA Withdrawal Address| `{{config.flame.dawn.bridging.flame_tia_address}}` |
+
+### Noble Grand (IBC)
+
+| Property | Value |
+|-----|-----|
+| Supported Asset | `USDC` |
+| `grand` -> `astria` | `{{config.flame.dawn.bridging.ibc_grand_to_dawn}}` |
+| `astria` -> `grand` | `{{config.flame.dawn.bridging.ibc_dawn_to_grand}}` |
+| Astria Sequencer USDC Bridge Address | `{{config.flame.dawn.bridging.sequencer_grand_address}}` |
+| Flame USDC Withdrawal Address| `{{config.flame.dawn.bridging.flame_usdc_address}}` |
+
+### Osmosis (IBC)
+
+| Property | Value |
+|-----|-----|
+| Supported Asset | `milkTIA` |
+| `osmosis` -> `astria` | `{{config.flame.dawn.bridging.ibc_osmosis_to_dawn}}` |
+| `astria` -> `osmosis` | `{{config.flame.dawn.bridging.ibc_dawn_to_osmosis}}` |
+
+### Stride (IBC)
+
+| Property | Value |
+|-----|-----|
+| Supported Asset | `stTIA` |
+| `stride` -> `astria` | `{{config.flame.dawn.bridging.ibc_stride_to_dawn}}` |
+| `astria` -> `stride` | `{{config.flame.dawn.bridging.ibc_dawn_to_stride}}` |
 
 ## Uniswap V3
 

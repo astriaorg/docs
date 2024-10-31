@@ -2,7 +2,7 @@
 
 Bridging commands from Celestia and Noble testnets to the Astria `dusk` devnet.
 
-You will need the `astria-cli`, `celestia-appd`, and `nobled` installed. Follow
+You will need the `astria-cli` and `nobled` installed. Follow
 the install steps [here](./overview.md#bridging-dependencies).
 
 You can export the following to make the commands below easily copy and
@@ -11,8 +11,6 @@ pastable.
 ```bash
 export ASTRIA_ADDRESS="<your-astria-address>"
 export PRIV_KEY="<your-astria-address-private-key>"
-export CELESTIA_KEY_NAME="<name-of-your-celestia-key>"
-export CELESTIA_ADDRESS="<your-celestia-address>"
 export NOBLE_KEY_NAME="<name-of-your-noble-key>"
 export NOBLE_ADDRESS="<your-noble-address>"
 export FLAME_ADDRESS="<your-flame-address>"
@@ -20,73 +18,38 @@ export FLAME_ADDRESS="<your-flame-address>"
 
 ## Bridge to Flame on `dusk` Devnet
 
-### From Celestia
-
 ::: tip
 There is no $TIA `BridgeLockAccount` configured for `dusk-11`.
 :::
 
-### From Noble
+### Via IBC
 
-```bash
-nobled tx ibc-transfer transfer \
-    transfer \
-    channel-231 \
-    astria12saluecm8dd7hkutk83eavkl2p70lf5w7txezg \
-    "100000uusdc" \
-    --memo="{\"rollupDepositAddress\":\"$FLAME_ADDRESS\"}" \
-    --chain-id="grand-1" \
-    --from="grand-test-1" \
-    --node=https://noble-testnet-rpc.polkachu.com:443
-    --packet-timeout-height 0-0
-```
+<!--@include: ../../components/_bridge-to-flame-via-ibc-devnet.md-->
 
-### nRIA from Astria
+### Direct from Astria
 
-```bash
-astria-cli sequencer bridge-lock astria1yqdjnnmrp7w5ygwj0dkldsgzjhv5vcakp7yeu9 \
-    --amount 10000 \
-    --destination-chain-address $FLAME_ADDRESS \
-    --private-key $PRIV_KEY \
-    --sequencer.chain-id astria-dusk-11 \
-    --sequencer-url https://rpc.sequencer.dusk-11.devnet.astria.org \
-    --fee-asset=nria --asset=nria
-```
-
-### USDC from Astria
-
-```bash
-astria-cli sequencer bridge-lock astria12saluecm8dd7hkutk83eavkl2p70lf5w7txezg \
-    --amount 10000 \
-    --destination-chain-address $FLAME_ADDRESS \
-    --private-key $PRIV_KEY \
-    --sequencer.chain-id astria-dusk-11 \
-    --sequencer-url https://rpc.sequencer.dusk-11.devnet.astria.org \
-    --fee-asset=nria --asset=transfer/channel-2/uusdc
-```
+<!--@include: ../../components/_bridge-to-flame-via-astria-devnet.md-->
 
 ## Check Your Balances on Flame
 
-### TIA
+<!--@include: ../../components/_check-flame-balances-devnet.md-->
 
-```bash
-cast balance $FLAME_ADDRESS --rpc-url https://rpc.flame.dusk-11.devnet.astria.org
+## View Your Transactions on Flame
 
-```
-
-### USDC
-
-<!-- TODO: verify correct address -->
-```bash
-cast balance $FLAME_ADDRESS --erc20 0x6e18cE6Ec3Fc7b8E3EcFca4fA35e25F3f6FA879a --rpc-url https://rpc.flame.dusk-11.devnet.astria.org
-
-```
-
-## View Your Transactions
-
-Open the [Flame Block
-Explorer](https://explorer.flame.dusk-11.devnet.astria.org) and search for your
-Flame address to see your transactions.
+Open the [Flame `dusk` Block Explorer](https://explorer.evm.dusk-11.devnet.astria.org)
+and search for your Flame address to see your transactions.
 
 On the account page you can view your TIA balance directly. To view your USDC
 balance, select the `Tokens` tab.
+
+## View Transactions on [Mintscan](https://www.mintscan.io/)
+
+If you bridge from an IBC chain, you can view your transactions by visiting
+the following:
+
+- `https://www.mintscan.io/noble-testnet/address/<your-noble-address>`
+
+You can also go directly to [Mintscan](https://www.mintscan.io/) and search for
+the `txhash` that is returned after sending your transaction, but it is
+recommended to view your address transaction history as this will show if an
+acknowledgement for your transfer was received.

@@ -63,64 +63,63 @@ export RPC_URL="https://rpc.flame.astria.org"
 
 ## To Astria
 
-### Withdraw TIA
-
 ::: info
 Make sure the `ORIGIN_DESTINATION_CHAIN_ADDRESS` in your `.env` file is updated
-to be your Celestia address.
+to be the address of the desired asset you are withdrawing:
+
+- Set to your **Celestia** address to withdraw `TIA`
+- Set to your **Noble** address to withdraw `USDC`
+- Set to your **Osmosis** address to withdraw `milkTIA`
+- Set to your **Stride** address to withdraw `stTIA`
 :::
+
+Then run the following command:
 
 ```bash
 forge script script/AstriaWithdrawer.s.sol:AstriaWithdrawerScript \
    --rpc-url $RPC_URL --broadcast --sig "withdrawToSequencer()" -vvvv
 ```
 
-### Withdraw USDC
+## To IBC Chain
 
 ::: info
 Make sure the `ORIGIN_DESTINATION_CHAIN_ADDRESS` in your `.env` file is updated
-to be your Noble address.
+to be the address of the desired asset you are withdrawing:
+
+- Set to your **Celestia** address to withdraw `TIA`
+- Set to your **Noble** address to withdraw `USDC`
+- Set to your **Osmosis** address to withdraw `milkTIA`
+- Set to your **Stride** address to withdraw `stTIA`
 :::
 
-```bash
-forge script script/AstriaBridgeableERC20.s.sol:AstriaBridgeableERC20Script \
-   --rpc-url $RPC_URL --broadcast --sig "withdrawToSequencer()" -vvvv
-```
-
-## To Celestia
-
-::: info
-Make sure the `ORIGIN_DESTINATION_CHAIN_ADDRESS` in your `.env` file is updated
-to be your Celestia address.
-:::
+Then run the following command:
 
 ```bash
 forge script script/AstriaWithdrawer.s.sol:AstriaWithdrawerScript \
    --rpc-url $RPC_URL --broadcast --sig "withdrawToIbcChain()" -vvvv
 ```
 
-## To Noble
+## View Transactions on [Astrotrek](https://astrotrek.io/)
 
-::: info
-Make sure the `ORIGIN_DESTINATION_CHAIN_ADDRESS` in your `.env` file is updated
-to be your Noble address.
-:::
+Go to `https://astrotrek.io/account/<your-astria-account>?tab=transactions`
+to see the withdrawal transactions. You can also search the returned transaction
+hash directly in [Astrotrek](https://astrotrek.io/).
 
-```bash
-forge script script/AstriaBridgeableERC20.s.sol:AstriaBridgeableERC20Script \
-   --rpc-url $RPC_URL --broadcast --sig "withdrawToIbcChain()" -vvvv
-```
+## View Transactions on [Mintscan](https://www.mintscan.io/)
 
-## Check your Balances on Celestia and Noble
+If you bridge out to an IBC chain, you can view your transactions by visiting
+the following:
 
-### Celestia Balance
+- `https://www.mintscan.io/celestia/address/<your-celestia-address>`
+- `https://www.mintscan.io/noble/address/<your-noble-address>`
+- `https://www.mintscan.io/osmosis/address/<your-osmosis-address>`
+- `https://www.mintscan.io/stride/address/<your-stride-address>`
 
-```bash
-celestia-appd query bank balances $CELESTIA_ADDRESS --node=https://celestia-rpc.polkachu.com:443 --chain-id celestia
-```
+You can also go directly to [Mintscan](https://www.mintscan.io/) and search for
+the `txhash` that is returned after sending your transaction, but it is
+recommended to view your address transaction history as this will show if an
+acknowledgement for your transfer was received.
 
-### Noble Balance
+## Check your Balances
 
-```bash
-nobled query bank balances $NOBLE_ADDRESS --node https://noble-rpc.polkachu.com:443
-```
+<!--@include: ../../components/_check-mainnet-balances.md-->

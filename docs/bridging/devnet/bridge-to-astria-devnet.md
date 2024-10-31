@@ -19,17 +19,7 @@ export NOBLE_ADDRESS="<your-noble-address>"
 
 ## Bridge to Astria
 
-### From Celestia
-
-```bash
-celestia-appd tx ibc-transfer transfer transfer channel-159 $ASTRIA_ADDRESS 1000000utia --fees=420utia --from $CELESTIA_KEY_NAME  --node=https://rpc-mocha.pops.one:443 --chain-id mocha-4
-```
-
-### From Noble
-
-```bash
-nobled tx ibc-transfer transfer transfer channel-231 $ASTRIA_ADDRESS 1000000uusdc --from $NOBLE_KEY_NAME --node https://noble-testnet-rpc.polkachu.com:443 --chain-id grand-1
-```
+<!--@include: ../../components/_bridge-to-astria-devnet.md-->
 
 ## Check Your Balances on Astria
 
@@ -37,12 +27,14 @@ nobled tx ibc-transfer transfer transfer channel-231 $ASTRIA_ADDRESS 1000000uusd
 astria-cli sequencer balance get $ASTRIA_ADDRESS --sequencer-url https://rpc.sequencer.dusk-11.devnet.astria.org/
 ```
 
-### View Transactions on [Mintscan](https://www.mintscan.io/)
+## View Transactions on [Mintscan](https://www.mintscan.io/)
 
-You can view your transactions by visiting
-`https://www.mintscan.io/noble-testnet/address/<your-celestia-address>` or
-`https://www.mintscan.io/noble-testnet/address/<your-noble-address>`. You can
-also go directly to [Mintscan](https://www.mintscan.io/) and search for the
-`txhash` that is returned after sending your transaction, but it is recommended
-to view your address transaction history as this will show if an acknowledgement
-for your transfer was received.
+You can view your transactions by visiting the following:
+
+- `https://www.mintscan.io/celestia-testnet/address/<your-celestia-address>`
+- `https://www.mintscan.io/noble-testnet/address/<your-noble-address>`
+
+You can also go directly to [Mintscan](https://www.mintscan.io/) and search for
+the `txhash` that is returned after sending your transaction, but it is
+recommended to view your address transaction history as this will show if an
+acknowledgement for your transfer was received.

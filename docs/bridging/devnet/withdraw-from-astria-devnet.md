@@ -21,39 +21,27 @@ export NOBLE_ADDRESS="<your-noble-address>"
 
 ## Withdraw from Astria
 
-### Astria to Celestia
+<!--@include: ../../components/_withdraw-from-astria-devnet.md-->
 
-```bash
-astria-cli sequencer ics20-withdrawal --amount 1000 --destination-chain-address=$CELESTIA_ADDRESS --source-channel channel-0 --private-key=$PRIV_KEY --sequencer-url=https://rpc.sequencer.dusk-11.devnet.astria.org --sequencer.chain-id astria-dusk-11 --asset transfer/channel-0/utia --fee-asset nria
-```
-
-### Astria to Noble
-
-```bash
-astria-cli sequencer ics20-withdrawal --amount 1000 --destination-chain-address=$NOBLE_ADDRESS --source-channel channel-2 --private-key=$PRIV_KEY --sequencer-url=https://rpc.sequencer.dusk-11.devnet.astria.org --sequencer.chain-id astria-dusk-11 --asset transfer/channel-2/uusdc --fee-asset nria
-```
-
-### View Transactions on [Astrotrek](https://dusk.astrotrek.io/)
+## View Transactions on [Astrotrek](https://dusk.astrotrek.io/)
 
 Go to `https://dusk.astrotrek.io/account/<your-astria-account>?tab=transactions`
 to see the withdrawal transactions. You can also search the returned transaction
 hash directly in [Astrotrek](https://dusk.astrotrek.io/).
 
-You will also see the received transactions on
-[Mintscan](#view-transactions-on-mintscan).
+## View Transactions on [Mintscan](https://www.mintscan.io/)
 
-## Check your Balances on Celestia and Noble
+If you bridge out to an IBC chain, you can view your transactions by visiting
+the following:
 
-### Celestia Balance
+- `https://www.mintscan.io/celestia-testnet/address/<your-celestia-address>`
+- `https://www.mintscan.io/noble-testnet/address/<your-noble-address>`
 
-```bash
-celestia-appd query bank balances $CELESTIA_ADDRESS --node=https://rpc-mocha.pops.one:443 --chain-id mocha-4
+You can also go directly to [Mintscan](https://www.mintscan.io/) and search for
+the `txhash` that is returned after sending your transaction, but it is
+recommended to view your address transaction history as this will show if an
+acknowledgement for your transfer was received.
 
-```
+## Check your Devnet Balances
 
-### Noble Balance
-
-```bash
-nobled query bank balances $NOBLE_ADDRESS --node https://noble-testnet-rpc.polkachu.com:443
-
-```
+<!--@include: ../../components/_check-devnet-balances.md-->

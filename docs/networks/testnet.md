@@ -4,6 +4,7 @@
 import { siteConfig } from '../config.js'
 
 const dawn = siteConfig.dawn
+const dawn_ibc = siteConfig.flame.dawn.bridging
 </script>
 
 # Astria Dawn Testnet
@@ -22,12 +23,39 @@ const dawn = siteConfig.dawn
 
 ## Bridge Channels
 
-| Connected Network | Channel | Astria Dawn Channel |
-|---|---|---|
-| Celestia Mocha-4 | `channel-160` | `channel-0` |
-| Noble | `channel-232` | `channel-1` |
-| Stride | `channel-53` | `channel-2` |
-| Osmosis | `channel-9186` | `channel-3` |
+### Celestia Mocha (IBC)
+
+| Property | Value |
+|-----|-----|
+| Supported Asset | `TIA` |
+| `mocha` -> `dawn` | `{{dawn_ibc.ibc_mocha_to_dawn}}` |
+| `dawn` -> `mocha` | `{{dawn_ibc.ibc_dawn_to_mocha}}` |
+| Astria Sequencer TIA Bridge Address | `{{dawn_ibc.sequencer_mocha_address}}` |
+
+### Noble Grand (IBC)
+
+| Property | Value |
+|-----|-----|
+| Supported Asset | `USDC` |
+| `grand` -> `dawn` | `{{dawn_ibc.ibc_grand_to_dawn}}` |
+| `dawn` -> `grand` | `{{dawn_ibc.ibc_dawn_to_grand}}` |
+| Astria Sequencer USDC Bridge Address | `{{dawn_ibc.sequencer_grand_address}}` |
+
+### Osmosis (IBC)
+
+| Property | Value |
+|-----|-----|
+| Supported Asset | `osmo` |
+| `osmosis` -> `dawn` | `{{dawn_ibc.ibc_osmosis_to_dawn}}` |
+| `dawn` -> `osmosis` | `{{dawn_ibc.ibc_dawn_to_osmosis}}` |
+
+### Stride (IBC)
+
+| Property | Value |
+|-----|-----|
+| Supported Asset | `stTIA` |
+| `stride` -> `dawn` | `{{dawn_ibc.ibc_stride_to_dawn}}` |
+| `dawn` -> `stride` | `{{dawn_ibc.ibc_dawn_to_stride}}` |
 
 ## Dawn-{{ dawn.num }} Service Versions
 

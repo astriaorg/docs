@@ -20,82 +20,35 @@ export FLAME_ADDRESS="<your-flame-address>"
 
 ## Bridge to Flame
 
-### From Celestia
+### Via IBC
 
-```bash
-celestia-appd tx ibc-transfer transfer \
-    transfer \
-    channel-160 \
-    astria1lepnry7tlpzvrukp5xej4v5wp532k2f94vxqnr \
-    "10000utia" \
-    --fees=420utia \
-    --memo="{\"rollupDepositAddress\":\"$FLAME_ADDRESS\"}" \
-    --chain-id="mocha-4" \
-    --from="$CELESTIA_KEY_NAME" \
-    --node=https://rpc-mocha.pops.one:443 \
-    --packet-timeout-height 0-0
-```
+<!--@include: ../../components/_bridge-to-flame-via-ibc-testnet.md-->
 
-### From Noble
+### Direct from Astria
 
-```bash
-nobled tx ibc-transfer transfer \
-    transfer \
-    channel-232 \
-    astria1u6ewl0tejz0df2l6tzc7k2degx6mqsjahldqxd \
-    "100000uusdc" \
-    --memo="{\"rollupDepositAddress\":\"$FLAME_ADDRESS\"}" \
-    --chain-id="grand-1" \
-    --from="$NOBLE_KEY_NAME" \
-    --node=https://noble-testnet-rpc.polkachu.com:443 \
-    --packet-timeout-height 0-0
-```
-
-### TIA from Astria
-
-```bash
-astria-cli sequencer bridge-lock astria1lepnry7tlpzvrukp5xej4v5wp532k2f94vxqnr \
-    --amount 10000 \
-    --destination-chain-address $FLAME_ADDRESS \
-    --private-key $PRIV_KEY \
-    --sequencer.chain-id dawn-1 \
-    --sequencer-url https://rpc.sequencer.dawn-1.astria.org/ \
-    --fee-asset=transfer/channel-0/utia --asset=transfer/channel-0/utia
-```
-
-### USDC from Astria
-
-```bash
-astria-cli sequencer bridge-lock astria1u6ewl0tejz0df2l6tzc7k2degx6mqsjahldqxd \
-    --amount 10000 \
-    --destination-chain-address $FLAME_ADDRESS \
-    --private-key $PRIV_KEY \
-    --sequencer.chain-id dawn-1 \
-    --sequencer-url https://rpc.sequencer.dawn-1.astria.org/ \
-    --fee-asset=transfer/channel-0/utia --asset=transfer/channel-1/uusdc
-```
+<!--@include: ../../components/_bridge-to-flame-via-astria-testnet.md-->
 
 ## Check Your Balances on Flame
 
-### TIA
+<!--@include: ../../components/_check-flame-balances-testnet.md-->
 
-```bash
-cast balance $FLAME_ADDRESS --rpc-url https://rpc.flame.dawn-1.astria.org
+## View Your Transactions on Flame
 
-```
-
-### USDC
-
-<!-- TODO: verify correct address -->
-```bash
-cast balance $FLAME_ADDRESS --erc20 0x6e18cE6Ec3Fc7b8E3EcFca4fA35e25F3f6FA879a --rpc-url https://rpc.flame.dawn-1.astria.org
-
-```
-
-## View Your Transactions
-
-Open the [Flame Block Explorer](https://explorer.flame.dawn-1.astria.org) and
-search for your Flame address to see your transactions.
+Open the [Flame `dawn` Block Explorer](https://explorer.flame.dawn-1.astria.org)
+and search for your Flame address to see your transactions.
 
 On the account page you can view your TIA balance directly. To view your USDC
 balance, select the `Tokens` tab.
+
+## View Transactions on [Mintscan](https://www.mintscan.io/)
+
+If you bridge from an IBC chain, you can view your transactions by visiting
+the following:
+
+- `https://www.mintscan.io/celestia-testnet/address/<your-celestia-address>`
+- `https://www.mintscan.io/noble-testnet/address/<your-noble-address>`
+
+You can also go directly to [Mintscan](https://www.mintscan.io/) and search for
+the `txhash` that is returned after sending your transaction, but it is
+recommended to view your address transaction history as this will show if an
+acknowledgement for your transfer was received.

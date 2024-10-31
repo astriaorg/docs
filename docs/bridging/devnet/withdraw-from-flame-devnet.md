@@ -61,66 +61,36 @@ export RPC_URL="https://rpc.evm.dusk-11.devnet.astria.org/"
 
 ## To Astria
 
-### Withdraw TIA
-
 ::: info
 Make sure the `ORIGIN_DESTINATION_CHAIN_ADDRESS` in your `.env` file is updated
-to be your Celestia address.
+to be the address of the desired asset you are withdrawing:
+
+- Set to your **Noble** address to withdraw `USDC`
 :::
+
+Then run the following command:
 
 ```bash
 forge script script/AstriaWithdrawer.s.sol:AstriaWithdrawerScript \
    --rpc-url $RPC_URL --broadcast --sig "withdrawToSequencer()" -vvvv
 ```
 
-### Withdraw USDC
+## To IBC Chain
 
 ::: info
 Make sure the `ORIGIN_DESTINATION_CHAIN_ADDRESS` in your `.env` file is updated
-to be your Noble address.
+to be the address of the desired asset you are withdrawing:
+
+- Set to your **Noble** address to withdraw `USDC`
 :::
 
-```bash
-forge script script/AstriaBridgeableERC20.s.sol:AstriaBridgeableERC20Script \
-   --rpc-url $RPC_URL --broadcast --sig "withdrawToSequencer()" -vvvv
-```
-
-## To Celestia
-
-::: info
-Make sure the `ORIGIN_DESTINATION_CHAIN_ADDRESS` in your `.env` file is updated
-to be your Celestia address.
-:::
+Then run the following command:
 
 ```bash
 forge script script/AstriaWithdrawer.s.sol:AstriaWithdrawerScript \
    --rpc-url $RPC_URL --broadcast --sig "withdrawToIbcChain()" -vvvv
 ```
 
-## To Noble
+## Check your Testnet Balances
 
-::: info
-Make sure the `ORIGIN_DESTINATION_CHAIN_ADDRESS` in your `.env` file is updated
-to be your Noble address.
-:::
-
-```bash
-forge script script/AstriaBridgeableERC20.s.sol:AstriaBridgeableERC20Script \
-   --rpc-url $RPC_URL --broadcast --sig "withdrawToIbcChain()" -vvvv
-```
-
-## Check your Balances on Celestia and Noble
-
-### Celestia Balance
-
-```bash
-celestia-appd query bank balances $CELESTIA_ADDRESS --node=https://rpc-mocha.pops.one:443 --chain-id mocha-4
-
-```
-
-### Noble Balance
-
-```bash
-nobled query bank balances $NOBLE_ADDRESS --node https://noble-testnet-rpc.polkachu.com:443
-
-```
+<!--@include: ../../components/_check-devnet-balances.md-->

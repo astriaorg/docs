@@ -2,10 +2,12 @@
 
 # Withdraw from the Astria Mainnet Alpha
 
-Withdrawal commands from Astria Mainnet to Celestia and Noble Mainnets.
+Withdrawal commands from Astria Mainnet to Celestia, Noble, Osmosis, and Stride
+Mainnets.
 
-You will need the `astria-cli`, `celestia-appd`, and `nobled` installed. Follow
-the install steps [here](../overview.md#bridging-dependencies).
+You will need the `astria-cli`, `celestia-appd`, `nobled`, `osmosisd`, and
+`strided` installed. Follow the install steps
+[here](../overview.md#bridging-dependencies).
 
 You can export the following to make the commands below easily copy and
 pastable.
@@ -17,57 +19,37 @@ export CELESTIA_KEY_NAME="<name-of-your-celestia-key>"
 export CELESTIA_ADDRESS="<your-celestia-address>"
 export NOBLE_KEY_NAME="<name-of-your-noble-key>"
 export NOBLE_ADDRESS="<your-noble-address>"
+export OSMOSIS_KEY_NAME="<name-of-your-osmosis-key>"
+export OSMOSIS_ADDRESS="<your-osmosis-address>"
+export STRIDE_KEY_NAME="<name-of-your-stride-key>"
+export STRIDE_ADDRESS="<your-stride-address>"
 ```
 
 ## Withdraw from Astria
 
-### Astria to Celestia
+<!--@include: ../../components/_withdraw-from-astria-mainnet.md-->
 
-```bash
-astria-cli sequencer ics20-withdrawal \
-    --amount 1000 \
-    --destination-chain-address=$CELESTIA_ADDRESS \
-    --source-channel channel-0 \
-    --private-key=$PRIV_KEY \
-    --sequencer-url=https://rpc.astria.org/ \
-    --sequencer.chain-id astria \
-    --asset transfer/channel-0/utia \
-    --fee-asset transfer/channel-0/utia
-```
-
-### Astria to Noble
-
-```bash
-astria-cli sequencer ics20-withdrawal \
-    --amount 1000 \
-    --destination-chain-address=$NOBLE_ADDRESS \
-    --source-channel channel-1 \
-    --private-key=$PRIV_KEY \
-    --sequencer-url=https://rpc.astria.org/ \
-    --sequencer.chain-id astria \
-    --asset transfer/channel-1/uusdc \
-    --fee-asset transfer/channel-0/utia
-```
-
-### View Transactions on [Astrotrek](https://astrotrek.io/)
+## View Transactions on [Astrotrek](https://astrotrek.io/)
 
 Go to `https://astrotrek.io/account/<your-astria-account>?tab=transactions`
 to see the withdrawal transactions. You can also search the returned transaction
 hash directly in [Astrotrek](https://astrotrek.io/).
 
-You will also see the received transactions on
-[Mintscan](#view-transactions-on-mintscan).
+## View Transactions on [Mintscan](https://www.mintscan.io/)
 
-## Check your Balances on Celestia and Noble
+If you bridge out to an IBC chain, you can view your transactions by visiting
+the following:
 
-### Celestia Balance
+- `https://www.mintscan.io/celestia/address/<your-celestia-address>`
+- `https://www.mintscan.io/noble/address/<your-noble-address>`
+- `https://www.mintscan.io/osmosis/address/<your-osmosis-address>`
+- `https://www.mintscan.io/stride/address/<your-stride-address>`
 
-```bash
-celestia-appd query bank balances $CELESTIA_ADDRESS --node=https://celestia-rpc.polkachu.com:443 --chain-id celestia
-```
+You can also go directly to [Mintscan](https://www.mintscan.io/) and search for
+the `txhash` that is returned after sending your transaction, but it is
+recommended to view your address transaction history as this will show if an
+acknowledgement for your transfer was received.
 
-### Noble Balance
+## Check your Balances
 
-```bash
-nobled query bank balances $NOBLE_ADDRESS --node https://noble-rpc.polkachu.com:443
-```
+<!--@include: ../../components/_check-mainnet-balances.md-->
