@@ -39,7 +39,7 @@ export const siteConfig = {
                 currency_symbol: "TIA",
             },
             bridging: {
-                ui_link: "https://astria-bridge-web-app.vercel.app/",
+                ui_link: "https://astria-bridge-web-app-dawn.vercel.app/",
                 ibc_mocha_to_dawn: "channel-160",
                 ibc_dawn_to_mocha: "channel-0",
                 ibc_grand_to_dawn: "channel-232",
