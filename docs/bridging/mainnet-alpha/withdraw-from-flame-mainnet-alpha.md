@@ -65,7 +65,8 @@ export RPC_URL="https://rpc.flame.astria.org"
 
 ::: info
 Make sure the `ORIGIN_DESTINATION_CHAIN_ADDRESS` in your `.env` file is updated
-to be the address of the desired asset you are withdrawing: 
+to be the address of the desired asset you are withdrawing:
+
 - Set to your **Celestia** address to withdraw `TIA`
 - Set to your **Noble** address to withdraw `USDC`
 - Set to your **Osmosis** address to withdraw `milkTIA`
@@ -83,7 +84,8 @@ forge script script/AstriaWithdrawer.s.sol:AstriaWithdrawerScript \
 
 ::: info
 Make sure the `ORIGIN_DESTINATION_CHAIN_ADDRESS` in your `.env` file is updated
-to be the address of the desired asset you are withdrawing: 
+to be the address of the desired asset you are withdrawing:
+
 - Set to your **Celestia** address to withdraw `TIA`
 - Set to your **Noble** address to withdraw `USDC`
 - Set to your **Osmosis** address to withdraw `milkTIA`

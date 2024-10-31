@@ -63,7 +63,8 @@ export RPC_URL="https://rpc.evm.dusk-11.devnet.astria.org/"
 
 ::: info
 Make sure the `ORIGIN_DESTINATION_CHAIN_ADDRESS` in your `.env` file is updated
-to be the address of the desired asset you are withdrawing: 
+to be the address of the desired asset you are withdrawing:
+
 - Set to your **Noble** address to withdraw `USDC`
 :::
 
@@ -78,7 +79,8 @@ forge script script/AstriaWithdrawer.s.sol:AstriaWithdrawerScript \
 
 ::: info
 Make sure the `ORIGIN_DESTINATION_CHAIN_ADDRESS` in your `.env` file is updated
-to be the address of the desired asset you are withdrawing: 
+to be the address of the desired asset you are withdrawing:
+
 - Set to your **Noble** address to withdraw `USDC`
 :::
 
