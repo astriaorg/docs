@@ -13,7 +13,7 @@ Astria is an IBC chain and is connected to Celestia, Noble, Osmosis, and Stride.
 > [!IMPORTANT]
 > The Astria Bridge UI is the recommended method for bridging to Astria.
 >
-> Visit the Astria Bridging UI <a :href="link" target="_blank"
+> Visit the Astria Bridging UI <a :href="bridge.mainnet.bridging.ui_link" target="_blank"
 > rel="noopenernoreferrer">here</a>.
 
 ## Navigate to the Bridge UI for your Desired Network
