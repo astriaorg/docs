@@ -1,9 +1,11 @@
 # Bridging to the Astria Mainnet Alpha
 
-Bridging commands from Celestia and Noble Mainnets to the Astria Mainnet.
+Bridging commands from Celestia, Noble, Osmosis, and Stride Mainnets to the
+Astria Mainnet Alpha.
 
-You will need the `astria-cli`, `celestia-appd`, and `nobled` installed. Follow
-the install steps [here](../overview.md#bridging-dependencies).
+You will need the `astria-cli`, `celestia-appd`, `nobled`, `osmosisd`, and
+`strided` installed. Follow the install steps
+[here](../overview.md#bridging-dependencies).
 
 You can export the following to make the commands below easily copy and
 pastable.

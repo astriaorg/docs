@@ -2,10 +2,12 @@
 
 # Withdraw from the Astria Mainnet Alpha
 
-Withdrawal commands from Astria Mainnet to Celestia and Noble Mainnets.
+Withdrawal commands from Astria Mainnet to Celestia, Noble, Osmosis, and Stride
+Mainnets.
 
-You will need the `astria-cli`, `celestia-appd`, and `nobled` installed. Follow
-the install steps [here](../overview.md#bridging-dependencies).
+You will need the `astria-cli`, `celestia-appd`, `nobled`, `osmosisd`, and
+`strided` installed. Follow the install steps
+[here](../overview.md#bridging-dependencies).
 
 You can export the following to make the commands below easily copy and
 pastable.
