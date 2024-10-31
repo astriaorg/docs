@@ -10,7 +10,23 @@ export default defineConfig({
   ignoreDeadLinks: true,
   base: base,
   head: [
-    ["link", { rel: "icon", href: "/favicon.png" }]],
+    ["link", { rel: "icon", href: "/favicon.png" }],
+    [
+      "script",
+      {
+        async: "true",
+        src: 'https://www.googletagmanager.com/gtag/js?id=G-RKYWRJTV6J'
+      }
+    ],
+    [
+      "script",
+      {},
+      `window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-RKYWRJTV6J');`
+    ]
+  ],
   themeConfig: {
     editLink: {
       pattern: "https://github.com/astriaorg/docs/edit/main/docs/:path",
