@@ -38,9 +38,8 @@ hash directly in [Astrotrek](https://dawn.astrotrek.io/).
 If you bridge out to an IBC chain, you can view your transactions by visiting
 the following:
 
-- `https://www.mintscan.io/celestia/address/<your-celestia-address>`
-- `https://www.mintscan.io/noble/address/<your-noble-address>`
-- `https://www.mintscan.io/stride/address/<your-stride-address>`
+- `https://www.mintscan.io/celestia-testnet/address/<your-celestia-address>`
+- `https://www.mintscan.io/noble-testnet/address/<your-noble-address>`
 
 You can also go directly to [Mintscan](https://www.mintscan.io/) and search for
 the `txhash` that is returned after sending your transaction, but it is
