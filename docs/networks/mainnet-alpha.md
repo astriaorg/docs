@@ -55,7 +55,7 @@ const mainnet_ibc = siteConfig.flame.mainnet.bridging
 | Supported Asset | `stTIA` |
 | `stride` -> `astria` | `{{mainnet_ibc.ibc_stride_to_astria}}` |
 | `astria` -> `stride` | `{{mainnet_ibc.ibc_astria_to_stride}}` |
-| Astria Sequencer USDC Bridge Address | `{{mainnet_ibc.sequencer_sttia_address}}` |
+| Astria Sequencer stTIA Bridge Address | `{{mainnet_ibc.sequencer_sttia_address}}` |
 
 ## Mainnet Service Versions
 

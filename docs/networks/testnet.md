@@ -45,7 +45,7 @@ const dawn_ibc = siteConfig.flame.dawn.bridging
 
 | Property | Value |
 |-----|-----|
-| Supported Asset | `milkTIA` |
+| Supported Asset | `osmo` |
 | `osmosis` -> `dawn` | `{{dawn_ibc.ibc_osmosis_to_dawn}}` |
 | `dawn` -> `osmosis` | `{{dawn_ibc.ibc_dawn_to_osmosis}}` |
 
