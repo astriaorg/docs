@@ -20,7 +20,7 @@ Manual bridging via the command line is available for power users.
 
 ## IBC Connections
 
-### Mainnet
+### Mainnet - [`astria`](../networks/mainnet-alpha.md)
 
 | Connected Network | Channel | Astria Channel |
 |---|---|---|
@@ -29,7 +29,7 @@ Manual bridging via the command line is available for power users.
 | Osmosis | `channel-85486` | `channel-2` |
 | Stride | `channel-285` | `channel-3` |
 
-### Testnet (dawn-1)
+### Testnet - [`dawn-1`](../networks/testnet.md)
 
 | Connected Network | Channel | Astria Dawn Channel |
 |---|---|---|
@@ -38,7 +38,7 @@ Manual bridging via the command line is available for power users.
 | Stride | `channel-53` | `channel-2` |
 | Osmosis | `channel-9186` | `channel-3` |
 
-### Devnet (dusk-11)
+### Devnet - [`dusk-11`](../networks/devnet.md)
 
 | Connected Network | Channel | Astria Dusk Channel |
 |---|---|---|
