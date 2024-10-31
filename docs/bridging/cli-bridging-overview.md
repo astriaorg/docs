@@ -74,13 +74,13 @@ Build the `nobled` cli from source:
 
 <!--@include: ../components/_install-nobled.md-->
 
-Build the `strided` cli from source:
-
-<!--@include: ../components/_install-strided.md-->
-
 Build the `osmosisd` cli from source:
 
 <!--@include: ../components/_install-osmosisd.md-->
+
+Build the `strided` cli from source:
+
+<!--@include: ../components/_install-strided.md-->
 
 ## Creating Accounts
 
