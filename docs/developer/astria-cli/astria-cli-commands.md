@@ -336,16 +336,6 @@ astria-cli sequencer transfer [OPTIONS] --amount <AMOUNT> --private-key <PRIVATE
 | `--asset <ASSET>` | The asset to transer [default: ntia] |
 | `--fee-asset <FEE_ASSET>` | The asset to pay the transfer fees with [default: ntia] |
 
-## `sequencer threshold`
-
-Commands for threshold signing.
-
-### Usage
-
-```bash
-astria-cli sequencer threshold <COMMAND>
-```
-
 ## `sequencer threshold dkg`
 
 Distributed key generation command.
@@ -367,17 +357,7 @@ astria-cli sequencer threshold dkg [OPTIONS] --index <INDEX> --min-signers <MIN_
 | `--public-key-package-path <PUBLIC_KEY_PACKAGE_PATH>` | Path to a file with the output public key package from keygen ceremony |
 | `--prefix <PREFIX>` | The address prefix for the generated address [default: astria] |
 
-## `astria-cli sequencer threshold sign` 
-
-Threshold signing command. requires `min_signers` as specified during DKG to produce a signature.
-
-### Usage
-
-```bash
-astria-cli sequencer threshold sign <COMMAND>
-```
-
-## `astria-cli sequencer threshold sign part1`
+## `sequencer threshold sign part1`
 
 Perform part 1 of the signing protocol.
 
