@@ -91,12 +91,6 @@ astria-go dev purge all [flags]
 |---|---|---|---|
 | `--instance` | string | `ASTRIA_GO_INSTANCE` | Choose the target instance. (default "default") |
 
-### Flags
-
-| Flag | Arg Type | Override Env Var | Description |
-|---|---|---|---|
-| `--instance` | string | `ASTRIA_GO_INSTANCE` | Choose the target instance. (default "default") |
-
 ## `dev purge binaries`
 
 Delete all downloaded binaries for a given instance. `astria-go dev init` must
@@ -243,7 +237,7 @@ astria-go sequencer balance [address] [flags]
 | Flag | Arg Type | Override Env Var | Description |
 |---|---|---|---|
 | `--json` | bool | `ASTRIA_GO_JSON` | Output an account's balances in JSON format. |
-| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to retrieve the balance from. (default "<http://127.0.0.1:26657>") |
+| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to retrieve the balance from. (default "https://rpc.sequencer.dawn-1.astria.org") |
 
 ## `sequencer blockheight`
 
@@ -260,7 +254,7 @@ astria-go sequencer blockheight [flags]
 | Flag | Arg Type | Override Env Var | Description |
 |---|---|---|---|
 | `--json` | bool | `ASTRIA_GO_JSON` | Output an account's balances in JSON format. |
-| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to retrieve the balance from. (default "<http://127.0.0.1:26657>") |
+| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to retrieve the balance from. (default "https://rpc.sequencer.dawn-1.astria.org") |
 
 ## `sequencer bridge`
 
@@ -292,8 +286,8 @@ astria-go sequencer bridge init [rollup-id] [flags]
 | `--keyfile` | string | `ASTRIA_GO_KEYFILE` | Path to secure keyfile for the bridge account. |
 | `--keyring-address` | string | `ASTRIA_GO_KEYRING_ADDRESS` | The address of the bridge account. Requires private key be stored in keyring. |
 | `--privkey` | string | `ASTRIA_GO_PRIVKEY` | The private key of the bridge account. |
-| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "astria-dusk-8") |
-| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to init bridge account (default "<http://127.0.0.1:26657>") |
+| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "dawn-1") |
+| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to init bridge account (default "https://rpc.sequencer.dawn-1.astria.org") |
 
 ## `sequencer bridge lock`
 
@@ -313,8 +307,8 @@ astria-go sequencer bridge lock [address] [amount] [destination-chain-address] [
 | `--keyfile` | string | `ASTRIA_GO_KEYFILE` | Path to secure keyfile for the bridge account. |
 | `--keyring-address` | string | `ASTRIA_GO_KEYRING_ADDRESS` | The address of the bridge account. Requires private key be stored in keyring. |
 | `--privkey` | string | `ASTRIA_GO_PRIVKEY` | The private key of the bridge account. |
-| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "astria-dusk-8") |
-| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer where the bridge account resides (default "<http://127.0.0.1:26657>") |
+| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "dawn-1") |
+| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer where the bridge account resides (default "https://rpc.sequencer.dawn-1.astria.org") |
 
 ## `sequencer createaccount`
 
@@ -362,7 +356,7 @@ astria-go sequencer nonce [address] [flags]
 | Flag | Arg Type | Override Env Var | Description |
 |---|---|---|---|
 | `--json` | bool | `ASTRIA_GO_JSON` | Output in JSON format. |
-| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer. (default "<http://127.0.0.1:26657>") |
+| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer. (default "https://rpc.sequencer.dawn-1.astria.org") |
 
 ## `sequencer setkey`
 
@@ -392,5 +386,5 @@ astria-go sequencer transfer [amount] [to] [flags]
 | `--keyfile` | string | `ASTRIA_GO_KEYFILE` | Path to secure keyfile for sender. |
 | `--keyring-address` | string | `ASTRIA_GO_KEYRING_ADDRESS` | The address of the sender. Requires private key be stored in keyring. |
 | `--privkey` | string | `ASTRIA_GO_PRIVKEY` | The private key of the sender. |
-| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "astria-dusk-8") |
-| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer. (default "<http://127.0.0.1:26657>") |
+| `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "dawn-1") |
+| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer. (default "https://rpc.sequencer.dawn-1.astria.org") |
