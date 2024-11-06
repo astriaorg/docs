@@ -33,7 +33,7 @@ astria-cli [command] help
 
 ## `bridge collect-withdrawals`
 
-TODO
+Collect withdrawals actions.
 
 ### Usage
 
@@ -59,7 +59,7 @@ astria-cli bridge collect-withdrawals [OPTIONS] --rollup-endpoint <ROLLUP_ENDPOI
 
 ## `bridge submit-withdrawals`
 
-TODO
+Submit collected withdrawal actions.
 
 ### Usage
 
@@ -69,11 +69,11 @@ astria-cli bridge submit-withdrawals [OPTIONS] --input <INPUT> --signing-key <SI
 
 | Flag | Description |
 |---|---|
-| `-i, --input <INPUT>` | TODO |
-| `--signing-key <SIGNING_KEY>` | TODO |
-| `--sequencer-address-prefix <SEQUENCER_ADDRESS_PREFIX>` | TODO [default: astria] |
-| `--sequencer-chain-id <SEQUENCER_CHAIN_ID>` | TODO |
-| `--sequencer-url <SEQUENCER_URL>` | TODO |
+| `-i, --input <INPUT>` | Path to the file containing the actions to submit |
+| `--signing-key <SIGNING_KEY>` | Path to the file containing the signing key |
+| `--sequencer-address-prefix <SEQUENCER_ADDRESS_PREFIX>` | The address prefix for the sequencer account [default: astria] |
+| `--sequencer-chain-id <SEQUENCER_CHAIN_ID>` | The chain ID of the sequencer |
+| `--sequencer-url <SEQUENCER_URL>` | The URL of the sequencer rpc |
 
 ## `sequencer account create`
 
@@ -97,7 +97,7 @@ sequencer account balance [OPTIONS] <ADDRESS>
 
 | Flag | Description |
 |---|---|
-| `--sequencer-url <SEQUENCER_URL>` | The url of the Sequencer node [env: SEQUENCER_URL=] [default: https://rpc.sequencer.dusk-10.devnet.astria.org] |
+| `--sequencer-url <SEQUENCER_URL>` | The url of the Sequencer node [env: SEQUENCER_URL=] [default: https://rpc.sequencer.dusk-11.devnet.astria.org] |
 
 ## `sequencer account nonce`
 
@@ -111,7 +111,7 @@ astria-cli sequencer account nonce [OPTIONS] <ADDRESS>
 
 | Flag | Description |
 |---|---|
-| `--sequencer-url <SEQUENCER_URL>` | The url of the Sequencer node [env: SEQUENCER_URL=] [default: https://rpc.sequencer.dusk-10.devnet.astria.org] |
+| `--sequencer-url <SEQUENCER_URL>` | The url of the Sequencer node [env: SEQUENCER_URL=] [default: https://rpc.sequencer.dusk-11.devnet.astria.org] |
 
 ## `sequencer address bech32m`
 
@@ -141,7 +141,7 @@ astria-cli sequencer balance get
 
 | Flag | Description |
 |---|---|
-| `--sequencer-url <SEQUENCER_URL>` | The url of the Sequencer node [env: SEQUENCER_URL=] [default: https://rpc.sequencer.dusk-10.devnet.astria.org] |
+| `--sequencer-url <SEQUENCER_URL>` | The url of the Sequencer node [env: SEQUENCER_URL=] [default: https://rpc.sequencer.dusk-11.devnet.astria.org] |
 
 ## `sequencer blockheight get`
 
@@ -155,8 +155,53 @@ astria-cli sequencer blockheight get [OPTIONS]
 
 | Flag | Description |
 |---|---|
-| `--sequencer-url <SEQUENCER_URL>` | The url of the Sequencer node [env: SEQUENCER_URL=] [default: https://rpc.sequencer.dusk-10.devnet.astria.org] |
-| `--sequencer.chain-id <SEQUENCER_CHAIN_ID>` | The chain id of the sequencing chain being used [env: ROLLUP_SEQUENCER_CHAIN_ID=] [default: astria-dusk-10] |
+| `--sequencer-url <SEQUENCER_URL>` | The url of the Sequencer node [env: SEQUENCER_URL=] [default: https://rpc.sequencer.dusk-11.devnet.astria.org] |
+| `--sequencer.chain-id <SEQUENCER_CHAIN_ID>` | The chain id of the sequencing chain being used [env: ROLLUP_SEQUENCER_CHAIN_ID=] [default: astria-dusk-11] |
+
+## `sequencer bridge-lock`
+
+Command for transferring to a bridge account.
+
+### Usage
+
+```bash
+astria-cli sequencer bridge-lock [OPTIONS] --amount <AMOUNT> --destination-chain-address <DESTINATION_CHAIN_ADDRESS> --private-key <PRIVATE_KEY> <TO_ADDRESS>
+```
+
+### Flags
+
+| Flag | Description |
+|---|---|
+| `--amount <AMOUNT>` | The amount being locked |
+| `--destination-chain-address <DESTINATION_CHAIN_ADDRESS>` | The address on the destination chain |
+| `--prefix <PREFIX>` |  The prefix to construct a bech32m address given the private key [default: astria] |
+| `--private-key <PRIVATE_KEY>` |  The private key of the account locking the funds [env: SEQUENCER_PRIVATE_KEY=] |
+| `--sequencer-url <SEQUENCER_URL>` |  The url of the Sequencer node [env: SEQUENCER_URL=] [default: https://rpc.sequencer.dusk-11.devnet.astria.org] |
+| `--sequencer.chain-id <SEQUENCER_CHAIN_ID>` | The chain id of the sequencing chain being used [env: ROLLUP_SEQUENCER_CHAIN_ID=] [default: astria-dusk-11] |
+| `--asset <ASSET>` |  The asset to lock [default: nria] |
+| `--fee-asset <FEE_ASSET>` | The asset to pay the transfer fees with [default: nria] |
+
+## `sequencer init-bridge-account`
+
+Command for initializing a bridge account.
+
+### Usage
+
+```bash
+astria-cli sequencer init-bridge-account [OPTIONS] --private-key <PRIVATE_KEY> --rollup-name <ROLLUP_NAME>
+```
+
+### Flags
+
+| Flag | Description |
+|---|---|
+| `--prefix <PREFIX>` |  The bech32m prefix that will be used for constructing addresses using the private key [default: astria] |
+| `--private-key <PRIVATE_KEY>` | The private key of the account initializing the bridge account [env: SEQUENCER_PRIVATE_KEY=] |
+| `--sequencer-url <SEQUENCER_URL>` |  The url of the Sequencer node [env: SEQUENCER_URL=] [default: https://rpc.sequencer.dusk-11.devnet.astria.org] |
+| `--sequencer.chain-id <SEQUENCER_CHAIN_ID>` |  The chain id of the sequencing chain being used [env: ROLLUP_SEQUENCER_CHAIN_ID=] [default: astria-dusk-11] |
+| `--rollup-name <ROLLUP_NAME>` |  Plaintext rollup name (to be hashed into a rollup ID) to initialize the bridge account with |
+| `--asset <ASSET>` | The asset to transer [default: nria] |
+| `--fee-asset <FEE_ASSET>` | The asset to pay the transfer fees with [default: nria] |
 
 ## `sequencer sudo ibc-relayer add`
 
@@ -168,12 +213,14 @@ Add an IBC-relayer address to the list of relayers on the Astria sequencer.
 astria-cli sequencer sudo ibc-relayer add [OPTIONS] --private-key <PRIVATE_KEY> --address <ADDRESS>
 ```
 
+### Flags
+
 | Flag | Description |
 |---|---|
 | `--prefix <PREFIX>` | The prefix to construct a bech32m address given the private key [default: astria] |
-| `--private-key <PRIVATE_KEY>` | [env: SEQUENCER_PRIVATE_KEY=] |
-| `--sequencer-url <SEQUENCER_URL>` | The url of the Sequencer node [env: SEQUENCER_URL=] [default: https://rpc.sequencer.dusk-10.devnet.astria.org] |
-| `--sequencer.chain-id <SEQUENCER_CHAIN_ID>` | The chain id of the sequencing chain being used [env: ROLLUP_SEQUENCER_CHAIN_ID=] [default: astria-dusk-10] |
+| `--private-key <PRIVATE_KEY>` | The private key of the account authorizing the change [env: SEQUENCER_PRIVATE_KEY=] |
+| `--sequencer-url <SEQUENCER_URL>` | The url of the Sequencer node [env: SEQUENCER_URL=] [default: https://rpc.sequencer.dusk-11.devnet.astria.org] |
+| `--sequencer.chain-id <SEQUENCER_CHAIN_ID>` | The chain id of the sequencing chain being used [env: ROLLUP_SEQUENCER_CHAIN_ID=] [default: astria-dusk-11] |
 | `--address <ADDRESS>` | The address to add or remove as an IBC relayer |
 
 ## `sequencer sudo ibc-relayer remove`
@@ -189,9 +236,9 @@ astria-cli sequencer sudo ibc-relayer remove [OPTIONS] --private-key <PRIVATE_KE
 | Flag | Description |
 |---|---|
 | `--prefix <PREFIX>` | The prefix to construct a bech32m address given the private key [default: astria] |
-| `--private-key <PRIVATE_KEY>` | [env: SEQUENCER_PRIVATE_KEY=] |
-| `--sequencer-url <SEQUENCER_URL>` | The url of the Sequencer node [env: SEQUENCER_URL=] [default: https://rpc.sequencer.dusk-10.devnet.astria.org] |
-| `--sequencer.chain-id <SEQUENCER_CHAIN_ID>` | The chain id of the sequencing chain being used [env: ROLLUP_SEQUENCER_CHAIN_ID=] [default: astria-dusk-10] |
+| `--private-key <PRIVATE_KEY>` | The private key of the account authorizing the change [env: SEQUENCER_PRIVATE_KEY=] |
+| `--sequencer-url <SEQUENCER_URL>` | The url of the Sequencer node [env: SEQUENCER_URL=] [default: https://rpc.sequencer.dusk-11.devnet.astria.org] |
+| `--sequencer.chain-id <SEQUENCER_CHAIN_ID>` | The chain id of the sequencing chain being used [env: ROLLUP_SEQUENCER_CHAIN_ID=] [default: astria-dusk-11] |
 | `--address <ADDRESS>` | The address to add or remove as an IBC relayer |
 
 ## `sequencer sudo fee-asset add`
@@ -208,9 +255,9 @@ astria-cli sequencer sudo fee-asset add [OPTIONS] --private-key <PRIVATE_KEY> --
 | Flag | Description |
 |---|---|
 | `--prefix <PREFIX>` | The prefix to construct a bech32m address given the private key [default: astria] |
-| `--private-key <PRIVATE_KEY>` | [env: SEQUENCER_PRIVATE_KEY=] |
-| `--sequencer-url <SEQUENCER_URL>` | The url of the Sequencer node [env: SEQUENCER_URL=] [default: https://rpc.sequencer.dusk-10.devnet.astria.org] |
-| `--sequencer.chain-id <SEQUENCER_CHAIN_ID>` | The chain id of the sequencing chain being used [env: ROLLUP_SEQUENCER_CHAIN_ID=] [default: astria-dusk-10] |
+| `--private-key <PRIVATE_KEY>` | The private key of the sudo account authorizing change [env: SEQUENCER_PRIVATE_KEY=] |
+| `--sequencer-url <SEQUENCER_URL>` | The url of the Sequencer node [env: SEQUENCER_URL=] [default: https://rpc.sequencer.dusk-11.devnet.astria.org] |
+| `--sequencer.chain-id <SEQUENCER_CHAIN_ID>` | The chain id of the sequencing chain being used [env: ROLLUP_SEQUENCER_CHAIN_ID=] [default: astria-dusk-11] |
 | `--address <ADDRESS>` | The address to add or remove as an IBC relayer |
 
 ## `sequencer sudo fee-asset remove`
@@ -227,9 +274,9 @@ astria-cli sequencer sudo fee-asset remove [OPTIONS] --private-key <PRIVATE_KEY>
 | Flag | Description |
 |---|---|
 | `--prefix <PREFIX>` | The prefix to construct a bech32m address given the private key [default: astria] |
-| `--private-key <PRIVATE_KEY>` | [env: SEQUENCER_PRIVATE_KEY=] |
-| `--sequencer-url <SEQUENCER_URL>` | The url of the Sequencer node [env: SEQUENCER_URL=] [default: https://rpc.sequencer.dusk-10.devnet.astria.org] |
-| `--sequencer.chain-id <SEQUENCER_CHAIN_ID>` | The chain id of the sequencing chain being used [env: ROLLUP_SEQUENCER_CHAIN_ID=] [default: astria-dusk-10] |
+| `--private-key <PRIVATE_KEY>` | The private key of the sudo account authorizing change [env: SEQUENCER_PRIVATE_KEY=] |
+| `--sequencer-url <SEQUENCER_URL>` | The url of the Sequencer node [env: SEQUENCER_URL=] [default: https://rpc.sequencer.dusk-11.devnet.astria.org] |
+| `--sequencer.chain-id <SEQUENCER_CHAIN_ID>` | The chain id of the sequencing chain being used [env: ROLLUP_SEQUENCER_CHAIN_ID=] [default: astria-dusk-11] |
 | `--address <ADDRESS>` | The address to add or remove as an IBC relayer |
 
 ## `sequencer sudo sudo-address-change`
@@ -245,9 +292,9 @@ astria-cli sequencer sudo sudo-address-change [OPTIONS] --private-key <PRIVATE_K
 | Flag | Description |
 |---|---|
 | `--prefix <PREFIX>` | The prefix to construct a bech32m address given the private key [default: astria] |
-| `--private-key <PRIVATE_KEY>` | [env: SEQUENCER_PRIVATE_KEY=] |
-| `--sequencer-url <SEQUENCER_URL>` | The url of the Sequencer node [env: SEQUENCER_URL=] [default: https://rpc.sequencer.dusk-10.devnet.astria.org] |
-| `--sequencer.chain-id <SEQUENCER_CHAIN_ID>` | The chain id of the sequencing chain being used [env: ROLLUP_SEQUENCER_CHAIN_ID=] [default: astria-dusk-10] |
+| `--private-key <PRIVATE_KEY>` | The private key of the sudo account authorizing change [env: SEQUENCER_PRIVATE_KEY=] |
+| `--sequencer-url <SEQUENCER_URL>` | The url of the Sequencer node [env: SEQUENCER_URL=] [default: https://rpc.sequencer.dusk-11.devnet.astria.org] |
+| `--sequencer.chain-id <SEQUENCER_CHAIN_ID>` | The chain id of the sequencing chain being used [env: ROLLUP_SEQUENCER_CHAIN_ID=] [default: astria-dusk-11] |
 | `--address <ADDRESS>` | The address to add or remove as an IBC relayer |
 
 ## `sequencer sudo validator-update`
@@ -262,8 +309,8 @@ astria-cli sequencer sudo validator-update [OPTIONS] --private-key <PRIVATE_KEY>
 
 | Flag | Description |
 |---|---|
-| `--sequencer-url <SEQUENCER_URL>`  |  The url of the Sequencer node [env: SEQUENCER_URL=] [default: https://rpc.sequencer.dusk-10.devnet.astria.org] |
-| `--sequencer.chain-id <SEQUENCER_CHAIN_ID>` | The chain id of the sequencing chain being used [env: ROLLUP_SEQUENCER_CHAIN_ID=] [default: astria-dusk-10] |
+| `--sequencer-url <SEQUENCER_URL>`  |  The url of the Sequencer node [env: SEQUENCER_URL=] [default: https://rpc.sequencer.dusk-11.devnet.astria.org] |
+| `--sequencer.chain-id <SEQUENCER_CHAIN_ID>` | The chain id of the sequencing chain being used [env: ROLLUP_SEQUENCER_CHAIN_ID=] [default: astria-dusk-11] |
 | `--prefix <PREFIX>` | The bech32m prefix that will be used for constructing addresses using the private key [default: astria] |
 | `--private-key <PRIVATE_KEY>` | The private key of the sudo account authorizing change [env: SEQUENCER_PRIVATE_KEY=] |
 | `--validator-public-key <VALIDATOR_PUBLIC_KEY>` | The address of the Validator being updated |
@@ -281,50 +328,188 @@ astria-cli sequencer transfer [OPTIONS] --amount <AMOUNT> --private-key <PRIVATE
 
 | Flag | Description |
 |---|---|
-| `--amount <AMOUNT>` |  TODO |
+| `--amount <AMOUNT>` |  The amount being sent |
 | `--prefix <PREFIX>` | The bech32m prefix that will be used for constructing addresses using the private key [default: astria] |
 | `--private-key <PRIVATE_KEY>` | The private key of account being sent from [env: SEQUENCER_PRIVATE_KEY=] |
-| `--sequencer-url <SEQUENCER_URL>` | The url of the Sequencer node [env: SEQUENCER_URL=] [default: https://rpc.sequencer.dusk-10.devnet.astria.org] |
-| `--sequencer.chain-id <SEQUENCER_CHAIN_ID>` | The chain id of the sequencing chain being used [env: ROLLUP_SEQUENCER_CHAIN_ID=] [default: astria-dusk-10] |
+| `--sequencer-url <SEQUENCER_URL>` | The url of the Sequencer node [env: SEQUENCER_URL=] [default: https://rpc.sequencer.dusk-11.devnet.astria.org] |
+| `--sequencer.chain-id <SEQUENCER_CHAIN_ID>` | The chain id of the sequencing chain being used [env: ROLLUP_SEQUENCER_CHAIN_ID=] [default: astria-dusk-11] |
 | `--asset <ASSET>` | The asset to transer [default: ntia] |
 | `--fee-asset <FEE_ASSET>` | The asset to pay the transfer fees with [default: ntia] |
 
-## `sequencer init-bridge-account`
+## `sequencer threshold dkg`
 
-Initialize a bridge account pointing to a specific rollup on the Astria sequencer.
+Distributed key generation command.
+
+### Usage 
+
+```bash
+astria-cli sequencer threshold dkg [OPTIONS] --index <INDEX> --min-signers <MIN_SIGNERS> --max-signers <MAX_SIGNERS> --secret-key-package-path <SECRET_KEY_PACKAGE_PATH> --public-key-package-path <PUBLIC_KEY_PACKAGE_PATH>
+```
+
+### Flags
+
+| Flag | Description |
+|---|---|
+| `--index <INDEX>` | Index of the participant of the DKG protocol. must be 1 <= index <= n, where n is the maximum number of signers |
+| `--min-signers <MIN_SIGNERS>` | Minimum number of signers required to sign a transaction |
+| `--max-signers <MAX_SIGNERS>` | Maximum number of signers that can sign a transaction |
+| `--secret-key-package-path <SECRET_KEY_PACKAGE_PATH>` | Path to a file with the output secret key package from keygen ceremony |
+| `--public-key-package-path <PUBLIC_KEY_PACKAGE_PATH>` | Path to a file with the output public key package from keygen ceremony |
+| `--prefix <PREFIX>` | The address prefix for the generated address [default: astria] |
+
+## `sequencer threshold sign part1`
+
+Perform part 1 of the signing protocol.
 
 ### Usage
 
 ```bash
-astria-cli sequencer init-bridge-account [OPTIONS] --private-key <PRIVATE_KEY> --rollup-name <ROLLUP_NAME>
+astria-cli sequencer threshold sign part1 --secret-key-package-path <SECRET_KEY_PACKAGE_PATH> --nonces-path <NONCES_PATH>
 ```
+
+### Flags
 
 | Flag | Description |
 |---|---|
-| `--prefix <PREFIX>` | The bech32m prefix that will be used for constructing addresses using the private key [default: astria] |
-| `--private-key <PRIVATE_KEY>` | The private key of account being sent from [env: SEQUENCER_PRIVATE_KEY=] |
-| `--sequencer-url <SEQUENCER_URL>` | The url of the Sequencer node [env: SEQUENCER_URL=] [default: https://rpc.sequencer.dusk-10.devnet.astria.org] |
-| `--sequencer.chain-id <SEQUENCER_CHAIN_ID>` | The chain id of the sequencing chain being used [env: ROLLUP_SEQUENCER_CHAIN_ID=] [default: astria-dusk-10] |
-| `--asset <ASSET>` | The asset to transer [default: ntia] |
-| `--fee-asset <FEE_ASSET>` | The asset to pay the transfer fees with [default: ntia] |
+| `--secret-key-package-path <SECRET_KEY_PACKAGE_PATH>` | Path to a file with the secret key package from keygen ceremony |
+| `--nonces-path <NONCES_PATH>` | Path to a file to output the nonces |
 
-## `sequencer bridge-lock`
+## `sequencer threshold sign prepare-message`
 
-TODO
+Generate a signing package given a message to be signed and commitments from
+part 1.
 
 ### Usage
 
 ```bash
-astria-cli sequencer bridge-lock [OPTIONS] --amount <AMOUNT> --destination-chain-address <DESTINATION_CHAIN_ADDRESS> --private-key <PRIVATE_KEY> <TO_ADDRESS>
+astria-cli sequencer threshold sign prepare-message [OPTIONS] --message-path <MESSAGE_PATH> --signing-package-path <SIGNING_PACKAGE_PATH>
 ```
+
+### Flags
 
 | Flag | Description |
 |---|---|
-| `--amount <AMOUNT>` | The amount being locked |
-| `--destination-chain-address <DESTINATION_CHAIN_ADDRESS>` | TODO |
-| `--prefix <PREFIX>` | The prefix to construct a bech32m address given the private key [default: astria] |
-| `--private-key <PRIVATE_KEY>` | [env: SEQUENCER_PRIVATE_KEY=] |
-| `--sequencer-url <SEQUENCER_URL>` | The url of the Sequencer node [env: SEQUENCER_URL=] [default: https://rpc.sequencer.dusk-10.devnet.astria.org] |
-| `--sequencer.chain-id <SEQUENCER_CHAIN_ID>` | The chain id of the sequencing chain being used [env: ROLLUP_SEQUENCER_CHAIN_ID=] [default: astria-dusk-10] |
-| `--asset <ASSET>` | The asset to lock [default: ntia] |
-| `--fee-asset <FEE_ASSET>` | The asset to pay the transfer fees with [default: ntia] |
+| `--message-path <MESSAGE_PATH>` | Path to file with message (json-formatted `TransactionBody`) to be signed |
+| `--plaintext` | If set, the message is treated as plaintext and signed as-is, without re-encoding into protobuf bytes |
+| `--signing-package-path <SIGNING_PACKAGE_PATH>` | Path to the signing package output file |
+
+## `sequencer threshold sign part2`
+
+Perform part 2 of the signing protocol.
+
+### Usage
+
+```bash
+astria-cli sequencer threshold sign part2 --secret-key-package-path <SECRET_KEY_PACKAGE_PATH> --nonces-path <NONCES_PATH> --signing-package-path <SIGNING_PACKAGE_PATH>
+```
+
+### Flags
+
+| Flag | Description |
+|---|---|
+| `--secret-key-package-path <SECRET_KEY_PACKAGE_PATH>` | Path to a file with the secret key package from keygen ceremony |
+| `--nonces-path <NONCES_PATH>` | Path to nonces file from part 1 |
+| `--signing-package-path <SIGNING_PACKAGE_PATH>` | Path to the signing package |
+
+## `sequencer threshold sign aggregate`
+
+Aggregate signature shares from part 2 to produce the final signature.
+
+### Usage
+
+```bash
+astria-cli sequencer threshold sign aggregate [OPTIONS] --signing-package-path <SIGNING_PACKAGE_PATH> --public-key-package-path <PUBLIC_KEY_PACKAGE_PATH>
+```
+
+### Flags
+
+| Flag | Description |
+|---|---|
+| `--signing-package-path <SIGNING_PACKAGE_PATH>` | Path to the signing package |
+| `--public-key-package-path <PUBLIC_KEY_PACKAGE_PATH>` | Path to a file with the public key package from keygen ceremony |
+| `--message-path <MESSAGE_PATH>` | Optionally, path to the message bytes that were signed |
+| `--output-path <OUTPUT_PATH>` | Optionally, path to output the signed message as a sequencer transaction |
+| `--plaintext` | Whether the message is plaintext (not a `TransactionBody`) |
+
+## `sequencer threshold verify`
+
+Verify an ed25519 signature.
+
+### Usage
+
+```bash
+astria-cli sequencer threshold verify [OPTIONS] --verifying-key <VERIFYING_KEY> --message-path <MESSAGE_PATH> --signature <SIGNATURE>
+```
+
+### Flags
+
+| Flag | Description |
+|---|---|
+| `--verifying-key <VERIFYING_KEY>` | Hex-encoded verifying key |
+| `--message-path <MESSAGE_PATH>` | Path to file with message bytes to verify |
+| `--signature <SIGNATURE>` | Hex-encoded signature |
+| `--plaintext` | Set if the incoming message is plaintext, otherwise it is assumed to be `TransactionBody` in pbjson format |
+
+## `sequencer ics20-withdrawal`
+
+Command for withdrawing an ICS20 asset.
+
+### Usage
+
+```bash
+astria-cli sequencer ics20-withdrawal [OPTIONS] --amount <AMOUNT> --destination-chain-address <DESTINATION_CHAIN_ADDRESS> --source-channel <SOURCE_CHANNEL> --private-key <PRIVATE_KEY>
+```
+
+### Flags
+
+| Flag | Description |
+|---|---|
+| `--amount <AMOUNT>` | The transfer amount to send |
+| `--destination-chain-address <DESTINATION_CHAIN_ADDRESS>` | The address on the destination chain |
+| `--source-channel <SOURCE_CHANNEL>` | The source channel used for withdrawal |
+| `--return-address <RETURN_ADDRESS>` | The address to refund on timeout, if unset refunds the signer |
+| `--memo <MEMO>` | An optional memo to send with transaction |
+| `--bridge-address <BRIDGE_ADDRESS>` | The bridge account to transfer from |
+| `--compat` | Use compatibility address format (for example: when sending USDC to Noble) |
+| `--prefix <PREFIX>`| The prefix to construct a bech32m address given the private key [default: astria] |
+| `--private-key <PRIVATE_KEY>` | The private key of the account withdrawing the funds [env: SEQUENCER_PRIVATE_KEY=] |
+| `--sequencer-url <SEQUENCER_URL>` | The url of the Sequencer node [env: SEQUENCER_URL=] [default: https://rpc.sequencer.dusk-11.devnet.astria.org] |
+| `--sequencer.chain-id <SEQUENCER_CHAIN_ID>` | The chain id of the sequencing chain being used [env: ROLLUP_SEQUENCER_CHAIN_ID=] [default: astria-dusk-11] |
+| `--asset <ASSET>` | The asset to withdraw [default: nria] |
+| `--fee-asset <FEE_ASSET>` | The asset to be used to pay the fees [default: nria] |
+
+## `sequencer submit`
+
+Submit the signed pbjson formatted Transaction.
+
+### Usage
+
+```bash
+astria-cli sequencer submit [OPTIONS] <INPUT>
+```
+
+### Flags and Inputs
+
+| Input | Description |
+|---|---|
+| `<INPUT>` | The source to read the pbjson formatted astra.protocol.transaction.v1.Transaction (use `-` to pass via STDIN) |
+| `--sequencer-url <SEQUENCER_URL>` | The URL at which the Sequencer node is listening for ABCI commands [env: SEQUENCER_URL=] [default: https://rpc.sequencer.dusk-11.devnet.astria.org] |
+
+## `sequencer sign`
+
+Sign a pbjson formatted TransactionBody to produce a Transaction.
+
+### Usage
+
+```bash
+astria-cli sequencer sign [OPTIONS] --private-key <PRIVATE_KEY> <INPUT>
+```
+
+### Flags and Inputs
+
+| Input | Description |
+|---|---|
+| `<INPUT>` | The source to read the pbjson formatted astra.protocol.transaction.v1.Transaction (use `-` to pass via STDIN) |
+| `--private-key <PRIVATE_KEY>` | The private key of account being sent from [env: SEQUENCER_PRIVATE_KEY=] |
+| `-o`, `--output <OUTPUT>` | Target to write the signed transaction in pbjson format (omit to write to STDOUT) |
+| `-f`, `--force` | Forces an overwrite of `--output` if a file at that location exists |
