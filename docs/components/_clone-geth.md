@@ -5,7 +5,6 @@
 ```bash [SSH]
 git clone git@github.com:astriaorg/astria-geth.git
 cd astria-geth
-git checkout tags/v1.0.0
 just -f dev/justfile build
 
 # You can move the binary to a location in your PATH if you'd like
@@ -16,7 +15,6 @@ astria-geth version
 ```bash [HTTPS]
 git clone https://github.com/astriaorg/astria-cli-go.git
 cd astria-geth
-git checkout tags/v1.0.0
 just -f dev/justfile build
 
 # You can move the binary to a location in your PATH if you'd like
