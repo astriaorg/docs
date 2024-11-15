@@ -38,7 +38,7 @@ Your settings should be the following:
 
 ## Bridging
 
-### [https://astria-bridge-web-app.vercel.app](https://astria-bridge-web-app.vercel.app)
+### [https://astria-bridge-web-app-dawn.vercel.app/](https://astria-bridge-web-app-dawn.vercel.app/)
 
 ![Bridge UI](/bridge-ui-screen.png)
 
