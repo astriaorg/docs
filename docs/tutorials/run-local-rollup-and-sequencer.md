@@ -87,8 +87,8 @@ you should find a `default` directory.
 
 Open the `~/.astria/default/networks-config.toml` file and update the
 `rollup_name` variable in the `[local]` sections using the same
-`"astriaRollupName"` you used when [setting up your Geth
-rollup](#setup-a-geth-rollup).
+`"astriaRollupName"` you used when [setting up your astria-geth
+ rollup](#setup-an-astria-geth-rollup).
 
 ```toml{5}
 [networks.local]
@@ -100,10 +100,12 @@ default_denom = 'ntia'
 ```
 
 ::: tip
-```
+
+```shell
 export NEW_NAME="my-new-chain"
 sed -i '' '/\[networks\.local\]/,/^$/{ s/rollup_name = .*/rollup_name = '\'''$NEW_NAME''\''/; }' ~/.astria/default/networks-config.toml
 ```
+
 :::
 
 Use the cli to run a local Astria Sequencer.
