@@ -46,7 +46,7 @@ const mainnet_ibc = siteConfig.flame.mainnet.bridging
 | Supported Asset | `milkTIA` |
 | `osmosis` -> `astria` | `{{mainnet_ibc.ibc_osmosis_to_astria}}` |
 | `astria` -> `osmosis` | `{{mainnet_ibc.ibc_astria_to_osmosis}}` |
-| Astria Sequencer USDC Bridge Address | `{{mainnet_ibc.sequencer_milktia_address}}` |
+| Astria Sequencer milkTIA Bridge Address | `{{mainnet_ibc.sequencer_milktia_address}}` |
 
 ### Stride (IBC)
 
