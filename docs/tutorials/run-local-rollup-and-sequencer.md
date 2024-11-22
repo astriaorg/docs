@@ -4,17 +4,24 @@ This guide will walk you through running a local Geth rollup against the Astria
 sequencer, using the `astria-go` cli to run the required components of the
 Astria stack locally on your machine.
 
-## Setup a Geth Rollup
+## Setup an `astria-geth` Rollup
 
-Requires `Go`, `just`, and `Foundry`:
+`astria-geth` is a fork of `go-ethereum` modified to work with
+the Astria sequencing layer.
+
+View the source code
+[here](https://github.com/astriaorg/astria-geth).
+
+Requires `Go`, `just`, `make`, and `Foundry`:
 
 - [Go](https://go.dev/doc/install)
 - [just](https://github.com/casey/just)
+- [make](https://www.gnu.org/software/make/)
 - [Foundry](https://book.getfoundry.sh/getting-started/installation)
 
 Open a new terminal window and clone and build Geth:
 
-<!--@include: ../../components/_clone-geth.md-->
+<!--@include: ../components/_clone-geth.md-->
 
 Create a new genesis account for your Geth rollup:
 
@@ -22,7 +29,7 @@ Create a new genesis account for your Geth rollup:
 cast w new
 ```
 
-Open the `geth-genesis-local.json` file in your Geth repo and update the
+Open the `dev/geth-genesis-local.json` file in the `astria-geth` repo and update the
 `"alloc"` account with the new address you just created, as well as updating the
 `"chainId"` and `"astriaRollupName"` to something of your choosing:
 
@@ -49,22 +56,22 @@ In your Geth terminal window, run the following to initialize and run the Geth r
 
 ```bash
 # in astria-geth dir
-just init
-just run
+just -f dev/justfile init
+just -f dev/justfile run
 ```
 
 If you need to restart the rollup, you can stop the program with `Ctrl+C` and
 restart with:
 
 ```bash
-just run
+just -f dev/justfile run
 ```
 
 If you need to restart the rollup and want to also clear the state data, you can
 use:
 
 ```bash
-just clean-restart
+just -f dev/justfile clean-restart
 ```
 
 ## Configure and Start the Local Astria Sequencer
@@ -80,8 +87,8 @@ you should find a `default` directory.
 
 Open the `~/.astria/default/networks-config.toml` file and update the
 `rollup_name` variable in the `[local]` sections using the same
-`"astriaRollupName"` you used when [setting up your Geth
-rollup](#setup-a-geth-rollup).
+`"astriaRollupName"` you used when [setting up your astria-geth
+ rollup](#setup-an-astria-geth-rollup).
 
 ```toml{5}
 [networks.local]
@@ -91,6 +98,15 @@ sequencer_rpc = 'http://127.0.0.1:26657'
 rollup_name = '<your rollup name>' # update this value
 default_denom = 'ntia'
 ```
+
+::: tip
+
+```shell
+export NEW_NAME="my-new-chain"
+sed -i '' '/\[networks\.local\]/,/^$/{ s/rollup_name = .*/rollup_name = '\'''$NEW_NAME''\''/; }' ~/.astria/default/networks-config.toml
+```
+
+:::
 
 Use the cli to run a local Astria Sequencer.
 
