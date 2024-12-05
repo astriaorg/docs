@@ -98,3 +98,8 @@ Your settings should be the following:
 | v3 Migrator Address | `{{config.mainnet.v3MigratorAddress}}` |
 | v3 Staker Address | `{{config.mainnet.v3StakerAddress}}` |
 | wTIA9 Address | `{{config.mainnet.weth9Address}}` |
+
+## Fork Diff
+
+Flame is a fork of [go-ethereum](https://github.com/ethereum/go-ethereum). See
+the fork diff [here](https://astriaorg.github.io/astria-geth/).
