@@ -1,7 +1,27 @@
 <!-- markdownlint-disable MD041 MD033 -->
 
 <script setup>
+import { onMounted, ref } from 'vue';
 import { siteConfig } from '../config.js'
+
+// paths to bridging video clips
+const bridge_clip_1 = './assets/bridge-clip-1-select-starting-wallet.mp4';
+const bridge_clip_2 = './assets/bridge-clip-2-select-evm-wallet.mp4';
+const bridge_clip_3 = './assets/bridge-clip-3-confirm-flame-in-evm-wallet.mp4';
+const bridge_clip_4 = './assets/bridge-clip-4-set-deposit-amount.mp4';
+
+// paths to withdrawal video clips
+
+const videoRefs = ref([]);
+
+// Ensure all videos are paused on page load
+onMounted(() => {
+  videoRefs.value.forEach((video) => {
+    if (video) {
+      video.pause();
+    }
+  });
+});
 
 const bridge = siteConfig.flame
 </script>
@@ -40,19 +60,31 @@ Wallet](https://www.coinbase.com/wallet).
 
 ## Bridge to Flame
 
-1. Go to the [Astria Bridge UI](https://bridge.astria.org/).
-2. Confirm that the Bridge UI is set to **Deposit**.
-3. Select your desired starting network and connect your Keplr wallet. Celestia
-   is used in this example.
-![Select a starting wallet](./assets/bridge-select-starting-wallet.gif)
-4. Select Flame as the destination and connect your EVM wallet.
-![Select EVM wallet](./assets/bridge-select-evm-wallet.gif)
-5. Confirm Flame is selected in Metamask. If Flame is not present you can [add
-   it here](../flame/flame-mainnet-alpha#adding-to-metamask).
-![Confirm Flame Selected in Metamask](./assets/bridge-select-flame-in-metamask.gif)
-6. Set a deposit amount.
-![Set deposit amount](./assets/bridge-set-deposit-amount.gif)
-7. Click `Deposit`.
+### 1. Go to the [Astria Bridge UI](https://bridge.astria.org/)
+
+### 2. Confirm that the Bridge UI is set to **Deposit**
+
+### 3. Select your desired starting network and connect your Keplr wallet
+
+Celestia is used in this example.
+
+<video :src="bridge_clip_1" controls muted loop style="max-width: 100%;"></video>
+
+### 4. Select Flame as the destination and connect your EVM wallet
+
+<video :src="bridge_clip_2" controls muted loop style="max-width: 100%;"></video>
+
+### 5. Confirm Flame is selected in Metamask
+
+If Flame is not present you can [add it here](../flame/flame-mainnet-alpha#adding-to-metamask).
+
+<video :src="bridge_clip_3" controls muted loop style="max-width: 100%;"></video>
+
+### 6. Set a deposit amount and approve the transaction
+
+<video :src="bridge_clip_4" controls muted loop style="max-width: 100%;"></video>
+
+### 7. Click `Deposit`
 
 ## Withdraw from Flame
 
