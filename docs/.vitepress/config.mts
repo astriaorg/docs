@@ -158,7 +158,7 @@ function sidebar() {
         {
           text: 'APIs',
           link: '/developer/apis.md',
-        },
+        }
       ]
     },
     {

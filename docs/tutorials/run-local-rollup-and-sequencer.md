@@ -29,9 +29,9 @@ Create a new genesis account for your Geth rollup:
 cast w new
 ```
 
-Open the `dev/geth-genesis-local.json` file in the `astria-geth` repo and update the
-`"alloc"` account with the new address you just created, as well as updating the
-`"chainId"` and `"astriaRollupName"` to something of your choosing:
+Open the `dev/geth-genesis-local.json` file in the `astria-geth` repo and update
+the `"alloc"` account with the new address you just created, as well as updating
+the `"chainId"` and `"astriaRollupName"` to something of your choosing:
 
 ```json{4-5,8}
 {
