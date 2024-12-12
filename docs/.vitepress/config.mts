@@ -51,6 +51,9 @@ export default defineConfig({
       { icon: "github", link: "https://github.com/astriaorg" },
       { icon: "twitter", link: "https://twitter.com/AstriaOrg" },
     ],
+  },
+  vite: {
+    assetsInclude: ['**/*.mp4']
   }
 })
 

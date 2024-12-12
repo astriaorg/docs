@@ -3,18 +3,10 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 import { siteConfig } from '../config.js'
-
-// paths to bridging video clips
-const bridge_clip_1 = './assets/bridge-clip-1-select-starting-wallet.mp4';
-const bridge_clip_2 = './assets/bridge-clip-2-select-evm-wallet.mp4';
-const bridge_clip_3 = './assets/bridge-clip-3-confirm-flame-in-evm-wallet.mp4';
-const bridge_clip_4 = './assets/bridge-clip-4-set-deposit-amount.mp4';
-
-// paths to withdrawal video clips
-
+const bridge = siteConfig.flame
 const videoRefs = ref([]);
 
-// Ensure all videos are paused on page load
+// pause all videos on page load
 onMounted(() => {
   videoRefs.value.forEach((video) => {
     if (video) {
@@ -23,7 +15,6 @@ onMounted(() => {
   });
 });
 
-const bridge = siteConfig.flame
 </script>
 
 # Use the Astria Bridge UI
@@ -68,21 +59,21 @@ Wallet](https://www.coinbase.com/wallet).
 
 Celestia is used in this example.
 
-<video :src="bridge_clip_1" controls muted loop style="max-width: 100%;"></video>
+<video src="./assets/bridge-clip-1-select-starting-wallet.mp4" controls muted loop style="max-width: 100%;"></video>
 
 ### 4. Select Flame as the destination and connect your EVM wallet
 
-<video :src="bridge_clip_2" controls muted loop style="max-width: 100%;"></video>
+<video src="./assets/bridge-clip-2-select-evm-wallet.mp4" controls muted loop style="max-width: 100%;"></video>
 
 ### 5. Confirm Flame is selected in Metamask
 
 If Flame is not present you can [add it here](../flame/flame-mainnet-alpha#adding-to-metamask).
 
-<video :src="bridge_clip_3" controls muted loop style="max-width: 100%;"></video>
+<video src="./assets/bridge-clip-3-confirm-flame-in-evm-wallet.mp4" controls muted loop style="max-width: 100%;"></video>
 
 ### 6. Set a deposit amount and approve the transaction
 
-<video :src="bridge_clip_4" controls muted loop style="max-width: 100%;"></video>
+<video src="./assets/bridge-clip-4-set-deposit-amount.mp4" controls muted loop style="max-width: 100%;"></video>
 
 ### 7. Click `Deposit`
 
