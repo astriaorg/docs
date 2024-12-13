@@ -80,23 +80,19 @@ here](../flame/flame-mainnet-alpha#adding-to-metamask).
 
 ### 1. Go to the [Astria Bridge UI](https://bridge.astria.org/)
 
-### 2. Set the Bridge UI to **Withdraw**
-
-<video src="./assets/withdrawal-clip-1-select-withdrawal.mp4" controls muted loop style="max-width: 100%;"></video>
-
-### 3. Connect your EVM Wallet
+### 2. Set the Bridge UI to **Withdraw** and Connect your EVM Wallet
 
 Metamask is used in this example. If Flame is not present in your wallet, you
 can [add it here](../flame/flame-mainnet-alpha#adding-to-metamask).
 
-<video src="./assets/withdrawal-clip-2-select-evm-wallet.mp4" controls muted loop style="max-width: 100%;"></video>
+<video src="./assets/withdrawal-clip-1-set-starting-wallet.mp4" controls muted loop style="max-width: 100%;"></video>
 
-### 4. Select your desired destination network and connect your Keplr wallet
+### 3. Select your desired destination network and connect your Keplr wallet
 
 Celestia is used in this example.
 
-<video src="./assets/withdrawal-clip-3-select-keplr-wallet.mp4" controls muted loop style="max-width: 100%;"></video>
+<video src="./assets/withdrawal-clip-2-select-keplr-wallet.mp4" controls muted loop style="max-width: 100%;"></video>
 
-### 5. Set a withdrawal amount and approve the transaction
+### 4. Set a withdrawal amount and approve the transaction
 
-<video src="./assets/withdrawal-clip-4-approve-tx.mp4" controls muted loop style="max-width: 100%;"></video>
+<video src="./assets/withdrawal-clip-2-approve-tx.mp4" controls muted loop style="max-width: 100%;"></video>
