@@ -95,4 +95,4 @@ Celestia is used in this example.
 
 ### 4. Set a withdrawal amount and approve the transaction
 
-<video src="./assets/withdrawal-clip-2-approve-tx.mp4" controls muted loop style="max-width: 100%;"></video>
+<video src="./assets/withdrawal-clip-3-approve-tx.mp4" controls muted loop style="max-width: 100%;"></video>
