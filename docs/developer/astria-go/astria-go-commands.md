@@ -238,13 +238,13 @@ astria-go sequencer balance [address] [flags]
 |---|---|---|---|
 | `--json` | bool | `ASTRIA_GO_JSON` | Output an account's balances in JSON format. |
 | `--network` | string | `ASTRIA_GO_NETWORK` | Configure the values to target a specific network. (default "dawn") |
-| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to retrieve the balance from. (default "https://rpc.sequencer.dawn-1.astria.org") |
+| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to retrieve the balance from. |
 
 ## `sequencer block`
 
 Get sequencer block at specified height.
 
-### Usage 
+### Usage
 
 ```bash
 astria-go sequencer block [height] [flags]
@@ -256,7 +256,7 @@ astria-go sequencer block [height] [flags]
 |---|---|---|---|
 | `--json` | bool | `ASTRIA_GO_JSON` | Output an account's balances in JSON format. |
 | `--network` | string | `ASTRIA_GO_NETWORK` | Configure the values to target a specific network. (default "dawn") |
-| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to retrieve the balance from. (default "https://rpc.sequencer.dawn-1.astria.org") |
+| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to retrieve the balance from. |
 
 ## `sequencer blockheight`
 
@@ -274,7 +274,7 @@ astria-go sequencer blockheight [flags]
 |---|---|---|---|
 | `--json` | bool | `ASTRIA_GO_JSON` | Output an account's balances in JSON format. |
 | `--network` | string | `ASTRIA_GO_NETWORK` | Configure the values to target a specific network. (default "dawn") |
-| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to retrieve the balance from. (default "https://rpc.sequencer.dawn-1.astria.org") |
+| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to retrieve the balance from. |
 
 ## `sequencer bridge`
 
@@ -309,7 +309,7 @@ astria-go sequencer bridge init [rollup-id] [flags]
 | `--network` | string | `ASTRIA_GO_NETWORK` | Configure the values to target a specific network. (default "dawn") |
 | `--privkey` | string | `ASTRIA_GO_PRIVKEY` | The private key of the bridge account. |
 | `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "dawn-1") |
-| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to init bridge account (default "https://rpc.sequencer.dawn-1.astria.org") |
+| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to init bridge account. |
 | `--sudo-address` | string | `ASTRIA_GO_SUDO_ADDRESS` | Set the sudo address to use for the bridge account. The address of the sender is used if this is not set. |
 | `--withdrawer-address` | string | `ASTRIA_GO_WITHDRAWER_ADDRESS` | Set the withdrawer address to use for the bridge account. The address of the sender is used if this is not set. |
 
@@ -336,7 +336,7 @@ astria-go sequencer bridge lock [address] [amount] [destination-chain-address] [
 | `--network` | string | `ASTRIA_GO_NETWORK` | Configure the values to target a specific network. (default "dawn") |
 | `--privkey` | string | `ASTRIA_GO_PRIVKEY` | The private key of the bridge account. |
 | `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "dawn-1") |
-| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to init bridge account (default "https://rpc.sequencer.dawn-1.astria.org") |
+| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to init bridge account. |
 | `--sudo-address` | string | `ASTRIA_GO_SUDO_ADDRESS` | Set the sudo address to use for the bridge account. The address of the sender is used if this is not set. |
 | `--withdrawer-address` | string | `ASTRIA_GO_WITHDRAWER_ADDRESS` | Set the withdrawer address to use for the bridge account. The address of the sender is used if this is not set. |
 
@@ -394,7 +394,7 @@ Ibc Transfer tokens from a sequencer account to another chain account.
 | `--network` | string | `ASTRIA_GO_NETWORK` | Configure the values to target a specific network. (default "dawn") |
 | `--privkey` | string | `ASTRIA_GO_PRIVKEY` | The private key of the bridge account. |
 | `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "dawn-1") |
-| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to init bridge account (default "https://rpc.sequencer.dawn-1.astria.org") |
+| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to init bridge account. |
 
 ## `sequencer nonce`
 
@@ -412,7 +412,7 @@ astria-go sequencer nonce [address] [flags]
 |---|---|---|---|
 | `--json` | bool | `ASTRIA_GO_JSON` | Output in JSON format. |
 | `--network` | string | `ASTRIA_GO_NETWORK` | Configure the values to target a specific network. (default "dawn") |
-| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer. (default "https://rpc.sequencer.dawn-1.astria.org") |
+| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer. |
 
 ## `sequencer setkey`
 
@@ -447,4 +447,4 @@ astria-go sequencer transfer [amount] [to] [flags]
 | `--network` | string | `ASTRIA_GO_NETWORK` | Configure the values to target a specific network. (default "dawn") |
 | `--privkey` | string | `ASTRIA_GO_PRIVKEY` | The private key of the bridge account. |
 | `-c`, `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | The chain ID of the sequencer. (default "dawn-1") |
-| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to init bridge account (default "https://rpc.sequencer.dawn-1.astria.org") |
+| `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer to init bridge account. |

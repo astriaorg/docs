@@ -341,7 +341,7 @@ astria-cli sequencer transfer [OPTIONS] --amount <AMOUNT> --private-key <PRIVATE
 
 Distributed key generation command.
 
-### Usage 
+### Usage
 
 ```bash
 astria-cli sequencer threshold dkg [OPTIONS] --index <INDEX> --min-signers <MIN_SIGNERS> --max-signers <MAX_SIGNERS> --secret-key-package-path <SECRET_KEY_PACKAGE_PATH> --public-key-package-path <PUBLIC_KEY_PACKAGE_PATH>
