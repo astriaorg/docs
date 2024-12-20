@@ -3,6 +3,7 @@
 ## Prerequisites
 
 You will need the following installed to complete the tutorial:
+
 - [Cargo and Rust](https://www.rust-lang.org/tools/install)
 - The [`astria-go`
   cli](https://docs.astria.org/developer/astria-go/astria-go-installation)
