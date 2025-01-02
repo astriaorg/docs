@@ -93,6 +93,13 @@ you just added above.
 astria_composer_grpc_addr = '127.0.0.1:50052'
 ```
 
+And remove the rollups list from `astria_composer_rollups` variable to enable
+generic submissions to the Composer:
+
+```toml
+astria_composer_rollups = ''
+```
+
 ## Run the rollup
 
 ```bash
@@ -107,11 +114,17 @@ See what messages are in the rollups memory:
 curl http://localhost:3030/get_text_from_id/0
 ```
 
+You can then update the number at the end of the rollup url in the `curl`
+command to see the different messages held by the rollup.
+
 See the balance of an account:
 
 ```bash
 curl http://localhost:3030/get_account_balance/astria1rsxyjrcm255ds9euthjx6yc3vrjt9sxrm9cfgm/nria
 ```
+
+You can then update the address and asset label to query the balance(s) of any
+specific address.
 
 ## Submit New Messages
 
@@ -138,6 +151,10 @@ rollup-cli rollup transfer --amount 100 --private-key $PRIV_KEY astria1yf56efahc
 Submit new text to the rollup:
 
 ```bash
-rollup-cli rollup text --private-key $PRIV_KEY --sequencer-url $ROLLUP_URL "a new message" "user"
-
+rollup-cli rollup text --private-key $PRIV_KEY --sequencer-url $ROLLUP_URL "a new message" "username"
 ```
+
+> [!TIP]
+> You may see an `ERROR astria_composer::metrics:` error in the Composer when
+> submitting new messages. This results from setting `astria_composer_rollups =
+> ''` to an empty value an can be ignored when testing the rollup.
