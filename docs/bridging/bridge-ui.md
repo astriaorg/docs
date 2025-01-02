@@ -1,4 +1,4 @@
-<!-- markdownlint-disable MD041 MD033 -->
+<!-- markdownlint-disable MD041 MD033 MD024-->
 
 <script setup>
 import { onMounted, ref } from 'vue';
@@ -59,22 +59,26 @@ Wallet](https://www.coinbase.com/wallet).
 
 Celestia is used in this example.
 
-<video src="./assets/bridge-clip-1-select-starting-wallet.mp4" controls muted loop style="max-width: 100%;"></video>
+<video src="./assets/bridge-clip-1-select-starting-wallet.mp4" controls muted
+loop style="max-width: 100%;"></video>
 
 ### 4. Select Flame as the destination and connect your EVM wallet
 
-<video src="./assets/bridge-clip-2-select-evm-wallet.mp4" controls muted loop style="max-width: 100%;"></video>
+<video src="./assets/bridge-clip-2-select-evm-wallet.mp4" controls muted loop
+style="max-width: 100%;"></video>
 
 ### 5. Confirm Flame is selected in Metamask
 
 If Flame is not present in you wallet, you can [add it
 here](../flame/flame-mainnet-alpha#adding-to-metamask).
 
-<video src="./assets/bridge-clip-3-confirm-flame-in-evm-wallet.mp4" controls muted loop style="max-width: 100%;"></video>
+<video src="./assets/bridge-clip-3-confirm-flame-in-evm-wallet.mp4" controls
+muted loop style="max-width: 100%;"></video>
 
 ### 6. Set a deposit amount and approve the transaction
 
-<video src="./assets/bridge-clip-4-set-deposit-amount.mp4" controls muted loop style="max-width: 100%;"></video>
+<video src="./assets/bridge-clip-4-set-deposit-amount.mp4" controls muted loop
+style="max-width: 100%;"></video>
 
 ## Withdraw from Flame
 
@@ -85,14 +89,17 @@ here](../flame/flame-mainnet-alpha#adding-to-metamask).
 Metamask is used in this example. If Flame is not present in your wallet, you
 can [add it here](../flame/flame-mainnet-alpha#adding-to-metamask).
 
-<video src="./assets/withdrawal-clip-1-set-starting-wallet.mp4" controls muted loop style="max-width: 100%;"></video>
+<video src="./assets/withdrawal-clip-1-set-starting-wallet.mp4" controls muted
+loop style="max-width: 100%;"></video>
 
 ### 3. Select your desired destination network and connect your Keplr wallet
 
 Celestia is used in this example.
 
-<video src="./assets/withdrawal-clip-2-select-keplr-wallet.mp4" controls muted loop style="max-width: 100%;"></video>
+<video src="./assets/withdrawal-clip-2-select-keplr-wallet.mp4" controls muted
+loop style="max-width: 100%;"></video>
 
 ### 4. Set a withdrawal amount and approve the transaction
 
-<video src="./assets/withdrawal-clip-3-approve-tx.mp4" controls muted loop style="max-width: 100%;"></video>
+<video src="./assets/withdrawal-clip-3-approve-tx.mp4" controls muted loop
+style="max-width: 100%;"></video>
