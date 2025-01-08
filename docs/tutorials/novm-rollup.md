@@ -11,8 +11,8 @@ You will need the following installed to complete the tutorial:
 ## Clone the `noVM` rollup repo
 
 ```bash
-git clone git@github.com:astriaorg/example-transfer-rollup.git
-cd example-transfer-rollup
+git clone git@github.com:astriaorg/noVM.git
+cd noVM
 cargo build
 ```
 
@@ -67,7 +67,7 @@ This dir should already be present in the repo once you have run `cargo build`.
 name = 'rollup'
 version = 'v0.1.0'
 download_url = ''
-local_path = '<your local path to>/example-transfer-rollup/target/debug/chat-rollup'
+local_path = '<your local path to>/noVM/target/debug/chat-rollup'
 args = []
 ```
 
@@ -128,7 +128,7 @@ specific address.
 
 ## Submit New Messages
 
-In the `example-transfer-rollup` repo run the following:
+In the `noVM` repo run the following:
 
 ```bash
 just install-cli
