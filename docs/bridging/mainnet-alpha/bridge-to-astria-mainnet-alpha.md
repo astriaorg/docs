@@ -21,6 +21,8 @@ export OSMOSIS_KEY_NAME="<name-of-your-osmosis-key>"
 export OSMOSIS_ADDRESS="<your-osmosis-address>"
 export STRIDE_KEY_NAME="<name-of-your-stride-key>"
 export STRIDE_ADDRESS="<your-stride-address>"
+export NEUTRON_KEY_NAME="<name-of-your-neutron-key>"
+export NEUTRON_ADDRESS="<your-neutron-address>"
 ```
 
 ## Bridge to Astria
@@ -41,6 +43,8 @@ You can view your transactions by visiting the following:
 - `https://www.mintscan.io/noble/address/<your-noble-address>`
 - `https://www.mintscan.io/osmosis/address/<your-osmosis-address>`
 - `https://www.mintscan.io/stride/address/<your-stride-address>`
+- `https://www.mintscan.io/neutron/address/<your-neutron-address>`
+
 
 You can also go directly to [Mintscan](https://www.mintscan.io/) and search for
 the `txhash` that is returned after sending your transaction, but it is

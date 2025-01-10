@@ -50,6 +50,18 @@ astria-cli sequencer ics20-withdrawal \
     --fee-asset transfer/channel-0/utia
 ```
 
+```bash [To Neutron]
+astria-cli sequencer ics20-withdrawal \
+    --amount 1000 \
+    --destination-chain-address=$NEUTRON_ADDRESS \
+    --source-channel channel-4 \
+    --private-key=$PRIV_KEY \
+    --sequencer-url=https://rpc.astria.org/ \
+    --sequencer.chain-id astria \
+    --asset transfer/channel-4/factory/neutron1ut4c6pv4u6vyu97yw48y8g7mle0cat54848v6m97k977022lzxtsaqsgmq/udtia \
+    --fee-asset transfer/channel-0/utia
+```
+
 :::
 
 <!-- <Tabs>
