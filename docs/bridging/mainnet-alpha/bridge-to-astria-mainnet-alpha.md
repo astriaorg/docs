@@ -45,7 +45,6 @@ You can view your transactions by visiting the following:
 - `https://www.mintscan.io/stride/address/<your-stride-address>`
 - `https://www.mintscan.io/neutron/address/<your-neutron-address>`
 
-
 You can also go directly to [Mintscan](https://www.mintscan.io/) and search for
 the `txhash` that is returned after sending your transaction, but it is
 recommended to view your address transaction history as this will show if an

@@ -65,6 +65,7 @@ strided tx ibc-transfer transfer \
     --fees=500untrn \
     --gas=310000
 ```
+
 :::
 
 <!-- <Tabs>
