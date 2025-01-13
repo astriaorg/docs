@@ -142,8 +142,8 @@ exec $SHELL
 Export some environment variables to make the following commands easier:
 
 ```bash
-export $PRIV_KEY="2bd806c97f0e00af1a1fc3328fa763a9269723c8db8fac4f93af71db186d6e90"
-export $ROLLUP_URL="http://localhost:3030"
+export PRIV_KEY="2bd806c97f0e00af1a1fc3328fa763a9269723c8db8fac4f93af71db186d6e90"
+export ROLLUP_URL="http://localhost:3030"
 ```
 
 Send a transfer on the rollup:
@@ -161,4 +161,4 @@ rollup-cli rollup text --private-key $PRIV_KEY --sequencer-url $ROLLUP_URL "a ne
 > [!TIP]
 > You may see an `ERROR astria_composer::metrics:` error in the Composer when
 > submitting new messages. This results from setting `astria_composer_rollups =
-> ''` to an empty value an can be ignored when testing the rollup.
+> ''` to an empty value and can be ignored when testing the rollup.
