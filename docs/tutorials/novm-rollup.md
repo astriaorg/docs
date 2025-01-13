@@ -84,6 +84,10 @@ force_stdout = 'true'
 pretty_print = 'true'
 no_otel = 'true'
 no_metrics = 'true'
+rollup_name = 'astria-chat'
+sequencer_genesis_block_height = '0'
+celestia_genesis_block_height = '0'
+celestia_block_variance = '100'
 ```
 
 You will also need to update the `astria_composer_grpc_addr` to match the address
