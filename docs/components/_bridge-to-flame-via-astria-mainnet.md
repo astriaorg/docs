@@ -46,6 +46,17 @@ astria-cli sequencer bridge-lock astria1dllx9d9karss9ca8le25a4vqhf67a67d5d4l6r \
     --asset=transfer/channel-3/stutia
 ```
 
+```bash [dTIA]
+astria-cli sequencer bridge-lock astria15juwcclg07xs38757q257evltequawcejzzs4l \
+    --amount 10000 \
+    --destination-chain-address $FLAME_ADDRESS \
+    --private-key $PRIV_KEY \
+    --sequencer.chain-id astria \
+    --sequencer-url https://rpc.astria.org/ \
+    --fee-asset=transfer/channel-0/utia \
+    --asset=transfer/channel-4/factory/neutron1ut4c6pv4u6vyu97yw48y8g7mle0cat54848v6m97k977022lzxtsaqsgmq/udtia
+```
+
 :::
 
 <!-- <Tabs>

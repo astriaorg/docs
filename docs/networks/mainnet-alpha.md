@@ -57,6 +57,15 @@ const mainnet_ibc = siteConfig.flame.mainnet.bridging
 | `astria` -> `stride` | `{{mainnet_ibc.ibc_astria_to_stride}}` |
 | Astria Sequencer stTIA Bridge Address | `{{mainnet_ibc.sequencer_sttia_address}}` |
 
+### Neutron (IBC)
+
+| Property | Value |
+|-----|-----|
+| Supported Asset | `dTIA` |
+| `neutron` -> `astria` | `{{mainnet_ibc.ibc_neutron_to_astria}}` |
+| `astria` -> `neutron` | `{{mainnet_ibc.ibc_astria_to_neutron}}` |
+| Astria Sequencer stTIA Bridge Address | `{{mainnet_ibc.sequencer_dtia_address}}` |
+
 ## Mainnet Service Versions
 
 | Service Name | Version | Source |

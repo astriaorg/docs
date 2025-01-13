@@ -22,6 +22,10 @@ osmosisd keys add <name-of-your-osmosis-key>
 strided keys add <name-of-your-stride-key>
 ```
 
+```bash [Neutron]
+neutrond keys add <name-of-your-neutron-key>
+```
+
 ```bash [Flame]
 cast w new
 ```

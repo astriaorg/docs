@@ -23,6 +23,8 @@ export OSMOSIS_KEY_NAME="<name-of-your-osmosis-key>"
 export OSMOSIS_ADDRESS="<your-osmosis-address>"
 export STRIDE_KEY_NAME="<name-of-your-stride-key>"
 export STRIDE_ADDRESS="<your-stride-address>"
+export NEUTRON_KEY_NAME="<name-of-your-neutron-key>"
+export NEUTRON_ADDRESS="<your-neutron-address>"
 ```
 
 ## Withdraw from Astria

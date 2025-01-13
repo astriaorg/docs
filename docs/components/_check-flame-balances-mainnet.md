@@ -18,6 +18,10 @@ cast balance $FLAME_ADDRESS --erc20 0xcbb93e854AA4EF5Db51c3b094F28952eF0dC67bE -
 cast balance $FLAME_ADDRESS --erc20 0xdf941D092b10FF07eAb44bD174dEe915c13FECcd --rpc-url https://rpc.flame.astria.org
 ```
 
+```bash [dTIA]
+cast balance $FLAME_ADDRESS --erc20 0x1E3b0f82d049379FEd8C0b67D915Ea925067e5f2 --rpc-url https://rpc.flame.astria.org
+```
+
 :::
 
 <!-- <Tabs>
@@ -25,4 +29,5 @@ cast balance $FLAME_ADDRESS --erc20 0xdf941D092b10FF07eAb44bD174dEe915c13FECcd -
   <TabItem value="USDC" label="USDC"> </TabItem>
   <TabItem value="milkTIA" label="milkTIA"> </TabItem>
   <TabItem value="stTIA" label="stTIA"> </TabItem>
+  <TabItem value="dTIA" label="dTIA"> </TabItem>
 </Tabs> -->
