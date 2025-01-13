@@ -60,7 +60,7 @@ strided tx ibc-transfer transfer \
     "100000factory/neutron1ut4c6pv4u6vyu97yw48y8g7mle0cat54848v6m97k977022lzxtsaqsgmq/udtia" \
     --chain-id="neutron-1" \
     --from=$NEUTRON_KEY_NAME \
-    --node=https://stride-rpc.polkachu.com:443 \
+    --node=https://neutron-rpc.polkachu.com:443 \
     --packet-timeout-height "0-0" \
     --fees=500untrn \
     --gas=310000

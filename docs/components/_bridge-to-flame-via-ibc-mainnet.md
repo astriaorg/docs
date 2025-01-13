@@ -65,7 +65,7 @@ strided tx ibc-transfer transfer \
     --memo="{\"rollupDepositAddress\":\"$FLAME_ADDRESS\"}" \
     --chain-id="neutron-1" \
     --from=$NEUTRON_KEY_NAME \
-    --node=https://stride-rpc.polkachu.com:443 \
+    --node=https://neutron-rpc.polkachu.com:443 \
     --packet-timeout-height "0-0" \
     --fees=500untrn \
     --gas=310000
