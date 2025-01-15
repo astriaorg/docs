@@ -1,12 +1,25 @@
-# Run a `noVM` Rollup on Astria
+# Run a `noVM` Messenger Rollup on Astria
+
+Rollups on Astria are virtual machine (VM) agnostic, which means that they can
+function without relying on a VM — a concept we refer to as a **noVM rollup**.
+
+Using [Astria's Execution API](../developer/apis.md#execution-apis), developers
+can build rollups tailored to any application type that operates on
+transactions, messages, and blocks.
+
+The following tutorial demonstrates running a simplified noVM messenger rollup
+app which users can interact with using a cli (in this case a modified version
+of the [Astria CLI](../developer/astria-cli/astria-cli-installation.md)) to
+submit messages and access message history from the rollup.
 
 ## Prerequisites
 
 You will need the following installed to complete the tutorial:
 
 - [Cargo and Rust](https://www.rust-lang.org/tools/install)
-- The [`astria-go`
+- [`astria-go`
   cli](https://docs.astria.org/developer/astria-go/astria-go-installation)
+- [just](https://github.com/casey/just)
 
 ## Clone the `noVM` rollup repo
 
@@ -90,8 +103,9 @@ celestia_genesis_block_height = '0'
 celestia_block_variance = '100'
 ```
 
-You will also need to update the `astria_composer_grpc_addr` to match the address
-you just added above.
+You will also need to update the `astria_composer_grpc_addr` already present in
+the `base-config.toml` to match the `composer_addr` address you just added
+above.
 
 ```toml
 astria_composer_grpc_addr = '127.0.0.1:50052'
@@ -109,26 +123,6 @@ astria_composer_rollups = ''
 ```bash
 astria-go dev run --instance novm --network local
 ```
-
-## Query Data Using `curl`
-
-See what messages are in the rollups memory:
-
-```bash
-curl http://localhost:3030/get_text_from_id/0
-```
-
-You can then update the number at the end of the rollup url in the `curl`
-command to see the different messages held by the rollup.
-
-See the balance of an account:
-
-```bash
-curl http://localhost:3030/get_account_balance/astria1rsxyjrcm255ds9euthjx6yc3vrjt9sxrm9cfgm/nria
-```
-
-You can then update the address and asset label to query the balance(s) of any
-specific address.
 
 ## Submit New Messages
 
@@ -162,3 +156,28 @@ rollup-cli rollup text --private-key $PRIV_KEY --sequencer-url $ROLLUP_URL "a ne
 > You may see an `ERROR astria_composer::metrics:` error in the Composer when
 > submitting new messages. This results from setting `astria_composer_rollups =
 > ''` to an empty value and can be ignored when testing the rollup.
+
+## Query Data Using `curl`
+
+You can view specific messages using the text id of the message. The first
+message submitted is `id=0`, the second is `id=1`, etc.
+
+```bash
+curl http://localhost:3030/get_text_from_id/0
+curl http://localhost:3030/get_text_from_id/1
+```
+
+To view recent messages that have been submitted to the rollup you can use:
+
+```bash
+curl http://localhost:3030/recent
+```
+
+See the balance of an account:
+
+```bash
+curl http://localhost:3030/get_account_balance/astria1rsxyjrcm255ds9euthjx6yc3vrjt9sxrm9cfgm/nria
+```
+
+You can then update the address and asset label to query the balance(s) of any
+specific address.
