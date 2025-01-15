@@ -23,11 +23,7 @@ You will need the following installed to complete the tutorial:
 
 ## Clone the `noVM` rollup repo
 
-```bash
-git clone git@github.com:astriaorg/noVM.git
-cd noVM
-cargo build
-```
+<!--@include: ../components/_clone-novm.md-->
 
 ## Configure the `astria-go` cli
 
