@@ -170,7 +170,7 @@ function sidebar() {
       items: [
         {text: 'Run a Local Rollup and Sequencer', link: '/tutorials/run-local-rollup-and-sequencer.md' },
         {text: 'Run a Local Rollup against a Remote Sequencer', link: '/tutorials/run-local-rollup-against-remote-sequencer.md' },
-        {text: 'Run a novm Rollup', link: '/tutorials/novm-rollup.md' },
+        {text: 'Run a novm-messenger Rollup', link: '/tutorials/novm-messenger-rollup.md' },
         {text: 'Test Transactions', link: '/tutorials/test-transactions.md' }
       ]
     }
