@@ -8,8 +8,7 @@ can build rollups tailored to any application type that operates on
 transactions, messages, and blocks.
 
 The following tutorial demonstrates running a simplified noVM messenger rollup
-app which users can interact with using a cli (in this case a modified version
-of the [Astria CLI](../developer/astria-cli/astria-cli-installation.md)) to
+app which users can interact with using [a cli](#install-the-rollup-cli) to
 submit messages and access message history from the rollup.
 
 ## Prerequisites
@@ -21,9 +20,9 @@ You will need the following installed to complete the tutorial:
   cli](https://docs.astria.org/developer/astria-go/astria-go-installation)
 - [just](https://github.com/casey/just)
 
-## Clone the `noVM` rollup repo
+## Clone the `noVM-messenger` Rollup Repo
 
-<!--@include: ../components/_clone-novm.md-->
+<!--@include: ../components/_clone-novm-messenger.md-->
 
 ## Configure the `astria-go` cli
 
@@ -76,7 +75,7 @@ This dir should already be present in the repo once you have run `cargo build`.
 name = 'rollup'
 version = 'v0.1.0'
 download_url = ''
-local_path = '<your local path to>/noVM/target/debug/chat-rollup'
+local_path = '<your local path to>/noVM-messenger/target/debug/chat-rollup'
 args = []
 ```
 
@@ -120,13 +119,12 @@ astria_composer_rollups = ''
 astria-go dev run --instance novm --network local
 ```
 
-## Submit New Messages
+## Install the `rollup-cli`
 
-In the `noVM` repo run the following:
+In the `noVM-messenger` repo run the following:
 
 ```bash
 just install-cli
-exec $SHELL
 ```
 
 Export some environment variables to make the following commands easier:
@@ -136,16 +134,18 @@ export PRIV_KEY="2bd806c97f0e00af1a1fc3328fa763a9269723c8db8fac4f93af71db186d6e9
 export ROLLUP_URL="http://localhost:3030"
 ```
 
+## Submit New Messages
+
 Send a transfer on the rollup:
 
 ```bash
-rollup-cli rollup transfer --amount 100 --private-key $PRIV_KEY astria1yf56efahcq786pe5t7paknat40g6q4tsvqtql2
+rollup-cli submit transfer --amount 1 --private-key $PRIV_KEY --rollup-url $ROLLUP_URL astria1yf56efahcq786pe5t7paknat40g6q4tsvqtql2
 ```
 
 Submit new text to the rollup:
 
 ```bash
-rollup-cli rollup text --private-key $PRIV_KEY --sequencer-url $ROLLUP_URL "a new message" "username"
+rollup-cli submit text --private-key $PRIV_KEY --rollup-url $ROLLUP_URL "a new message" "username"
 ```
 
 > [!TIP]
@@ -153,27 +153,24 @@ rollup-cli rollup text --private-key $PRIV_KEY --sequencer-url $ROLLUP_URL "a ne
 > submitting new messages. This results from setting `astria_composer_rollups =
 > ''` to an empty value and can be ignored when testing the rollup.
 
-## Query Data Using `curl`
-
-You can view specific messages using the text id of the message. The first
-message submitted is `id=0`, the second is `id=1`, etc.
-
-```bash
-curl http://localhost:3030/get_text_from_id/0
-curl http://localhost:3030/get_text_from_id/1
-```
+## Query the Rollup
 
 To view recent messages that have been submitted to the rollup you can use:
 
 ```bash
-curl http://localhost:3030/recent
+rollup-cli query texts --rollup-url $ROLLUP_URL
 ```
 
 See the balance of an account:
 
 ```bash
-curl http://localhost:3030/get_account_balance/astria1rsxyjrcm255ds9euthjx6yc3vrjt9sxrm9cfgm/nria
+rollup-cli query balance --rollup-url $ROLLUP_URL astria1yf56efahcq786pe5t7paknat40g6q4tsvqtql2
+rollup-cli query balance --rollup-url $ROLLUP_URL astria1rsxyjrcm255ds9euthjx6yc3vrjt9sxrm9cfgm
 ```
 
-You can then update the address and asset label to query the balance(s) of any
-specific address.
+See the nonce of an account:
+
+```bash
+rollup-cli query nonce --rollup-url $ROLLUP_URL astria1yf56efahcq786pe5t7paknat40g6q4tsvqtql2
+rollup-cli query nonce --rollup-url $ROLLUP_URL astria1rsxyjrcm255ds9euthjx6yc3vrjt9sxrm9cfgm
+```

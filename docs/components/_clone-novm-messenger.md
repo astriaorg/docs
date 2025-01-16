@@ -3,14 +3,14 @@
 ::: code-group
 
 ```bash [SSH]
-git clone git@github.com:astriaorg/noVM.git
-cd noVM
+git clone git@github.com:astriaorg/noVM-messenger.git
+cd noVM-messenger
 cargo build
 ```
 
 ```bash [HTTPS]
-git clone https://github.com/astriaorg/noVM.git
-cd noVM
+git clone https://github.com/astriaorg/noVM-messenger.git
+cd noVM-messenger
 cargo build
 ```
 
