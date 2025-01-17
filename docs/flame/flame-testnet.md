@@ -62,22 +62,6 @@ Your settings should be the following:
 | Astria Sequencer USDC Bridge Address | `{{config.flame.dawn.bridging.sequencer_grand_address}}` |
 | Flame USDC Withdrawal Address| `{{config.flame.dawn.bridging.flame_usdc_address}}` |
 
-### Osmosis (IBC)
-
-| Property | Value |
-|-----|-----|
-| Supported Asset | `milkTIA` |
-| `osmosis` -> `astria` | `{{config.flame.dawn.bridging.ibc_osmosis_to_dawn}}` |
-| `astria` -> `osmosis` | `{{config.flame.dawn.bridging.ibc_dawn_to_osmosis}}` |
-
-### Stride (IBC)
-
-| Property | Value |
-|-----|-----|
-| Supported Asset | `stTIA` |
-| `stride` -> `astria` | `{{config.flame.dawn.bridging.ibc_stride_to_dawn}}` |
-| `astria` -> `stride` | `{{config.flame.dawn.bridging.ibc_dawn_to_stride}}` |
-
 ## Uniswap V3
 
 | Name | Address |
