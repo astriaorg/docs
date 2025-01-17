@@ -11,6 +11,8 @@ The following tutorial demonstrates running a simplified noVM messenger rollup
 app which users can interact with using [a cli](#install-the-rollup-cli) to
 submit messages and access message history from the rollup.
 
+View the code for the [`noVM-messenger` here](https://github.com/astriaorg/noVM-messenger).
+
 ## Prerequisites
 
 You will need the following installed to complete the tutorial:
