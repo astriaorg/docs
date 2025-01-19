@@ -49,7 +49,7 @@ export default defineConfig({
 
     socialLinks: [
       { icon: "github", link: "https://github.com/astriaorg" },
-      { icon: "twitter", link: "https://twitter.com/AstriaOrg" },
+      { icon: "x", link: "https://x.com/AstriaOrg" },
     ],
   },
   vite: {
