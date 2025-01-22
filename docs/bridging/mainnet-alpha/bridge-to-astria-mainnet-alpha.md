@@ -5,7 +5,7 @@ Astria Mainnet Alpha.
 
 You will need the `astria-cli`, `celestia-appd`, `nobled`, `osmosisd`, and
 `strided` installed. Follow the install steps
-[here](../overview.md#bridging-dependencies).
+[here](../cli-bridging-overview.md#cli-bridging-dependencies).
 
 You can export the following to make the commands below easily copy and
 pastable.
