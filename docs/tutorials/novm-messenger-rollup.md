@@ -114,15 +114,10 @@ Then add a new rollup genesis file in the `novm/config/` directory at
 ```
 <!-- TODO: add a link to an FAQ about how to update the genesis file to add new accounts -->
 
-Then open `~/.astria/novm/config/base-config.toml` and add the following to that
-file. You will need to manually update the `db_filepath` and `genesis_filepath`:
+Then open `~/.astria/novm/config/base-config.toml` and add the configuration for
+the rollup.
 
-You can get both of these paths by running the following:
-
-```bash
-echo "db_filepath = '$HOME/.astria/novm/data/rollup_data'"
-echo "genesis_filepath = '$HOME/.astria/novm/config/rollup_genesis.json'"
-```
+Add the following to the end of the file:
 
 ```toml {4,5}
 metrics_http_listener_addr = 'http://127.0.0.1:50053'
@@ -137,15 +132,23 @@ no_otel = 'true'
 no_metrics = 'true'
 ```
 
-You will also need to update the `astria_composer_grpc_addr` already present in
-the `base-config.toml` to match the `composer_addr` address you just added
-above.
+Then update the `db_filepath` and `genesis_filepath`. You can get both of these
+paths by running the following:
+
+```bash
+echo "db_filepath = '$HOME/.astria/novm/data/rollup_data'"
+echo "genesis_filepath = '$HOME/.astria/novm/config/rollup_genesis.json'"
+```
+
+
+Then update the `astria_composer_grpc_addr` already present in the
+`base-config.toml` to match the `composer_addr` address you just added above.
 
 ```toml
 astria_composer_grpc_addr = '127.0.0.1:50052'
 ```
 
-And remove the rollups list from `astria_composer_rollups` variable to enable
+Lastly, update the `astria_composer_rollups` variable to enable
 generic submissions to the Composer:
 
 ```toml
