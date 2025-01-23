@@ -54,7 +54,7 @@ highlight_color = 'blue'
 border_color = 'gray'
 ```
 
-Navigate to `~/.astria/novm/sequencer-networks-config.toml`. Scroll through the
+Navigate to `~/.astria/novm/networks-config.toml`. Scroll through the
 file to find the following heading:
 
 ```toml
@@ -72,20 +72,26 @@ Add the following at the end of that section. Make sure that the `local_path` is
 set to point at the `target` dir within the example transfer rollup directory.
 This dir should already be present in the repo once you have run `cargo build`.
 
+If you are in the `noVM-messenger` directory, you can get this full path by
+running:
+
+```bash
+echo "$(pwd)/noVM-messenger/target/debug/chat-rollup"
+```
+
 ```toml {5}
 [networks.local.services.rollup]
 name = 'rollup'
 version = 'v0.1.0'
 download_url = ''
-local_path = '<your local path to>/noVM-messenger/target/debug/chat-rollup'
+local_path = '<absolute path to>/noVM-messenger/target/debug/chat-rollup'
 args = []
 ```
 
-Then add a new rollup genesis file to `<absolute path of your home dir>/.astria/novm/config/rollup_genesis.json`.
-you will need to manually update the `rollup_name`:
+Then add a new rollup genesis file in the `novm/config/` directory at
+`$HOME/.astria/novm/config/rollup_genesis.json`:
 
 ```json
-// rollup_genesis.json
 {
     "rollup_name": "chat-rollup",
     "accounts": [
@@ -106,14 +112,19 @@ you will need to manually update the `rollup_name`:
     }
 }
 ```
-
-To add another genesis account, use the astria-go CLI to generate
-an address and append it to the account field.
+<!-- TODO: add a link to an FAQ about how to update the genesis file to add new accounts -->
 
 Then open `~/.astria/novm/config/base-config.toml` and add the following to that
 file. You will need to manually update the `db_filepath` and `genesis_filepath`:
 
-```toml {4}
+You can get both of these paths by running the following:
+
+```bash
+echo "db_filepath = '$HOME/.astria/novm/data/rollup_data'"
+echo "genesis_filepath = '$HOME/.astria/novm/config/rollup_genesis.json'"
+```
+
+```toml {4,5}
 metrics_http_listener_addr = 'http://127.0.0.1:50053'
 log = 'debug'
 composer_addr = 'http://127.0.0.1:50052'
