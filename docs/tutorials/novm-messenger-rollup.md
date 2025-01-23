@@ -112,7 +112,8 @@ Then add a new rollup genesis file in the `novm/config/` directory at
     }
 }
 ```
-<!-- TODO: add a link to an FAQ about how to update the genesis file to add new accounts -->
+<!-- TODO: add a link to an FAQ about how to update the genesis file to add new
+accounts -->
 
 Then open `~/.astria/novm/config/base-config.toml` and add the configuration for
 the rollup.
@@ -139,7 +140,6 @@ paths by running the following:
 echo "db_filepath = '$HOME/.astria/novm/data/rollup_data'"
 echo "genesis_filepath = '$HOME/.astria/novm/config/rollup_genesis.json'"
 ```
-
 
 Then update the `astria_composer_grpc_addr` already present in the
 `base-config.toml` to match the `composer_addr` address you just added above.
