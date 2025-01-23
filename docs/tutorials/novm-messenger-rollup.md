@@ -82,7 +82,7 @@ args = []
 ```
 
 Then add a new rollup genesis file to `<absolute path of your home dir>/.astria/novm/config/rollup_genesis.json`.
-you will need to update manually the `rollup_name`:
+you will need to manually update the `rollup_name`:
 
 ```json
 // rollup_genesis.json
@@ -106,6 +106,9 @@ you will need to update manually the `rollup_name`:
     }
 }
 ```
+
+To add another genesis account, use the astria-go CLI to generate
+an address and append it to the account field.
 
 Then open `~/.astria/novm/config/base-config.toml` and add the following to that
 file. You will need to manually update the `db_filepath` and `genesis_filepath`:
