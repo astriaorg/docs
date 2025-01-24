@@ -69,8 +69,8 @@ Your settings should be the following:
 | Supported Asset | `milkTIA` |
 | `osmosis` -> `astria` | `{{config.flame.mainnet.bridging.ibc_osmosis_to_astria}}` |
 | `astria` -> `osmosis` | `{{config.flame.mainnet.bridging.ibc_astria_to_osmosis}}` |
-| Astria Sequencer USDC Bridge Address | `{{config.flame.mainnet.bridging.sequencer_milktia_address}}` |
-| Astria Sequencer milkTIA Bridge Address | `{{config.flame.mainnet.bridging.flame_milktia_address}}` |
+| Astria Sequencer milkTIA Bridge Address | `{{config.flame.mainnet.bridging.sequencer_milktia_address}}` |
+| Flame milkTIA Withdrawal Address | `{{config.flame.mainnet.bridging.flame_milktia_address}}` |
 
 ### Stride (IBC)
 
@@ -79,8 +79,8 @@ Your settings should be the following:
 | Supported Asset | `stTIA` |
 | `stride` -> `astria` | `{{config.flame.mainnet.bridging.ibc_stride_to_astria}}` |
 | `astria` -> `stride` | `{{config.flame.mainnet.bridging.ibc_astria_to_stride}}` |
-| Astria Sequencer USDC Bridge Address | `{{config.flame.mainnet.bridging.sequencer_sttia_address}}` |
-| Flame USDC Withdrawal Address| `{{config.flame.mainnet.bridging.flame_sttia_address}}` |
+| Astria Sequencer stTIA Bridge Address | `{{config.flame.mainnet.bridging.sequencer_sttia_address}}` |
+| Flame stTIA Withdrawal Address| `{{config.flame.mainnet.bridging.flame_sttia_address}}` |
 
 ## Uniswap V3
 
