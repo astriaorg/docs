@@ -173,6 +173,13 @@ function sidebar() {
         {text: 'Run a novm-messenger Rollup', link: '/tutorials/novm-messenger-rollup.md' },
         {text: 'Test Transactions', link: '/tutorials/test-transactions.md' }
       ]
+    },
+    {
+      text: 'FAQ',
+      collapsed: true,
+      items: [
+        {text: 'astria-go CLI', link: '/faq/astria-go-cli' }
+      ]
     }
   ]
 }
@@ -185,5 +192,6 @@ function nav() {
     { text: "Networks", link: "/networks/testnet" },
     { text: "Developers", link: "/developer/astria-go/astria-go-installation" },
     { text: "Tutorials", link: "/tutorials/run-local-rollup-against-remote-sequencer" },
+    { text: "FAQ", link: "/faq/astria-go-cli" },
   ];
 }
