@@ -46,7 +46,7 @@ astria-go dev run --instance <instance name> [flags]
 ## Creating Instances
 
 If you are developing different rollups in parallel, you can create multiple
-instances to allow the different configurations you may need to persists. 
+instances to allow the different configurations you may need to persists.
 
 ```bash
 astria-go dev init --instance <new instance name>
