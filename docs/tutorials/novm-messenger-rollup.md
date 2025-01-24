@@ -54,7 +54,7 @@ highlight_color = 'blue'
 border_color = 'gray'
 ```
 
-Navigate to `~/.astria/novm/sequencer-networks-config.toml`. Scroll through the
+Navigate to `~/.astria/novm/networks-config.toml`. Scroll through the
 file to find the following heading:
 
 ```toml
@@ -72,43 +72,83 @@ Add the following at the end of that section. Make sure that the `local_path` is
 set to point at the `target` dir within the example transfer rollup directory.
 This dir should already be present in the repo once you have run `cargo build`.
 
+If you are in the `noVM-messenger` directory, you can get this full path by
+running:
+
+```bash
+echo "$(pwd)/noVM-messenger/target/debug/chat-rollup"
+```
+
 ```toml {5}
 [networks.local.services.rollup]
 name = 'rollup'
 version = 'v0.1.0'
 download_url = ''
-local_path = '<your local path to>/noVM-messenger/target/debug/chat-rollup'
+local_path = '<absolute path to>/noVM-messenger/target/debug/chat-rollup'
 args = []
 ```
 
-Then open `~/.astria/novm/config/base-config.toml` and add the following to that
-file. You will need to manually update the `db_filepath`:
+Then add a new rollup genesis file in the `novm/config/` directory at
+`$HOME/.astria/novm/config/rollup_genesis.json`:
 
-```toml {4}
+```json
+{
+    "rollup_name": "chat-rollup",
+    "accounts": [
+        {
+            "address": {
+                "bech32m": "astria1rsxyjrcm255ds9euthjx6yc3vrjt9sxrm9cfgm"
+            },
+            "balance": {
+                "lo": 100000000000000000
+            }
+        }
+    ],
+    "sequencer_genesis_block_height": 2,
+    "celestia_genesis_block_height": 2,
+    "celestia_block_variance": 100,
+    "authority_sudo_address": {
+        "bech32m": "astria1rsxyjrcm255ds9euthjx6yc3vrjt9sxrm9cfgm"
+    }
+}
+```
+<!-- TODO: add a link to an FAQ about how to update the genesis file to add new
+accounts -->
+
+Then open `~/.astria/novm/config/base-config.toml` and add the configuration for
+the rollup.
+
+Add the following to the end of the file:
+
+```toml {4,5}
 metrics_http_listener_addr = 'http://127.0.0.1:50053'
 log = 'debug'
 composer_addr = 'http://127.0.0.1:50052'
 db_filepath = '<absolute path of your home dir>/.astria/novm/data/rollup_data'
+genesis_filepath = '<absolute path of your home dir>/.astria/novm/config/rollup_genesis.json'
 execution_grpc_addr = '0.0.0.0:50051'
 force_stdout = 'true'
 pretty_print = 'true'
 no_otel = 'true'
 no_metrics = 'true'
-rollup_name = 'astria-chat'
-sequencer_genesis_block_height = '0'
-celestia_genesis_block_height = '0'
-celestia_block_variance = '100'
 ```
 
-You will also need to update the `astria_composer_grpc_addr` already present in
-the `base-config.toml` to match the `composer_addr` address you just added
-above.
+Then update the `db_filepath` and `genesis_filepath`. You can get both of these
+paths by running the following:
+
+```bash
+echo "db_filepath = '$HOME/.astria/novm/data/rollup_data'"
+echo "genesis_filepath = '$HOME/.astria/novm/config/rollup_genesis.json'"
+```
+
+Then update the `astria_composer_grpc_addr` already present in the
+`base-config.toml` to match the `composer_addr` address you just added above.
 
 ```toml
 astria_composer_grpc_addr = '127.0.0.1:50052'
 ```
 
-And remove the rollups list from `astria_composer_rollups` variable to enable
+Lastly, update the `astria_composer_rollups` variable to enable
 generic submissions to the Composer:
 
 ```toml
