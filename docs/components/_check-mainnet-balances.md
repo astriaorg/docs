@@ -22,6 +22,10 @@ osmosisd query bank balances $OSMOSIS_ADDRESS --node https://osmosis-rpc.polkach
 strided query bank balances $STRIDE_ADDRESS --node https://stride-rpc.polkachu.com:443
 ```
 
+```bash [Neutron]
+neutrond query bank balances $NEUTRON_ADDRESS --node https://neutron-rpc.polkachu.com:443
+```
+
 ```bash [Flame]
 cast balance --rpc-url https://rpc.flame.astria.org $FLAME_ADDRESS
 ```
@@ -33,5 +37,6 @@ cast balance --rpc-url https://rpc.flame.astria.org $FLAME_ADDRESS
   <TabItem value="Celestia" label="Celestia"> </TabItem>
   <TabItem value="Noble" label="Noble"> </TabItem>
   <TabItem value="Stride" label="Stride"> </TabItem>
+  <TabItem value="Neutron" label="Neutron"> </TabItem>
   <TabItem value="Flame" label="Flame"> </TabItem>
 </Tabs> -->

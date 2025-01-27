@@ -33,7 +33,7 @@ nobled tx ibc-transfer transfer \
 osmosisd tx ibc-transfer transfer \
     transfer \
     channel-85486 \
-    $ASTRIA_ADDRESS \
+    astria1kgxhyhvynhcwwrylkzzx6q3a8rn3tuvasxvuy8 \
     1000000uusdc \
     --memo="{\"rollupDepositAddress\":\"$FLAME_ADDRESS\"}" \
     --from $OSMOSIS_KEY_NAME \
@@ -46,7 +46,7 @@ osmosisd tx ibc-transfer transfer \
 strided tx ibc-transfer transfer \
     transfer \
     channel-285 \
-    $ASTRIA_ADDRESS \
+    astria1dllx9d9karss9ca8le25a4vqhf67a67d5d4l6r \
     "100000stutia" \
     --memo="{\"rollupDepositAddress\":\"$FLAME_ADDRESS\"}" \
     --chain-id="stride-1" \
@@ -56,6 +56,21 @@ strided tx ibc-transfer transfer \
     --fees=500ustrd
 ```
 
+```bash [From Neutron]
+strided tx ibc-transfer transfer \
+    transfer \
+    channel-6236 \
+    astria15juwcclg07xs38757q257evltequawcejzzs4l \
+    "100000factory/neutron1ut4c6pv4u6vyu97yw48y8g7mle0cat54848v6m97k977022lzxtsaqsgmq/udtia" \
+    --memo="{\"rollupDepositAddress\":\"$FLAME_ADDRESS\"}" \
+    --chain-id="neutron-1" \
+    --from=$NEUTRON_KEY_NAME \
+    --node=https://neutron-rpc.polkachu.com:443 \
+    --packet-timeout-height "0-0" \
+    --fees=500untrn \
+    --gas=310000
+```
+
 :::
 
 <!-- <Tabs>
@@ -63,4 +78,5 @@ strided tx ibc-transfer transfer \
   <TabItem value="From Noble" label="From Noble"> </TabItem>
   <TabItem value="From Osmosis" label="From Osmosis"> </TabItem>
   <TabItem value="From Stride" label="From Stride"> </TabItem>
+  <TabItem value="From Neutron" label="From Neutron"> </TabItem>
 </Tabs> -->

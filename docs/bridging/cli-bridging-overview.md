@@ -28,6 +28,7 @@ Manual bridging via the command line is available for power users.
 | Noble | `channel-104` | `channel-1` |
 | Osmosis | `channel-85486` | `channel-2` |
 | Stride | `channel-285` | `channel-3` |
+| Neutron | `channel-6236` | `channel-4` |
 
 ### Testnet - [`dawn-1`](../networks/testnet.md)
 
@@ -82,6 +83,10 @@ Build the `strided` cli from source:
 
 <!--@include: ../components/_install-strided.md-->
 
+Build the `neutrond` cli from source:
+
+<!--@include: ../components/_install-neutrond.md-->
+
 ## Creating Accounts
 
 You will need an account for all networks you are interacting with.
@@ -121,6 +126,7 @@ export CELESTIA_ADDRESS="<your-celestia-address>"
 export FLAME_ADDRESS="<your-flame-address>"
 export NOBLE_ADDRESS="<your-noble-address>"
 export STRIDE_ADDRESS="<your-stride-address>"
+export NEUTRON_ADDRESS="<your-neutron-address>"
 ```
 
 ### Check **Mainnet** Balances
