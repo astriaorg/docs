@@ -82,6 +82,16 @@ Your settings should be the following:
 | Astria Sequencer stTIA Bridge Address | `{{config.flame.mainnet.bridging.sequencer_sttia_address}}` |
 | Flame stTIA Withdrawal Address| `{{config.flame.mainnet.bridging.flame_sttia_address}}` |
 
+### Neutron (IBC)
+
+| Property | Value |
+|-----|-----|
+| Supported Asset | `dTIA` |
+| `neutron` -> `astria` | `{{config.flame.mainnet.bridging.ibc_neutron_to_astria}}` |
+| `astria` -> `neutron` | `{{config.flame.mainnet.bridging.ibc_astria_to_neutron}}` |
+| Astria Sequencer dTIA Bridge Address | `{{config.flame.mainnet.bridging.sequencer_dtia_address}}` |
+| Flame dTIA Withdrawal Address| `{{config.flame.mainnet.bridging.flame_dtia_address}}` |
+
 ## Uniswap V3
 
 | Name | Address |
