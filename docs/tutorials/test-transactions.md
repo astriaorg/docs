@@ -9,7 +9,7 @@ Requirements:
 
 - [Go](https://go.dev/doc/install)
 
-<!--@include: ../../components/_git-clone-and-build-spamooor.md-->
+<!--@include: ../components/_clone-build-spamooor.md-->
 
 ## Configure Your Rollup Account
 
@@ -21,7 +21,7 @@ Make sure you have a local Geth rollup configured and running.
 Add your private key from your testing account and the rollup rpc to the environment:
 
 ```bash
-export PRIV_KEY="<your private key>" # DON'T include the '0x' prefix 
+export PRIV_KEY="<your astria-geth private key>" # DON'T include the '0x' prefix 
 export ROLLUP_RPC="http://localhost:8545"
 ```
 
