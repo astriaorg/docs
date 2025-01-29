@@ -14,14 +14,14 @@ View the source code
 
 Requires `Go`, `just`, `make`, and `Foundry`:
 
-- [Go](https://go.dev/doc/install)
+- [Go](https://go.dev/doc/install) - specifically Go 1.21
 - [just](https://github.com/casey/just)
 - [make](https://www.gnu.org/software/make/)
 - [Foundry](https://book.getfoundry.sh/getting-started/installation)
 
 Open a new terminal window and clone and build Geth:
 
-<!--@include: ../components/_clone-geth.md-->
+<!--@include: ../../components/_clone-build-astria-geth.md-->
 
 Create a new genesis account for your Geth rollup:
 
@@ -55,7 +55,6 @@ transactions](./test-transactions.md) later on.
 In your Geth terminal window, run the following to initialize and run the Geth rollup:
 
 ```bash
-# in astria-geth dir
 just -f dev/justfile init
 just -f dev/justfile run
 ```
@@ -95,15 +94,19 @@ Open the `~/.astria/default/networks-config.toml` file and update the
 sequencer_chain_id = 'sequencer-test-chain-0'
 sequencer_grpc = 'http://127.0.0.1:8080'
 sequencer_rpc = 'http://127.0.0.1:26657'
-rollup_name = '<your rollup name>' # update this value
+rollup_name = '<your rollup name>'
 default_denom = 'ntia'
 ```
 
 ::: tip
 
+You can perform the above steps using the following commands. `NEW_NAME` should
+match the `"astriaRollupName"` in your `dev/geth-genesis-local.json`:
+
 ```shell
 export NEW_NAME="my-new-chain"
-sed -i '' '/\[networks\.local\]/,/^$/{ s/rollup_name = .*/rollup_name = '\'''$NEW_NAME''\''/; }' ~/.astria/default/networks-config.toml
+cd ~/.astria/default/
+sed -i '' '/\[networks\.local\]/,/^$/ s/rollup_name = .*/rollup_name = "'"$NEW_NAME"'"/' ~/.astria/default/networks-config.toml
 ```
 
 :::

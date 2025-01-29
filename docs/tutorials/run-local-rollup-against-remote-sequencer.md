@@ -10,13 +10,13 @@ Astria stack locally on your machine.
 
 Requires `Go`, `just`, and `Foundry`:
 
-- [Go](https://go.dev/doc/install)
+- [Go](https://go.dev/doc/install) - specifically Go 1.21
 - [just](https://github.com/casey/just)
 - [Foundry](https://book.getfoundry.sh/getting-started/installation)
 
 Open a new terminal window and clone and build Geth.
 
-<!--@include: ../../components/_clone-geth.md-->
+<!--@include: ../../components/_clone-build-astria-geth.md-->
 
 ### Configure the Geth Genesis Information
 
