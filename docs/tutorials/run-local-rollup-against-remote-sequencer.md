@@ -61,7 +61,8 @@ your new one:
 
 Keep the `chainId` and `astriaRollupName` you chose on hand, as they will also
 be needed for running the [test transactions](./test-transactions.md) and
-[configuring the Astria composer](#configure-the-local-astria-components) later on.
+[configuring the Astria composer](#configure-the-local-astria-services) later
+on.
 
 :::tip
 When starting a new rollup, it is always best to use the most recent height of
@@ -112,7 +113,7 @@ you should find a `default` directory.
 Open the `~/.astria/default/networks-config.toml` file and update the
 `rollup_name` variable in the `[local]` sections using the same
 `"astriaRollupName"` you used when [setting up your astria-geth
- rollup](#setup-an-astria-geth-rollup).
+rollup](#setup-a-geth-rollup).
 
 ```toml{5}
 [networks.local]

@@ -14,7 +14,6 @@ Requirements:
 
 <!--@include: ../components/_clone-build-spamooor.md-->
 
-
 ## Setup Your Environment for `spamooor`
 
 There are several `spamooor` settings that you can configure:
