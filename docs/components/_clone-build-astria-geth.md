@@ -6,20 +6,14 @@
 git clone git@github.com:astriaorg/astria-geth.git
 cd astria-geth
 just -f dev/justfile build
-
-# You can move the binary to a location in your PATH if you'd like
-mv ./build/bin/astria-geth /usr/local/bin/
-astria-geth version
+./build/bin/geth version
 ```
 
 ```bash [HTTPS]
 git clone https://github.com/astriaorg/astria-cli-go.git
 cd astria-geth
 just -f dev/justfile build
-
-# You can move the binary to a location in your PATH if you'd like
-mv ./build/bin/astria-geth /usr/local/bin/
-astria-geth version
+./build/bin/geth version
 ```
 
 :::

@@ -8,15 +8,16 @@ Astria stack locally on your machine.
 
 ### Build Geth
 
-Requires `Go`, `just`, and `Foundry`:
+Requires `Go`, `just`, `make`, and `Foundry`:
 
-- [Go](https://go.dev/doc/install)
+- [Go](https://go.dev/doc/install) - specifically Go 1.21
 - [just](https://github.com/casey/just)
+- [make](https://www.gnu.org/software/make/)
 - [Foundry](https://book.getfoundry.sh/getting-started/installation)
 
 Open a new terminal window and clone and build Geth.
 
-<!--@include: ../../components/_clone-geth.md-->
+<!--@include: ../components/_clone-build-astria-geth.md-->
 
 ### Configure the Geth Genesis Information
 
@@ -26,10 +27,10 @@ additional genesis information to work with the remote sequencer.
 Run the following using the Astira cli:
 
 ```bash
-astria-go sequencer blockheight
+astria-go sequencer blockheight --network dawn
 ```
 
-Then, open the `geth-genesis-local.json` file and update the `chainId` and
+Then, open the `dev/geth-genesis-local.json` file and update the `chainId` and
 `astriaRollupName` to something of your choosing, as well as updating
 `astriaSequencerInitialHeight` using the block height from the previous command
 to choose which sequencer block the first block of your rollup will be in:
@@ -40,7 +41,7 @@ Create a new genesis account for your Geth rollup:
 cast w new
 ```
 
-Also in the `geth-genesis-local.json` file, update the `"alloc"` account with
+Also in the `dev/geth-genesis-local.json` file, update the `"alloc"` account with
 your new one:
 
 ```json{4-6,9}
@@ -60,7 +61,8 @@ your new one:
 
 Keep the `chainId` and `astriaRollupName` you chose on hand, as they will also
 be needed for running the [test transactions](./test-transactions.md) and
-[configuring the Astria composer](#configure-the-local-astria-components) later on.
+[configuring the Astria composer](#configure-the-local-astria-services) later
+on.
 
 :::tip
 When starting a new rollup, it is always best to use the most recent height of
@@ -76,30 +78,28 @@ transactions](./test-transactions.md) later on.
 
 ## Start Geth
 
-In your Geth terminal window, run the following to initialize and run the Geth
-rollup:
+In your Geth terminal window, run the following to initialize and run the Geth rollup:
 
 ```bash
-# in astria-geth dir
-just init
-just run
+just -f dev/justfile init
+just -f dev/justfile run
 ```
 
 If you need to restart the rollup, you can stop the program with `Ctrl+C` and
 restart with:
 
 ```bash
-just run
+just -f dev/justfile run
 ```
 
 If you need to restart the rollup and want to also clear the state data, you can
 use:
 
 ```bash
-just clean-restart
+just -f dev/justfile clean-restart
 ```
 
-## Configure the Local Astria components
+## Configure the Local Astria Services
 
 Open a new terminal window and initialize the cli:
 
@@ -107,28 +107,41 @@ Open a new terminal window and initialize the cli:
 astria-go dev init
 ```
 
+Navigate to the `~/.astria` directory. If you have run the commands shown above,
+you should find a `default` directory.
+
+Open the `~/.astria/default/networks-config.toml` file and update the
+`rollup_name` variable in the `[local]` sections using the same
+`"astriaRollupName"` you used when [setting up your astria-geth
+rollup](#setup-a-geth-rollup).
+
+```toml{5}
+[networks.local]
+sequencer_chain_id = 'sequencer-test-chain-0'
+sequencer_grpc = 'http://127.0.0.1:8080'
+sequencer_rpc = 'http://127.0.0.1:26657'
+rollup_name = '<your rollup name>'
+default_denom = 'ntia'
+```
+
+::: tip
+
+You can perform the above steps using the following commands. `NEW_NAME` should
+match the `"astriaRollupName"` in your `dev/geth-genesis-local.json`:
+
+```shell
+export NEW_NAME="my-new-chain"
+cd ~/.astria/default/
+sed -i '' '/\[networks\.local\]/,/^$/ s/rollup_name = .*/rollup_name = "'"$NEW_NAME"'"/' ~/.astria/default/networks-config.toml
+```
+
+:::
+
 When running against the remote sequencer, you will also need to create a new
 sequencer account.
 
 ```bash
 astria-go sequencer createaccount --insecure
-```
-
-Navigate to the `~/.astria` directory. If you have run the commands shown above,
-you should find a `default` directory.
-
-Open the `~/.astria/default/networks-config.toml` file and update the
-`rollup_name` variable in the `[networks.dusk]` sections using the same
-`"astriaRollupName"` you used when [setting up your Geth
-rollup](#setup-a-geth-rollup).
-
-```toml{5}
-[networks.dusk]
-sequencer_chain_id = 'astria-dusk-10'
-sequencer_grpc = 'https://grpc.sequencer.dusk-10.devnet.astria.org/'
-sequencer_rpc = 'https://rpc.sequencer.dusk-10.devnet.astria.org/'
-rollup_name = '<your rollup name>' # update this value
-default_denom = 'ntia'
 ```
 
 Then open the `~/.astria/default/config/composer_dev_priv_key` and replace dev private
@@ -141,19 +154,19 @@ but your Composer will not be able to submit transactions to the sequencer.
 :::
 
 You can then use the [Sequencer
-Faucet](https://faucet.sequencer.dusk-10.devnet.astria.org/) to fund the account
+Faucet](https://faucet.sequencer.dawn-1.astria.org/) to fund the account
 you just created using the account address.
 
-## Run the local Astria components against the Remote Sequencer
+## Run the local Astria services against the Remote Sequencer
 
 Run the local Astria components against the remote sequencer:
 
 ```bash
-astria-go dev run --network dusk
+astria-go dev run --network dawn
 ```
 
-When running against the remote sequencer, you will see a TUI that displays the logs
-of the Astria Conductor and Composer:
+When running against the remote sequencer, you will see that the TUI only
+displays the logs of the Astria Conductor and Composer:
 ![Running against a remote sequencer using the Astria
 cli](./assets/dusk-10-go-cli-remote-sequencer.png)
 
