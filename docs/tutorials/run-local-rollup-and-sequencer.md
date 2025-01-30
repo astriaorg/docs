@@ -21,7 +21,7 @@ Requires `Go`, `just`, `make`, and `Foundry`:
 
 Open a new terminal window and clone and build Geth:
 
-<!--@include: ../../components/_clone-build-astria-geth.md-->
+<!--@include: ../components/_clone-build-astria-geth.md-->
 
 Create a new genesis account for your Geth rollup:
 
@@ -98,6 +98,13 @@ rollup_name = '<your rollup name>'
 default_denom = 'ntia'
 ```
 
+Open the `~/.astria/default/config/base-config.toml` and update the
+`"astria_composer_rollups"` value to have your rollup name:
+
+```toml
+astria_composer_rollups = '<your rollup name>::ws://127.0.0.1:8546'
+```
+
 ::: tip
 
 You can perform the above steps using the following commands. `NEW_NAME` should
@@ -105,8 +112,13 @@ match the `"astriaRollupName"` in your `dev/geth-genesis-local.json`:
 
 ```shell
 export NEW_NAME="my-new-chain"
-cd ~/.astria/default/
-sed -i '' '/\[networks\.local\]/,/^$/ s/rollup_name = .*/rollup_name = "'"$NEW_NAME"'"/' ~/.astria/default/networks-config.toml
+export INSTANCE="default"
+cd ~/.astria/$INSTANCE/
+sed -i '' '/\[networks\.local\]/,/^$/ s/rollup_name = .*/rollup_name = "'"$NEW_NAME"'"/' \
+    ./networks-config.toml
+sed -i '' \
+    's/\(astria_composer_rollups = '"'"'\)[^:]*::/\1'"$NEW_NAME"'::/g' \
+    ./config/base-config.toml
 ```
 
 :::
