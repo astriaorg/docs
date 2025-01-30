@@ -9,14 +9,18 @@ Astria stack locally on your machine.
 ### Build Geth
 
 Requires `Go`, `just`, `make`, and `Foundry`:
+Requires `Go`, `just`, `make`, and `Foundry`:
 
 - [Go](https://go.dev/doc/install) - specifically Go 1.21
+- [Go](https://go.dev/doc/install) - specifically Go 1.21
 - [just](https://github.com/casey/just)
+- [make](https://www.gnu.org/software/make/)
 - [make](https://www.gnu.org/software/make/)
 - [Foundry](https://book.getfoundry.sh/getting-started/installation)
 
 Open a new terminal window and clone and build Geth.
 
+<!--@include: ../components/_clone-build-astria-geth.md-->
 <!--@include: ../components/_clone-build-astria-geth.md-->
 
 ### Configure the Geth Genesis Information
@@ -28,8 +32,10 @@ Run the following using the Astira cli:
 
 ```bash
 astria-go sequencer blockheight --network dawn
+astria-go sequencer blockheight --network dawn
 ```
 
+Then, open the `dev/geth-genesis-local.json` file and update the `chainId` and
 Then, open the `dev/geth-genesis-local.json` file and update the `chainId` and
 `astriaRollupName` to something of your choosing, as well as updating
 `astriaSequencerInitialHeight` using the block height from the previous command
@@ -41,6 +47,7 @@ Create a new genesis account for your Geth rollup:
 cast w new
 ```
 
+Also in the `dev/geth-genesis-local.json` file, update the `"alloc"` account with
 Also in the `dev/geth-genesis-local.json` file, update the `"alloc"` account with
 your new one:
 
@@ -63,6 +70,8 @@ Keep the `chainId` and `astriaRollupName` you chose on hand, as they will also
 be needed for running the [test transactions](./test-transactions.md) and
 [configuring the Astria composer](#configure-the-local-astria-services) later
 on.
+[configuring the Astria composer](#configure-the-local-astria-services) later
+on.
 
 :::tip
 When starting a new rollup, it is always best to use the most recent height of
@@ -83,12 +92,15 @@ In your Geth terminal window, run the following to initialize and run the Geth r
 ```bash
 just -f dev/justfile init
 just -f dev/justfile run
+just -f dev/justfile init
+just -f dev/justfile run
 ```
 
 If you need to restart the rollup, you can stop the program with `Ctrl+C` and
 restart with:
 
 ```bash
+just -f dev/justfile run
 just -f dev/justfile run
 ```
 
@@ -97,8 +109,10 @@ use:
 
 ```bash
 just -f dev/justfile clean-restart
+just -f dev/justfile clean-restart
 ```
 
+## Configure the Local Astria Services
 ## Configure the Local Astria Services
 
 Open a new terminal window and initialize the cli:
@@ -113,9 +127,16 @@ you should find a `default` directory.
 Open the `~/.astria/default/networks-config.toml` file and update the
 `rollup_name` variable in the `[local]` sections using the same
 `"astriaRollupName"` you used when [setting up your astria-geth
+`rollup_name` variable in the `[local]` sections using the same
+`"astriaRollupName"` you used when [setting up your astria-geth
 rollup](#setup-a-geth-rollup).
 
 ```toml{5}
+[networks.local]
+sequencer_chain_id = 'sequencer-test-chain-0'
+sequencer_grpc = 'http://127.0.0.1:8080'
+sequencer_rpc = 'http://127.0.0.1:26657'
+rollup_name = '<your rollup name>'
 [networks.local]
 sequencer_chain_id = 'sequencer-test-chain-0'
 sequencer_grpc = 'http://127.0.0.1:8080'
