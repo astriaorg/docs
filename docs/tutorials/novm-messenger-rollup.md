@@ -76,7 +76,7 @@ If you are in the `noVM-messenger` directory, you can get this full path by
 running:
 
 ```bash
-echo "$(pwd)/noVM-messenger/target/debug/chat-rollup"
+echo "$(pwd)/target/debug/chat-rollup"
 ```
 
 ```toml {5}
@@ -174,6 +174,8 @@ Export some environment variables to make the following commands easier:
 ```bash
 export PRIV_KEY="2bd806c97f0e00af1a1fc3328fa763a9269723c8db8fac4f93af71db186d6e90"
 export ROLLUP_URL="http://localhost:3030"
+export ALICE_ADDRESS="astria1rsxyjrcm255ds9euthjx6yc3vrjt9sxrm9cfgm"
+export BOB_ADDRESS="astria1yf56efahcq786pe5t7paknat40g6q4tsvqtql2"
 ```
 
 ## Submit New Messages
@@ -181,7 +183,7 @@ export ROLLUP_URL="http://localhost:3030"
 Send a transfer on the rollup:
 
 ```bash
-rollup-cli submit transfer --amount 1 --private-key $PRIV_KEY --rollup-url $ROLLUP_URL astria1yf56efahcq786pe5t7paknat40g6q4tsvqtql2
+rollup-cli submit transfer --amount 1 --private-key $PRIV_KEY --rollup-url $ROLLUP_URL $BOB_ADDRESS
 ```
 
 Submit new text to the rollup:
@@ -206,13 +208,74 @@ rollup-cli query texts --rollup-url $ROLLUP_URL
 See the balance of an account:
 
 ```bash
-rollup-cli query balance --rollup-url $ROLLUP_URL astria1yf56efahcq786pe5t7paknat40g6q4tsvqtql2
-rollup-cli query balance --rollup-url $ROLLUP_URL astria1rsxyjrcm255ds9euthjx6yc3vrjt9sxrm9cfgm
+rollup-cli query balance --rollup-url $ROLLUP_URL $BOB_ADDRESS
+rollup-cli query balance --rollup-url $ROLLUP_URL $ALICE_ADDRESS
 ```
 
 See the nonce of an account:
 
 ```bash
-rollup-cli query nonce --rollup-url $ROLLUP_URL astria1yf56efahcq786pe5t7paknat40g6q4tsvqtql2
-rollup-cli query nonce --rollup-url $ROLLUP_URL astria1rsxyjrcm255ds9euthjx6yc3vrjt9sxrm9cfgm
+rollup-cli query nonce --rollup-url $ROLLUP_URL $BOB_ADDRESS
+rollup-cli query nonce --rollup-url $ROLLUP_URL $ALICE_ADDRESS
+```
+
+## Deposit From Sequencer
+
+Sending deposits requires the `astria-cli`:
+
+<!--@include: ../components/_astria-rust-cli-install.md-->
+
+To deposit from the Astria Sequencer to the `noVM-messenger` rollup you need to
+fund an account on the sequencer with at least `48 utia` to cover the
+`InitBridgeAccount` action cost, then convert that account to a bridge account:
+
+```bash
+export PRIV_KEY="2bd806c97f0e00af1a1fc3328fa763a9269723c8db8fac4f93af71db186d6e90"
+export SEQUENCER_URL="http://127.0.0.1:26657"
+export BRIDGE_ADDRESS="astria1f6yydwp23ucl6kfxt2gqt9vufgpsl3zvz5hwxk"
+export BRIDGE_PRIV_KEY="0e951afdcbefc420fe6f71b82b0c28c11eb6ee5d95be0886ce9dbf6fa512debc"
+export BOB_ADDRESS="astria1yf56efahcq786pe5t7paknat40g6q4tsvqtql2"
+
+# Fund the account
+astria-cli sequencer transfer --amount 50 \
+    --private-key $PRIV_KEY \
+    --sequencer.chain-id sequencer-test-chain-0 \
+    --sequencer-url $SEQUENCER_URL \
+    --fee-asset=ntia \
+    --asset=ntia \
+    $BRIDGE_ADDRESS
+
+sleep 5
+
+astria-cli sequencer balance get --sequencer-url $SEQUENCER_URL $BRIDGE_ADDRESS
+
+# Convert to a bridge account
+astria-cli sequencer init-bridge-account --private-key $BRIDGE_PRIV_KEY --sequencer-url $SEQUENCER_URL \
+    --sequencer.chain-id sequencer-test-chain-0 \
+    --rollup-name astria-chat \
+    --asset ntia \
+    --fee-asset ntia
+
+```
+
+Deposit `ntia` from the sequencer to the rollup:
+
+```bash
+astria-cli sequencer bridge-lock $BRIDGE_ADDRESS \
+    --amount 1 \
+    --destination-chain-address $BOB_ADDRESS \
+    --private-key $PRIV_KEY  \
+    --sequencer.chain-id sequencer-test-chain-0 \
+    --sequencer-url $SEQUENCER_URL \
+    --fee-asset=ntia \
+    --asset=ntia
+```
+
+The native asset on the sequencer is `ntia`, and the native asset on the
+`noVM-messenger` is `nria`. You can check the balance of both assets on the
+rollup as follows:
+
+```bash
+rollup-cli query balance --rollup-url $ROLLUP_URL --asset ntia $BOB_ADDRESS
+rollup-cli query balance --rollup-url $ROLLUP_URL --asset nria $BOB_ADDRESS
 ```
