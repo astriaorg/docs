@@ -36,7 +36,6 @@ The deployment should take less than 5 minutes, but this will depend on the
 speed of your machine and/or download times for images.
 :::
 
-
 ## Cleanup
 
 When you want to stop the local cluster you can run the following:
