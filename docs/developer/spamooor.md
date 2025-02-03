@@ -12,7 +12,7 @@ Requirements:
 
 - [Go](https://go.dev/doc/install)
 
-<!--@include: ../components/_git-clone-and-build-spamooor.md-->
+<!--@include: ../components/_clone-build-spamooor.md-->
 
 ## Setup Your Environment for `spamooor`
 
