@@ -26,7 +26,7 @@ Open a new terminal window and clone and build Geth:
 
 <!--@include: ../components/_clone-build-astria-geth.md-->
 
-### Update Astria-Geth Genesis from the Command Line
+### CLI Configuration of the Astria-Geth Genesis
 
 Create an account with `cast` and export the address and private key to env
 vars.
@@ -131,7 +131,7 @@ just -f dev/justfile clean-restart
 With Astria-Geth running, open a new terminal window to configure the local
 sequencer.
 
-### Configure the Sequencer from the Command Line
+### CLI Configuration of the Astria Sequencer
 
 Initialize a new instance with the `astria-go` cli:
 
@@ -159,8 +159,6 @@ astria-go dev set-config rollup-name $ROLLUP_NAME
 You can skip this section if you have initialized and updated the sequencer
 config using the commands in the previous section.
 :::
-
-Open a new terminal window and initialize the cli:
 
 ```bash
 astria-go dev init
