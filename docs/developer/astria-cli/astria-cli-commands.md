@@ -1,3 +1,6 @@
+---
+outline: [1,2] 
+---
 <!-- markdownlint-disable MD024 -->
 <!-- Disabling MD024 to allow for repeat "Usage" heading -->
 
