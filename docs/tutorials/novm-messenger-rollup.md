@@ -26,7 +26,112 @@ You will need the following installed to complete the tutorial:
 
 <!--@include: ../components/_clone-novm-messenger.md-->
 
-## Configure the `astria-go` cli
+## Configure the `astria-go` CLI for Running the `noVM` Rollup
+
+
+### CLI Configuration
+
+Create a new instance with the cli:
+
+```bash
+astria-go dev init --instance novm
+```
+
+Update the `tui-config.toml` using the following command:
+
+```bash
+cat << 'EOF' > ~/.astria/tui-config.toml
+auto_scroll = true
+wrap_lines = false
+borderless = false
+override_instance_name = 'novm'
+cometbft_starts_minimized = false
+conductor_starts_minimized = false
+composer_starts_minimized = false
+sequencer_starts_minimized = true
+generic_starts_minimized = false
+generic_start_position = 'after'
+highlight_color = 'blue'
+border_color = 'gray'
+EOF
+```
+
+The previous step is optional but will make viewing the running rollup much easier in
+the TUI.
+
+Make sure you are in the `noVM-messenger` repo directory and then run the
+following to add the noVM rollup binary as a new service of the `astria-go` TUI:
+
+```bash
+ROLLUP_PATH="$(pwd)/target/debug/chat-rollup"
+cat << EOF >> ~/.astria/novm/networks-config.toml
+[networks.local.services.rollup]
+name = 'rollup'
+version = 'v0.1.0'
+download_url = ''
+local_path = '${ROLLUP_PATH}'
+args = []
+EOF
+```
+
+Still in the `noVM-messenger` directory, use the following to copy the default
+rollup genesis file in the instance config:
+
+```bash
+cp ./crates/chat-rollup/example.genesis.json ~/.astria/novm/config/rollup_genesis.json
+```
+
+Add the environment variables required for running the `noVM` rollup to the
+`base-config.toml` for the instance:
+
+```bash
+cat << EOF >> ~/.astria/novm/config/base-config.toml
+metrics_http_listener_addr = 'http://127.0.0.1:50053'
+log = 'debug'
+composer_addr = 'http://127.0.0.1:50052'
+db_filepath = '~/.astria/novm/data/rollup_data'
+genesis_filepath = '~/.astria/novm/config/rollup_genesis.json'
+execution_grpc_addr = '0.0.0.0:50051'
+force_stdout = 'true'
+pretty_print = 'true'
+no_otel = 'true'
+no_metrics = 'true'
+EOF
+```
+
+Update the rollup name in the rest of the `novm` instance config to
+match the rollup name in your `rollup_genesis.json` file:
+
+```bash
+astria-go dev set-config rollup-name astria-chat --instancee novm
+```
+
+Then update the env vars for Composer to communicate properly with the rollup:
+
+On MacOS:
+
+```bash
+sed -i '' "s|.*astria_composer_grpc_addr.*|astria_composer_grpc_addr = '127.0.0.1:50052'|" ~/.astria/novm/config/base-config.toml
+sed -i '' "s|.*astria_composer_rollups.*|astria_composer_rollups = ''|" ~/.astria/novm/config/base-config.toml
+```
+
+On Linux:
+
+```bash
+sed "s|.*astria_composer_grpc_addr.*|astria_composer_grpc_addr = '127.0.0.1:50052'|" ~/.astria/novm/config/base-config.toml
+sed "s|.*astria_composer_rollups.*|astria_composer_rollups = ''|" ~/.astria/novm/config/base-config.toml
+```
+
+The instance is now configured for running a local Astria Sequencer Network and
+the `noVM` rollup.
+
+### Manual Configuration
+
+::: tip
+You can skip this section if you have configured your `astria-go` `novm`
+instance using the steps above.
+:::
+
 
 Create a new instance with the cli:
 
@@ -36,10 +141,9 @@ astria-go dev init --instance novm
 
 Go to `~/.astria/` and update the `tui-config.toml` to have the following:
 
-This step is optional but will make viewing the running rollup much easier in
-the TUI.
+This step is optional but will make viewing the running rollup much easier in the TUI.
 
-```toml
+```bash
 auto_scroll = true
 wrap_lines = false
 borderless = false
@@ -55,14 +159,21 @@ border_color = 'gray'
 ```
 
 Navigate to `~/.astria/novm/networks-config.toml`. Scroll through the
-file to find the following heading:
+file to find the `[networks.local]` heading. Update the `rollup_name` to be
+`astria-chat`. Afterwards, that section should look like the following:
 
 ```toml
-[networks.local.services]
+[networks.local]
+sequencer_chain_id = 'sequencer-test-chain-0'
+sequencer_grpc = 'http://127.0.0.1:8080'
+sequencer_rpc = 'http://127.0.0.1:26657'
+rollup_name = 'astria-chat'
+default_denom = 'ntia'
 ```
 
-Continue scrolling through that section until you pass the last service heading
-within the local services:
+Continue scrolling through the `[networks.local]` items in the toml until you
+pass the last service heading within the local services. That section should
+look like the following:
 
 ```toml
 [networks.local.services.sequencer]
@@ -155,7 +266,7 @@ generic submissions to the Composer:
 astria_composer_rollups = ''
 ```
 
-## Run the rollup
+## Run the rollup and sequencer
 
 ```bash
 astria-go dev run --instance novm --network local
