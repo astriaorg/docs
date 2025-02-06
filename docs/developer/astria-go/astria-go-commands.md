@@ -498,7 +498,6 @@ astria-go sequencer nonce [address] [flags]
 | `--network` | string | `ASTRIA_GO_NETWORK` | Configure the values to target a specific network. (default "dawn") |
 | `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer. |
 
-
 ## `sequencer set-config`
 
 Update the configuration for the sequencer commands config.

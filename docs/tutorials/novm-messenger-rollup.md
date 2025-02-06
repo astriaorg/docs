@@ -28,7 +28,6 @@ You will need the following installed to complete the tutorial:
 
 ## Configure the `astria-go` CLI for Running the `noVM` Rollup
 
-
 ### CLI Configuration
 
 Create a new instance with the cli:
@@ -56,8 +55,8 @@ border_color = 'gray'
 EOF
 ```
 
-The previous step is optional but will make viewing the running rollup much easier in
-the TUI.
+The previous step is optional but will make viewing the running rollup much
+easier in the TUI.
 
 Make sure you are in the `noVM-messenger` repo directory and then run the
 following to add the noVM rollup binary as a new service of the `astria-go` TUI:
@@ -132,7 +131,6 @@ You can skip this section if you have configured your `astria-go` `novm`
 instance using the steps above.
 :::
 
-
 Create a new instance with the cli:
 
 ```bash
@@ -141,7 +139,8 @@ astria-go dev init --instance novm
 
 Go to `~/.astria/` and update the `tui-config.toml` to have the following:
 
-This step is optional but will make viewing the running rollup much easier in the TUI.
+This step is optional but will make viewing the running rollup much easier in
+the TUI.
 
 ```bash
 auto_scroll = true

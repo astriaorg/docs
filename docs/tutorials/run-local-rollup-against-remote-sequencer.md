@@ -179,7 +179,7 @@ astria-go dev init
 
 Export the rollup name. This *must* be the same as the rollup name you used
 when [configuring the Astria-Geth
-genesis](#update-astria-geth-genesis-from-the-command-line).
+genesis](#cli-configuration-of-astria-geth-genesis).
 
 ```bash
 export ROLLUP_NAME="<your rollup name>"
@@ -215,7 +215,8 @@ you just created using the account address.
 ### Manually Configure the Local Services
 
 ::: tip
-You can skip this section if you have initialized and updated the local services config using the commands in the previous section.
+You can skip this section if you have initialized and updated the local services
+config using the commands in the previous section.
 :::
 
 ```bash
@@ -228,7 +229,7 @@ you should find a `default` directory.
 Open the `~/.astria/default/networks-config.toml` file and update the
 `rollup_name` variable in the `[local]` sections using the same
 `"astriaRollupName"` you used when [setting up your astria-geth
-rollup](#setup-a-geth-rollup).
+rollup](#setup-an-astria-geth-rollup).
 
 ```toml{5}
 [networks.local]

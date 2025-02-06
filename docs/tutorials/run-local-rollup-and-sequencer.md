@@ -141,7 +141,7 @@ astria-go dev init
 
 Export the rollup name. This *must* be the same as the rollup name you used
 when [configuring the Astria-Geth
-genesis](#update-astria-geth-genesis-from-the-command-line).
+genesis](#cli-configuration-of-the-astria-geth-genesis).
 
 ```bash
 export ROLLUP_NAME="<your rollup name>"
