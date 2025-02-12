@@ -102,7 +102,7 @@ Update the rollup name in the rest of the `novm` instance config to
 match the rollup name in your `rollup_genesis.json` file:
 
 ```bash
-astria-go dev set-config rollup-name astria-chat --instancee novm
+astria-go dev setconfig rollupname astria-chat --instance novm
 ```
 
 Then update the env vars for Composer to communicate properly with the rollup:

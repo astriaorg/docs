@@ -150,7 +150,7 @@ export ROLLUP_NAME="<your rollup name>"
 Update the rollup name for your sequencer instance:
 
 ```bash
-astria-go dev set-config rollup-name $ROLLUP_NAME
+astria-go dev setconfig rollupname $ROLLUP_NAME
 ```
 
 ### Manually Configure the Sequencer
