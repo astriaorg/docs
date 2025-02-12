@@ -292,7 +292,6 @@ astria-go dev setconfig sequencerchainid [chain-id] [flags]
 |---|---|---|---|
 | `--instance` | string | `ASTRIA_GO_INSTANCE` | Choose the target instance. (default "default") |
 | `--network` | string | `ASTRIA_GO_NETWORK` | Specify the network that the sequencer chain id is being updated for. (default "local") |
-| `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | Set the sequencer chain id across all config for the instance. (default "sequencer-test-chain-0") |
 
 ## `dev version`
 
@@ -539,14 +538,14 @@ astria-go sequencer setconfig feeasset [denom] [flags]
 |---|---|---|---|
 | `--network` | string | `ASTRIA_GO_NETWORK` | Specify the network that the sequencer chain id is being updated for. (default "local") |
 
-## `sequencer setconfig nativeasset`
+## `sequencer setconfig asset`
 
-Sets the native asset in the sequencer command configs.
+Sets the asset in the sequencer command configs.
 
 ### Usage
 
 ```bash
-astria-go sequencer setconfig nativeasset [denom] [flags]
+astria-go sequencer setconfig asset [denom] [flags]
 ```
 
 ### Flags
