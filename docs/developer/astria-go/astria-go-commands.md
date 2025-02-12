@@ -215,24 +215,24 @@ astria-go dev run --network dusk [flags]
 | `--sequencer-path` | string | `ASTRIA_GO_SEQUENCER_PATH` | Provide an override path to a specific sequencer binary. |
 | `--service-log-level` | string | `ASTRIA_GO_SERVICE_LOG_LEVEL` | Set the log level for services (debug, info, error) (default "info") |
 
-## `dev set-config`
+## `dev setconfig`
 
 The root command for all config update commands within a development instance.
 
 ### Usage
 
 ```bash
-astria-go dev set-config [command] [flags]
+astria-go dev setconfig [command] [flags]
 ```
 
-## `dev set-config default-denom`
+## `dev setconfig feeasset`
 
-Set the default sequencer denom across all config for the instance.
+Set the sequencer fee asset across all config for the instance.
 
 ### Usage
 
 ```bash
-astria-go dev set-config default-denom [denom] [flags]
+astria-go dev setconfig feeasset [denom] [flags]
 ```
 
 ### Flags
@@ -240,17 +240,32 @@ astria-go dev set-config default-denom [denom] [flags]
 | Flag | Arg Type | Override Env Var | Description |
 |---|---|---|---|
 | `--instance` | string | `ASTRIA_GO_INSTANCE` | Choose the target instance. (default "default") |
-| `--network` | string | `ASTRIA_GO_NETWORK` | Select the network to run the services against. Valid networks are: local, dusk, dawn, mainnet (default "dawn") |
-| `--default-denom` | string | `ASTRIA_GO_DEFAULT_DENOM` | Set the default sequencer denom across all config for the instance. (default "ntia") |
 
-## `dev set-config rollup-name`
+## `dev setconfig nativeasset`
+
+Set the netive asset for the sequencer across all config for the instance.
+
+### Usage
+
+```bash
+astria-go dev setconfig nativeasset [denom] [flags]
+```
+
+### Flags
+
+| Flag | Arg Type | Override Env Var | Description |
+|---|---|---|---|
+| `--instance` | string | `ASTRIA_GO_INSTANCE` | Choose the target instance. (default "default") |
+| `--network` | string | `ASTRIA_GO_NETWORK` | Specify the network that the native asset is being updated for. (default "local") |
+
+## `dev setconfig rollupname`
 
 Set the rollup name across all config for the instance.
 
 ### Usage
 
 ```bash
-astria-go dev set-config rollup-name [name] [flags]
+astria-go dev setconfig rollupname [name] [flags]
 ```
 
 ### Flags
@@ -261,14 +276,14 @@ astria-go dev set-config rollup-name [name] [flags]
 | `--network` | string | `ASTRIA_GO_NETWORK` | Select the network to run the services against. Valid networks are: local, dusk, dawn, mainnet (default "dawn") |
 | `--rollup-port` | string | `ASTRIA_GO_ROLLUP_PORT` | Select the localhost port that the rollup will be running on. (default "8546") |
 
-## `dev set-config sequencer-chain-id`
+## `dev setconfig sequencerchainid`
 
 Set the default sequencer chain id across all config for the instance.
 
 ### Usage
 
 ```bash
-astria-go dev set-config sequencer-chain-id [chain-id] [flags]
+astria-go dev setconfig sequencerchainid [chain-id] [flags]
 ```
 
 ### Flags
@@ -276,8 +291,8 @@ astria-go dev set-config sequencer-chain-id [chain-id] [flags]
 | Flag | Arg Type | Override Env Var | Description |
 |---|---|---|---|
 | `--instance` | string | `ASTRIA_GO_INSTANCE` | Choose the target instance. (default "default") |
-| `--network` | string | `ASTRIA_GO_NETWORK` | Select the network to run the services against. Valid networks are: local, dusk, dawn, mainnet (default "dawn") |
-| `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | Set the default sequencer chain id across all config for the instance. (default "sequencer-test-chain-0") |
+| `--network` | string | `ASTRIA_GO_NETWORK` | Specify the network that the sequencer chain id is being updated for. (default "local") |
+| `--sequencer-chain-id` | string | `ASTRIA_GO_SEQUENCER_CHAIN_ID` | Set the sequencer chain id across all config for the instance. (default "sequencer-test-chain-0") |
 
 ## `dev version`
 
@@ -498,47 +513,63 @@ astria-go sequencer nonce [address] [flags]
 | `--network` | string | `ASTRIA_GO_NETWORK` | Configure the values to target a specific network. (default "dawn") |
 | `-u`, `--sequencer-url` | string | `ASTRIA_GO_SEQUENCER_URL` | The URL of the sequencer. |
 
-## `sequencer set-config`
+## `sequencer setconfig`
 
 Update the configuration for the sequencer commands config.
 
 ### Usage
 
 ```bash
-astria-go sequencer set-config [command] [flags]
+astria-go sequencer setconfig [command] [flags]
 ```
 
-## `sequencer set-config asset`
+## `sequencer setconfig feeasset`
 
-Sets the asset and fee asset in the sequencer command configs.
+Sets the fee asset in the sequencer command configs.
 
 ### Usage
 
 ```bash
-astria-go sequencer set-config asset [denom] [flags]
+astria-go sequencer setconfig feeasset [denom] [flags]
 ```
 
 ### Flags
 
 | Flag | Arg Type | Override Env Var | Description |
 |---|---|---|---|
-| `--network` | string | `ASTRIA_GO_NETWORK` | Configure the values to target a specific network. (default "dawn") |
+| `--network` | string | `ASTRIA_GO_NETWORK` | Specify the network that the sequencer chain id is being updated for. (default "local") |
 
-## `sequencer set-config sequencer-chain-id`
+## `sequencer setconfig nativeasset`
 
-Sets the sequencer chain id in the sequencer command configs.
+Sets the native asset in the sequencer command configs.
 
 ### Usage
 
 ```bash
-astria-go sequencer set-config sequencer-chain-id [chain-id] [flags]
+astria-go sequencer setconfig nativeasset [denom] [flags]
 ```
 
 ### Flags
 
 | Flag | Arg Type | Override Env Var | Description |
 |---|---|---|---|
-| `--network` | string | `ASTRIA_GO_NETWORK` | Configure the values to target a specific network. (default "dawn") |
+| `--network` | string | `ASTRIA_GO_NETWORK` | Specify the network that the sequencer chain id is being updated for. (default "local") |
+
+## `sequencer setconfig sequencerchainid`
+
+Update the configuration for the sequencer commands config.
+
+### Usage
+
+```bash
+astria-go sequencer setconfig sequencerchainid [chain-id] [flags]
+```
+
+### Flags
+
+| Flag | Arg Type | Override Env Var | Description |
+|---|---|---|---|
+| `--network` | string | `ASTRIA_GO_NETWORK` | Specify the network that the sequencer chain id is being updated for. (default "local") |
 
 ## `sequencer setkey`
 
