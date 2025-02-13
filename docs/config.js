@@ -228,6 +228,6 @@ export const siteConfig = {
     },
     cli: {
         rust: "v0.5.1",
-        go: "v0.15.0",
+        go: "v0.16.0",
     }
 };

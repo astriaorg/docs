@@ -17,6 +17,7 @@ View the code for the [`noVM-messenger` here](https://github.com/astriaorg/noVM-
 
 You will need the following installed to complete the tutorial:
 
+- [`astria-go` cli](../developer/astria-go/astria-go-installation.md#install-the-astria-go-cli)
 - [Cargo and Rust](https://www.rust-lang.org/tools/install)
 - [`astria-go`
   cli](https://docs.astria.org/developer/astria-go/astria-go-installation)

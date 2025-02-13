@@ -4,6 +4,9 @@ This guide will walk you through running a local Geth rollup against a remote As
 sequencer, using the `astria-go` cli to run the required components of the
 Astria stack locally on your machine.
 
+Install the [`astria-go`
+cli](../developer/astria-go/astria-go-installation.md#install-the-astria-go-cli).
+
 ## Setup an `astria-geth` Rollup
 
 ### Clone and Build Astria Geth
