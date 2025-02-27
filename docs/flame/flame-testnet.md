@@ -51,7 +51,8 @@ target="_blank"><code>{{config.flame.dawn.info.auctioneer_rpc_url}}</code></a>
 
 Flame’s Auctioneer runs a first price auction for a bundle, restricted to a slot.
 
-Bundles/bids submitted to the Auctioneer are simulated against the latest block to calculate the bid paid to the Auctioneer.
+Bundles/bids submitted to the Auctioneer are simulated against the latest block
+to calculate the bid paid to the Auctioneer.
 
 :::tip
 *Since V1 uses `eth_sendTransaction` for submission, only single transaction
@@ -84,7 +85,7 @@ cast send $DEST_ADDR \
 If you are interested in running searcher simulations when using the Auctioneer,
 see the
 [`auctioneer-searcher-simulation`](https://github.com/astriaorg/auctioneer-searcher-simulation)
-tool. 
+tool.
 
 ## Bridging
 
