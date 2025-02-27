@@ -80,12 +80,14 @@ cast send $DEST_ADDR \
     --private-key $PRIV_KEY
 ```
 
-### Searcher Simulations
+### Bid Submission Demo
 
-If you are interested in running searcher simulations when using the Auctioneer,
-see the
-[`auctioneer-searcher-simulation`](https://github.com/astriaorg/auctioneer-searcher-simulation)
-tool.
+Bids are submitted to the auctioneer using the `eth_sendTransaction` JSON RPC
+method. See the tool below, which provides an example for a bot that receives an
+optimistic block, waits a given amount of time, and submits a bid to the
+auction.
+
+[`Bid Submission Demo`](https://github.com/astriaorg/auctioneer-searcher-simulation)
 
 ## Bridging
 
