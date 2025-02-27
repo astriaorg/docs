@@ -79,6 +79,13 @@ cast send $DEST_ADDR \
     --private-key $PRIV_KEY
 ```
 
+### Searcher Simulations
+
+If you are interested in running searcher simulations when using the Auctioneer,
+see the
+[`auctioneer-searcher-simulation`](https://github.com/astriaorg/auctioneer-searcher-simulation)
+tool. 
+
 ## Bridging
 
 ### [https://astria-bridge-web-app-dawn.vercel.app/](https://astria-bridge-web-app-dawn.vercel.app/)
