@@ -1,4 +1,18 @@
 ---
+layout: page
+title: Redirecting...
+redirect: /flame/flame-mainnet-alpha
+---
+
+<script>
+  window.location.href = '/flame/flame-mainnet-alpha'
+</script>
+
+<div>
+  If you are not redirected automatically, follow this <a href="/flame/flame-mainnet-alpha">link</a>.
+</div>
+
+<!-- ---
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
@@ -35,4 +49,4 @@ features:
     details: Common questions and answers about our software stack and tooling.
     link: /faq/astria-go-cli
     icon: <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 36 25"> <path d="M16.5 20v3h3v-3h-3zm.24-3.5h2.52v-2.1c0-2.5 1.56-3.8 3.12-4.8 1.44-.9 2.28-2.2 2.28-4.1 0-3.2-2.76-5.5-6.66-5.5s-6.66 2.3-6.66 5.5h2.52c0-1.8 1.68-3 4.14-3s4.14 1.2 4.14 3c0 1.2-.48 1.9-1.56 2.6-1.8 1.1-3.84 2.6-3.84 6.3v2.1z" fill="url(#paint0_linear_question)"/> <defs> <linearGradient id="paint0_linear_question" x1="1.5" y1="29.25" x2="37.69" y2="24.03" gradientUnits="userSpaceOnUse"> <stop stop-color="#EA9B57"/> <stop offset="1" stop-color="#CB513F"/> </linearGradient> </defs> </svg>
----
+--- -->
