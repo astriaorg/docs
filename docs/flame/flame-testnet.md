@@ -54,9 +54,8 @@ Flame’s Auctioneer runs a first price auction for a bundle, restricted to a sl
 Bundles/bids submitted to the Auctioneer are simulated against the latest block to calculate the bid paid to the Auctioneer.
 
 :::tip
-*Since V1 uses `eth_sendTransaction` for submission, only single transaction
-bids are supported. Bids are calculated from the tip paid by the transaction.
-The calculation is as follows:*
+*The current version of the trusted auctioneer supports `eth_sendTransaction` for submission.
+Bids are calculated from the tip paid by the transaction as follows:*
 
 `totalFee = tx.Gas * min(tx.GasTipCap, tx.GasFeeCap - tx.baseFee)`
 :::
