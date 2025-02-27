@@ -39,12 +39,12 @@ Your settings should be the following:
 
 ## Auctioneer
 
-The top of the block (ToB) in a DeFi-enabled rollup is particularly valuable
-because it provides an execution guarantee. Flame’s trusted Auctioneer simply
-needs to allocate, sign and include the auction-winning bundle in the
-sequencing-layer block. Flame’s execution enforces a sequencing rule that places
-the Auctioneer’s signed `Allocation` deterministically at the top of the block
-it was successfully included in.
+The top-of-block is valuable in a financial environment because it provides an
+execution guarantee. Flame uses a trusted top-of-block sequencing rule to
+designate a trusted operator to conduct a sealed-bid, first-price auction for
+top-of-block execution, and submit the result for sequencing. The sequencing
+rule ensures the signed auction result is executed first, provided it is
+included in the block and signed by the trusted auctioneer.
 
 Auctioneer RPC URL: <a :href="config.flame.dawn.info.auctioneer_rpc_url"
 target="_blank"><code>{{config.flame.dawn.info.auctioneer_rpc_url}}</code></a>
