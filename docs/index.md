@@ -1,15 +1,14 @@
 ---
 layout: page
 title: Redirecting...
-redirect: /flame/flame-mainnet-alpha
+head:
+  - - meta
+    - http-equiv: refresh
+      content: "0;url=/flame/flame-mainnet-alpha"
 ---
 
-<script>
-  window.location.href = '/flame/flame-mainnet-alpha'
-</script>
-
 <div>
-  If you are not redirected automatically, follow this <a href="/flame/flame-mainnet-alpha">link</a>.
+  Redirecting to <a href="/flame/flame-mainnet-alpha">documentation</a>...
 </div>
 
 <!-- ---
