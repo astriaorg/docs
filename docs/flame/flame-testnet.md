@@ -51,7 +51,8 @@ target="_blank"><code>{{config.flame.dawn.info.auctioneer_rpc_url}}</code></a>
 
 Flame’s Auctioneer runs a first price auction for a bundle, restricted to a slot.
 
-Bundles/bids submitted to the Auctioneer are simulated against the latest block to calculate the bid paid to the Auctioneer.
+Bundles/bids submitted to the Auctioneer are simulated against the latest block
+to calculate the bid paid to the Auctioneer.
 
 :::tip
 *The current version of the trusted auctioneer supports `eth_sendTransaction` for submission.
@@ -77,6 +78,15 @@ cast send $DEST_ADDR \
     --gas-price $BID \
     --private-key $PRIV_KEY
 ```
+
+### Bid Submission Demo
+
+Bids are submitted to the auctioneer using the `eth_sendTransaction` JSON RPC
+method. See the tool below, which provides an example for a bot that receives an
+optimistic block, waits a given amount of time, and submits a bid to the
+auction.
+
+[`Bid Submission Demo`](https://github.com/astriaorg/auctioneer-searcher-simulation)
 
 ## Bridging
 
