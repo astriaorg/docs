@@ -33,6 +33,10 @@ export default defineConfig({
       text: "Edit this page on GitHub",
     },
 
+    outline: {
+      level: [1, 3],
+    },
+
     logo: { src: '/astria-logo-mini.svg', width: 24, height: 24 },
 
     // https://vitepress.dev/reference/default-theme-config

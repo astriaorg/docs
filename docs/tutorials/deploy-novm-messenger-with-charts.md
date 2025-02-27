@@ -31,6 +31,8 @@ Then open
 [http://chat.astria-chat.localdev.me/](http://chat.astria-chat.localdev.me/) in
 your browser to use the UI and send messages.
 
+![Astria Chat noVM Frontend](./assets/astria-chat.png)
+
 ::: info
 The deployment should take less than 5 minutes, but this will depend on the
 speed of your machine and/or download times for images.

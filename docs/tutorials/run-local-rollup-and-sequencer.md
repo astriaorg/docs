@@ -4,7 +4,12 @@ This guide will walk you through running a local Geth rollup against the Astria
 sequencer, using the `astria-go` cli to run the required components of the
 Astria stack locally on your machine.
 
+Install the [`astria-go`
+cli](../developer/astria-go/astria-go-installation.md#install-the-astria-go-cli).
+
 ## Setup an `astria-geth` Rollup
+
+### Clone and Build Astria Geth
 
 `astria-geth` is a fork of `go-ethereum` modified to work with
 the Astria sequencing layer.
@@ -12,16 +17,67 @@ the Astria sequencing layer.
 View the source code
 [here](https://github.com/astriaorg/astria-geth).
 
-Requires `Go`, `just`, `make`, and `Foundry`:
+Requires `Go`, `just`, `make`, `Foundry`, and `jq`:
 
 - [Go](https://go.dev/doc/install) - specifically Go 1.21
 - [just](https://github.com/casey/just)
 - [make](https://www.gnu.org/software/make/)
 - [Foundry](https://book.getfoundry.sh/getting-started/installation)
+- [jq](https://jqlang.org/download/)
 
 Open a new terminal window and clone and build Geth:
 
 <!--@include: ../components/_clone-build-astria-geth.md-->
+
+### CLI Configuration of the Astria-Geth Genesis
+
+Create an account with `cast` and export the address and private key to env
+vars.
+
+```bash
+eval $(cast w new --json | jq -r '@sh "export ADDRESS=\(.[:1][].address) PRIV_KEY=\(.[:1][].private_key)"')
+```
+
+You will use the private key for your new account to send [test
+transactions](./test-transactions.md) later on as the same env var.
+
+Set a rollup name, chain id, and starting balance:
+
+```bash
+export CHAIN_ID=<some 6 digit number>
+export ROLLUP_NAME="<your rollup name>"
+export STARTING_BALANCE=300000000000000000000
+```
+
+Once all env vars are set you can print their values for confirmation:
+
+```bash
+echo $ADDRESS
+echo $PRIV_KEY
+echo $CHAIN_ID
+echo $ROLLUP_NAME
+echo $STARTING_BALANCE
+```
+
+Update the genesis file:
+
+```bash
+jq --arg chain_id "$CHAIN_ID" \
+   --arg rollup_name "$ROLLUP_NAME" \
+   --arg address "$ADDRESS" \
+   --arg starting_balance "$STARTING_BALANCE" \
+   '.config.chainId = ($chain_id|tonumber) |
+    .config.astriaRollupName = $rollup_name |
+    .alloc = {($address): { "balance": $starting_balance }}' \
+    ./dev/geth-genesis-local.json > temp.json && mv temp.json ./dev/geth-genesis-local.json
+```
+
+### Manually Update Astria-Geth Genesis
+
+::: tip
+You can skip this section if you have updated the genesis file using the
+commands in the previous section.
+:::
 
 Create a new genesis account for your Geth rollup:
 
@@ -73,9 +129,39 @@ use:
 just -f dev/justfile clean-restart
 ```
 
-## Configure and Start the Local Astria Sequencer
+## Configure the Local Astria Sequencer
 
-Open a new terminal window and initialize the cli:
+With Astria-Geth running, open a new terminal window to configure the local
+sequencer.
+
+### CLI Configuration of the Astria Sequencer
+
+Initialize a new instance with the `astria-go` cli:
+
+```bash
+astria-go dev init
+```
+
+Export the rollup name. This *must* be the same as the rollup name you used
+when [configuring the Astria-Geth
+genesis](#cli-configuration-of-the-astria-geth-genesis).
+
+```bash
+export ROLLUP_NAME="<your rollup name>"
+```
+
+Update the rollup name for your sequencer instance:
+
+```bash
+astria-go dev setconfig rollupname $ROLLUP_NAME
+```
+
+### Manually Configure the Sequencer
+
+::: tip
+You can skip this section if you have initialized and updated the sequencer
+config using the commands in the previous section.
+:::
 
 ```bash
 astria-go dev init
@@ -122,6 +208,8 @@ sed -i '' \
 ```
 
 :::
+
+## Start the Sequencer
 
 Use the cli to run a local Astria Sequencer.
 

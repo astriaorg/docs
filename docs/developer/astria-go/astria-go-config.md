@@ -74,6 +74,21 @@ Use the new config with:
 astria-go sequencer nonce <other args> --network new_network
 ```
 
+### Sequencer Networks `setconfig` Commands
+
+The cli also has commands for updating the most common configuration settings:
+
+```bash
+# Update the asset the sequencer commands will default to
+astria-go sequencer setconfig asset
+
+# Update the fee asset the sequencer commands will default to
+astria-go sequencer setconfig feeasset
+
+# Update the sequencer chain id the sequencer commands will default to
+astria-go sequencer setconfig sequencerchainid
+```
+
 ## Devrunner Networks Config
 
 The devrunner networks config provides simplified and powerful options for
@@ -314,6 +329,24 @@ astria-go dev init \
 
 ```
 
+### Network `setconfig` Commands
+
+The cli also has commands for updating the most common configuration settings:
+
+```bash
+# Update the fee asset used by the local sequencer network
+astria-go dev setconfig feeasset
+
+# Update the native asset used by the local sequencer network
+astria-go dev setconfig nativeasset
+
+# Update the rollup name used by the local Conductor and Composer services
+astria-go dev setconfig rollupname
+
+# Update the sequencer chain id used by the local sequencer network
+astria-go dev setconfig sequencerchainid
+```
+
 ## Service Config
 
 The full configuration for all Astria services can be found in the
@@ -354,3 +387,21 @@ LOWER_SNAKE_CASE_VAR_NAME=value
 
 > NOTE: The `network-config.toml` overrides the default values in the
 > `base-config.toml`.
+
+### Services `setconfig` Commands
+
+The cli also has commands for updating the most common configuration settings:
+
+```bash
+# Update the fee asset used by the local sequencer network
+astria-go dev setconfig feeasset
+
+# Update the native asset used by the local sequencer network
+astria-go dev setconfig nativeasset
+
+# Update the rollup name used by the local Conductor and Composer services
+astria-go dev setconfig rollupname
+
+# Update the sequencer chain id used by the local sequencer network
+astria-go dev setconfig sequencerchainid
+```
