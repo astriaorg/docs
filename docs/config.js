@@ -8,6 +8,7 @@ export const siteConfig = {
                 // for explorer url set in the dawn/dusk sections below
                 native_asset: "transfer/channel-0/utia",
                 currency_symbol: "TIA",
+                auctioneer_rpc_url: "",
             },
             bridging: {
                 ui_link: "https://bridge.astria.org",
@@ -42,6 +43,7 @@ export const siteConfig = {
                 // for explorer url set in the dawn/dusk sections below
                 native_asset: "transfer/channel-0/utia",
                 currency_symbol: "TIA",
+                auctioneer_rpc_url: "https://tob.flame.dawn-1.astria.org",
             },
             bridging: {
                 ui_link: "https://astria-bridge-web-app-dawn.vercel.app",
@@ -67,6 +69,7 @@ export const siteConfig = {
                 // for explorer url set in the dawn/dusk sections below
                 native_asset: "transfer/channel-0/uria",
                 currency_symbol: "nRIA",
+                auctioneer_rpc_url: "",
             },
             bridging: {
                 ui_link: "https://astria-bridge-web-app-develop.vercel.app/",
