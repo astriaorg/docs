@@ -49,18 +49,34 @@ it was successfully included in.
 Auctioneer RPC URL: <a :href="config.flame.dawn.info.auctioneer_rpc_url"
 target="_blank"><code>{{config.flame.dawn.info.auctioneer_rpc_url}}</code></a>
 
+Flame’s Auctioneer runs a first price auction for a bundle, restricted to a slot.
+
+Bundles/bids submitted to the Auctioneer are simulated against the latest block to calculate the bid paid to the Auctioneer.
+
+:::tip
+*Since V1 uses `eth_sendTransaction` for submission, only single transaction
+bids are supported. Bids are calculated from the tip paid by the transaction.
+The calculation is as follows:*
+
+`totalFee = tx.Gas * min(tx.GasTipCap, tx.GasFeeCap - tx.baseFee)`
+:::
+
 To submit a bid to the auction using `cast`, set up your env vars:
 
 ```bash
 export ETH_RPC_URL=https://tob.flame.dawn-1.astria.org
 export DEST_ADDR=<destination-address>
 export PRIV_KEY=<your-private-key>
+export BID=<your-bid-value>
 ```
 
 Submit your bid:
 
 ```bash
-cast send $DEST_ADDR --value 10000000000000000000 --private-key $PRIV_KEY
+cast send $DEST_ADDR \
+    --value 10000000000000000000 \
+    --gas-price $BID \
+    --private-key $PRIV_KEY
 ```
 
 ## Bridging
