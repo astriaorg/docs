@@ -48,18 +48,15 @@ just deploy astria-local
 # w/ defaults running against local network, along with a bridge withdawer.
 # NOTE - default values can be found in `helm/rollup/values.yaml`
 just deploy rollup
-
-# Deploy only the rollup chain, faucet, blockscout instance without withdrawer:
-just deploy dev-rollup
 # w/ custom name and id for further customization see the values file at
-# `dev/values/rollup/dev.yml`
-just deploy dev-rollup <rollup_name> <network_id>
+# `dev/values/rollup/dev.yaml`
+just deploy rollup <rollup_name> <network_id>
 
 # Send funds into the rollup chain, by default transfers 10 TIA to the rollup
-# using prefunded default test sequencer accounts. 
+# using prefunded default test sequencer accounts.
 just init rollup-bridge
 # Update the amounts to init
-just init rollup-bridge <rollup_name> <evm_address> <tia_amount>
+just init rollup-bridge <tag> <rollup_name> <evm_address> <tia_amount>
 
 # Delete default rollup
 just delete rollup
