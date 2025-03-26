@@ -1,5 +1,5 @@
 ---
-outline: [1,2] 
+outline: [1,2]
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- Disabling MD024 to allow for repeat "Usage" heading -->
@@ -192,7 +192,7 @@ Command for initializing a bridge account.
 ### Usage
 
 ```bash
-astria-cli sequencer init-bridge-account [OPTIONS] --private-key <PRIVATE_KEY> --rollup-name <ROLLUP_NAME>
+astria-cli sequencer init-bridge-account [OPTIONS] --private-key <PRIVATE_KEY> --sequencer-url <SEQUENCER_URL> --sequencer.chain-id <SEQUENCER_CHAIN_ID> --rollup-name <ROLLUP_NAME>
 ```
 
 ### Flags
@@ -201,6 +201,7 @@ astria-cli sequencer init-bridge-account [OPTIONS] --private-key <PRIVATE_KEY> -
 |---|---|---|
 | `--prefix <PREFIX>` | string | The bech32m prefix that will be used for constructing addresses using the private key [default: astria] |
 | `--private-key <PRIVATE_KEY>` | string | The private key of the account initializing the bridge account [env: SEQUENCER_PRIVATE_KEY=] |
+| `--withdrawer-address <WITHDRAWER_ADDRESS>` | string | The authorized withdrawer address for this account. If unset, the sender address will be used |
 | `--sequencer-url <SEQUENCER_URL>` | string | The url of the Sequencer node [env: SEQUENCER_URL=] |
 | `--sequencer.chain-id <SEQUENCER_CHAIN_ID>` | string | The chain id of the sequencing chain being used [env: ROLLUP_SEQUENCER_CHAIN_ID=] |
 | `--rollup-name <ROLLUP_NAME>` | string | Plaintext rollup name (to be hashed into a rollup ID) to initialize the bridge account with |
