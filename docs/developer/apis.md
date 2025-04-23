@@ -78,24 +78,22 @@ is:
 See the Astria `composer-apis` Protobuf definitions
 [here](https://buf.build/astria/composer-apis/docs/main:astria.composer.v1).
 
-## Execution-APIs
+## Execution-API
 
-The Execution APIs are used to drive deterministic production of blocks for any
+The Execution API is used to drive deterministic production of blocks for any
 rollup that utilizes The Astria Sequencer and is connected to the [Astria
-Conductor](../overview/components/conductor.md). This includes methods such as:
+Conductor](../overview/components/conductor.md). It includes the following methods:
 
-- [GetGenesisInfo](https://buf.build/astria/execution-apis/docs/main:astria.execution.v1#astria.execution.v1.ExecutionService.GetGenesisInfo):
-  For the Conductor to get the necessary genesis information from the rollup.
-- [GetBlock](https://buf.build/astria/execution-apis/docs/main:astria.execution.v1#astria.execution.v1.ExecutionService.GetBlock):
-  Retrieves information about a block from the sequencer.
-- [BatchGetBlocks](https://buf.build/astria/execution-apis/docs/main:astria.execution.v1#astria.execution.v1.ExecutionService.BatchGetBlocks):
-  Retrieve the information about a collection of blocks from the sequencer.
-- [ExecuteBlock](https://buf.build/astria/execution-apis/docs/main:astria.execution.v1#astria.execution.v1.ExecutionService.ExecuteBlock):
-  Get all the transaction information required to create a new rollup block for execution.
-- [GetCommitmentState](https://buf.build/astria/execution-apis/docs/main:astria.execution.v1#astria.execution.v1.ExecutionService.GetCommitmentState):
-  Retrieve the current commitment state of the rollup.
-- [UpdateCommitmentState](https://buf.build/astria/execution-apis/docs/main:astria.execution.v1#astria.execution.v1.ExecutionService.UpdateCommitmentState):
-  Pass the updated commitment state to the rollup.
+- [CreateExecutionSession](https://buf.build/astria/execution-apis/docs/main:astria.execution.v2#astria.execution.v2.ExecutionService.CreateExecutionSession):
+  Requests a new execution session from the rollup. See the
+  [Execution API Spec](https://github.com/astriaorg/astria/blob/b0bd4025bfb7702b99e79e23cc6bc2c5d2b10db2/specs/execution-api.md#execution-sessions)
+  for more details on Execution Sessions.
+- [ExecuteBlock](https://buf.build/astria/execution-apis/docs/main:astria.execution.v2#astria.execution.v2.ExecutionService.ExecuteBlock):
+  Drives block execution on rollup, returning its metadata once execution is complete.
+- [GetExecutedBlockMetadata](https://buf.build/astria/execution-apis/docs/main:astria.execution.v2#astria.execution.v2.ExecutionService.GetExecutedBlockMetadata):
+  Retrieves information about a previously executed block from the rollup.
+- [UpdateCommitmentState](https://buf.build/astria/execution-apis/docs/main:astria.execution.v2#astria.execution.v2.ExecutionService.UpdateCommitmentState):
+  Passes the updated commitment state to the rollup.
 
 See the Astria `execution-apis` Protobuf definitions
-[here](https://buf.build/astria/execution-apis/docs/main:astria.execution.v1).
+[here](https://buf.build/astria/execution-apis/docs/main:astria.execution.v2).
