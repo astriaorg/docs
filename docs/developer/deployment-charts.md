@@ -73,10 +73,10 @@ just clean-persisted-data
 By default, running this local rollup will not have any funds, but will be
 configured to use the sequencer account bridge.
 
-The default rollup faucet is available at [http://faucet.astria.localdev.me](http://faucet.astria.localdev.me).
+The default rollup faucet is available at [http://faucet.astria.127.0.0.1.nip.io](http://faucet.astria.127.0.0.1.nip.io).
 
 If you deploy a custom faucet, it will be reachable at
-[http://faucet.<rollup_name>.localdev.me](http://faucet.<rollup_name>.localdev.me).
+[http://faucet.<rollup_name>.127.0.0.1.nip.io](http://faucet.<rollup_name>.127.0.0.1.nip.io).
 
 By default, the faucet is funded by the account that is funded during geth
 genesis. This key is defined in `./evm-rollup/values.yaml` and is identical to the

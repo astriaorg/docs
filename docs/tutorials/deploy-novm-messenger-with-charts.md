@@ -28,7 +28,7 @@ Make sure that the Docker daemon is running, then run the following commands:
 <!--@include: ../components/_clone-build-deploy-novm-messenger.md-->
 
 Then open
-[http://chat.astria-chat.localdev.me/](http://chat.astria-chat.localdev.me/) in
+[http://chat.astria-chat.127.0.0.1.nip.io/](http://chat.astria-chat.127.0.0.1.nip.io/) in
 your browser to use the UI and send messages.
 
 ![Astria Chat noVM Frontend](./assets/astria-chat.png)
