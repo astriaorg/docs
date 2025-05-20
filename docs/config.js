@@ -103,9 +103,9 @@ export const siteConfig = {
     celenium_namespace_link:
       "https://celenium.io/namespace/0000000000000000000000000000000000005bb944ec2fd3ae9c22f6?tab=Blobs",
     // services
-    conductor_version: "v1.0.0",
+    conductor_version: "v2.0.0-rc.1",
     conductor_release:
-      "https://github.com/astriaorg/astria/releases/tag/conductor-v1.0.0",
+      "https://github.com/astriaorg/astria/releases/tag/conductor-v2.0.0-rc.1",
     conductor_repo:
       "https://github.com/astriaorg/astria/tree/main/crates/astria-conductor",
     composer_version: "v1.0.0",
@@ -113,23 +113,23 @@ export const siteConfig = {
       "https://github.com/astriaorg/astria/releases/tag/composer-v1.0.0",
     composer_repo:
       "https://github.com/astriaorg/astria/tree/main/crates/astria-composer",
-    sequencer_relayer_version: "v1.0.0",
+    sequencer_relayer_version: "v1.0.1",
     sequencer_relayer_release:
-      "https://github.com/astriaorg/astria/releases/tag/sequencer-relayer-v1.0.0",
+      "https://github.com/astriaorg/astria/releases/tag/sequencer-relayer-v1.0.1",
     sequencer_relayer_repo:
       "https://github.com/astriaorg/astria/tree/main/crates/astria-sequencer-relayer",
-    sequencer_version: "v1.0.0",
+    sequencer_version: "v2.0.1",
     sequencer_release:
-      "https://github.com/astriaorg/astria/releases/tag/sequencer-v1.0.0",
+      "https://github.com/astriaorg/astria/releases/tag/sequencer-v2.0.1",
     sequencer_repo:
       "https://github.com/astriaorg/astria/tree/main/crates/astria-sequencer",
-    flame_version: "v0.16.0",
+    flame_version: "v1.1.0",
     flame_release:
-      "https://github.com/astriaorg/astria-geth/releases/tag/v0.16.0",
+      "https://github.com/astriaorg/astria-geth/releases/tag/v1.1.0",
     flame_repo: "https://github.com/astriaorg/astria-geth",
-    cometbft_version: "v0.38.11",
+    cometbft_version: "v0.38.17",
     cometbft_release:
-      "https://github.com/cometbft/cometbft/releases/tag/v0.38.11",
+      "https://github.com/cometbft/cometbft/releases/tag/v0.38.17",
     cometbft_repo: "https://github.com/cometbft/cometbft",
     // deployments
     descriptorProxyAddress: "0x7c7B695e0043647FAaf8F2D1B4E521E2261E8802",
@@ -160,33 +160,33 @@ export const siteConfig = {
     celenium_namespace_link:
       "https://mocha-4.celenium.io/namespace/000000000000000000000000000000000000115d4fedc8915bb3e875?tab=Blobs",
     // services
-    conductor_version: "v1.0.0-rc.2",
+    conductor_version: "v2.0.0-rc.1",
     conductor_release:
-      "https://github.com/astriaorg/astria/releases/tag/conductor-v1.0.0-rc.2",
+      "https://github.com/astriaorg/astria/releases/tag/conductor-v2.0.0-rc.1",
     conductor_repo:
       "https://github.com/astriaorg/astria/tree/main/crates/astria-conductor",
-    composer_version: "v1.0.0-rc.2",
+    composer_version: "v1.0.1",
     composer_release:
-      "https://github.com/astriaorg/astria/releases/tag/composer-v1.0.0-rc.2",
+      "https://github.com/astriaorg/astria/releases/tag/composer-v1.0.1",
     composer_repo:
       "https://github.com/astriaorg/astria/tree/main/crates/astria-composer",
-    sequencer_relayer_version: "v1.0.0-rc.2",
+    sequencer_relayer_version: "v1.0.1",
     sequencer_relayer_release:
-      "https://github.com/astriaorg/astria/releases/tag/sequencer-relayer-v1.0.0-rc.2",
+      "https://github.com/astriaorg/astria/releases/tag/sequencer-relayer-v1.0.1",
     sequencer_relayer_repo:
       "https://github.com/astriaorg/astria/tree/main/crates/astria-sequencer-relayer",
-    sequencer_version: "v1.0.0-rc.2",
+    sequencer_version: "v3.0.0-rc.2",
     sequencer_release:
-      "https://github.com/astriaorg/astria/releases/tag/sequencer-v1.0.0-rc.2",
+      "https://github.com/astriaorg/astria/releases/tag/sequencer-v3.0.0-rc.2",
     sequencer_repo:
       "https://github.com/astriaorg/astria/tree/main/crates/astria-sequencer",
-    flame_version: "v0.16.0",
+    flame_version: "v2.0.0-beta.2",
     flame_release:
-      "https://github.com/astriaorg/astria-geth/releases/tag/v0.16.0",
+      "https://github.com/astriaorg/astria-geth/releases/tag/v2.0.0-beta.2",
     flame_repo: "https://github.com/astriaorg/astria-geth",
-    cometbft_version: "v0.38.11",
+    cometbft_version: "v0.38.17",
     cometbft_release:
-      "https://github.com/cometbft/cometbft/releases/tag/v0.38.11",
+      "https://github.com/cometbft/cometbft/releases/tag/v0.38.17",
     cometbft_repo: "https://github.com/cometbft/cometbft",
     // deployments
     descriptorProxyAddress: "0x9A8C4000e213777b6181204FAC55Be7080F7D996",
@@ -218,35 +218,6 @@ export const siteConfig = {
       "0000000000000000000000000000000000005d251311f25b13a549e0",
     celenium_namespace_link:
       "https://mocha.celenium.io/namespace/0000000000000000000000000000000000005d251311f25b13a549e0?tab=Blobs",
-    // services
-    conductor_version: "v1.0.0-rc.2",
-    conductor_release:
-      "https://github.com/astriaorg/astria/releases/tag/conductor-v1.0.0-rc.2",
-    conductor_repo:
-      "https://github.com/astriaorg/astria/tree/main/crates/astria-conductor",
-    composer_version: "v1.0.0-rc.2",
-    composer_release:
-      "https://github.com/astriaorg/astria/releases/tag/composer-v1.0.0-rc.2",
-    composer_repo:
-      "https://github.com/astriaorg/astria/tree/main/crates/astria-composer",
-    sequencer_relayer_version: "v1.0.0-rc.2",
-    sequencer_relayer_release:
-      "https://github.com/astriaorg/astria/releases/tag/sequencer-relayer-v1.0.0-rc.2",
-    sequencer_relayer_repo:
-      "https://github.com/astriaorg/astria/tree/main/crates/astria-sequencer-relayer",
-    sequencer_version: "v1.0.0-rc.2",
-    sequencer_release:
-      "https://github.com/astriaorg/astria/releases/tag/sequencer-v1.0.0-rc.2",
-    sequencer_repo:
-      "https://github.com/astriaorg/astria/tree/main/crates/astria-sequencer",
-    flame_version: "v0.16.0",
-    flame_release:
-      "https://github.com/astriaorg/astria-geth/releases/tag/v0.16.0",
-    flame_repo: "https://github.com/astriaorg/astria-geth",
-    cometbft_version: "v0.38.11",
-    cometbft_release:
-      "https://github.com/cometbft/cometbft/releases/tag/v0.38.11",
-    cometbft_repo: "https://github.com/cometbft/cometbft",
     // deployments
     descriptorProxyAddress: "0x5a7eb0a7A8d8D9C81604f5D22619389F20340433",
     multicall2Address: "0x247718235bec841187bb46C70cdEA0fd6EEa316E",
@@ -274,7 +245,7 @@ export const siteConfig = {
     },
   },
   cli: {
-    rust: "v0.5.1",
+    rust: "v0.6.0",
     go: "v0.16.0",
   },
 };
